@@ -4,10 +4,12 @@ Describe a short description of of this PR, e.g. _The user can click the "Share"
 
 ### Quality
 
+* [ ] Submitted a ticket for my issue if one did not already exist
+  * [ ] Ticket number is in the subject of the commit message
+  * [ ] Used [Github auto-closing keywords](https://help.github.com/articles/closing-issues-via-commit-messages/) in the commit message
 * [ ] If you've changed APIs, update the documentation
-* Testing
+* [ ] Tested, all tests are passing
   * [ ] Includes new tests for new functionality
-  * [ ] All tests are passing
 * Style
   * [ ] Code follows the contributing guidelines
   * [ ] Code follows the style guide
