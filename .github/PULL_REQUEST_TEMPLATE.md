@@ -10,11 +10,10 @@ Describe a short description of of this PR, e.g. _The user can click the "Share"
 * [ ] If you've changed APIs, update the documentation
 * [ ] Tested, all tests are passing
   * [ ] Includes new tests for new functionality
-* Style
+* [ ] Style - code passes all linting & validation checks 
   * [ ] Code follows the contributing guidelines
   * [ ] Code follows the style guide
-  * [ ] Passes all linting & validation checks
-* [ ] Recently `rebase`'ed off of `master`
+* [ ] Single commit - recently `git rebase -i` off of `master`
 * [ ] If you've removed any code, make sure there isn't dangling orphan code
 
 _If there’s a checkbox you can’t complete for any reason, that's okay, just explain in detail why you weren’t able to do so._
