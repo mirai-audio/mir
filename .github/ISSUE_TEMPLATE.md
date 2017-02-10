@@ -22,7 +22,7 @@ Describe the steps to reproduce the problem. Describe them in steps e.g.:
 
 ## Considerations
 
-What are any considersations that should be taken into account when addressing
+What are any considerations that should be taken into account when addressing
 this issue? Should we read an article, or links to other pages?
 
 ## Tasks
