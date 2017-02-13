@@ -1,0 +1,102 @@
+/*!
+ * @author @0xadada
+ * @url https://0xadada.pub
+ * @license MIT
+ */
+
+/*
+ * Use box-sizing
+ */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
+button,
+input,
+select {
+  /* anti-aliasing
+   * Frankly, i don't know why anti-aliasing isn't enabled by default.
+   * It probably should be, but its nice that "good" developers
+   * can make their sites look nicer by opting-into antialiased type.
+   */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* font-smooth: always; */
+
+  /* text size adjust
+   * allows Web authors to control if and how
+   * the text-inflating algorithm is applied to the textual content
+   * of the element it is applied to.
+   */
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  text-size-adjust: none;
+
+  /* Normalize font stack. */
+  font-family: serif;
+  font-size: 100%;
+  line-height: 1.4;
+}
+
+body { margin: 0; }
+
+img {
+  max-width: 100%;
+}
+
+
+/** tools & objects
+ * ========================================================================== */
+
+/** t-visuallyhidden
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+.t-visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+.t-visuallyhidden.focusable:active,
+.t-visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/* typography
+ * ========================================================================== */
+
+/* Weights */
+.t-Light { font-weight: 300; }
+.t-Regular { font-weight: 400; }
+.t-Bold { font-weight: 700; }
+.t-Black { font-weight: 900; }
+
+/* Variants */
+.t-Italic { font-style: italic; }
+
+/** components
+ * ========================================================================== */
+.Logo {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vh;
+}
