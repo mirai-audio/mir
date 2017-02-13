@@ -6,6 +6,7 @@ if (navigator.serviceWorker) {
     .catch(function(err) {
       console.warn("Error whilst registering service worker", err);
     });
+  // 🤞
 }
 
 window.addEventListener("online", function(e) {
@@ -18,9 +19,13 @@ window.addEventListener("offline", function(e) {
   console.log("You are offline");
 }, false);
 
+// Fast load cssLoad CSS
 requestAnimationFrame(function() {
-  [ "/css/styles.css" ].forEach(function(url) {
-    var link = document.createElement("link");
+  const stylesheets = [
+    "/css/styles.css"
+  ];
+  stylesheets.forEach(function(url) {
+    let link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = url;
     document.head.appendChild(link);
