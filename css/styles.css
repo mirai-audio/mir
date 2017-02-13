@@ -79,24 +79,28 @@ img {
   width: auto;
 }
 
-/* typography
- * ========================================================================== */
+.t-FullScreen {
+  height: 100vh;
+  width: 100vw;
+}
 
-/* Weights */
+.t-VerticalCenter {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+/* typographic weights */
 .t-Light { font-weight: 300; }
 .t-Regular { font-weight: 400; }
 .t-Bold { font-weight: 700; }
 .t-Black { font-weight: 900; }
 
-/* Variants */
+/* typographic variants */
 .t-Italic { font-style: italic; }
 
 /** components
  * ========================================================================== */
 .Logo {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
   width: 100vh;
 }
