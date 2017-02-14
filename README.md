@@ -4,11 +4,11 @@ _frontend web app powering mirai.audio_
 
 ## [Docs](https://github.com/mirai-audio/mir/wiki)
 
-* [CODE_OF_CONDUCT](/mirai-audio/mir/wiki/CODE_OF_CONDUCT)
-* [CONTRIBUTING](/mirai-audio/mir/wiki/CONTRIBUTING)
-* [CSS Naming Conventions](/mirai-audio/mir/wiki/CSS-Naming-Conventions)
-* [humans.txt](/mirai-audio/mir/wiki/humans.txt)
-* [STYLEGUIDE](/mirai-audio/mir/wiki/STYLEGUIDE)
+* [CODE_OF_CONDUCT](https://github.com/mirai-audio/mir/wiki/CODE_OF_CONDUCT)
+* [CONTRIBUTING](https://github.com/mirai-audio/mir/wiki/CONTRIBUTING)
+* [CSS Naming Conventions](https://github.com/mirai-audio/mir/wiki/CSS-Naming-Conventions)
+* [humans.txt](https://github.com/mirai-audio/mir/wiki/humans.txt)
+* [STYLEGUIDE](https://github.com/mirai-audio/mir/wiki/STYLEGUIDE)
 
 
 ## Prerequisites
