@@ -36,4 +36,9 @@ requestAnimationFrame(function() {
     link.href = url;
     document.head.appendChild(link);
   });
+
+  // enable .Offline if the app loaded without net connection
+  if (navigator.onLine === false) {
+    document.getElementsByTagName('html')[0].classList.add('is-offline');
+  }
 });

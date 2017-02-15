@@ -8,13 +8,13 @@ self.addEventListener("install", function(e) {
   e.waitUntil(
     caches.open(cacheName).then(function(cache) {
       return cache.addAll([
-        "/",
-        "/css/styles.css",
-        "/images/android-chrome-192x192.png",
-        "/images/android-chrome-192x192.png",
-        "/images/favicon-16x16.png",
-        "/images/logo.svg",
-        "/javascript/app.js",
+        "./",
+        "./css/styles.css",
+        "./images/android-chrome-192x192.png",
+        "./images/android-chrome-192x192.png",
+        "./images/favicon-16x16.png",
+        "./images/logo.svg",
+        "./javascript/app.js",
       ])
       .then(function() {
         self.skipWaiting();
