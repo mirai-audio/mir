@@ -106,7 +106,7 @@ img { max-width: 100%; }
   z-index: 1;
 }
 .About:target {
-  clip: auto;
+  clip-path: none;
   height: auto;
   width: auto;
 }
