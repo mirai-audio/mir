@@ -13,12 +13,16 @@ if (navigator.serviceWorker) {
 
 window.addEventListener('online', function(e) {
   // Resync data with server
-  console.log('You are online');
+
+  // disable .Offline
+  document.getElementsByTagName('html')[0].classList.remove('is-offline');
 }, false);
 
 window.addEventListener('offline', function(e) {
-  // Queue up events for server
-  console.log('You are offline');
+  // ToDo: Queue up events for server
+
+  // enable .Offline
+  document.getElementsByTagName('html')[0].classList.add('is-offline');
 }, false);
 
 requestAnimationFrame(function() {

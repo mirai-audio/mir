@@ -1,6 +1,6 @@
 // Use a cacheName for cache versioning
 const VERSION = '0.2.0',
-  cacheName = `mirai.audio-v${version}`;
+  cacheName = `mirai.audio-v${VERSION}`;
 
 // During the installation phase, you'll usually want to cache static assets.
 self.addEventListener("install", function(e) {
