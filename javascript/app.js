@@ -1,10 +1,9 @@
-if (navigator.serviceWorker) {
+if ('serviceWorker' in window.navigator) {
   // if host is not localhost, run the service worker
-  if (document.location.host.match(/localhost/) === null) {
-    navigator.serviceWorker.register('/service-worker.js')
-      .then(function(reg) {
-        console.log('Successfully registered service worker', reg);
-      })
+  if ((window.document.location.hostname.match(/localhost/) === null) ||
+      (window.document.location.search.match(/dev=true/) !== null)
+  ) {
+    window.navigator.serviceWorker.register('/service-worker.js')
       .catch(function(err) {
         console.warn('Error whilst registering service worker', err);
       });
@@ -13,17 +12,17 @@ if (navigator.serviceWorker) {
 }
 
 window.addEventListener('online', function(e) {
-  // Resync data with server
-
+  // ToDo: Resync data with server
   // disable .Offline
-  document.getElementsByTagName('html')[0].classList.remove('is-offline');
+  let htmlElement = window.document.querySelector('html');
+  htmlElement.classList.remove('is-offline');
 }, false);
 
 window.addEventListener('offline', function(e) {
   // ToDo: Queue up events for server
-
   // enable .Offline
-  document.getElementsByTagName('html')[0].classList.add('is-offline');
+  let htmlElement = window.document.querySelector('html');
+  htmlElement.classList.add('is-offline');
 }, false);
 
 requestAnimationFrame(function() {
@@ -32,14 +31,15 @@ requestAnimationFrame(function() {
     '/css/styles.css'
   ];
   stylesheets.forEach(function(url) {
-    let link = document.createElement('link');
+    let link = window.document.createElement('link');
     link.rel = 'stylesheet';
     link.href = url;
-    document.head.appendChild(link);
+    window.document.head.appendChild(link);
   });
 
   // enable .Offline if the app loaded without net connection
-  if (navigator.onLine === false) {
-    document.getElementsByTagName('html')[0].classList.add('is-offline');
+  if (window.navigator.onLine === false) {
+    let htmlElement = window.document.querySelector('html');
+    htmlElement.classList.add('is-offline');
   }
 });
