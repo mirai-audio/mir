@@ -1,5 +1,6 @@
 if (navigator.serviceWorker) {
-  if (document.location.search.match(/localhost/) !== null) {
+  // if host is not localhost, run the service worker
+  if (document.location.host.match(/localhost/) === null) {
     navigator.serviceWorker.register('/service-worker.js')
       .then(function(reg) {
         console.log('Successfully registered service worker', reg);
