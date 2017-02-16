@@ -1,5 +1,6 @@
 // Use a cacheName for cache versioning
-var cacheName = "v0.2.0";
+const VERSION = '0.2.0',
+  cacheName = `mirai.audio-v${VERSION}`;
 
 // During the installation phase, you'll usually want to cache static assets.
 self.addEventListener("install", function(e) {
@@ -7,10 +8,13 @@ self.addEventListener("install", function(e) {
   e.waitUntil(
     caches.open(cacheName).then(function(cache) {
       return cache.addAll([
-        "/",
-        "/css/styles.css",
-        "/javascript/app.js",
-        "/images/logo.svg"
+        "./",
+        "./css/styles.css",
+        "./images/android-chrome-192x192.png",
+        "./images/android-chrome-192x192.png",
+        "./images/favicon-16x16.png",
+        "./images/logo.svg",
+        "./javascript/app.js",
       ])
       .then(function() {
         self.skipWaiting();

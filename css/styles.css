@@ -1,12 +1,10 @@
 /*!
- * @author @0xadada
- * @url https://0xadada.pub
- * @license MIT
- */
+@author @0xadada
+@url https://0xadada.pub
+@license MIT
+*/
 
-/*
- * Use box-sizing
- */
+/* Use box-sizing */
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -18,18 +16,18 @@ button,
 input,
 select {
   /* anti-aliasing
-   * Frankly, i don't know why anti-aliasing isn't enabled by default.
-   * It probably should be, but its nice that "good" developers
-   * can make their sites look nicer by opting-into antialiased type.
+  Frankly, i don't know why anti-aliasing isn't enabled by default.
+  It probably should be, but its nice that "good" developers
+  can make their sites look nicer by opting-into antialiased type.
    */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* font-smooth: always; */
 
   /* text size adjust
-   * allows Web authors to control if and how
-   * the text-inflating algorithm is applied to the textual content
-   * of the element it is applied to.
+  allows Web authors to control if and how
+  the text-inflating algorithm is applied to the textual content
+  of the element it is applied to.
    */
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
@@ -42,6 +40,9 @@ select {
   line-height: 1.4;
 }
 
+/* fix flash of unstyled content. `<html>` set to `opacity: 0` until this
+stylesheet is loaded, this rule prevents a flash from being visible
+ */
 html.is-css-loaded { opacity: 1; }
 
 body { margin: 0; }
@@ -50,11 +51,11 @@ img { max-width: 100%; }
 
 
 /** tools & objects
- * ========================================================================== */
+============================================================================= */
 
 /** t-visuallyhidden
- * Hide only visually, but have it available for screenreaders
- */
+Hide only visually, but have it available for screenreaders
+*/
 .t-visuallyhidden {
   border: 0;
   clip-path: polygon(0 0, 0 0, 0 0, 0 0);
@@ -87,9 +88,12 @@ img { max-width: 100%; }
 .t-Italic { font-style: italic; }
 
 /** components
- * ========================================================================== */
+============================================================================= */
 .Logo { width: 100vh; }
 
+/** About
+A CSS-based lightbox for rendering the copy about the app.
+ */
 .About {
   background: rgba(255,255,255,0.8);
   bottom: 0;
@@ -133,4 +137,24 @@ img { max-width: 100%; }
   text-align: center;
   top: 1em;
   width: 1em;
+}
+
+/** Offline
+
+Show an offline message to the user.
+ */
+.Offline {
+  background-color: rgba(128,128,128,0.25);
+  color: palevioletred;
+  font-family: sans-serif;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+  top: -10em;  /* hide above the viewport until its displayed */
+  transition: top 250ms ease;
+  z-index: 2;
+}
+.is-offline .Offline {
+  top: 0;  /* transition into the viewport when offline */
 }
