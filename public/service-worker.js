@@ -1,15 +1,17 @@
 // Use a cacheName for cache versioning
-const VERSION = '0.2.1',
-  CACHENAME = `mirai.audio-v${VERSION}`,
+var VERSION = '0.2.2',
+  CACHENAME = 'mirai.audio-v' + VERSION,
   ASSETS = [
     './',
     './index.html',
-    './css/styles.css',
+    './assets/mir.css',
+    './assets/mir.js',
+    './assets/vendor.css',
+    './assets/vendor.js',
     './images/android-chrome-192x192.png',
     './images/android-chrome-192x192.png',
     './images/favicon-16x16.png',
     './images/logo.svg',
-    './javascript/app.js',
   ];
 
 // During the installation phase, add static assets to the cache
@@ -33,7 +35,7 @@ self.addEventListener('install', function(event) {
 // the latest service worker is installed and the old has been killed, time to
 // remove the inactive cache
 self.addEventListener('activate', function(event) {
-  let appCacheNames = [ CACHENAME ];
+  var appCacheNames = [ CACHENAME ];
 
   event.waitUntil(
     // get all cache key names

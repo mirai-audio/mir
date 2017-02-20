@@ -1,0 +1,41 @@
+/** About
+A CSS-based lightbox for rendering the copy about the app
+ */
+.About {
+  @extend .Notification;
+  bottom: 0;
+  margin: 0;
+  overflow: hidden;
+  padding: 2em;
+
+  &:target {
+    clip: auto;      /* disable clipping */
+    clip-path: none; /* disable clipping */
+    height: auto;
+    width: auto;
+  }
+
+  &-Link {
+    display: block;
+    transition: filter 500ms ease;
+  }
+
+  &:target ~ * {
+    filter: blur(0.25em);
+  }
+
+  &-Close {
+    background: rgba(0,0,0,0.25);
+    border-radius: 2em;
+    color: white;
+    right: 1em;
+    font-size: 2em;
+    height: 1em;
+    line-height: 0.9;
+    position: absolute;
+    text-decoration: none;
+    text-align: center;
+    top: 1em;
+    width: 1em;
+  }
+}

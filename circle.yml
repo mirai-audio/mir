@@ -1,0 +1,21 @@
+# circle.yml
+
+machine:
+  node:
+    version: "stable"
+
+checkout:
+  pre:
+    - git config --global user.email "circleci.com@mirai.audio"
+    - git config --global user.name "Circle CI Build Bot"
+
+dependencies:
+  override:
+    - yarn global add ember-cli
+    - yarn install
+  post:
+    - ember build
+
+test:
+  override:
+    - yarn test

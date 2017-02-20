@@ -1,0 +1,253 @@
+/* serif / mincho
+============================================================================= */
+ /* japanese mincho (serif) */
+ @font-face {
+  font-family: "ja-mincho";
+  src: local("HiraMinProN-W4"), local("Hiragino Mincho ProN W3"), /* macOS, iOS */
+    local("MS-PMincho"), local("MSPMincho"), /* Windows */
+    local("Noto Serif"); /* Android */
+
+  /* about the unicode ranges
+  https://unicode-table.com/
+   */
+  unicode-range: U+3000-303F, /* CJK Symbols and Punctuation */
+    U+3040-309F, /* Hiragana */
+    U+30A0-30FF, /* Katakana */
+    U+4E00-9FFF; /* CJK Unified ideographs */;
+}
+
+/* english, latin serif */
+@font-face {
+  font-family: "en-serif";
+  src: local(Georgia), local("Times New Roman"), /* macOS, Windows, iOS */
+    local(Times), /* fallback, macOS, Windows, iOS */
+    local("DejaVu Serif"), local("Cambria"), local("Gentium"), /* Linux */
+    local("Noto Serif"); /* Android */
+  unicode-range: U+0020-00FF, /* Basic-latin - Latin-1 Supplement */
+    U+2000-206F, /* General Punctuation */
+    U+2070-209F, /* Superscripts & subscripts */
+    U+2150-218F, /* Number forms */
+    U+2190-21FF, /* Arrows */
+    U+2200-22FF; /* Mathmatical operators */
+}
+
+/* sans-serif / gothic
+============================================================================= */
+
+/* japanese gothic / 300 */
+ @font-face {
+  font-family: "ja-gothic";
+  font-weight: 300;
+  src: local("HiraginoSans-W3"), local("Hiragino Sans W3"), /* macOS, iOS */
+    local("Noto Serif"), /* Android */
+    local("Meiryo"); /* Windows */
+
+  /* about the unicode ranges
+  https://unicode-table.com/
+   */
+  unicode-range: U+3000-303F, /* CJK Symbols and Punctuation */
+    U+3040-309F, /* Hiragana */
+    U+30A0-30FF, /* Katakana */
+    U+4E00-9FFF; /* CJK Unified ideographs */;
+}
+
+/* japanese gothic / 400 */
+ @font-face {
+  font-family: "ja-gothic";
+  font-weight: 400;
+  src: local("HiraginoSans-W4"), local("Hiragino Sans W3"), /* macOS, iOS */
+    local("Noto Serif"), /* Android */
+    local("Meiryo"); /* Windows */
+
+  /* about the unicode ranges
+  https://unicode-table.com/
+   */
+  unicode-range: U+3000-303F, /* CJK Symbols and Punctuation */
+    U+3040-309F, /* Hiragana */
+    U+30A0-30FF, /* Katakana */
+    U+4E00-9FFF; /* CJK Unified ideographs */;
+}
+
+/* japanese gothic / 700 */
+ @font-face {
+  font-family: "ja-gothic";
+  font-weight: 700;
+  src: local("HiraginoSans-W7"), local("Hiragino Sans W3"), /* macOS, iOS */
+    local("Noto Serif"), /* Android */
+    local("Meiryo"); /* Windows */
+
+  /* about the unicode ranges
+  https://unicode-table.com/
+   */
+  unicode-range: U+3000-303F, /* CJK Symbols and Punctuation */
+    U+3040-309F, /* Hiragana */
+    U+30A0-30FF, /* Katakana */
+    U+4E00-9FFF; /* CJK Unified ideographs */;
+}
+
+/* english, latin serif */
+/* Light / 300 */
+@font-face {
+  font-family: "en-sans-serif";
+  font-style: normal;
+  font-weight: 300;
+  src: local("-apple-system"),  /* macOS */
+    local("BlinkMacSystemFont"), /* macOS Chrome */
+    local(".SFNSText-Light"), /* macOS Firefox El Capitan+ */
+    local(".HelveticaNeueDeskInterface-Light"), /* macOS Yosemite */
+    local(".LucidaGrandeUI"), /* macOS Kodiak-Mavericks */
+    local("Noto"), local("Roboto"), /* Linux, Android */
+    local("Oxygen-Sans"), local("Ubuntu"), local("Cantarell"), /* KDE, Ubuntu, Gnome */
+    local("Segoe UI"), local("Arial"); /* Window Phone, Windows Vista+ */
+  unicode-range: U+0020-00FF, /* Basic-latin - Latin-1 Supplement */
+    U+2000-206F, /* General Punctuation */
+    U+2070-209F, /* Superscripts & subscripts */
+    U+2150-218F, /* Number forms */
+    U+2190-21FF, /* Arrows */
+    U+2200-22FF; /* Mathmatical operators */
+}
+
+/* Light / 300 / Italic */
+@font-face {
+  font-family: "en-sans-serif";
+  font-style: italic;
+  font-weight: 300;
+  /*
+  Read more about the `.` dot notation names:
+  http://furbo.org/2015/07/09/i-left-my-system-fonts-in-san-francisco/
+   */
+  src: local("-apple-system"),  /* macOS */
+    local("BlinkMacSystemFont"), /* macOS Chrome */
+    local(".SFNSText-LightItalic"), /* macOS Firefox El Capitan+ */
+    local(".HelveticaNeueDeskInterface-Light"), /* macOS Yosemite */
+    local(".LucidaGrandeUI"), /* macOS Kodiak-Mavericks */
+    local("Noto"), local("Roboto"), /* Linux, Android */
+    local("Oxygen-Sans"), local("Ubuntu"), local("Cantarell"), /* KDE, Ubuntu, Gnome */
+    local("Segoe UI"), local("Arial"); /* Window Phone, Windows Vista+ */
+  unicode-range: U+0020-00FF, /* Basic-latin - Latin-1 Supplement */
+    U+2000-206F, /* General Punctuation */
+    U+2070-209F, /* Superscripts & subscripts */
+    U+2150-218F, /* Number forms */
+    U+2190-21FF, /* Arrows */
+    U+2200-22FF; /* Mathmatical operators */
+}
+
+/* Regular / 400 */
+@font-face {
+  font-family: "en-sans-serif";
+  font-style: normal;
+  font-weight: 400;
+  src: local("-apple-system"),  /* macOS */
+    local("BlinkMacSystemFont"), /* macOS Chrome */
+    local(".SFNSText"), /* macOS Firefox El Capitan+ */
+    local(".HelveticaNeueDeskInterface-Regular"), /* macOS Yosemite */
+    local(".LucidaGrandeUI"), /* macOS Kodiak-Mavericks */
+    local("Noto"), local("Roboto"), /* Linux, Android */
+    local("Oxygen-Sans"), local("Ubuntu"), local("Cantarell"), /* KDE, Ubuntu, Gnome */
+    local("Segoe UI"), local("Arial"); /* Window Phone, Windows Vista+ */
+  unicode-range: U+0020-00FF, /* Basic-latin - Latin-1 Supplement */
+    U+2000-206F, /* General Punctuation */
+    U+2070-209F, /* Superscripts & subscripts */
+    U+2150-218F, /* Number forms */
+    U+2190-21FF, /* Arrows */
+    U+2200-22FF; /* Mathmatical operators */
+}
+
+/* Bold / 700 */
+@font-face {
+  font-family: "en-sans-serif";
+  font-style: normal;
+  font-weight: 700;
+  src: local("-apple-system"),  /* macOS */
+    local("BlinkMacSystemFont"), /* macOS Chrome */
+    local(".SFNSText-Bold"), /* macOS Firefox El Capitan+ */
+    local(".HelveticaNeueDeskInterface-Bold"), /* macOS Yosemite */
+    local(".LucidaGrandeUI"), /* macOS Kodiak-Mavericks */
+    local("Noto"), local("Roboto"), /* Linux, Android */
+    local("Oxygen-Sans"), local("Ubuntu"), local("Cantarell"), /* KDE, Ubuntu, Gnome */
+    local("Segoe UI"), local("Arial"); /* Window Phone, Windows Vista+ */
+  unicode-range: U+0020-00FF, /* Basic-latin - Latin-1 Supplement */
+    U+2000-206F, /* General Punctuation */
+    U+2070-209F, /* Superscripts & subscripts */
+    U+2150-218F, /* Number forms */
+    U+2190-21FF, /* Arrows */
+    U+2200-22FF; /* Mathmatical operators */
+}
+
+/* Bold / 700 / Italic */
+@font-face {
+  font-family: "en-sans-serif";
+  font-style: italic;
+  font-weight: 700;
+  src: local("-apple-system"),  /* macOS */
+    local("BlinkMacSystemFont"), /* macOS Chrome */
+    local(".SFNSText-BoldItalic"), /* macOS Firefox El Capitan+ */
+    local(".HelveticaNeueDeskInterface-BoldItalic"), /* macOS Yosemite */
+    local(".LucidaGrandeUI"), /* macOS Kodiak-Mavericks */
+    local("Noto"), local("Roboto"), /* Linux, Android */
+    local("Oxygen-Sans"), local("Ubuntu"), local("Cantarell"), /* KDE, Ubuntu, Gnome */
+    local("Segoe UI"), local("Arial"); /* Window Phone, Windows Vista+ */
+  unicode-range: U+0020-00FF, /* Basic-latin - Latin-1 Supplement */
+    U+2000-206F, /* General Punctuation */
+    U+2070-209F, /* Superscripts & subscripts */
+    U+2150-218F, /* Number forms */
+    U+2190-21FF, /* Arrows */
+    U+2200-22FF; /* Mathmatical operators */
+}
+
+/* typeface selection
+============================================================================= */
+
+/* typefaces */
+.t-Serif {
+  /* Normalize serif/mincho font stack */
+  font-family: "en-serif", "ja-mincho",
+    serif, /* fallback */
+    "Twitter Color Emoji", "Apple Color Emoji", "Segoe UI Emoji"; /* emoji */
+}
+
+.t-SansSerif {
+  /* Normalize sans-serif/gothic font stack */
+  font-family: "en-sans-serif", "ja-gothic",
+    sans-serif, /* fallback */
+    "Twitter Color Emoji", "Apple Color Emoji", "Segoe UI Emoji"; /* emoji */
+}
+
+/* weights */
+.t-Light { font-weight: 300; }
+.t-Regular { font-weight: 400; }
+.t-Bold { font-weight: 700; }
+
+/* variants */
+.t-Italic { font-style: italic; }
+.t-Regular { font-style: normal; }
+
+/* sizes */
+.t-XXS { font-size: 0.75em; /* 12 */}
+.t-XS  { font-size: 0.875em; /* 14 */}
+.t-SM  { font-size: 0.875em; /* 14 */}
+.t-MD  { font-size: 1em; /* 16 */}
+.t-LG  { font-size: 1.125em; /* 18 */}
+.t-XL  { font-size: 1.5em; /* 24 */}
+.t-XXL { font-size: 2em; /* 32 */ }
+.t-Hero { font-size: 6em; /* 96 */ }
+
+/* alignment */
+.t-Center   { text-align: center; }
+.t-Justify  { text-align: justify; }
+.t-Left     { text-align: left; }
+.t-Right    { text-align: right; }
+.t-Vertical {
+  writing-mode: vertical-rl;
+
+  p { margin: 0 1.5em; }
+}
+
+/* Special */
+.t-FL::first-letter {
+  display: inline-block;
+  float: left;
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1;
+}

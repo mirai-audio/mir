@@ -1,0 +1,972 @@
+<nav role="navigation">
+  <ul>
+    <li>
+      <a href="#typo">Typography</a>
+      <ul>
+        <li><a href="#type__sample">Sample</a></li>
+        <li><a href="#type__table">Table</a></li>
+        <li><a href="#type__charset">Character Set</a></li>
+        <li><a href="#type__sizes">Sizes</a></li>
+        <li><a href="#type__serif">Serif (Mincho) / Regular</a></li>
+        <li><a href="#type__sansserif">Sans-Serif (Gothic) / Regular</a></li>
+        <li><a href="#type__light">Sans-serif (Gothic) / Light</a></li>
+        <li><a href="#type__bold">Sans-serif (Gothic) / Bold</a></li>
+        <li><a href="#type__italic">Sans-serif (Gothic) / Italic</a></li>
+        <li><a href="#type__bolditalic">Sans-serif (Gothic) / Bold Italic</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#text">Text</a>
+      <ul>
+        <li><a href="#text__sections">Sections</a></li>
+        <li><a href="#text__headings">Headings</a></li>
+        <li><a href="#text__nav">Navigation</a></li>
+        <li><a href="#text__paragraphs">Paragraphs</a></li>
+        <li><a href="#text__blockquotes">Blockquotes</a></li>
+        <li><a href="#text__addresses">Addresses</a></li>
+        <li><a href="#text__lists">Lists</a></li>
+        <li><a href="#text__hr">Horizontal rules</a></li>
+        <li><a href="#text__tables">Tabular data</a></li>
+        <li><a href="#text__code">Code</a></li>
+        <li><a href="#text__inline">Inline elements</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#embedded">Embedded content</a>
+        <ul>
+          <li><a href="#embedded__images">Images</a></li>
+          <li><a href="#embedded__audio">Audio</a></li>
+          <li><a href="#embedded__video">Video</a></li>
+          <li><a href="#embedded__canvas">Canvas</a></li>
+          <li><a href="#embedded__meter">Meter</a></li>
+          <li><a href="#embedded__progress">Progress</a></li>
+          <li><a href="#embedded__svg">Inline SVG</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#forms">Form elements</a>
+        <ul>
+          <li><a href="#forms__input">Input fields</a></li>
+          <li><a href="#forms__select">Select menus</a></li>
+          <li><a href="#forms__checkbox">Checkboxes</a></li>
+          <li><a href="#forms__radio">Radio buttons</a></li>
+          <li><a href="#forms__textareas">Textareas</a></li>
+          <li><a href="#forms__html5">HTML5 inputs</a></li>
+          <li><a href="#forms__fieldsets">Fieldsets / Legends</a></li>
+          <li><a href="#forms__action">Action buttons</a></li>
+        </ul>
+    </li>
+  </ul>
+</nav>
+
+<main role="main">
+  <section id="type">
+    <header><h1>Typography</h1></header>
+    <article id="type__sample">
+      <header>
+        <h1>Sample</h1>
+      </header>
+      <section>
+        <p>
+          <strong>Default</strong>
+          {{t "app.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-Serif">
+          <strong>Serif (Mincho) / Regular</strong>
+          {{t "app.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-SansSerif">
+          <strong>Sans-serif (Gothic) / Regular</strong>
+          {{t "app.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-SansSerif t-Light">
+          <strong>Sans-serif (Gothic) / Light</strong>
+          {{t "app.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-SansSerif t-Bold">
+          <strong>Sans-serif (Gothic) / Bold</strong>
+          {{t "app.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-SansSerif t-Italic">
+          <strong>Sans-serif (Gothic) / Italic</strong>
+          {{t "app.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-SansSerif t-Bold t-Italic">
+          <strong>Sans-serif (Gothic) / Bold Italic</strong>
+          {{t "app.styleguide.lorem-ipsum"}}
+        </p>
+      </section>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+
+    <article id="type__table">
+      <header>
+        <h1>Table</h1>
+      </header>
+      <section>
+        <div class="t-Vertical" style="max-height: 36em;">
+          <h1 class="t-Hero">{{t "app.styleguide.lorem-ipsum-ja-title"}}</h1>
+          <p class="t-FL">{{t "app.styleguide.lorem-ipsum-ja"}}</p>
+          <p>{{t "app.styleguide.lorem-ipsum-ja"}}</p>
+        </div>
+
+        <table style="width:100%">
+          <thead>
+            <tr>
+              <th>Font/Size</th>
+              <th>Regular</th>
+              <th>Light</th>
+              <th>Bold</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="t-SansSerif">
+              <th>Sans/Hero</th>
+              <td>Aa あア安</td>
+              <td class="t-Light t-Hero">Aa あア安</td>
+              <td class="t-Bold t-Hero">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/XXL</th>
+              <td>Aa あア安</td>
+              <td class="t-Light t-XXL">Aa あア安</td>
+              <td class="t-Bold t-XXL">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/XL</th>
+              <td>Aa あア安</td>
+              <td class="t-Light t-XL">Aa あア安</td>
+              <td class="t-Bold t-XL">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/LG</th>
+              <td>Aa あア安</td>
+              <td class="t-Light t-LG">Aa あア安</td>
+              <td class="t-Bold t-LG">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/MD</th>
+              <td>Aa あア安</td>
+              <td class="t-Light">Aa あア安</td>
+              <td class="t-Bold">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/SM</th>
+              <td>Aa あア安</td>
+              <td class="t-Light t-SM">Aa あア安</td>
+              <td class="t-Bold t-SM">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/XS</th>
+              <td>Aa あア安</td>
+              <td class="t-Light t-SM">Aa あア安</td>
+              <td class="t-Bold t-Sm">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/XXS</th>
+              <td>Aa あア安</td>
+              <td class="t-Light t-XXS">Aa あア安</td>
+              <td class="t-Bold t-XXS">Aa あア安</td>
+            </tr>
+            <tr class="t-Serif">
+              <th>Serif/MD</th>
+              <td>Aaあア安</td>
+              <td class="t-Light">Aaあア安</td>
+              <td class="t-Bold">Aaあア安</td>
+            </tr>
+          </tbody>
+        </table>
+        <table style="width:100%">
+          <thead>
+            <tr>
+              <th>Font/Size</th>
+              <th>Italic</th>
+              <th>Light Italic</th>
+              <th>Bold Italic</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="t-SansSerif">
+              <th>Sans/XXS</th>
+              <td class="t-Italic t-XXS">Aa あア安</td>
+              <td class="t-Light t-Italic t-XXS">Aa あア安</td>
+              <td class="t-Bold t-Italic t-XXS">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/XS</th>
+              <td class="t-Italic t-XS">Aa あア安</td>
+              <td class="t-Light t-Italic t-XS">Aa あア安</td>
+              <td class="t-Bold t-Italic t-XS">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/SM</th>
+              <td class="t-Italic t-SM">Aa あア安</td>
+              <td class="t-Light t-Italic t-SM">Aa あア安</td>
+              <td class="t-Bold t-Italic t-SM">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/MD</th>
+              <td class="t-Italic t-MD">Aa あア安</td>
+              <td class="t-Light t-Italic t-MD">Aa あア安</td>
+              <td class="t-Bold t-Italic t-MD">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/LG</th>
+              <td class="t-Italic t-LG">Aa あア安</td>
+              <td class="t-Light t-Italic t-LG">Aa あア安</td>
+              <td class="t-Bold t-Italic t-LG">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/XL</th>
+              <td class="t-Italic t-XL">Aa あア安</td>
+              <td class="t-Light t-Italic t-XL">Aa あア安</td>
+              <td class="t-Bold t-Italic t-XL">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/XXL</th>
+              <td class="t-Italic t-XXL">Aa あア安</td>
+              <td class="t-Light t-Italic t-XXL">Aa あア安</td>
+              <td class="t-Bold t-Italic t-XXL">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/Hero</th>
+              <td class="t-Italic t-Hero">Aa あア安</td>
+              <td class="t-Light t-Italic t-Hero">Aa あア安</td>
+              <td class="t-Bold t-Italic t-Hero">Aa あア安</td>
+            </tr>
+            <tr class="t-Serif">
+              <th>Serif</th>
+              <td class="t-Italic">Aa あア安</td>
+              <td class="t-Light t-Italic">Aa あア安</td>
+              <td class="t-Bold t-Italic">Aa あア安</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+
+    <article id="type__charset">
+      <header>
+        <h1>Character Set</h1>
+      </header>
+      <section class="t-Serif">
+        <p><strong>Latin-1 Basic:</strong>
+          {{t "app.styleguide.latin-1"}}
+        </p>
+        <p><strong>Hiragana:</strong>
+          {{t "app.styleguide.hiragana"}}
+        </p>
+        <p><strong>Katakana:</strong>
+          {{t "app.styleguide.katakana"}}
+        </p>
+      </section>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+
+    <article id="type__sizes">
+      <header><h1>Sizes</h1></header>
+      <section class="t-SansSerif">
+        <p class="t-XXS">
+          <strong>XXS:</strong>
+          {{t "app.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-XS">
+          <strong>XS:</strong>
+          {{t "app.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-SM">
+          <strong>SM:</strong>
+          {{t "app.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-MD">
+          <strong>MD:</strong>
+          {{t "app.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-LG">
+          <strong>LG:</strong>
+          {{t "app.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-XL">
+          <strong>XXL:</strong>
+          {{t "app.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-XXL">
+          <strong>XXL:</strong>
+          {{t "app.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-Hero">
+          <strong>Hero:</strong>
+          {{t "app.styleguide.lorem-ipsum"}}
+        </p>
+      </section>
+    </article>
+
+    <article id="type__serif">
+      <header>
+        <h1>Serif (Mincho) / Regular</h1>
+      </header>
+      <section class="t-Serif">
+        <p>This is the serif regular base font.
+          {{t "app.styleguide.lorem-ipsum-en"}}
+        </p>
+        <p>{{t "app.styleguide.lorem-ipsum-ja"}}</p>
+        <p>{{t "app.styleguide.lorem-ipsum-en"}}</p>
+      </section>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+
+    <article id="type__sansserif">
+      <header>
+        <h1>Sans-serif (Gothic) / Regular</h1>
+      </header>
+      <section class="t-SansSerif">
+        <p>This is the sans-serif regular font.  
+          {{t "app.styleguide.lorem-ipsum-en"}}
+        </p>
+        <p>{{t "app.styleguide.lorem-ipsum-ja"}} </p>
+        <p>{{t "app.styleguide.lorem-ipsum-en"}}</p>
+      </section>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+
+    <article id="type__light">
+      <header>
+        <h1>Sans-serif (Gothic) / Light</h1>
+      </header>
+      <section class="t-SansSerif t-Light">
+        <p>This is the sans-serif light font.
+          {{t "app.styleguide.lorem-ipsum-en"}}
+        </p>
+        <p>{{t "app.styleguide.lorem-ipsum-ja"}}</p>
+        <p>{{t "app.styleguide.lorem-ipsum-en"}}</p>
+      </section>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+
+    <article id="type__bold">
+      <header>
+        <h1>Sans-serif (Gothic) / Bold</h1>
+      </header>
+      <section class="t-SansSerif t-Bold">
+        <p>This is the sans-serif bold font.
+          {{t "app.styleguide.lorem-ipsum-en"}}
+        </p>
+        <p>{{t "app.styleguide.lorem-ipsum-ja"}}</p>
+        <p>{{t "app.styleguide.lorem-ipsum-en"}}</p>
+      </section>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+
+    <article id="type__italic">
+      <header>
+        <h1>Sans-serif (Gothic) / Italic</h1>
+      </header>
+      <section class="t-SansSerif t-Italic">
+        <p>This is the sans-serif italic font.
+          {{t "app.styleguide.lorem-ipsum-en"}}
+        </p>
+        <p>{{t "app.styleguide.lorem-ipsum-ja"}}</p>
+        <p>{{t "app.styleguide.lorem-ipsum-en"}}</p>
+      </section>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+
+    <article id="type__bolditalic">
+      <header>
+        <h1>Sans-serif (Gothic) / Bold Italic</h1>
+      </header>
+      <section class="t-SansSerif t-Bold t-Italic">
+        <p>This is the sans-serif bold italic font.
+          {{t "app.styleguide.lorem-ipsum-en"}}
+        </p>
+        <p>{{t "app.styleguide.lorem-ipsum-ja"}}</p>
+        <p>{{t "app.styleguide.lorem-ipsum-en"}}</p>
+      </section>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+  </section>
+
+  <section id="text">
+    <header><h1>Text</h1></header>
+    <article id="text__sections">
+      <header>
+        <h1>Sections</h1>
+      </header>
+      <section>
+        <p>This is in a &lt;section&gt;</p>
+      </section>
+      <main>This is in a &lt;main&gt;</main>
+      <aside>
+        <p>This is in an &lt;aside&gt;</p>
+      </aside>
+      <header>
+        <p>This is in a &lt;header&gt;</p>
+      </header>
+      <footer>
+        <p>This is a &lt;footer&gt;</p>
+      </footer>
+      <details>
+        <summary>this is in a &lt;summary&gt;</summary>
+        This is the details
+      </details>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+
+    <div id="text__headings">
+      <header>
+        <h1>Headings</h1>
+      </header>
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+      <p>Inside &lt;article&gt;</p>
+      <article>
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+        <h4>Heading 4</h4>
+        <h5>Heading 5</h5>
+        <h6>Heading 6</h6>
+      </article>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </div>
+
+    <article id="text__nav">
+      <header><h1>Navigation</h1></header>
+      <header>
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      <h3>Context menu</h3>
+      <div contextmenu="popup-menu" style="background-color: gray;">
+        Right-click over this to see the menu
+      </div>
+      <menu type="context" id="popup-menu">
+        <menuitem onclick="javascript:alert('hello')">hello</menuitem>
+        <menuitem onclick="javascript:alert('world')">world</menuitem>
+        <hr>
+        <menuitem onclick="javascript:alert('hello world')">hello world</menuitem>
+      </menu>
+      <h3>Toolbar menu</h3>
+      <menu type="toolbar" id="toolbar-menu">
+        <li>Action</li>
+        <li>Another action</li>
+        <hr>
+        <li>Separated action</li>
+      </menu>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+
+    <article id="text__paragraphs">
+      <header><h1>Paragraphs</h1></header>
+      <p>A paragraph (from the Greek paragraphos, “to write beside” or
+        “written beside”) is a self-contained unit of a discourse in writing
+        dealing with a particular point or idea. A paragraph consists of 
+        one or more sentences. Though not required by the syntax of any 
+        language, paragraphs are usually an expected part of formal writing, 
+        used to organize longer prose.</p>
+      <p>This paragraph is nested inside an article. It contains many different,
+        sometimes useful, <a href="http://www.w3schools.com/tags/">HTML5 tags</a>. 
+        Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, 
+        and <small>small</small> but there are many others as well. Hover the 
+        following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. 
+        Similarly, you can use acronym tag like this: 
+        <acronym title="For The Win">ftw</acronym>. You can define 
+        <del>deleted text</del> which often gets replaced with <ins>inserted</ins> 
+        text.</p>
+      <p>You can also use <kbd>keyboard text</kbd>, which sometimes is styled similarly 
+        to the <code>&lt;code&gt;</code> or <samp>samp</samp> tags. Even more specifically, 
+        there is a tag just for <var>variables</var>. Not to be mistaken with blockquotes
+        below, the quote tag lets you denote something as <q>quoted text</q>. Lastly don't 
+        forget the sub (H<sub>2</sub>O) and sup (E = MC<sup>2</sup>) tags.
+      </p>
+      <p>This is example of Japanese text annotated with &lt;Ruby&gt; tags
+        <ruby>
+          <ruby>
+            未<rp>(</rp><rt>み</rt><rp>)</rp> 
+            来<rp>(</rp><rt>らい</rt><rp>)</rp>
+            .<rp>(</rp><rt>ドット</rt><rp>)</rp>
+            audio<rp>(</rp><rt>オーディオ</rt><rp>)</rp>
+          </ruby>
+          <rp>(</rp><rt>mirai dot audio</rt><rp>)</rp>
+        </ruby>
+        to help with pronunciation.
+        {{t "app.styleguide.lorem-ipsum-en"}}
+      </p>
+      <aside>This is an aside.</aside>
+      <p>{{t "app.styleguide.lorem-ipsum-ja"}}</p>
+      <p>{{t "app.styleguide.lorem-ipsum-en"}}</p>
+      <footer>This is footer for this section</footer>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+
+    <article id="text__blockquotes">
+      <header><h1>Blockquotes</h1></header>
+      <blockquote>
+        <p>Blockquote: I quickly explained that many big jobs involve few hazards</p>
+      </blockquote>
+      <div>
+        <blockquote>
+          <p>A block quotation (also known as a long quotation or extract) 
+          is a quotation in a written document, that is set off from the 
+          main text as a paragraph, or block of text.</p>
+          <p>It is typically distinguished visually using indentation and a 
+          different typeface or smaller size quotation. It may or may not 
+          include a citation, usually placed at the bottom.</p>
+          <cite><a href="#!">Said no one, ever.</a></cite>
+        </blockquote>
+      </div>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+
+    <article id="text__address">
+      <header><h1>Addresses</h1></header>
+      <address>1 Infinite Loop<br>
+        Cupertino, CA 95014<br>
+        United States
+      </address>
+    </article>
+
+    <article id="text__lists">
+      <header><h1>Lists</h1></header>
+      <h3>Definition list</h3>
+      <dl>
+        <dt>Definition List Title</dt>
+        <dd>This is a definition list division.</dd>
+        <dt>Definition List Title</dt>
+        <dd>Definition list division.</dd>
+      </dl>
+      <h3>Ordered List</h3>
+      <ol>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+      </ol>
+      <h3>Unordered List</h3>
+      <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+      </ul>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+
+    <article id="text__hr">
+      <header><h1>Horizontal rules</h1></header>
+      <div>
+        <hr>
+      </div>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+
+    <article id="text__tables">
+      <header><h1>Tabular data</h1></header>
+      <table>
+        <caption>Table Caption</caption>
+        <thead>
+          <tr>
+            <th>Table Heading 1</th>
+            <th>Table Heading 2</th>
+            <th>Table Heading 3</th>
+            <th>Table Heading 4</th>
+            <th>Table Heading 5</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <th>Table Footer 1</th>
+            <th>Table Footer 2</th>
+            <th>Table Footer 3</th>
+            <th>Table Footer 4</th>
+            <th>Table Footer 5</th>
+          </tr>
+        </tfoot>
+        <tbody>
+          <tr>
+            <td>Table Cell 1</td>
+            <td>Table Cell 2</td>
+            <td>Table Cell 3</td>
+            <td>Table Cell 4</td>
+            <td>Table Cell 5</td>
+          </tr>
+          <tr>
+            <td>Table Cell 1</td>
+            <td>Table Cell 2</td>
+            <td>Table Cell 3</td>
+            <td>Table Cell 4</td>
+            <td>Table Cell 5</td>
+          </tr>
+          <tr>
+            <td>Table Cell 1</td>
+            <td>Table Cell 2</td>
+            <td>Table Cell 3</td>
+            <td>Table Cell 4</td>
+            <td>Table Cell 5</td>
+          </tr>
+          <tr>
+            <td>Table Cell 1</td>
+            <td>Table Cell 2</td>
+            <td>Table Cell 3</td>
+            <td>Table Cell 4</td>
+            <td>Table Cell 5</td>
+          </tr>
+        </tbody>
+      </table>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+
+    <article id="text__code">
+      <header><h1>Code</h1></header>
+      <div>
+        <p><strong>Keyboard &lt;kbd&gt; input:</strong> <kbd>Cmd</kbd></p>
+        <p><strong>Inline code:</strong> <code>&lt;div&gt;code&lt;/div&gt;</code></p>
+        <p>
+          <strong>Sample &lt;samp&gt; output:</strong> <samp>This is sample 
+          output from a computer program.</samp>
+        </p>
+        <h2>Pre-formatted text &lt;pre&gt;</h2>
+        <pre>P R E F O R M A T T E D T E X T
+! " # $ % &amp; ' ( ) * + , - . /
+0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
+@ A B C D E F G H I J K L M N O
+P Q R S T U V W X Y Z [ \ ] ^ _
+` a b c d e f g h i j k l m n o
+p q r s t u v w x y z { | } ~ </pre>
+        <h2>Code, Pre-formatted</h2>
+        <code><pre>pre {
+  display: block;
+  padding: 7px;
+  background-color: #F5F5F5;
+  border: 1px solid #E1E1E8;
+  border-radius: 3px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  font-family: Menlo, Monaco;
+  line-height: 160%;
+}</pre></code>
+      </div>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+
+    <article id="text__inline">
+      <header><h1>Inline elements</h1></header>
+      <div>
+        <p><a href="#!">This is a text link</a>.</p>
+        <p><strong>Strong is used to indicate strong importance.</strong></p>
+        <p><em>This text has added emphasis.</em></p>
+        <p>The <b>b element</b> is stylistically different text from 
+          normal text, without any special importance.</p>
+        <p>The <i>i element</i> is text that is offset from the normal text.</p>
+        <p>The <u>u element</u> is text with an unarticulated, though explicitly 
+          rendered, non-textual annotation.</p>
+        <p><del>This text is deleted</del> and <ins>This text is inserted</ins>.</p>
+        <p><s>This text has a strikethrough</s>.</p>
+        <p>Superscript<sup>®</sup>.</p>
+        <p>Subscript for things like H<sub>2</sub>O.</p>
+        <p><small>This small text is small for for fine print, etc.</small></p>
+        <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
+        <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This 
+          text is a short inline quotation.</q></p>
+        <p><cite>This is a citation.</cite></p>
+        <p>The <dfn>dfn element</dfn> indicates a definition.</p>
+        <p>The <mark>mark element</mark> indicates a highlight.</p>
+        <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
+        <p>The time element: <time datetime="2013-04-06T12:32+00:00">2 weeks
+          ago</time></p>
+      </div>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+  </section>
+</main>
+
+<section id="embedded">
+  <header><h1>Embedded content</h1></header>
+  <article id="embedded__images">
+    <header><h2>Images</h2></header>
+    <div>
+      <h3>No <code>&lt;figure&gt;</code> element</h3>
+      <p><img src={{asset "images/logo.svg"}} alt="Image alt text"></p>
+      <h3>Wrapped in a <code>&lt;figure&gt;</code> element, no 
+        <code>&lt;figcaption&gt;</code></h3>
+      <figure><img src={{asset "images/logo.svg"}} alt="Image alt text"></figure>
+      <h3>Wrapped in a <code>&lt;figure&gt;</code> element, with a 
+        <code>&lt;figcaption&gt;</code></h3>
+      <figure>
+        <img src="{{asset "images/logo.svg"}}" alt="Image alt text">
+        <figcaption>Here is a caption for this image.</figcaption>
+      </figure>
+      <h3><code>&lt;img&gt;</code> inside &lt;a&gt; element</h3>
+      <a href="#embedded__images">
+        <img src="{{asset "images/logo.svg"}}" alt="Image alt text">
+      </a>
+    </div>
+    <footer><p><a href="#top">[Top]</a></p></footer>
+  </article>
+
+  <article id="embedded__audio">
+    <header><h2>Audio</h2></header>
+    <div><audio controls="">audio</audio></div>
+    <footer><p><a href="#top">[Top]</a></p></footer>
+  </article>
+
+  <article id="embedded__video">
+    <header><h2>Video</h2></header>
+    <div><video controls="">video</video></div>
+    <footer><p><a href="#top">[Top]</a></p></footer>
+  </article>
+
+  <article id="embedded__canvas">
+    <header><h2>Canvas</h2></header>
+    <div><canvas>canvas</canvas></div>
+    <footer><p><a href="#top">[Top]</a></p></footer>
+  </article>
+
+  <article id="embedded__meter">
+    <header><h2>Meter</h2></header>
+    <div>
+      <meter value="2" min="0" max="10">2 out of 10</meter>
+    </div>
+    <footer><p><a href="#top">[Top]</a></p></footer>
+  </article>
+
+  <article id="embedded__progress">
+    <header><h2>Progress</h2></header>
+    <div>
+      <progress>progress</progress>
+    </div>
+    <footer><p><a href="#top">[Top]</a></p></footer>
+  </article>
+
+  <article id="embedded__svg">
+    <header><h2>Inline SVG</h2></header>
+    <div>
+      <svg width="100px" height="100px">
+        <circle cx="100" cy="100" r="100"
+          fill="#1fa3ec"></circle></svg>
+    </div>
+    <footer><p><a href="#top">[Top]</a></p></footer>
+  </article>
+</section>
+
+<section id="forms">
+  <header><h1>Form elements</h1></header>
+  <form>
+    <fieldset id="forms__input">
+      <legend>Input fields</legend>
+      <p>
+        <label for="input__text">Text Input</label>
+        <input id="input__text" type="text" placeholder="Text Input">
+      </p>
+      <p>
+        <label for="input__password">Password</label>
+        <input id="input__password" type="password" placeholder="Type your Password">
+      </p>
+      <p>
+        <label for="input__webaddress">URL (Web Address)</label>
+        <input id="input__webaddress" type="url" placeholder="http://yoursite.com">
+      </p>
+      <p>
+        <label for="input__emailaddress">Email Address</label>
+        <input id="input__emailaddress" type="email" placeholder="name@email.com">
+      </p>
+      <p>
+        <label for="input__phone">Phone Number</label>
+        <input id="input__phone" type="tel" placeholder="(999) 999-9999">
+      </p>
+      <p>
+        <label for="input__search">Search</label>
+        <input id="input__search" type="search" placeholder="Enter Search Term">
+      </p>
+      <p>
+        <label for="input__text2">Number Input</label>
+        <input id="input__text2" type="number" placeholder="Enter a Number">
+      </p>
+      <p>
+        <label for="input__text3" class="error">Error</label>
+        <input id="input__text3" class="is-error" type="text" placeholder="Text Input">
+      </p>
+      <p>
+        <label for="input__text4" class="valid">Valid</label>
+        <input id="input__text4" class="is-valid" type="text" placeholder="Text Input">
+      </p>
+    </fieldset>
+    <p><a href="#top">[Top]</a></p>
+
+    <fieldset id="forms__select">
+      <legend>Select menus</legend>
+      <p>
+        <label for="select-basic">Select</label>
+        <select id="select-basic">
+          <option>Option One</option>
+          <option>Option Two</option>
+          <option>Option Three</option>
+        </select>
+      </p>
+      <p>
+        <label for="select">Select</label>
+        <select id="select">
+          <optgroup label="Option Group English">
+            <option>Option One</option>
+            <option>Option Two</option>
+            <option>Option Three</option>
+          </optgroup>
+          <optgroup label="Option Group Spanish">
+            <option>Option Uno</option>
+            <option>Option Dos</option>
+            <option>Option Tres</option>
+          </optgroup>
+        </select>
+      </p>
+      <p>
+        <label for="select-mul">Multiple Select</label>
+        <select multiple id="select-mul">
+          <option>Option One</option>
+          <option>Option Two</option>
+          <option>Option Three</option>
+          <option>Option Dos</option>
+          <option>Option Tres</option>
+        </select>
+      </p>
+    </fieldset>
+    <p><a href="#top">[Top]</a></p>
+
+    <fieldset id="forms__checkbox">
+      <legend>Checkboxes</legend>
+      <ul class="list list--bare">
+        <li><label for="checkbox1"><input id="checkbox1" name="checkbox"
+              type="checkbox" checked="checked"> Choice A</label></li>
+        <li><label for="checkbox2"><input id="checkbox2" name="checkbox"
+              type="checkbox"> Choice B</label></li>
+        <li><label for="checkbox3"><input id="checkbox3" name="checkbox" 
+              type="checkbox"> Choice C</label></li>
+      </ul>
+    </fieldset>
+    <p><a href="#top">[Top]</a></p>
+
+    <fieldset id="forms__radio">
+      <legend>Radio buttons</legend>
+      <ul class="list list--bare">
+        <li><label for="radio1"><input id="radio1" name="radio" type="radio"
+              class="radio" checked="checked"> Option 1</label></li>
+        <li><label for="radio2"><input id="radio2" name="radio" type="radio" 
+              class="radio"> Option 2</label></li>
+        <li><label for="radio3"><input id="radio3" name="radio" type="radio" 
+              class="radio"> Option 3</label></li>
+      </ul>
+    </fieldset>
+    <p><a href="#top">[Top]</a></p>
+
+    <fieldset id="forms__textareas">
+      <legend>Textareas</legend>
+      <p>
+        <label for="textarea">Textarea</label>
+        <textarea id="textarea" rows="8" cols="48"
+          placeholder="Enter your message here"></textarea>
+      </p>
+    </fieldset>
+    <p><a href="#top">[Top]</a></p>
+
+    <fieldset id="forms__html5">
+      <legend>HTML5 inputs</legend>
+      <p>
+        <label for="ic">Color input</label>
+        <input type="color" id="ic" value="#000000">
+      </p>
+      <p>
+        <label for="in">Number input</label>
+        <input type="number" id="in" min="0" max="10" value="5">
+      </p>
+      <p>
+        <label for="ir">Range input</label>
+        <input type="range" id="ir" value="10">
+      </p>
+    <p>
+      <label for="idt">Time</label>
+      <input type="time" id="idt" placeholder="Time">
+    </p>
+      <p>
+        <label for="idd">Date input</label>
+        <input type="date" id="idd" value="1970-01-01">
+      </p>
+      <p>
+        <label for="idm">Month input</label>
+        <input type="month" id="idm" value="1970-01">
+      </p>
+      <p>
+        <label for="idw">Week input</label>
+        <input type="week" id="idw" value="1970-W01">
+      </p>
+      <p>
+        <label for="idt">Datetime input</label>
+        <input type="datetime" id="idt" value="1970-01-01T00:00:00Z">
+      </p>
+      <p>
+        <label for="idtl">Datetime-local input</label>
+        <input type="datetime-local" id="idtl" value="1970-01-01T00:00">
+      </p>
+      <p>
+        <label for="ifi">File input</label>
+        <input type="file" id="ifi">
+      </p>
+    </fieldset>
+    <p><a href="#top">[Top]</a></p>
+
+    <div id="forms__fieldsets">
+      <fieldset>
+        <legend>I am legend</legend>
+        <div>
+          <label>
+            <input type="radio" name="options-radios" id="optionsR-radios1"
+              value="option1" checked> Option one is this and that&mdash;be sure
+              to include why it's great
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="radio" name="options-radios" id="options-radios2"
+              value="option2"> Option two can be something else and selecting 
+              it will deselect option one
+          </label>
+        </div>
+        <div>
+          <label>
+            <input type="radio" name="optionsRadios" id="options-radios3"
+              value="option3" disabled> Option three is disabled
+          </label>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>I am also legend</legend>
+        <input type="checkbox"> Check me out
+        <input type="checkbox"> Or check me out
+      </fieldset>
+    </div>
+    <p><a href="#top">[Top]</a></p>
+
+    <fieldset id="forms__action">
+      <legend>Action buttons</legend>
+      <p>
+        <input type="submit" value="<input type=submit>">
+        <input type="button" value="<input type=button>">
+        <input type="reset" value="<input type=reset>">
+        <input type="submit" value="<input disabled>" disabled>
+      </p>
+      <p>
+        <button type="submit">&lt;button type=submit&gt;</button>
+        <button type="button">&lt;button type=button&gt;</button>
+        <button type="reset">&lt;button type=reset&gt;</button>
+        <button type="button" disabled>&lt;button disabled&gt;</button>
+      </p>
+    </fieldset>
+    <p><a href="#top">[Top]</a></p>
+  </form>
+</section>

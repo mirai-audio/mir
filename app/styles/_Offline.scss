@@ -1,0 +1,15 @@
+/** Offline
+Show an offline message to the user.
+ */
+.Offline {
+  color: palevioletred;
+  transition: top 250ms ease;
+
+  &.Notification {
+    top: -10em;  /* hide above the viewport until its displayed */
+  }
+
+  .is-offline & {
+    top: 0;  /* transition into the viewport when offline */
+  }
+}
