@@ -41,13 +41,3 @@ stylesheet is loaded, this rule prevents a flash from being visible
 html.is-css-loaded { opacity: 1; }
 
 img { max-width: 100%; }
-
-p {
-  hyphens: auto;
-  margin: 1.5em 0;
-}
-
-rt {
-  font-size: 0.625em; /* 10 */
-  line-height: 0.5;
-}

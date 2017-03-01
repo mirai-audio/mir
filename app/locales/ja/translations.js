@@ -72,4 +72,7 @@ export default {
       'アーティストに従って曲を宣伝する>',
     'arriving': '2017年に到着',
   },
+  'typography': {
+    'title': 'タイポグラフィ',
+  },
 };

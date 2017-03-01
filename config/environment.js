@@ -34,6 +34,9 @@ module.exports = function(environment) {
   ENV.i18n = {
     defaultLocale: 'en'
   };
+  ENV.pageTitle = {
+    prepend: true,
+  };
 
   let runProcess = process.argv.join(' ');
   if (runProcess.indexOf('ember cdv') >= 0 ||

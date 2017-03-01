@@ -5,12 +5,11 @@ import config from './config/environment';
 const Router = Ember.Router.extend({
   location: config.locationType,
   rootURL: config.rootURL,
-  version: config.APP.version,
-  locale: config.i18n.defaultLocale,
 });
 
 Router.map(function() {
   this.route('styleguide');
+  this.route('typography');
 });
 
 export default Router;

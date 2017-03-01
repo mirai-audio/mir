@@ -70,4 +70,7 @@ export default {
       'songs.',
     'arriving': 'Arriving in 2017',
   },
+  'typography': {
+    'title': 'Typography',
+  },
 };

@@ -2,7 +2,7 @@
 ============================================================================= */
  /* japanese mincho (serif) */
  @font-face {
-  font-family: "ja-mincho";
+  font-family: system-mincho;
   src: local("HiraMinProN-W4"), local("Hiragino Mincho ProN W3"), /* macOS, iOS */
     local("MS-PMincho"), local("MSPMincho"), /* Windows */
     local("Noto Serif"); /* Android */
@@ -18,7 +18,7 @@
 
 /* english, latin serif */
 @font-face {
-  font-family: "en-serif";
+  font-family: system-serif;
   src: local(Georgia), local("Times New Roman"), /* macOS, Windows, iOS */
     local(Times), /* fallback, macOS, Windows, iOS */
     local("DejaVu Serif"), local("Cambria"), local("Gentium"), /* Linux */
@@ -35,8 +35,8 @@
 ============================================================================= */
 
 /* japanese gothic / 300 */
- @font-face {
-  font-family: "ja-gothic";
+@font-face {
+  font-family: system-gothic;
   font-weight: 300;
   src: local("HiraginoSans-W3"), local("Hiragino Sans W3"), /* macOS, iOS */
     local("Noto Serif"), /* Android */
@@ -52,8 +52,8 @@
 }
 
 /* japanese gothic / 400 */
- @font-face {
-  font-family: "ja-gothic";
+@font-face {
+  font-family: system-gothic;
   font-weight: 400;
   src: local("HiraginoSans-W4"), local("Hiragino Sans W3"), /* macOS, iOS */
     local("Noto Serif"), /* Android */
@@ -69,8 +69,8 @@
 }
 
 /* japanese gothic / 700 */
- @font-face {
-  font-family: "ja-gothic";
+@font-face {
+  font-family: system-gothic;
   font-weight: 700;
   src: local("HiraginoSans-W7"), local("Hiragino Sans W3"), /* macOS, iOS */
     local("Noto Serif"), /* Android */
@@ -88,7 +88,7 @@
 /* english, latin serif */
 /* Light / 300 */
 @font-face {
-  font-family: "en-sans-serif";
+  font-family: system-sans-serif;
   font-style: normal;
   font-weight: 300;
   src: local("-apple-system"),  /* macOS */
@@ -109,7 +109,7 @@
 
 /* Light / 300 / Italic */
 @font-face {
-  font-family: "en-sans-serif";
+  font-family: system-sans-serif;
   font-style: italic;
   font-weight: 300;
   /*
@@ -134,7 +134,7 @@
 
 /* Regular / 400 */
 @font-face {
-  font-family: "en-sans-serif";
+  font-family: system-sans-serif;
   font-style: normal;
   font-weight: 400;
   src: local("-apple-system"),  /* macOS */
@@ -155,7 +155,7 @@
 
 /* Bold / 700 */
 @font-face {
-  font-family: "en-sans-serif";
+  font-family: system-sans-serif;
   font-style: normal;
   font-weight: 700;
   src: local("-apple-system"),  /* macOS */
@@ -176,7 +176,7 @@
 
 /* Bold / 700 / Italic */
 @font-face {
-  font-family: "en-sans-serif";
+  font-family: system-sans-serif;
   font-style: italic;
   font-weight: 700;
   src: local("-apple-system"),  /* macOS */
@@ -195,22 +195,48 @@
     U+2200-22FF; /* Mathmatical operators */
 }
 
+/* typography basics
+============================================================================= */
+h1, h2, h3, h4, h5, h6 {
+  margin: auto;
+  margin-block-end: 0.67em;
+  margin-block-start: 0.67em;
+}
+
+p {
+  hyphens: auto;  /* enable hyphenation */
+  margin: auto;  /* override normalize/sanitize margins */
+  margin-block-end: 1.5em;    /* -block-end and -block-start work better than */
+  margin-block-start: 1.5em;  /* margin for both horizontal and vertical text */
+}
+
+rt {
+  font-size: 0.625em; /* 10 */
+  line-height: 0.5;
+}
+
 /* typeface selection
 ============================================================================= */
 
 /* typefaces */
 .t-Serif {
   /* Normalize serif/mincho font stack */
-  font-family: "en-serif", "ja-mincho",
-    serif, /* fallback */
-    "Twitter Color Emoji", "Apple Color Emoji", "Segoe UI Emoji"; /* emoji */
+  font-family: system-serif,
+    system-mincho,
+    serif,  /* fallback */
+    "Twitter Color Emoji",
+    "Apple Color Emoji",
+    "Segoe UI Emoji"; /* emoji */
 }
 
 .t-SansSerif {
   /* Normalize sans-serif/gothic font stack */
-  font-family: "en-sans-serif", "ja-gothic",
-    sans-serif, /* fallback */
-    "Twitter Color Emoji", "Apple Color Emoji", "Segoe UI Emoji"; /* emoji */
+  font-family: system-sans-serif,
+    system-gothic,
+    sans-serif,  /* fallback */
+    "Twitter Color Emoji",
+    "Apple Color Emoji",
+    "Segoe UI Emoji"; /* emoji */
 }
 
 /* weights */
@@ -237,11 +263,7 @@
 .t-Justify  { text-align: justify; }
 .t-Left     { text-align: left; }
 .t-Right    { text-align: right; }
-.t-Vertical {
-  writing-mode: vertical-rl;
-
-  p { margin: 0 1.5em; }
-}
+.t-Vertical { writing-mode: vertical-rl; }
 
 /* Special */
 .t-FL::first-letter {
