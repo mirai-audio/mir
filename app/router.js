@@ -10,6 +10,7 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('styleguide');
   this.route('typography');
+  this.route('login');
 });
 
 export default Router;

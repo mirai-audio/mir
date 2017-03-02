@@ -1,0 +1,23 @@
+/*
+.mir-Header
+.mir-Header-Link
+ */
+
+.mir-Header-Nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.8);
+}
+
+.mir-Header-Items {
+  margin: 0;
+  padding: 1em 1em 1em 3.25em;
+}
+
+.mir-Header-Item { display: inline; }
+
+
+.mir-Header-Title { margin-top: 1.75em; }

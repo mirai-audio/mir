@@ -4,14 +4,20 @@
 @license MIT
 */
 
+/* vendors */
+@import "system-font-i18n";
+
 /* base */
-@import "typography";
 @import "base";
+@import "typography";
 @import "utilities";
 @import "components";
 
 /* css components */
 @import "About";
-@import "Nav";
 @import "Notification";
 @import "Offline";
+
+/* ember components */
+@import "mir-header";
+@import "mir-nav";

@@ -5,12 +5,14 @@ export default {
     'appname': 'mirai.audio',
     'tagline': 'すべてをプレイし、どこでも遊ぶ',
   },
+
   'app': {
     'network': {
-      'offline': 'デバイスはオフラインです',
-      'online': 'デバイスはオンラインです',
-      'offline-detail': 'ウェブへの接続なし',
+      'online': 'オンライン',
+      'offline': 'オフライン',
+      'offline-detail': '接続なし',
     },
+
     'noscript': {
       'title': 'mirai.audioはJavaScriptで優れています',
       'copy': 'mirai.audioチームはJavaScriptを無効にするという決定を尊重します。' +
@@ -19,7 +21,38 @@ export default {
         '<a href="https://github.com/mirai-audio/mir/wiki/Browser-Support">サポート</a>' +
         'するよう努めています。',
     },
+  },
+
+  'about': {
+    'copy': 'すべての音楽ストリーミングサービスを統合するオーディオアプリ。 ' +
+      'Spotify、Last.fm、Soundcloud、YouTube、mp3sから曲を再生します。' +
+      'YouTube、Soundcloud、Spotify、Last.fmなどのサービス間でプレイリストを作成します。' +
+      '再生リストを作成し、サービス間で共有します。' +
+      'アーティストに従って曲を宣伝する>',
+    'arriving': '2017年に到着',
+  },
+
+  'components': {
+    'mir-header': {
+      'back': 'バック',
+    },
+  },
+
+  'routes': {
+    'application': {
+      'title': '自宅',
+    },
+
+    'login': {
+      'title': 'ログイン / サインアップ',
+      'email': 'Eメール',
+      'email-placeholder': 'akira@gmail.co.jp',
+      'password': 'パスワード',
+      'cta-login': 'ログイン',
+    },
+
     'styleguide': {
+      'title': 'スタイルガイド',
       'latin-1': '! " # $ % & \' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; ' +
         '< = > ?@' +
         'A B C D E F G H I J K L M N OP Q R S T U V W X Y Z [ \\ ] ^ _`' +
@@ -63,16 +96,9 @@ export default {
         '攻性公安警察組織「公安9課」（通称「攻殻機動隊」）の活動を描いた物語。' +
         '作中の年表は別項、攻殻機動隊シリーズの年表を参照。',
     },
-  },
-  'about': {
-    'copy': 'すべての音楽ストリーミングサービスを統合するオーディオアプリ。 ' +
-      'Spotify、Last.fm、Soundcloud、YouTube、mp3sから曲を再生します。' +
-      'YouTube、Soundcloud、Spotify、Last.fmなどのサービス間でプレイリストを作成します。' +
-      '再生リストを作成し、サービス間で共有します。' +
-      'アーティストに従って曲を宣伝する>',
-    'arriving': '2017年に到着',
-  },
-  'typography': {
-    'title': 'タイポグラフィ',
+
+    'typography': {
+      'title': 'タイポグラフィ',
+    },
   },
 };

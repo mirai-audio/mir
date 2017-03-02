@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html class="is-css-loaded" lang=en>
+<html class="is-css-loaded">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
   <link rel="canonical" href="https://mirai.audio/">
   <link rel="manifest" href="{{rootURL}}manifest.json">
   <link rel="apple-touch-icon" href="{{rootURL}}apple-touch-icon.png" sizes="180x180">
@@ -16,6 +16,9 @@
   </noscript>
   <style>html { opacity: 0 }</style>
   <meta name="author" content="{{rootURL}}humans.txt">
+  <meta name="api-url" content={{content-for "apiUrl"}}>
+  <meta name="environment" content={{content-for "environment"}}>
+  <meta name="version" content={{content-for "version"}}>
   <meta name="apple-mobile-web-app-title" content="mirai.audio">
   <meta name="msapplication-config" content="{{rootURL}}browserconfig.xml">
   <meta name="application-name" content="mirai.audio">
@@ -26,7 +29,7 @@
   {{content-for "head-footer"}}
 </head>
 
-<body class="t-SansSerif">
+<body class="system-font-i18n-sans">
   {{content-for "body"}}
 
   {{content-for "body-footer"}}

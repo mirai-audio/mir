@@ -1,0 +1,89 @@
+.mir-Nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  pointer-events: none;
+  perspective: 50em;  /* 800 = 50 * 16 */
+  transform-origin: top left;
+
+  &-overlay {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.25);
+    opacity: 0;  /* transparent until :target is active */
+    transition: opacity 250ms ease;
+    will-change: opacity;
+  }
+
+  &-hamburger:link,
+  &-hamburger:visited {
+    color: black;
+    font-size: 1.5em;
+    line-height: 1.5rem;
+    padding: 1rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: auto;
+    text-decoration: none;
+
+    &:active {
+      text-shadow: 0.0625em 0.0625em 0.125em rgba(0, 0, 0, 0.8);
+    }
+  }
+
+  &-nav {
+    background: white;
+    box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.8);
+    width: 12em;
+    pointer-events: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    .mir-Nav--animate & {
+      transition: transform 250ms ease;
+      will-change: transform;
+    }
+
+    .mir-Nav--animate-slide & {
+      transform: translate3d(-101%, 0, 0);  /* slide in */
+    }
+
+    .mir-Nav--animate-open & {
+      transform: rotate3d(0, 1, 0, 112deg);  /* 3d door-open */
+      transform-origin: top left;
+    }
+  }
+
+  &-items {
+    list-style: none;
+    padding: 0;
+    margin: 1em;
+  }
+
+  &-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 1em;
+  }
+}
+
+.mir-Nav.is-shown,
+.mir-Nav:target {
+  .mir-Nav-overlay {
+    opacity: 1;
+    pointer-events: auto;  /* enable clicking link to undo :target */
+  }
+
+  &.mir-Nav--animate-slide .mir-Nav-nav { transform: translate3d(0%, 0, 0); /* slide-in */ }
+  &.mir-Nav--animate-open .mir-Nav-nav { transform: rotate3d(0, 1, 0, 0); /* 3d door open */ }
+}

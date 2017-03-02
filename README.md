@@ -1,6 +1,8 @@
 # mir
 
-_frontend web app powering mirai.audio_
+> Ember app powering mirai.audio
+
+[![CircleCI](https://img.shields.io/circleci/project/github/mirai-audio/mir.svg?style=flat-square)](https://circleci.com/gh/mirai-audio/mir)
 
 ## [Docs](https://github.com/mirai-audio/mir/wiki)
 
@@ -58,3 +60,14 @@ To run with server-side rendering:
 ## LICENSE
 
 [MIT](LICENSE)
+
+
+A product of <ruby>
+  <ruby>
+    青<rp>(</rp><rt>せい</rt><rp>)</rp>
+    心<rp>(</rp><rt>しん</rt><rp>)</rp>
+    工<rp>(</rp><rt>こう</rt><rp>)</rp>
+    機<rp>(</rp><rt>き</rt><rp>)</rp>
+  </ruby>
+  <rp>(</rp><rt>seishinkouki</rt><rp>)</rp>
+</ruby> Co., Ltd

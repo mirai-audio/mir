@@ -15,7 +15,10 @@ function detectLocale(appInstance) {
     locale = detectFirstLocale(acceptLanguageHeader);
   } else if ('navigator' in window) {
     // detect locale on the frontend
-    return navigator.language || navigator.userLanguage || 'en';
+    return navigator.languages[0] ||
+      navigator.language ||
+      navigator.userLanguage ||
+      'en';
   }
   return locale;
 }

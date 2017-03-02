@@ -1,5 +1,8 @@
-/*jshint node:true*/
 /* global require, module */
+
+var getEnvJSON = require('./config/environment');
+var apiUrl = getEnvJSON().apiUrl;
+var mirVersion = getEnvJSON().version;
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
@@ -8,6 +11,22 @@ module.exports = function(defaults) {
     fingerprint: {
       extensions: ['css', 'gif', 'js', 'jpg', 'png', 'map', 'svg'],
     },
+    inlineContent: {
+      'apiUrl' : {
+        content: apiUrl,
+      },
+      'environment' : {
+        content: EmberApp.env(),
+      },
+      'version' : {
+        content: mirVersion,
+      },
+    },
+    sassOptions: {
+      includePaths: [
+        'node_modules/system-font-i18n-css',
+      ],
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated

@@ -1,9 +1,10 @@
-/* jshint node: true */
+var mirVersion = require('../package.json').version;
 
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'mir',
     environment: environment,
+    version: mirVersion,
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -22,6 +23,7 @@ module.exports = function(environment) {
       // when it is created
     },
 
+    // FastBoot
     fastboot: {
       hostWhitelist: [
         'mirai.audio',
@@ -29,11 +31,54 @@ module.exports = function(environment) {
         'app.mirai.audio',
         /^localhost:\d+$/]
     },
+
+    // Content Security Policy header
+    contentSecurityPolicyHeader: 'Content-Security-Policy',
   };
 
+  ENV.apiUrl = process.env.API_URL ||
+    'https://api.mirai.audio';
+
+  ENV.contentSecurityPolicy = {
+    'default-src': [
+      "'self'", 'data:', 'gap:',
+      '127.0.0.1:*',
+      'localhost:* ',
+      'https://ssl.gstatic.com' /* Required by Android TalkBack */
+    ],
+    'script-src': [
+      "'self'", "'unsafe-inline'", "'unsafe-eval'",
+      '127.0.0.1:*',
+      'localhost:*',
+    ],
+    'style-src': [
+      "'self'", "'unsafe-inline'", 'data:',
+    ],
+    'img-src': [
+      "'self'", 'data:',
+    ],
+    'font-src': [
+      "'self'", 'data:',
+    ],
+    'connect-src': [
+      "'self'", "data:",
+      'http://localhost:*',  // development
+      'ws://localhost:*',     // Anyone
+      'https://api.mirai.audio:*',  // prod
+      'wss://api.mirai.audio:*',  // prod
+      /* API https:// */
+      ENV.apiUrl,
+      /* remote Chrome LiveReload websocket */
+      'ws://10.255.247.75:*',  // žižek
+    ],
+  };
+
+  // Internationalization
   ENV.i18n = {
     defaultLocale: 'en'
   };
+
+  // HTML <title>s
   ENV.pageTitle = {
     prepend: true,
   };
@@ -52,6 +97,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    ENV.apiUrl = process.env.API_URL ||
+      'http://localhost:4000';
   }
 
   if (environment === 'test') {
@@ -63,6 +111,10 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+
+    // API endpoint
+    ENV.apiUrl = process.env.API_URL ||
+      'http://localhost:4000';
   }
 
   if (environment === 'production') {

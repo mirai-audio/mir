@@ -1,6 +1,6 @@
 {{title (t "common.appname")}}
 
-<main>
+<main lang={{locale}}>
 
   <aside class="Offline Notification t-Center u-Z20">
     <h2>{{t "app.network.offline"}}</h2>
@@ -14,16 +14,5 @@
     <p>{{t "app.noscript.copy"}}</p>
   </noscript>
 
-  <aside class="Nav u-Z20" id="Nav">
-    <nav class="Nav-Nav">
-      <a class="Nav-Hamburger" href="#Nav">🍔</a>
-      <a class="Nav-Close" href="#">🚫</a>
-      <ul class="Nav-Items">
-        <li>{{link-to "Home" "application"}}</li>
-        <li>{{link-to (t "typography.title") "typography"}}</li>
-        <li>{{link-to "Styleguide" "styleguide"}}</li>
-      </ul>
-    </nav>
-  </aside>
-
+  {{mir-nav}}
 </main>

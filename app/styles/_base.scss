@@ -1,36 +1,32 @@
 /* Use box-sizing */
-* {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  /* Force links to appear fresh, don't show them as previously clicked */
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  /* prevent callout to copy image, etc when tap to hold */
+  -webkit-touch-callout: none;
+
+  /* prevent copy paste widget on all elements */
+  user-select: none;
 }
 
-html,
-button,
 input,
-select {
-  /* anti-aliasing
-  Frankly, i don't know why anti-aliasing isn't enabled by default.
-  It probably should be, but its nice that "good" developers
-  can make their sites look nicer by opting-into antialiased type.
-   */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* font-smooth: always; */
+select,
+textarea {
+  /* enable keyboard and copy paste widget on all input */
+  user-select: text;
+}
 
-  /* text size adjust
-  allows Web authors to control if and how
-  the text-inflating algorithm is applied to the textual content
-  of the element it is applied to.
-   */
-  -webkit-text-size-adjust: none;
-  -moz-text-size-adjust: none;
-  -ms-text-size-adjust: none;
-  text-size-adjust: none;
-
-  /* Normalize typography size */
-  font-size: 100%;
-  line-height: 1.5;
+[data-ember-action],
+a,
+button,
+input {
+  /* force-enable Ember action bindings. Its a fix for Mobile Safari */
+  cursor: pointer;
 }
 
 body { margin: 0; }

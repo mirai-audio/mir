@@ -5,12 +5,14 @@ export default {
     'appname': 'mirai.audio',
     'tagline': 'Play everything, play everywhere',
   },
+
   'app': {
     'network': {
-      'online': 'Device is online',
-      'offline': 'Device is offline',
-      'offline-detail': 'No connection to the web',
+      'online': 'Online',
+      'offline': 'Offline',
+      'offline-detail': 'No connection',
     },
+
     'noscript': {
       'title': 'mirai.audio is better with JavaScript',
       'copy': 'mirai.audio team respects the decision to disable JavaScript. ' +
@@ -19,7 +21,38 @@ export default {
         '<a href="https://github.com/mirai-audio/mir/wiki/Browser-Support">support</a> ' +
         'users without JavaScript enabled.',
     },
+  },
+
+  'about': {
+    'copy': 'The audio app to unite all music streaming services.  Play songs ' +
+      'from Spotify, Last.fm, Soundcloud, YouTube, mp3s. Create playlists ' +
+      'across services like YouTube, Soundcloud, Spotify, Last.fm, and more. ' +
+      'Create and share playlists across services. Follow artists and promote ' +
+      'songs.',
+    'arriving': 'Arriving in 2017',
+  },
+
+  'components': {
+    'mir-header': {
+      'back': 'Back',
+    },
+  },
+
+  'routes': {
+    'application': {
+      'title': 'Home',
+    },
+
+    'login': {
+      'title': 'Login / Sign Up',
+      'email': 'Email',
+      'email-placeholder': 'name@example.com',
+      'password': 'Password',
+      'cta-login': 'Login',
+    },
+
     'styleguide': {
+      'title': 'Styleguide',
       'latin-1': '! " # $ % & \' ( ) * + , - . / 0 1 2 3 4 5 6 7 8 9 : ; ' +
         '< = > ?@' +
         'A B C D E F G H I J K L M N OP Q R S T U V W X Y Z [ \\ ] ^ _`' +
@@ -61,16 +94,9 @@ export default {
         '攻性公安警察組織「公安9課」（通称「攻殻機動隊」）の活動を描いた物語。' +
         '作中の年表は別項、攻殻機動隊シリーズの年表を参照。',
     },
-  },
-  'about': {
-    'copy': 'The audio app to unite all music streaming services.  Play songs ' +
-      'from Spotify, Last.fm, Soundcloud, YouTube, mp3s. Create playlists ' +
-      'across services like YouTube, Soundcloud, Spotify, Last.fm, and more. ' +
-      'Create and share playlists across services. Follow artists and promote ' +
-      'songs.',
-    'arriving': 'Arriving in 2017',
-  },
-  'typography': {
-    'title': 'Typography',
+
+    'typography': {
+      'title': 'Typography',
+    },
   },
 };

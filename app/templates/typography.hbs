@@ -1,18 +1,19 @@
-{{title (t "typography.title")}}
-
-<header role="banner">
-  <h1>{{t "typography.title"}}</h1>
-</header>
+{{#mir-header
+  back="routes.application.title"
+  backTo="application"
+  title="routes.typography.title"}}
+  {{link-to (t "routes.styleguide.title") "styleguide"}}
+{{/mir-header}}
 
 <nav role="navigation">
   <ul>
+    <li><a href="#type__variations">Variations</a></li>
     <li><a href="#type__sample">Sample</a></li>
-    <li><a href="#type__table">Table</a></li>
+    <li><a href="#type__vertical">Vertical</a></li>
     <li><a href="#type__charset">Character Set</a></li>
     <li><a href="#type__sizes">Scale</a></li>
-    <li><a href="#type__serif">Serif (Mincho) / Regular</a></li>
-    <li><a href="#type__sansserif">Sans-Serif (Gothic) / Regular</a></li>
     <li><a href="#type__light">Sans-serif (Gothic) / Light</a></li>
+    <li><a href="#type__sansserif">Sans-serif (Gothic) / Regular</a></li>
     <li><a href="#type__bold">Sans-serif (Gothic) / Bold</a></li>
     <li><a href="#type__italic">Sans-serif (Gothic) / Italic</a></li>
     <li><a href="#type__bolditalic">Sans-serif (Gothic) / Bold Italic</a></li>
@@ -20,8 +21,219 @@
 </nav>
 
 <main role="main">
-  <section id="type">
-    <header><h1>Typography</h1></header>
+  <section id="type__sans" class="system-font-i18n-sans">
+    <header><h1>sans-serif / gothic</h1></header>
+    <article id="type__variations">
+      <header>
+        <h1>Variations</h1>
+      </header>
+      <section>
+        <table style="text-align:center; width:100%">
+          <colgroup>
+            <col span="2">
+            <col span="2" style="background-color:#dddddd">
+            <col span="2" style="background-color:#eeeeee">
+          </colgroup>
+          <thead class="system-font-i18n-sans">
+            <tr>
+              <th colspan="2"></th>
+              <th colspan="2">English (latin-1)</th>
+              <th colspan="2">Japanese</th>
+            </tr>
+            <tr>
+              <th colspan="2"></th>
+              <th class="t-Regular">regular (normal)</th>
+              <th class="t-Italic">italic</th>
+              <th class="t-Regular">regular (normal)</th>
+              <th class="t-Italic">italic</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="system-font-i18n-sans t-Light">
+              <th class="t-Vertical" rowspan="3">sans-serif</th>
+              <th>light (300)</th>
+              <td>Aa</td>
+              <td class="t-Italic">Aa</td>
+              <td>あア安</td>
+              <td class="t-Italic">あア安</td>
+            </tr>
+            <tr class="system-font-i18n-sans t-Regular">
+              <th>regular (400)</th>
+              <td>Aa</td>
+              <td class="t-Italic">Aa</td>
+              <td>あア安</td>
+              <td class="t-Italic">あア安</td>
+            </tr>
+            <tr class="system-font-i18n-sans t-Bold">
+              <th>bold (700)</th>
+              <td>Aa</td>
+              <td class="t-Italic">Aa</td>
+              <td>あア安</td>
+              <td class="t-Italic">あア安</td>
+            </tr>
+            <tr hidden class="system-font-i18n-serif t-Light">
+              <th class="t-Vertical" rowspan="3">serif</th>
+              <th>light (300)</th>
+              <td>Aa</td>
+              <td class="t-Italic">Aa</td>
+              <td>あア安</td>
+              <td class="t-Italic">あア安</td>
+            </tr>
+            <tr hidden class="system-font-i18n-serif t-Regular">
+              <th>regular (400)</th>
+              <td>Aa</td>
+              <td class="t-Italic">Aa</td>
+              <td>あア安</td>
+              <td class="t-Italic">あア安</td>
+            </tr>
+            <tr hidden class="system-font-i18n-serif t-Bold">
+              <th>bold (700)</th>
+              <td>Aa</td>
+              <td class="t-Italic">Aa</td>
+              <td>あア安</td>
+              <td class="t-Italic">あア安</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table style="width:100%">
+          <thead>
+            <tr>
+              <th>Font/Size</th>
+              <th>Regular</th>
+              <th>Light</th>
+              <th>Bold</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="t-SansSerif">
+              <th>Sans/Hero</th>
+              <td>Aa あア安</td>
+              <td class="t-Light t-Hero">Aa あア安</td>
+              <td class="t-Bold t-Hero">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/XXL</th>
+              <td>Aa あア安</td>
+              <td class="t-Light t-XXL">Aa あア安</td>
+              <td class="t-Bold t-XXL">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/XL</th>
+              <td>Aa あア安</td>
+              <td class="t-Light t-XL">Aa あア安</td>
+              <td class="t-Bold t-XL">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/LG</th>
+              <td>Aa あア安</td>
+              <td class="t-Light t-LG">Aa あア安</td>
+              <td class="t-Bold t-LG">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/MD</th>
+              <td>Aa あア安</td>
+              <td class="t-Light">Aa あア安</td>
+              <td class="t-Bold">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/SM</th>
+              <td>Aa あア安</td>
+              <td class="t-Light t-SM">Aa あア安</td>
+              <td class="t-Bold t-SM">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/XS</th>
+              <td>Aa あア安</td>
+              <td class="t-Light t-SM">Aa あア安</td>
+              <td class="t-Bold t-Sm">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/XXS</th>
+              <td>Aa あア安</td>
+              <td class="t-Light t-XXS">Aa あア安</td>
+              <td class="t-Bold t-XXS">Aa あア安</td>
+            </tr>
+            <tr class="t-Serif">
+              <th>Serif/MD</th>
+              <td>Aaあア安</td>
+              <td class="t-Light">Aaあア安</td>
+              <td class="t-Bold">Aaあア安</td>
+            </tr>
+          </tbody>
+        </table>
+        <footer><p>[<a href="#top">Top</a>]</p></footer>
+
+        <table style="width:100%">
+          <thead>
+            <tr>
+              <th>Font/Size</th>
+              <th>Italic</th>
+              <th>Light Italic</th>
+              <th>Bold Italic</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="t-SansSerif">
+              <th>Sans/XXS</th>
+              <td class="t-Italic t-XXS">Aa あア安</td>
+              <td class="t-Light t-Italic t-XXS">Aa あア安</td>
+              <td class="t-Bold t-Italic t-XXS">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/XS</th>
+              <td class="t-Italic t-XS">Aa あア安</td>
+              <td class="t-Light t-Italic t-XS">Aa あア安</td>
+              <td class="t-Bold t-Italic t-XS">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/SM</th>
+              <td class="t-Italic t-SM">Aa あア安</td>
+              <td class="t-Light t-Italic t-SM">Aa あア安</td>
+              <td class="t-Bold t-Italic t-SM">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/MD</th>
+              <td class="t-Italic t-MD">Aa あア安</td>
+              <td class="t-Light t-Italic t-MD">Aa あア安</td>
+              <td class="t-Bold t-Italic t-MD">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/LG</th>
+              <td class="t-Italic t-LG">Aa あア安</td>
+              <td class="t-Light t-Italic t-LG">Aa あア安</td>
+              <td class="t-Bold t-Italic t-LG">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/XL</th>
+              <td class="t-Italic t-XL">Aa あア安</td>
+              <td class="t-Light t-Italic t-XL">Aa あア安</td>
+              <td class="t-Bold t-Italic t-XL">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/XXL</th>
+              <td class="t-Italic t-XXL">Aa あア安</td>
+              <td class="t-Light t-Italic t-XXL">Aa あア安</td>
+              <td class="t-Bold t-Italic t-XXL">Aa あア安</td>
+            </tr>
+            <tr class="t-SansSerif">
+              <th>Sans/Hero</th>
+              <td class="t-Italic t-Hero">Aa あア安</td>
+              <td class="t-Light t-Italic t-Hero">Aa あア安</td>
+              <td class="t-Bold t-Italic t-Hero">Aa あア安</td>
+            </tr>
+            <tr class="t-Serif">
+              <th>Serif</th>
+              <td class="t-Italic">Aa あア安</td>
+              <td class="t-Light t-Italic">Aa あア安</td>
+              <td class="t-Bold t-Italic">Aa あア安</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <footer><p>[<a href="#top">Top</a>]</p></footer>
+    </article>
+
     <article id="type__sample">
       <header>
         <h1>Sample</h1>
@@ -29,31 +241,96 @@
       <section>
         <p>
           <strong>Default</strong>
-          {{t "app.styleguide.lorem-ipsum"}}
-        </p>
-        <p class="t-Serif">
-          <strong>Serif (Mincho) / Regular</strong>
-          {{t "app.styleguide.lorem-ipsum"}}
-        </p>
-        <p class="t-SansSerif">
-          <strong>Sans-serif (Gothic) / Regular</strong>
-          {{t "app.styleguide.lorem-ipsum"}}
+          {{t "routes.styleguide.lorem-ipsum"}}
         </p>
         <p class="t-SansSerif t-Light">
           <strong>Sans-serif (Gothic) / Light</strong>
-          {{t "app.styleguide.lorem-ipsum"}}
+          {{t "routes.styleguide.lorem-ipsum"}}
         </p>
-        <p class="t-SansSerif t-Bold">
-          <strong>Sans-serif (Gothic) / Bold</strong>
-          {{t "app.styleguide.lorem-ipsum"}}
+        <p class="t-SansSerif">
+          <strong>Sans-serif (Gothic) / Regular</strong>
+          {{t "routes.styleguide.lorem-ipsum"}}
         </p>
         <p class="t-SansSerif t-Italic">
           <strong>Sans-serif (Gothic) / Italic</strong>
-          {{t "app.styleguide.lorem-ipsum"}}
+          {{t "routes.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-SansSerif t-Bold">
+          <strong>Sans-serif (Gothic) / Bold</strong>
+          {{t "routes.styleguide.lorem-ipsum"}}
         </p>
         <p class="t-SansSerif t-Bold t-Italic">
           <strong>Sans-serif (Gothic) / Bold Italic</strong>
-          {{t "app.styleguide.lorem-ipsum"}}
+          {{t "routes.styleguide.lorem-ipsum"}}
+        </p>
+      </section>
+      <footer><p>[<a href="#top">Top</a>]</p></footer>
+    </article>
+
+    <article id="type__vertical">
+      <header><h1>Vertical</h1></header>
+      <section>
+        <div class="t-Vertical" style="max-height: 36em;">
+          <h1 class="t-Hero">{{t "routes.styleguide.lorem-ipsum-ja-title"}}</h1>
+          <p class="t-FL">{{t "routes.styleguide.lorem-ipsum-ja"}}</p>
+          <p>{{t "routes.styleguide.lorem-ipsum-ja"}}</p>
+        </div>
+      </section>
+      <footer><p>[<a href="#top">Top</a>]</p></footer>
+    </article>
+
+    <article id="type__charset">
+      <header>
+        <h1>Character Set</h1>
+      </header>
+      <section>
+        <p><strong>Latin-1 Basic:</strong>
+          {{t "routes.styleguide.latin-1"}}
+        </p>
+        <p><strong>Hiragana:</strong>
+          {{t "routes.styleguide.hiragana"}}
+        </p>
+        <p><strong>Katakana:</strong>
+          {{t "routes.styleguide.katakana"}}
+        </p>
+      </section>
+      <footer><p>[<a href="#top">Top</a>]</p></footer>
+    </article>
+
+    <article id="type__sizes">
+      <header><h1>Scale</h1></header>
+      <section class="t-SansSerif">
+        <p class="t-XXS">
+          <strong>XXS:</strong>
+          {{t "routes.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-XS">
+          <strong>XS:</strong>
+          {{t "routes.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-SM">
+          <strong>SM:</strong>
+          {{t "routes.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-MD">
+          <strong>MD:</strong>
+          {{t "routes.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-LG">
+          <strong>LG:</strong>
+          {{t "routes.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-XL">
+          <strong>XXL:</strong>
+          {{t "routes.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-XXL">
+          <strong>XXL:</strong>
+          {{t "routes.styleguide.lorem-ipsum"}}
+        </p>
+        <p class="t-Hero">
+          <strong>Hero:</strong>
+          {{t "routes.styleguide.lorem-ipsum"}}
         </p>
       </section>
       <footer><p>[<a href="#top">Top</a>]</p></footer>
@@ -62,11 +339,6 @@
     <article id="type__table">
       <header><h1>Table</h1></header>
       <section>
-        <div class="t-Vertical" style="max-height: 36em;">
-          <h1 class="t-Hero">{{t "app.styleguide.lorem-ipsum-ja-title"}}</h1>
-          <p class="t-FL">{{t "app.styleguide.lorem-ipsum-ja"}}</p>
-          <p>{{t "app.styleguide.lorem-ipsum-ja"}}</p>
-        </div>
         <footer><p>[<a href="#top">Top</a>]</p></footer>
 
         <table style="width:100%">
@@ -207,73 +479,16 @@
       <footer><p>[<a href="#top">Top</a>]</p></footer>
     </article>
 
-    <article id="type__charset">
+    <article id="type__light">
       <header>
-        <h1>Character Set</h1>
+        <h1>Sans-serif (Gothic) / Light</h1>
       </header>
-      <section class="t-Serif">
-        <p><strong>Latin-1 Basic:</strong>
-          {{t "app.styleguide.latin-1"}}
+      <section class="t-SansSerif t-Light">
+        <p>This is the sans-serif light font.
+          {{t "routes.styleguide.lorem-ipsum-en"}}
         </p>
-        <p><strong>Hiragana:</strong>
-          {{t "app.styleguide.hiragana"}}
-        </p>
-        <p><strong>Katakana:</strong>
-          {{t "app.styleguide.katakana"}}
-        </p>
-      </section>
-      <footer><p>[<a href="#top">Top</a>]</p></footer>
-    </article>
-
-    <article id="type__sizes">
-      <header><h1>Scale</h1></header>
-      <section class="t-SansSerif">
-        <p class="t-XXS">
-          <strong>XXS:</strong>
-          {{t "app.styleguide.lorem-ipsum"}}
-        </p>
-        <p class="t-XS">
-          <strong>XS:</strong>
-          {{t "app.styleguide.lorem-ipsum"}}
-        </p>
-        <p class="t-SM">
-          <strong>SM:</strong>
-          {{t "app.styleguide.lorem-ipsum"}}
-        </p>
-        <p class="t-MD">
-          <strong>MD:</strong>
-          {{t "app.styleguide.lorem-ipsum"}}
-        </p>
-        <p class="t-LG">
-          <strong>LG:</strong>
-          {{t "app.styleguide.lorem-ipsum"}}
-        </p>
-        <p class="t-XL">
-          <strong>XXL:</strong>
-          {{t "app.styleguide.lorem-ipsum"}}
-        </p>
-        <p class="t-XXL">
-          <strong>XXL:</strong>
-          {{t "app.styleguide.lorem-ipsum"}}
-        </p>
-        <p class="t-Hero">
-          <strong>Hero:</strong>
-          {{t "app.styleguide.lorem-ipsum"}}
-        </p>
-      </section>
-      <footer><p>[<a href="#top">Top</a>]</p></footer>
-    </article>
-
-    <article id="type__serif">
-      <header>
-        <h1>Serif (Mincho) / Regular</h1>
-      </header>
-      <section class="t-Serif">
-        <p>This is the serif regular base font.
-          {{t "app.styleguide.lorem-ipsum-en"}}
-        </p>
-        <p>{{t "app.styleguide.lorem-ipsum-ja"}}</p>
-        <p>{{t "app.styleguide.lorem-ipsum-en"}}</p>
+        <p>{{t "routes.styleguide.lorem-ipsum-ja"}}</p>
+        <p>{{t "routes.styleguide.lorem-ipsum-en"}}</p>
       </section>
       <footer><p>[<a href="#top">Top</a>]</p></footer>
     </article>
@@ -284,27 +499,13 @@
       </header>
       <section class="t-SansSerif">
         <p>This is the sans-serif regular font.  
-          {{t "app.styleguide.lorem-ipsum-en"}}
+          {{t "routes.styleguide.lorem-ipsum-en"}}
         </p>
-        <p>{{t "app.styleguide.lorem-ipsum-ja"}} </p>
-        <p>{{t "app.styleguide.lorem-ipsum-en"}}</p>
+        <p>{{t "routes.styleguide.lorem-ipsum-ja"}} </p>
+        <p>{{t "routes.styleguide.lorem-ipsum-en"}}</p>
       </section>
       <footer><p>[<a href="#top">Top</a>]</p></footer>
-    </article>
-
-    <article id="type__light">
-      <header>
-        <h1>Sans-serif (Gothic) / Light</h1>
-      </header>
-      <section class="t-SansSerif t-Light">
-        <p>This is the sans-serif light font.
-          {{t "app.styleguide.lorem-ipsum-en"}}
-        </p>
-        <p>{{t "app.styleguide.lorem-ipsum-ja"}}</p>
-        <p>{{t "app.styleguide.lorem-ipsum-en"}}</p>
-      </section>
-      <footer><p>[<a href="#top">Top</a>]</p></footer>
-    </article>
+    </article> 
 
     <article id="type__bold">
       <header>
@@ -312,24 +513,24 @@
       </header>
       <section class="t-SansSerif t-Bold">
         <p>This is the sans-serif bold font.
-          {{t "app.styleguide.lorem-ipsum-en"}}
+          {{t "routes.styleguide.lorem-ipsum-en"}}
         </p>
-        <p>{{t "app.styleguide.lorem-ipsum-ja"}}</p>
-        <p>{{t "app.styleguide.lorem-ipsum-en"}}</p>
+        <p>{{t "routes.styleguide.lorem-ipsum-ja"}}</p>
+        <p>{{t "routes.styleguide.lorem-ipsum-en"}}</p>
       </section>
       <footer><p>[<a href="#top">Top</a>]</p></footer>
     </article>
-
+    
     <article id="type__italic">
       <header>
         <h1>Sans-serif (Gothic) / Italic</h1>
       </header>
       <section class="t-SansSerif t-Italic">
         <p>This is the sans-serif italic font.
-          {{t "app.styleguide.lorem-ipsum-en"}}
+          {{t "routes.styleguide.lorem-ipsum-en"}}
         </p>
-        <p>{{t "app.styleguide.lorem-ipsum-ja"}}</p>
-        <p>{{t "app.styleguide.lorem-ipsum-en"}}</p>
+        <p>{{t "routes.styleguide.lorem-ipsum-ja"}}</p>
+        <p>{{t "routes.styleguide.lorem-ipsum-en"}}</p>
       </section>
       <footer><p>[<a href="#top">Top</a>]</p></footer>
     </article>
@@ -340,10 +541,10 @@
       </header>
       <section class="t-SansSerif t-Bold t-Italic">
         <p>This is the sans-serif bold italic font.
-          {{t "app.styleguide.lorem-ipsum-en"}}
+          {{t "routes.styleguide.lorem-ipsum-en"}}
         </p>
-        <p>{{t "app.styleguide.lorem-ipsum-ja"}}</p>
-        <p>{{t "app.styleguide.lorem-ipsum-en"}}</p>
+        <p>{{t "routes.styleguide.lorem-ipsum-ja"}}</p>
+        <p>{{t "routes.styleguide.lorem-ipsum-en"}}</p>
       </section>
       <footer><p>[<a href="#top">Top</a>]</p></footer>
     </article>

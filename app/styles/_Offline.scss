@@ -3,13 +3,14 @@ Show an offline message to the user.
  */
 .Offline {
   color: palevioletred;
-  transition: top 250ms ease;
+  transition: transform 250ms ease;
+  will-change: transform;
 
   &.Notification {
-    top: -10em;  /* hide above the viewport until its displayed */
+    transform: translate3d(0, -10em, 0);  /* hide above the viewport until its displayed */
   }
 
   .is-offline & {
-    top: 0;  /* transition into the viewport when offline */
+    transform: translate3d(0, 0, 0);  /* hide above the viewport until its displayed */
   }
 }

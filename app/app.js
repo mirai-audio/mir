@@ -1,6 +1,8 @@
 /* eslint-disable */
 import Ember from 'ember';
 import loadInitializers from 'ember-load-initializers';
+
+import './models/custom-inflector-rules';
 import Resolver from './resolver';
 import config from './config/environment';
 
