@@ -1,0 +1,9 @@
+{{#if errorMessageKeys.length}}
+  <ul class="c-MirErrorsHandler-errors">
+    {{#each errorMessageKeys as |errorKey|}}
+      <li class="help is-danger c-MirErrorsHandler-error">
+        {{t errorKey}}
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}

@@ -6,7 +6,9 @@ moduleForComponent('mir-nav', 'Integration | Component | mir nav', {
 });
 
 test('it renders', function(assert) {
-  this.render(hbs`{{mir-nav}}`);
+  this.set('isAuth', true);
+  this.set('logout', function logout() {});
+  this.render(hbs`{{mir-nav logout=logout isAuthenticated=isAuth}}`);
 
   assert.notEqual(this.$().text().trim(), '');
   assert.notEqual(this.$().text().indexOf('Home'), -1);

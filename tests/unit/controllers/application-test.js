@@ -5,8 +5,8 @@ import localeConfig from 'ember-i18n/config/en';
 moduleFor('controller:application', 'Unit | Controller | application', {
   needs: [
     'service:i18n',
+    'service:session',
     'locale:en/translations',
-    'locale:en/config',
     'config:environment',
   ],
 

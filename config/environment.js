@@ -4,9 +4,11 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'mir',
     environment: environment,
+    hostUrl: process.env.HOST || 'http://localhost:4200',
     version: mirVersion,
     rootURL: '/',
     locationType: 'auto',
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -23,21 +25,42 @@ module.exports = function(environment) {
       // when it is created
     },
 
+    DS: {
+      host: process.env.API_URL || 'https://api.mirai.audio',
+      namespace: 'api/v1',
+    },
+
     // FastBoot
     fastboot: {
       hostWhitelist: [
         'mirai.audio',
         'api.mirai.audio',
         'app.mirai.audio',
-        /^localhost:\d+$/]
+        /^localhost:\d+$/
+      ]
     },
 
     // Content Security Policy header
     contentSecurityPolicyHeader: 'Content-Security-Policy',
-  };
 
-  ENV.apiUrl = process.env.API_URL ||
-    'https://api.mirai.audio';
+    // ember-simple-auth
+    'ember-simple-auth': {
+      authenticationRoute: 'login',
+      routeIfAlreadyAuthenticated: 'index',
+      routeAfterAuthentication: 'index',
+    },
+
+    // Torii
+    torii: {
+      sessionServiceName: 'session',
+      providers: {
+        'twitter': {
+          requestTokenUri: process.env.TWITTER_REQUEST_TOKEN_URL ||
+            '//localhost:4000/login/twitter',  // Ai handles twitter OAuth
+        },
+      },
+    },
+  };
 
   ENV.contentSecurityPolicy = {
     'default-src': [
@@ -67,7 +90,7 @@ module.exports = function(environment) {
       'https://api.mirai.audio:*',  // prod
       'wss://api.mirai.audio:*',  // prod
       /* API https:// */
-      ENV.apiUrl,
+      ENV.DS.host,
       /* remote Chrome LiveReload websocket */
       'ws://10.255.247.75:*',  // žižek
     ],
@@ -97,9 +120,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-
-    ENV.apiUrl = process.env.API_URL ||
-      'http://localhost:4000';
+    ENV.DS.host = process.env.API_URL || 'http://localhost:4000';
   }
 
   if (environment === 'test') {
@@ -113,12 +134,10 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
 
     // API endpoint
-    ENV.apiUrl = process.env.API_URL ||
-      'http://localhost:4000';
+    ENV.DS.host = process.env.API_URL || 'http://localhost:4000';
   }
 
   if (environment === 'production') {
-
   }
 
   return ENV;

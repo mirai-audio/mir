@@ -1,0 +1,19 @@
+<div class="u-VerticalCenter u-Fullscreen">
+  <article class="About u-Visuallyhidden u-VerticalCenter u-Z10" id="about">
+    <section>
+      <h1>{{t "common.appname"}}</h1>
+      <h2>{{t "common.tagline"}}</h2>
+      <p class="t-Justify">
+        {{t "about.copy"}}
+      </p>
+      <p>{{t "about.arriving"}}</p>
+      <a class="About-Close" href="#" title="Close">&times;</a>
+    </section>
+  </article>
+
+  {{outlet}}
+
+  <a class="About-Link" href="#about" title="About">
+    <img alt class="Logo" src="/images/logo.svg">
+  </a>
+</div>

@@ -14,5 +14,7 @@
     <p>{{t "app.noscript.copy"}}</p>
   </noscript>
 
-  {{mir-nav}}
+  {{mir-nav
+    isAuthenticated=isAuthenticated
+    logout=(route-action "logout")}}
 </main>
