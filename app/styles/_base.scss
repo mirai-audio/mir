@@ -37,3 +37,23 @@ stylesheet is loaded, this rule prevents a flash from being visible
 html.is-css-loaded { opacity: 1; }
 
 img { max-width: 100%; }
+
+
+input:focus:invalid,
+textarea:focus:invalid,
+select:focus:invalid {
+  background:
+    linear-gradient(
+      -45deg,
+      rgba(255, 0, 0, 0.25),
+      rgba(255, 0, 0, 0.25) 33%,
+      rgba(0, 0, 0, 0) 33%,
+      rgba(0, 0, 0, 0) 66%,
+      rgba(255, 0, 0, 0.25) 66%,
+      rgba(255, 0, 0, 0.25)
+    );
+  background-size: 1.25rem 0.35rem;
+  background-position: bottom left;
+  background-repeat: repeat-x;
+  box-shadow: none;
+}

@@ -35,6 +35,7 @@ module.exports = {
 
     // override airbnb defaults
     'prefer-const': 1,
+    'no-underscore-dangle': 0,
     'import/no-extraneous-dependencies': 0,
     'import/no-unresolved': 0,
     'import/extensions': 0,

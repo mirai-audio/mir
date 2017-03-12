@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('styleguide');
   this.route('typography');
   this.route('login');
+  this.route('welcome');
 });
 
 export default Router;

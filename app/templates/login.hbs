@@ -6,28 +6,23 @@
 {{/mir-header}}
 
 <p>
-  <label for="email">{{t "routes.login.email"}}</label>
-  <input id="email" type="email" placeholder={{t "routes.login.email-placeholder"}}>
-</p>
-<p>
-  <label for="password">{{t "routes.login.password"}}</label>
-  <input id="password" type="password">
-</p>
-<p>
-  <input type="submit" value={{t "routes.login.cta-login"}}>
+  <button onclick={{route-action "loginTwitter"}}>
+    Login with Twitter 🐦<br>
+    <small>We won’t post without asking.</small>
+  </button>
+  {{#if errorMessageKeys}}
+    <span>{{t errorMessageKeys}}</span>
+  {{/if}}
 </p>
 
-
-{{#if model.all.length}}
-  <ul>
-    {{#each model.all as |media|}}
-      <li>
-        <a href={{media.url}} title={{media.title}} rel=external>
-          {{media.title}}
-        </a>
-      </li>
-    {{/each}}
-  </ul>
-{{/if}}
+{{mir-form-signup
+  title=(t "routes.login.cta-signup")
+  components=(hash
+    login=(component "mir-form-login")
+    input=(component "mir-input"))
+  errorMessageKeys=errorMessageKeys
+  loginAction=(route-action "login")
+  action=(route-action "signup")
+  model=model}}
 
 {{outlet}}

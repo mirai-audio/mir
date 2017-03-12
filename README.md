@@ -1,5 +1,3 @@
-# mir
-
 > Ember app powering mirai.audio
 
 [![CircleCI](https://img.shields.io/circleci/project/github/mirai-audio/mir.svg?style=flat-square)](https://circleci.com/gh/mirai-audio/mir)
@@ -24,6 +22,8 @@ You will need the following tools properly installed:
 * [Watchman](https://facebook.github.io/watchman/)
 * [Yarn](https://yarnpkg.com/)
 
+macOS / OS X Installation:
+
 ```bash
 brew install watchman
 brew install yarn
@@ -31,21 +31,50 @@ yarn global add ember-cli
 yarn global add phantomjs-prebuilt
 ```
 
+Linux (Ubuntu)
+
+```bash
+npm install -g yarn
+yarn global add ember-cli
+apt-get install phantomjs
+```
+
 ## Installation
 
 ```bash
 git clone <repository-url>
 cd mir
-yarn install
+yarn
 ```
 
 ## Running / Development
 
 To run with server-side rendering:
 
-* `yarn run server` or `ember server` (without server-side rendering/FastBoot)
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+`yarn run server` then visit your app at 
+[http://localhost:3000](http://localhost:3000).
 
+To run without server-side rendering:
+
+`ember s` then visit your app at 
+[http://localhost:4200](http://localhost:4200).
+
+### Environment variables
+
+The following environment variables are available to override fallback (dev)
+configuration:
+
+```bash
+# common
+API_URL=https://api.mirai.audio  # REST API address
+HOST=http://localhost:4200       # Default host
+
+# social login providers
+TWITTER_REQUEST_TOKEN_URL=//localhost:4000/auth/twitter # ai kickstarts OAuth
+```
+
+If these are defined in a `.env` file, they will be sourced and made available
+in the running application.
 
 ### Running Tests
 

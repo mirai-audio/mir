@@ -1,0 +1,35 @@
+<fieldset>
+  {{#if title}}
+    <legend>{{title}}</legend>
+  {{/if}}
+
+  {{components.input type="email" name="email"
+    autofocus="autofocus"
+    autocorrect="off"
+    autocomplete="email"
+    errors=(v-get model "email" "messages")
+    minlength="7"
+    pattern="\S{1,}@\S{2,}.\S{2,}"
+    required="required"
+    label=(t "routes.login.email")
+    placeholder=(t "routes.login.email-placeholder")
+    value=model.email}}
+
+  {{components.input type="password" name="password"
+    autocorrect="off"
+    autocomplete="off"
+    errors=(v-get model "password" "messages")
+    minlength="12"
+    required="required"
+    label=(t "routes.login.password")
+    value=model.password}}
+
+  <p>
+    {{mir-errors-handler errorMessageKeys=errorMessageKeys}} 
+
+    <button onclick={{action action}}
+      disabled={{isLoginInvalid}}>
+      {{t "routes.login.cta-login"}}
+    </button>
+  </p>
+</fieldset>

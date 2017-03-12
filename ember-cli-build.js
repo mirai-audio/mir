@@ -1,7 +1,7 @@
 /* global require, module */
 
 var getEnvJSON = require('./config/environment');
-var apiUrl = getEnvJSON().apiUrl;
+var host = getEnvJSON().DS.host;
 var mirVersion = getEnvJSON().version;
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
@@ -12,13 +12,13 @@ module.exports = function(defaults) {
       extensions: ['css', 'gif', 'js', 'jpg', 'png', 'map', 'svg'],
     },
     inlineContent: {
-      'apiUrl' : {
-        content: apiUrl,
+      host: {
+        content: host,
       },
-      'environment' : {
+      environment: {
         content: EmberApp.env(),
       },
-      'version' : {
+      version: {
         content: mirVersion,
       },
     },

@@ -7,9 +7,17 @@
 <nav class="mir-Nav-nav">
   <ul class="mir-Nav-items">
     <li>{{link-to (t "routes.application.title") "application"}}</li>
+
+  {{#unless isAuthenticated}}
+    <li>{{link-to (t "routes.welcome.title") "welcome"}}</li>
     <li>{{link-to (t "routes.login.title") "login"}}</li>
+  {{/unless}}
+
+  {{#if isAuthenticated}}
     <li>{{link-to (t "routes.styleguide.title") "styleguide"}}</li>
     <li>{{link-to (t "routes.typography.title") "typography"}}</li>
+    <li><a href="#" onclick={{action logout}}>Logout</a></li>
+  {{/if}}
   </ul>
 
   <footer class="mir-Nav-footer">
