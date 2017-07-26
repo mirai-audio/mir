@@ -35,7 +35,7 @@ Linux (Ubuntu)
 
 ```bash
 npm install -g yarn
-yarn global add ember-cli
+yarn global add ember-cli  # Make sure $(yarn global bin) is in your $PATH
 apt-get install phantomjs
 ```
 

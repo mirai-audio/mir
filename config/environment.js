@@ -1,9 +1,9 @@
 var mirVersion = require('../package.json').version;
 
 module.exports = function(environment) {
-  var ENV = {
+  let ENV = {
     modulePrefix: 'mir',
-    environment: environment,
+    environment,
     hostUrl: process.env.HOST || 'http://localhost:4200',
     version: mirVersion,
     rootURL: '/',

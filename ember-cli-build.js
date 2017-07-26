@@ -1,12 +1,14 @@
 /* global require, module */
+/* eslint-env node */
+'use strict';
 
-var getEnvJSON = require('./config/environment');
-var host = getEnvJSON().DS.host;
-var mirVersion = getEnvJSON().version;
-var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const getEnvJSON = require('./config/environment');
+const host = getEnvJSON().DS.host;
+const mirVersion = getEnvJSON().version;
+const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
-  var app = new EmberApp(defaults, {
+  let app = new EmberApp(defaults, {
     // Add options here
     fingerprint: {
       extensions: ['css', 'gif', 'js', 'jpg', 'png', 'map', 'svg'],
