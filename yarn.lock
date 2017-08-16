@@ -3042,9 +3042,9 @@ ember-getowner-polyfill@~1.1.1:
     ember-cli-babel "^5.1.6"
     ember-cli-version-checker "^1.2.0"
 
-ember-i18n-cp-validations@3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/ember-i18n-cp-validations/-/ember-i18n-cp-validations-3.0.1.tgz#ca089bd4a48191c679f42dbdf664108ac74f2a84"
+ember-i18n-cp-validations@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/ember-i18n-cp-validations/-/ember-i18n-cp-validations-3.0.2.tgz#560a5717fdeab9258fec78902205499e6a7eb6fa"
   dependencies:
     ember-cli-babel "^5.1.7"
 
