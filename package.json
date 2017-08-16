@@ -40,7 +40,7 @@
     "ember-cli-test-loader": "^2.2.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-cp-validations": "^3.4.0",
-    "ember-data": "~2.14.3",
+    "ember-data": "^2.14.10",
     "ember-export-application-global": "^2.0.0",
     "ember-i18n": "5.0.0",
     "ember-i18n-cp-validations": "3.0.1",

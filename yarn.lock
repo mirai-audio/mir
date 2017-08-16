@@ -2974,9 +2974,9 @@ ember-cp-validations@^3.4.0:
     exists-sync "0.0.4"
     walk-sync "^0.3.1"
 
-ember-data@~2.14.3:
-  version "2.14.7"
-  resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-2.14.7.tgz#9906604bc9a8ea75764cb6266d43747932bbebbc"
+ember-data@^2.14.10:
+  version "2.14.10"
+  resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-2.14.10.tgz#acf66ffffb062a7fc999f9d989d0e0d2e3858cd3"
   dependencies:
     amd-name-resolver "0.0.7"
     babel-plugin-feature-flags "^0.3.1"
