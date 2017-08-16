@@ -2559,7 +2559,7 @@ ember-cli-babel@^6.0.0, ember-cli-babel@^6.0.0-beta.7, ember-cli-babel@^6.4.1:
     clone "^2.0.0"
     ember-cli-version-checker "^2.0.0"
 
-ember-cli-babel@^6.1.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.7.2, ember-cli-babel@^6.8.1:
+ember-cli-babel@^6.1.0, ember-cli-babel@^6.3.0, ember-cli-babel@^6.6.0, ember-cli-babel@^6.7.2, ember-cli-babel@^6.8.1:
   version "6.8.1"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-6.8.1.tgz#695f94c57a9375c2a0e219306a41105d6b937991"
   dependencies:
@@ -3114,11 +3114,11 @@ ember-rfc176-data@^0.2.0:
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/ember-rfc176-data/-/ember-rfc176-data-0.2.6.tgz#ff9981d117a885a7344813685a9f3bf8257d1016"
 
-ember-route-action-helper@2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/ember-route-action-helper/-/ember-route-action-helper-2.0.2.tgz#6ca3f6189062f657c0c7a447e0ba12362152790f"
+ember-route-action-helper@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/ember-route-action-helper/-/ember-route-action-helper-2.0.5.tgz#eb155f915bc63ec7503ea350a9143cefce1c9696"
   dependencies:
-    ember-cli-babel "^5.1.7"
+    ember-cli-babel "^6.3.0"
     ember-getowner-polyfill "^1.1.1"
 
 ember-router-generator@^1.0.0:
