@@ -3048,9 +3048,9 @@ ember-i18n-cp-validations@3.0.1:
   dependencies:
     ember-cli-babel "^5.1.7"
 
-ember-i18n@5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/ember-i18n/-/ember-i18n-5.0.0.tgz#2cbda50fa48ad004b7a494e5701402e7dfb2d626"
+ember-i18n@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/ember-i18n/-/ember-i18n-5.0.2.tgz#3de05014e632b53a1b48d84d4a0d2ff261b8ebfc"
   dependencies:
     broccoli-funnel "^1.0.6"
     ember-cli-babel "^5.1.7"
