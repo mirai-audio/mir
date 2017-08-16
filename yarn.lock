@@ -3047,7 +3047,7 @@ ember-factory-for-polyfill@^1.1.0:
     node-fetch "^2.0.0-alpha.3"
     whatwg-fetch "^2.0.3"
 
-ember-getowner-polyfill@^1.0.1, ember-getowner-polyfill@^1.1.0, ember-getowner-polyfill@^1.1.1, ember-getowner-polyfill@^1.2.2:
+ember-getowner-polyfill@^1.1.0, ember-getowner-polyfill@^1.1.1, ember-getowner-polyfill@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/ember-getowner-polyfill/-/ember-getowner-polyfill-1.2.2.tgz#cdab739e89cc8f25af0f78735422df1a61193e92"
   dependencies:
@@ -3204,12 +3204,11 @@ ember-string-ishtmlsafe-polyfill@^1.1.0:
     ember-cli-babel "^5.1.7"
     ember-cli-version-checker "^1.2.0"
 
-ember-test-component@0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/ember-test-component/-/ember-test-component-0.2.0.tgz#bc0fb1e876effd591a1be1cdd477e72e8fab70d0"
+ember-test-component@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/ember-test-component/-/ember-test-component-0.2.1.tgz#4e69e9463b5d4392169112accc8f990f23de142f"
   dependencies:
     ember-cli-babel "^5.1.6"
-    ember-getowner-polyfill "^1.0.1"
 
 ember-test-helpers@^0.6.3:
   version "0.6.3"
