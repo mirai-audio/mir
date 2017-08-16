@@ -36,7 +36,7 @@
     "ember-cli-sass": "^7.0.0",
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.1",
-    "ember-cli-stylelint": "0.12.0",
+    "ember-cli-stylelint": "^0.15.0",
     "ember-cli-test-loader": "^1.1.0",
     "ember-cli-uglify": "^1.2.0",
     "ember-cp-validations": "3.2.4",
@@ -59,7 +59,7 @@
     "eslint-plugin-react": "^6.10.0",
     "loader.js": "^4.2.3",
     "stylelint": "^7.8.0",
-    "stylelint-config-standard": "^16.0.0",
+    "stylelint-config-standard": "^17.0.0",
     "system-font-i18n-css": "^0.1.0",
     "torii": "^0.8.1"
   },
@@ -67,13 +67,6 @@
     "node": "^4.5 || 6.* || >= 7.*"
   },
   "private": true,
-  "stylelint": {
-    "extends": "stylelint-config-standard",
-    "rules": {
-      "max-empty-lines": 2,
-      "value-list-comma-newline-after": null
-    }
-  },
   "browserslist": [
     "> 1%",
     "last 2 versions"
