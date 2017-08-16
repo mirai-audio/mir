@@ -50,7 +50,7 @@
     "ember-resolver": "^4.4.0",
     "ember-route-action-helper": "^2.0.5",
     "ember-simple-auth": "^1.4.0",
-    "ember-source": "~2.14.1",
+    "ember-source": "^2.14.1",
     "ember-test-component": "0.2.0",
     "eslint": "^3.16.1",
     "eslint-config-airbnb": "^14.1.0",
