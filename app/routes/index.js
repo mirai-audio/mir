@@ -40,12 +40,10 @@ export default Ember.Route.extend({
         headers: {
           Authorization: token,
         },
-      })
-      .then(raw => raw.json().then((data) => {
+      }).then(raw => raw.json().then((data) => {
         const user = this.store.push(data);
         this.set('session.user', user);
-      }))
-      .catch((error) => {
+      })).catch((error) => {
         console.log(`User can not authenticate this way: ${error.message}`);
       });
     }

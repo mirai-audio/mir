@@ -17,8 +17,7 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
       this.get('session').authenticate(
         'authenticator:ai',
         user.get('email'),
-        user.get('password'))
-      .catch((response) => {
+        user.get('password')).catch((response) => {
         // deal with errors
         const { errors } = response;
         // if there is a 401 "Unauthorized" in the list of returned codes
@@ -35,8 +34,7 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
     },
 
     loginTwitter() {
-      this.get('session').authenticate('authenticator:torii', 'twitter')
-      .then((/* data */) => {
+      this.get('session').authenticate('authenticator:torii', 'twitter').then((/* data */) => {
         console.log('User sucessfully authenticated with Twitter.');
       }, (/* error */) => {
         this.set('controller.errorMessageKeys', ['errors.login.other']);
@@ -50,8 +48,7 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
         .then(() => {
           // user saved, invoke the login method
           this.send('login');
-        })
-        .catch((response) => {
+        }).catch((response) => {
           // deal with errors
           const { errors } = response;
           // map list of potential errors to error keys
@@ -63,7 +60,7 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
           }
         });
       // 🤞
-      return false;  // prevent form POST
+      return false; // prevent form POST
     },
   },
 });

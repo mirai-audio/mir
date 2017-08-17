@@ -6,7 +6,7 @@ function detectFirstLocale(headerValue) {
 
 function detectLocale(appInstance) {
   const fastBoot = appInstance.lookup('service:fastboot');
-  let locale = 'en';  // set a default fallback
+  let locale = 'en'; // set a default fallback
 
   if (fastBoot.isFastBoot) {
     // detect locale from an HTTP request
