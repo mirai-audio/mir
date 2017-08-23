@@ -59,6 +59,9 @@ To run without server-side rendering:
 `ember s` then visit your app at 
 [http://localhost:4200](http://localhost:4200).
 
+To run with service workers, without live reload:
+`ember s --environment=production --live-reload=false` and add `?dev=true` to the URL.
+
 ### Environment variables
 
 The following environment variables are available to override fallback (dev)
