@@ -12,7 +12,6 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "server": "DEBUG=ember-cli-fastboot:* ember fastboot --serve-assets",
     "test": "ember test"
   },
   "devDependencies": {

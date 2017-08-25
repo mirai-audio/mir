@@ -51,16 +51,11 @@ yarn
 
 To run with server-side rendering:
 
-`yarn run server` then visit your app at 
-[http://localhost:3000](http://localhost:3000).
-
-To run without server-side rendering:
-
-`ember s` then visit your app at 
+`ember serve` then visit your app at 
 [http://localhost:4200](http://localhost:4200).
 
 To run with service workers, without live reload:
-`ember s --environment=production --live-reload=false` and add `?dev=true` to the URL.
+`ember serve --live-reload=false` and add `?dev=true` to the URL.
 
 ### Environment variables
 
