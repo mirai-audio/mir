@@ -3,6 +3,7 @@ import UnauthenticatedRouteMixin from
   'ember-simple-auth/mixins/unauthenticated-route-mixin';
 
 export default Ember.Route.extend(UnauthenticatedRouteMixin, {
+  auth: Ember.inject.service(),
   session: Ember.inject.service(),
 
   model(/* params */) {
@@ -10,24 +11,15 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
   },
 
   actions: {
-    login() {
+    login(user) {
       // get the user from routes model
-      const user = this.get('currentModel');
-      // authenticate the user model against the API
-      this.get('session').authenticate(
-        'authenticator:ai',
-        user.get('email'),
-        user.get('password')).catch((response) => {
-        // deal with errors
-        const { errors } = response;
-        // if there is a 401 "Unauthorized" in the list of returned codes
-        const isUnauthorized = (errors.mapBy('code').indexOf(401) > -1);
-        if (isUnauthorized) {
-          this.set('controller.errorMessageKeys', ['errors.login.unauthorized']);
-        } else {
-          this.set('controller.errorMessageKeys', ['errors.login.other']);
-        }
-      });
+      this.get('auth')
+        .loginOAuth2PasswordGrant(user)
+        .then((result) => {
+          // set errors to any that may have been returned
+          this.set('controller.errorMessageKeys', result);
+        });
+      // 🤞
 
       // prevent form POST
       return false;
@@ -38,8 +30,10 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
         console.log('User sucessfully authenticated with Twitter.');
       }, (/* error */) => {
         this.set('controller.errorMessageKeys', ['errors.login.other']);
+        debugger;
       }).catch((error) => {
         console.warn(error.message);
+        debugger;
       });
     },
 
