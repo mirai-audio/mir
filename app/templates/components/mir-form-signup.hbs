@@ -3,14 +3,17 @@
     <legend>{{title}}</legend>
   {{/if}}
 
-  {{components.login title=(t "routes.login.cta-login")
+  {{components.login
+    title=(t "routes.login.cta-login")
     components=(hash
       input=(component "mir-input"))
     errorMessageKeys=errorMessageKeys
     action=loginAction
     model=model}}
 
-  {{components.input type="password" name="password_confirmation"
+  {{components.input
+    type="password"
+    name="password_confirmation"
     autocorrect="off"
     autocomplete="off"
     errors=(v-get model "passwordConfirmation" "messages")
@@ -20,7 +23,7 @@
     value=model.passwordConfirmation}}
 
   <p>
-    {{mir-errors-handler errorMessageKeys=errorMessageKeys}} 
+    {{mir-errors-handler errorMessageKeys=errorMessageKeys}}
 
     <button {{action action}} disabled={{model.validations.isInvalid}}>
       {{t "routes.login.cta-signup"}}

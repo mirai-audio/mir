@@ -14,7 +14,7 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
     login(user) {
       // get the user from routes model
       this.get('auth')
-        .loginOAuth2PasswordGrant(user)
+        .loginUserPassword(user)
         .then((result) => {
           // set errors to any that may have been returned
           this.set('controller.errorMessageKeys', result);
@@ -26,15 +26,13 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
     },
 
     loginTwitter() {
-      this.get('session').authenticate('authenticator:torii', 'twitter').then((/* data */) => {
-        console.log('User sucessfully authenticated with Twitter.');
-      }, (/* error */) => {
-        this.set('controller.errorMessageKeys', ['errors.login.other']);
-        debugger;
-      }).catch((error) => {
-        console.warn(error.message);
-        debugger;
-      });
+      this.get('auth')
+        .loginTwitter()
+        .then((result) => {
+          // set errors to any that may have been returned
+          this.set('controller.errorMessageKeys', result);
+        });
+      // 🤞
     },
 
     signup() {
