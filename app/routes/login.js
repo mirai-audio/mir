@@ -39,7 +39,8 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
       this.get('currentModel').save()
         .then(() => {
           // user saved, invoke the login method
-          this.send('login');
+          const user = this.get('currentModel');
+          this.send('login', user);
         }).catch((response) => {
           // deal with errors
           const { errors } = response;
