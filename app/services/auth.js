@@ -3,10 +3,8 @@ import Ember from 'ember';
 export default Ember.Service.extend({
   session: Ember.inject.service(),
 
-  loginUserPassword(user) {
+  loginUserPassword(identity, password) {
     const authenticator = 'authenticator:ai';
-    const identity = user.get('email');
-    const password = user.get('password');
 
     // authenticate the user model against the API
     return this.get('session')
@@ -34,10 +32,16 @@ export default Ember.Service.extend({
 
     return this.get('session')
       .authenticate(authenticator, provider)
-      .then((/* data */) => {
-        console.log('User sucessfully authenticated with Twitter.');
-        // ToDo: Now log them in with a custom Ai authenticator
-        debugger;
+      .then(() => {
+        console.info('Sucessfully authenticated with Twitter.');
+        // log user in with Ai authenticator
+        const identity = `provider:${provider}`;
+        const password = this.get('session.session.authenticated.code');
+        this.loginUserPassword(identity, password)
+          .then(() => {
+            console.info('Sucessfully exchanged Twitter code for JWT.');
+          });
+        // 🤞
       }, (/* error */) => ['errors.login.other'])
       .catch((error) => {
         console.warn(error.message);
