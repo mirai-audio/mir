@@ -1,15 +1,19 @@
 import Ember from 'ember';
 import fetch from 'ember-network/fetch';
+import UnauthenticatedRouteMixin from
+  'ember-simple-auth/mixins/unauthenticated-route-mixin';
 import config from '../config/environment';
 
-export default Ember.Route.extend({
+export default Ember.Route.extend(UnauthenticatedRouteMixin, {
   session: Ember.inject.service(),
+  fastboot: Ember.inject.service(),
 
   beforeModel() {
     const isAuthenticated = this.get('session').get('isAuthenticated');
+    const isFastboot = this.get('fastboot').isFastBoot;
 
-    // if user is not authenticated
-    if (!isAuthenticated) {
+    // if user is not authenticated, and we're not on fastboot
+    if (!isAuthenticated && !isFastboot) {
       // send them to welcome
       this.transitionTo('welcome');
     }
