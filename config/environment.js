@@ -53,7 +53,6 @@ module.exports = function(environment) {
     // Torii
     torii: {
       sessionServiceName: 'session',
-      allowUnsafeRedirect: true, // ToDo: unsafe, should remove
       providers: {
         'twitter': {
           requestTokenUri: process.env.TWITTER_REQUEST_TOKEN_URL ||
