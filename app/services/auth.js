@@ -3,9 +3,7 @@ import Ember from 'ember';
 export default Ember.Service.extend({
   session: Ember.inject.service(),
 
-  loginUserPassword(identity, password) {
-    const authenticator = 'authenticator:ai';
-
+  loginUserPassword(authenticator, identity, password) {
     // authenticate the user model against the API
     return this.get('session')
       .authenticate(authenticator, identity, password)
@@ -27,17 +25,18 @@ export default Ember.Service.extend({
   },
 
   loginTwitter() {
-    const authenticator = 'authenticator:torii';
     const provider = 'twitter';
+    let authenticator = 'authenticator:torii';
 
     return this.get('session')
       .authenticate(authenticator, provider)
       .then(() => {
         console.info('Sucessfully authenticated with Twitter.');
         // log user in with Ai authenticator
-        const identity = `provider:${provider}`;
-        const password = this.get('session.session.authenticated.code');
-        this.loginUserPassword(identity, password)
+        authenticator = 'authenticator:token';
+        const code = this.get('session.session.authenticated.code');
+        const { identity, token } = this.parseToken(code);
+        this.loginUserPassword(authenticator, identity, token)
           .then(() => {
             console.info('Sucessfully exchanged Twitter code for JWT.');
           });
@@ -48,5 +47,22 @@ export default Ember.Service.extend({
         return ['errors.login.other'];
       });
     // 🤞
+  },
+
+  /**
+   * Splits out the OAuth user identity `identity` and OAuth2 `token` from a
+   * string where both are concatenated together.
+   *
+   * @method parseToken
+   * @param {String} code The OAuth code returned from authentication.
+   * @return {Object} An object with an `identity` and `token` keys.
+   * @public
+   */
+  parseToken(code) {
+    const [identity, token] = code.split('::');
+    return {
+      identity,
+      token,
+    };
   },
 });

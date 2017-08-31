@@ -14,7 +14,7 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
     login(user) {
       // get the user from routes model
       this.get('auth')
-        .loginUserPassword(user.get('email'), user.get('password'))
+        .loginUserPassword('authenticator:ai', user.get('email'), user.get('password'))
         .then((result) => {
           // set errors to any that may have been returned
           this.set('controller.errorMessageKeys', result);
