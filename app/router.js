@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('styleguide');
   this.route('typography');
   this.route('welcome');
+  this.route('logout');
 });
 
 export default Router;
