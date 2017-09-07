@@ -14,4 +14,6 @@ export default Ember.Component.extend({
   action: null,
   model: null,
   user: null,
+
+  isDisabled: Ember.computed.alias('model.validations.isInvalid'),
 });

@@ -4,6 +4,13 @@ function detectFirstLocale(headerValue) {
   return locale;
 }
 
+function getLocale(navigator) {
+  return (navigator.languages && navigator.languages[0]) ||
+    navigator.language ||
+    navigator.userLanguage ||
+    'en';
+}
+
 function detectLocale(appInstance) {
   const fastBoot = appInstance.lookup('service:fastboot');
   let locale = 'en'; // set a default fallback
@@ -15,10 +22,7 @@ function detectLocale(appInstance) {
     locale = detectFirstLocale(acceptLanguageHeader);
   } else if ('navigator' in window) {
     // detect locale on the frontend
-    return navigator.languages[0] ||
-      navigator.language ||
-      navigator.userLanguage ||
-      'en';
+    return getLocale(window.navigator);
   }
   return locale;
 }

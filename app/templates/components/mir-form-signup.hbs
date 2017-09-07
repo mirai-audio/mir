@@ -25,7 +25,9 @@
   <p>
     {{mir-errors-handler errorMessageKeys=errorMessageKeys}}
 
-    <button {{action action}} disabled={{model.validations.isInvalid}}>
+    <button {{action action}}
+      data-test="cta-signup"
+      disabled={{isDisabled}}>
       {{t "routes.login.cta-signup"}}
     </button>
   </p>
