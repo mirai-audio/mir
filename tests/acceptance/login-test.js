@@ -1,7 +1,10 @@
 import { test } from 'qunit';
+import {
+  authenticateSession,
+} from 'mir/tests/helpers/ember-simple-auth';
 import moduleForAcceptance from 'mir/tests/helpers/module-for-acceptance';
 
-moduleForAcceptance('Acceptance | /login');
+moduleForAcceptance('Acceptance | login');
 
 test('unauthenticated users can visit /login', function(assert) {
   visit('/login');
@@ -58,3 +61,17 @@ test(
     });
   }
 );
+
+test('authenticated users can visit /login and redirect to /', function(assert) {
+  const app = this.application;
+
+  authenticateSession(app, {
+    userId: 1,
+    otherData: 'some-data',
+  });
+  visit('/login');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/');
+  });
+});

@@ -9,6 +9,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     // logout user
     if (this.get('session.isAuthenticated')) {
       this.get('session').invalidate();
+    } else {
+      this.transitionTo('welcome');
     }
   },
 });

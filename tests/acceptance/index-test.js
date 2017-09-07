@@ -1,7 +1,7 @@
 import { test } from 'qunit';
 import moduleForAcceptance from 'mir/tests/helpers/module-for-acceptance';
 
-moduleForAcceptance('Acceptance | /index');
+moduleForAcceptance('Acceptance | index');
 
 test('visiting / unauthenticated should redirect to /welcome', function(assert) {
   visit('/');
