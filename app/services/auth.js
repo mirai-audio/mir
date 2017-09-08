@@ -31,16 +31,11 @@ export default Ember.Service.extend({
     return this.get('session')
       .authenticate(authenticator, provider)
       .then(() => {
-        console.info('Sucessfully authenticated with Twitter.');
         // log user in with Ai authenticator
         authenticator = 'authenticator:token';
         const code = this.get('session.session.authenticated.code');
         const { identity, token } = this.parseToken(code);
-        this.loginUserPassword(authenticator, identity, token)
-          .then(() => {
-            console.info('Sucessfully exchanged Twitter code for JWT.');
-          });
-        // 🤞
+        this.loginUserPassword(authenticator, identity, token);
       }, (/* error */) => ['errors.login.other'])
       .catch((error) => {
         console.warn(error.message);

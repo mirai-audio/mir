@@ -48,7 +48,7 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
         const user = this.store.push(data);
         this.set('session.user', user);
       })).catch((error) => {
-        console.log(`User can not authenticate this way: ${error.message}`);
+        console.error(`User can not authenticate this way: ${error.message}`);
       });
     }
   },

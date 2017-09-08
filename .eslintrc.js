@@ -18,11 +18,13 @@ module.exports = {
     'ignoreAssertion': true,
     'ignoreDeprecation': true,
 
+    // required for ember-cli-mirage
+    'server': true,
+
     // A safe subset of 'browser:true':
     'window': true,
     'console': true,
     'document': true,
-    'setTimeout': true,
     'clearTimeout': true,
     'setInterval': true,
     'clearInterval': true,
@@ -31,7 +33,7 @@ module.exports = {
     'WeakMap': true,
   },
   rules: {
-    'no-console': 0,
+    'no-console': ["error", { allow: ["warn", "error"] }],
 
     // override airbnb defaults
     'prefer-const': 1,
