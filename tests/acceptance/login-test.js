@@ -46,7 +46,6 @@ test(
   }
 );
 
-
 test(
   'unauthenticated users must supply a valid email address',
   function(assert) {
@@ -58,6 +57,27 @@ test(
       let msg = find('.mir-FormLogin .is-danger').text();
       assert.notEqual(msg.match(/valid email/), null);
       assert.equal(find('.mir-FormLogin button[disabled]').length, 1);
+    });
+  }
+);
+
+test(
+  'unauthenticated users can create an account with email & password',
+  function(assert) {
+    // create an OAuth token
+    server.create('token');
+
+    // user visits login and fills in signup form
+    visit('/login');
+    fillIn('[name=email]', `mike+${new Date().getTime()}@example.com`);
+    fillIn('[name=password]', 'Password1234');
+    fillIn('[name=password_confirmation]', 'Password1234');
+    // user clicks signup button
+    click('.mir-FormSignup button');
+
+    andThen(function() {
+      // user lands on index page
+      assert.equal(currentURL(), '/');
     });
   }
 );

@@ -4,36 +4,20 @@ export default function () {
                                              * different server
                                              */
   this.namespace = '/api/v1'; /* make this `/api`, for example, if your API is
-                            * namespaced
-                            */
+                               * namespaced
+                               */
   this.timing = '25'; /* delay for each request, automatically set to 0 during
                        * testing
                        */
 
-  this.get('/medias', () => (
-    {
-      jsonapi: {
-        version: '1.0',
-      },
-      data: [{
-        type: 'media',
-        id: '1',
-        attributes: {
-          url: 'https://www.youtube.com/watch?v=hpDvtIt6Lsc',
-          'updated-at': '2017-08-30T01:39:35.434516',
-          title: 'AKIRA - Kendas Theme',
-          'inserted-at': '2017-08-30T01:39:35.434496',
-        },
-      }, {
-        type: 'media',
-        id: '2',
-        attributes: {
-          url: 'https://www.youtube.com/watch?v=LqGq2QgDQR8',
-          'updated-at': '2017-08-30T01:39:35.465799',
-          title: 'Kenji Kawai - Innocence [LIVE]',
-          'inserted-at': '2017-08-30T01:39:35.465791',
-        },
-      }],
-    }
-  ));
+  this.post('/users');
+  this.post('/users/token', (schema/* , request */) => {
+    const token = schema.tokens.first();
+    // return the data object, this is an odd endpoint not using JSON API, so only
+    // return the `attrs` part of the token.
+    return token.attrs;
+  });
+  this.get('/users/current');
+
+  this.get('/medias', schema => schema.medias.all());
 }
