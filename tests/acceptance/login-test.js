@@ -82,6 +82,27 @@ test(
   }
 );
 
+test(
+  'unauthenticated user can login to an account with email & password',
+  function(assert) {
+    // create an OAuth token
+    server.create('token');
+
+    // user visits login and fills in signup form
+    visit('/login');
+    fillIn('[name=email]', `mike+${new Date().getTime()}@example.com`);
+    fillIn('[name=password]', 'Password1234');
+    fillIn('[name=password_confirmation]', 'Password1234');
+    // user clicks signup button
+    click('.mir-FormLogin button');
+
+    andThen(function() {
+      // user lands on index page
+      assert.equal(currentURL(), '/');
+    });
+  }
+);
+
 test('authenticated users can visit /login and redirect to /', function(assert) {
   const app = this.application;
 
