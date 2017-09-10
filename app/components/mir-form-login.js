@@ -9,11 +9,11 @@ export default Ember.Component.extend({
   formMethod: 'POST',
 
   /* API */
-  title: '',
   action: null,
   model: null,
+  title: '',
 
   /* component helpers */
-  isLoginInvalid: Ember.computed.or('model.validations.attrs.email.isInvalid',
+  isDisabled: Ember.computed.or('model.validations.attrs.email.isInvalid',
     'model.validations.attrs.password.isInvalid').readOnly(),
 });

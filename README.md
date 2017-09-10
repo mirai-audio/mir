@@ -1,6 +1,7 @@
 > Ember app powering mirai.audio
 
 [![CircleCI](https://img.shields.io/circleci/project/github/mirai-audio/mir.svg?style=flat-square)](https://circleci.com/gh/mirai-audio/mir)
+[![Coveralls branch](https://img.shields.io/coveralls/mirai-audio/mir/master.svg?style=flat-square)](https://coveralls.io/github/mirai-audio/mir?branch=master)
 
 ## [Docs](https://github.com/mirai-audio/mir/wiki)
 
@@ -69,6 +70,9 @@ HOST=http://localhost:4200       # Default host
 
 # social login providers
 TWITTER_REQUEST_TOKEN_URL=//localhost:4000/auth/twitter # ai kickstarts OAuth
+
+# Coveralls API token (how test coverage is reported)
+COVERALLS_REPO_TOKEN=  # needs to be set in Circle CI / Travis
 ```
 
 If these are defined in a `.env` file, they will be sourced and made available

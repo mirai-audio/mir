@@ -12,15 +12,18 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember test"
+    "test": "COVERAGE=true ember test",
+    "coverage": "cat ./coverage/lcov.info | COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN ./node_modules/coveralls/bin/coveralls.js"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
+    "coveralls": "^2.13.1",
     "ember-ajax": "^3.0.0",
     "ember-cli": "^2.14.2",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-autoprefixer": "^0.7.0",
     "ember-cli-babel": "^6.8.1",
+    "ember-cli-code-coverage": "^0.4.1",
     "ember-cli-content-security-policy": "^1.0.0",
     "ember-cli-dependency-checker": "^2.0.1",
     "ember-cli-dotenv": "^1.2.0",

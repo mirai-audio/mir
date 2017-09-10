@@ -25,10 +25,11 @@
     value=model.password}}
 
   <p>
-    {{mir-errors-handler errorMessageKeys=errorMessageKeys}} 
+    {{mir-errors-handler errorMessageKeys=errorMessageKeys}}
 
     <button onclick={{action action}}
-      disabled={{isLoginInvalid}}>
+      data-test="login"
+      disabled={{isDisabled}}>
       {{t "routes.login.cta-login"}}
     </button>
   </p>

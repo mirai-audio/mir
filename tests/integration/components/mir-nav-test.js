@@ -15,3 +15,17 @@ test('it renders', function(assert) {
   assert.notEqual(this.$().text().indexOf('Styleguide'), -1);
   assert.notEqual(this.$().text().indexOf('Typography'), -1);
 });
+
+test('it animates in and out', function(assert) {
+  this.set('isAuth', true);
+  this.set('logout', function logout() {});
+  this.render(hbs`{{mir-nav logout=logout isAuthenticated=isAuth}}`);
+
+  // click hamburger and check that the 'is-shown' class is available
+  this.$('.mir-Nav-hamburger').click();
+  assert.notEqual(this.$().html().indexOf('is-shown'), -1);
+
+  // click hamburger and check that the 'is-shown' class is available
+  this.$('.mir-Nav-hamburger').click();
+  assert.equal(this.$().html().indexOf('is-shown'), -1);
+});
