@@ -3,9 +3,9 @@ import config from '../config/environment';
 
 export default Ember.Component.extend({
   tagName: 'aside',
-  classNames: ['mir-Nav', 'mir-Nav--animate', 'mir-Nav--animate-slide', 'u-Z10'],
+  classNames: ['ma-Nav', 'ma-Nav--animate', 'ma-Nav--animate-slide', 'u-Z10'],
   classNameBindings: ['isShown'],
-  elementId: 'mir-Nav',
+  elementId: 'ma-Nav',
 
   isAuthenticated: false,
   isShown: false,

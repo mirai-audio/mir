@@ -1,7 +1,7 @@
 /* eslint-disable quotes, quote-props */
 
 export default {
-  'mir-header': {
+  'ma-header': {
     'back': 'Back',
   },
 };

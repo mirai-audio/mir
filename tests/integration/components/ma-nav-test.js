@@ -1,14 +1,14 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('mir-nav', 'Integration | Component | mir nav', {
+moduleForComponent('ma-nav', 'Integration | Component | ma-nav', {
   integration: true
 });
 
 test('it renders', function(assert) {
   this.set('isAuth', true);
   this.set('logout', function logout() {});
-  this.render(hbs`{{mir-nav logout=logout isAuthenticated=isAuth}}`);
+  this.render(hbs`{{ma-nav logout=logout isAuthenticated=isAuth}}`);
 
   assert.notEqual(this.$().text().trim(), '');
   assert.notEqual(this.$().text().indexOf('Home'), -1);
@@ -19,13 +19,13 @@ test('it renders', function(assert) {
 test('it animates in and out', function(assert) {
   this.set('isAuth', true);
   this.set('logout', function logout() {});
-  this.render(hbs`{{mir-nav logout=logout isAuthenticated=isAuth}}`);
+  this.render(hbs`{{ma-nav logout=logout isAuthenticated=isAuth}}`);
 
   // click hamburger and check that the 'is-shown' class is available
-  this.$('.mir-Nav-hamburger').click();
+  this.$('.ma-Nav-hamburger').click();
   assert.notEqual(this.$().html().indexOf('is-shown'), -1);
 
   // click hamburger and check that the 'is-shown' class is available
-  this.$('.mir-Nav-hamburger').click();
+  this.$('.ma-Nav-hamburger').click();
   assert.equal(this.$().html().indexOf('is-shown'), -1);
 });

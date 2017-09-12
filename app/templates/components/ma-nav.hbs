@@ -1,11 +1,11 @@
-<a class="mir-Nav-overlay" href="#" {{action "toggle"}}></a>
+<a class="ma-Nav-overlay" href="#" {{action "toggle"}}></a>
 
-<a class="mir-Nav-hamburger" href="{{concat '#' elementId}}" {{action "toggle"}}>
+<a class="ma-Nav-hamburger" href="{{concat '#' elementId}}" {{action "toggle"}}>
   ☰ {{! Unicode: Trigram for Heaven U+2630 }}
 </a>
 
-<nav class="mir-Nav-nav">
-  <ul class="mir-Nav-items">
+<nav class="ma-Nav-nav">
+  <ul class="ma-Nav-items">
     <li>{{link-to (t "routes.application.title") "application"}}</li>
 
   {{#unless isAuthenticated}}
@@ -20,7 +20,7 @@
   {{/if}}
   </ul>
 
-  <footer class="mir-Nav-footer">
+  <footer class="ma-Nav-footer">
     <small>v{{version}}</small>
   </footer>
 </nav>

@@ -1,0 +1,28 @@
+{{! update the <head><title/><head> tag}}
+{{title (t title)}}
+
+<nav class="ma-Header-Nav">
+  <ul class="ma-Header-Items">
+    {{#if backTo}}
+      <li class="ma-Header-Item">
+        {{link-to (t back) backTo class="ma-Header-Link"}}
+      </li>
+    {{else}}
+      <li class="ma-Header-Item">
+        <a href=#
+          {{action "back"}}
+          class="ma-Header-Link"
+          title={{t "components.ma-header.back"}}
+          >{{t "components.ma-header.back"}}
+        </a>
+      </li>
+    {{/if}}
+
+    <li class="ma-Header-Item">
+      {{yield}}
+    </li>
+  </ul>
+</nav>
+
+<h1 class="ma-Header-Title">{{t title}}</h1>
+

@@ -1,4 +1,4 @@
-.mir-Nav {
+.ma-Nav {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -47,16 +47,16 @@
     top: 0;
     bottom: 0;
 
-    .mir-Nav--animate & {
+    .ma-Nav--animate & {
       transition: transform 250ms ease;
       will-change: transform;
     }
 
-    .mir-Nav--animate-slide & {
+    .ma-Nav--animate-slide & {
       transform: translate3d(-101%, 0, 0);  /* slide in */
     }
 
-    .mir-Nav--animate-open & {
+    .ma-Nav--animate-open & {
       transform: rotate3d(0, 1, 0, 112deg);  /* 3d door-open */
       transform-origin: top left;
     }
@@ -77,13 +77,13 @@
   }
 }
 
-.mir-Nav.is-shown,
-.mir-Nav:target {
-  .mir-Nav-overlay {
+.ma-Nav.is-shown,
+.ma-Nav:target {
+  .ma-Nav-overlay {
     opacity: 1;
     pointer-events: auto;  /* enable clicking link to undo :target */
   }
 
-  &.mir-Nav--animate-slide .mir-Nav-nav { transform: translate3d(0%, 0, 0); /* slide-in */ }
-  &.mir-Nav--animate-open .mir-Nav-nav { transform: rotate3d(0, 1, 0, 0); /* 3d door open */ }
+  &.ma-Nav--animate-slide .ma-Nav-nav { transform: translate3d(0%, 0, 0); /* slide-in */ }
+  &.ma-Nav--animate-open .ma-Nav-nav { transform: rotate3d(0, 1, 0, 0); /* 3d door open */ }
 }
