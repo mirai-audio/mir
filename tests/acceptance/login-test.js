@@ -123,7 +123,7 @@ test(
     // user visits login and fills in signup form
     visit('/login');
     // user clicks signup button
-    click('.mir-Header .mir-Header-Link');
+    click('.ma-Header .ma-Header-Link');
 
     andThen(function() {
       // user lands on welcome page

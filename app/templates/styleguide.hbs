@@ -1,9 +1,9 @@
-{{#mir-header
+{{#ma-header
   back="routes.application.title"
   backTo="application"
   title="routes.styleguide.title"}}
   {{link-to (t "routes.typography.title") "typography"}}
-{{/mir-header}}
+{{/ma-header}}
 
 <nav role="navigation">
   <ul>
@@ -159,11 +159,11 @@
       </blockquote>
       <div>
         <blockquote>
-          <p>A block quotation (also known as a long quotation or extract) 
-          is a quotation in a written document, that is set off from the 
+          <p>A block quotation (also known as a long quotation or extract)
+          is a quotation in a written document, that is set off from the
           main text as a paragraph, or block of text.</p>
-          <p>It is typically distinguished visually using indentation and a 
-          different typeface or smaller size quotation. It may or may not 
+          <p>It is typically distinguished visually using indentation and a
+          different typeface or smaller size quotation. It may or may not
           include a citation, usually placed at the bottom.</p>
           <cite><a href="#!">Said no one, ever.</a></cite>
         </blockquote>
@@ -203,10 +203,10 @@
     <article id="text__figure">
       <header><h2>Figure / Figcaption</h2></header>
       <div>
-        <h3>Wrapped in a <code>&lt;figure&gt;</code> element, no 
+        <h3>Wrapped in a <code>&lt;figure&gt;</code> element, no
           <code>&lt;figcaption&gt;</code></h3>
         <figure><img src={{asset "images/logo.svg"}} alt="Image alt text"></figure>
-        <h3>Wrapped in a <code>&lt;figure&gt;</code> element, with a 
+        <h3>Wrapped in a <code>&lt;figure&gt;</code> element, with a
           <code>&lt;figcaption&gt;</code></h3>
         <figure>
           <img src="{{asset "images/logo.svg"}}" alt="Image alt text">
@@ -233,9 +233,9 @@
       <header><h1>Paragraphs</h1></header>
       <p>A paragraph (from the Greek paragraphos, “to write beside” or
         “written beside”) is a self-contained unit of a discourse in writing
-        dealing with a particular point or idea. A paragraph consists of 
-        one or more sentences. Though not required by the syntax of any 
-        language, paragraphs are usually an expected part of formal writing, 
+        dealing with a particular point or idea. A paragraph consists of
+        one or more sentences. Though not required by the syntax of any
+        language, paragraphs are usually an expected part of formal writing,
         used to organize longer prose.
       </p>
       <aside>This is an aside.</aside>
@@ -272,7 +272,7 @@ line-height: 160%;
       <div>
         <p><a href="#!">This is a text link</a>.</p>
         <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
-        <p>The <b>b element</b> is stylistically different text from 
+        <p>The <b>b element</b> is stylistically different text from
           normal text, without any special importance.</p>
         <p><bdi>&lt;bdi&gt; indicates </bdi> a different text-flow direction.</p>
         <p><bdo>&lt;bdo&gt; indicates </bdo>an override for text-flow direction.</p>
@@ -286,12 +286,12 @@ line-height: 160%;
         <p><em>This text has added emphasis.</em></p>
         <p>use <kbd>keyboard text</kbd> to indecate keystrokes</p>
         <p>The <mark>mark element</mark> indicates a highlight.</p>
-        <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This 
+        <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This
           text is a short inline quotation.</q></p>
         <p>This is example of Japanese text annotated with &lt;Ruby&gt; tags
           <ruby>
             <ruby>
-              未<rp>(</rp><rt>み</rt><rp>)</rp> 
+              未<rp>(</rp><rt>み</rt><rp>)</rp>
               来<rp>(</rp><rt>らい</rt><rp>)</rp>
               .<rp>(</rp><rt>ドット</rt><rp>)</rp>
               audio<rp>(</rp><rt>オーディオ</rt><rp>)</rp>
@@ -303,7 +303,7 @@ line-height: 160%;
         </p>
         <p><s>This text has a strikethrough</s>.</p>
         <p>
-          <strong>Sample &lt;samp&gt; output:</strong> <samp>This is sample 
+          <strong>Sample &lt;samp&gt; output:</strong> <samp>This is sample
           output from a computer program.</samp>
         </p>
         <p><small>This small text is small for for fine print, etc.</small></p>
@@ -315,7 +315,7 @@ line-height: 160%;
         <p>Superscript<sup>®</sup>.</p>
         <p>The time element: <time datetime="2013-04-06T12:32+00:00">2 weeks
           ago</time></p>
-        <p>The <u>u element</u> is text with an unarticulated, though explicitly 
+        <p>The <u>u element</u> is text with an unarticulated, though explicitly
           rendered, non-textual annotation.</p>
         <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
         <p>The HTML &lt;wbr&gt; element represents a word break opportunity—a
@@ -332,7 +332,7 @@ line-height: 160%;
     <header><h1>Images and Media</h1></header>
     <article id="images__area">
       <header><h2>Area / Map</h2></header>
-      <p>A 
+      <p>A
         &lt;map&gt; with &lt;area&gt; can be used to define clickable regions.
       </p>
       <footer><p>[<a href="#top">Top</a>]</p></footer>
@@ -348,11 +348,11 @@ line-height: 160%;
         <h3>Image, no <code>&lt;figure&gt;</code> element</h3>
         <p><img src={{asset "images/logo.svg"}} alt="Image alt text"></p>
 
-        <h3>Wrapped in a <code>&lt;figure&gt;</code> element, no 
+        <h3>Wrapped in a <code>&lt;figure&gt;</code> element, no
           <code>&lt;figcaption&gt;</code></h3>
         <figure><img src={{asset "images/logo.svg"}} alt="Image alt text"></figure>
 
-        <h3>Wrapped in a <code>&lt;figure&gt;</code> element, with a 
+        <h3>Wrapped in a <code>&lt;figure&gt;</code> element, with a
           <code>&lt;figcaption&gt;</code></h3>
         <figure>
           <img src="{{asset "images/logo.svg"}}" alt="Image alt text">
@@ -369,7 +369,7 @@ line-height: 160%;
     <article id="images__track">
       <header><h2>Track</h2></header>
       <p>The HTML &lt;track&gt; element is used as a child of the media elements—
-        &lt;audio&gt; and &lt;video&gt;. It lets you specify timed text tracks 
+        &lt;audio&gt; and &lt;video&gt;. It lets you specify timed text tracks
         (or time-based data), for example to automatically handle subtitles.
       </p>
       <footer><p>[<a href="#top">Top</a>]</p></footer>
@@ -567,7 +567,7 @@ line-height: 160%;
                 type="checkbox" checked="checked"> Choice A</label></li>
           <li><label for="checkbox2"><input id="checkbox2" name="checkbox"
                 type="checkbox"> Choice B</label></li>
-          <li><label for="checkbox3"><input id="checkbox3" name="checkbox" 
+          <li><label for="checkbox3"><input id="checkbox3" name="checkbox"
                 type="checkbox"> Choice C</label></li>
         </ul>
       </fieldset>
@@ -578,9 +578,9 @@ line-height: 160%;
         <ul class="list list--bare">
           <li><label for="radio1"><input id="radio1" name="radio" type="radio"
                 class="radio" checked="checked"> Option 1</label></li>
-          <li><label for="radio2"><input id="radio2" name="radio" type="radio" 
+          <li><label for="radio2"><input id="radio2" name="radio" type="radio"
                 class="radio"> Option 2</label></li>
-          <li><label for="radio3"><input id="radio3" name="radio" type="radio" 
+          <li><label for="radio3"><input id="radio3" name="radio" type="radio"
                 class="radio"> Option 3</label></li>
         </ul>
       </fieldset>
@@ -654,7 +654,7 @@ line-height: 160%;
           <div>
             <label>
               <input type="radio" name="options-radios" id="options-radios2"
-                value="option2"> Option two can be something else and selecting 
+                value="option2"> Option two can be something else and selecting
                 it will deselect option one
             </label>
           </div>
@@ -732,7 +732,7 @@ line-height: 160%;
       <h3>Summary / Details</h3>
       <summary>You should read more below
         <details>And this is the details.</details>
-      </summary> 
+      </summary>
       <footer><p>[<a href="#top">Top</a>]</p></footer>
     </article>
   </section>

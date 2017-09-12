@@ -1,9 +1,9 @@
 /*
-.mir-Header
-.mir-Header-Link
+.ma-Header
+.ma-Header-Link
  */
 
-.mir-Header-Nav {
+.ma-Header-Nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,11 +12,11 @@
   box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.8);
 }
 
-.mir-Header-Items {
+.ma-Header-Items {
   margin: 0;
   padding: 1em;
 }
 
-.mir-Header-Item { display: inline; }
+.ma-Header-Item { display: inline; }
 
-.mir-Header-Title { margin-top: 1.75em; }
+.ma-Header-Title { margin-top: 1.75em; }

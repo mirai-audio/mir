@@ -1,7 +1,10 @@
+# Mir
+
 > Ember app powering mirai.audio
 
 [![CircleCI](https://img.shields.io/circleci/project/github/mirai-audio/mir.svg?style=flat-square)](https://circleci.com/gh/mirai-audio/mir)
 [![Coveralls branch](https://img.shields.io/coveralls/mirai-audio/mir/master.svg?style=flat-square)](https://coveralls.io/github/mirai-audio/mir?branch=master)
+[![David](https://img.shields.io/david/dev/mirai-audio/mir.svg?style=flat-square)](https://david-dm.org/mirai-audio/mir?type=dev)
 
 ## [Docs](https://github.com/mirai-audio/mir/wiki)
 
