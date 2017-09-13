@@ -35,7 +35,7 @@ export default Ember.Service.extend({
         authenticator = 'authenticator:token';
         const code = this.get('session.session.authenticated.code');
         const { identity, token } = this.parseToken(code);
-        this.loginUserPassword(authenticator, identity, token);
+        return this.loginUserPassword(authenticator, identity, token);
       }, (/* error */) => ['errors.login.other'])
       .catch((error) => {
         console.warn(error.message);
@@ -54,10 +54,12 @@ export default Ember.Service.extend({
    * @public
    */
   parseToken(code) {
-    const [identity, token] = code.split('::');
-    return {
-      identity,
-      token,
-    };
+    const [identity, token] = (code || '').split('::');
+    return (identity && token) ?
+      {
+        identity,
+        token,
+      } :
+      null;
   },
 });
