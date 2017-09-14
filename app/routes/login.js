@@ -46,7 +46,7 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
           const { errors } = response;
           // map list of potential errors to error keys
           const errorMessageKeys = errors.mapBy('detail')
-            .map(errorMessage => `errors.login.${errorMessage.dasherize()}`);
+            .map(errorMessage => `errors.login.${(errorMessage || 'other').dasherize()}`);
           // set error message list to the controller
           if (errorMessageKeys.length > 0) {
             this.set('controller.errorMessageKeys', errorMessageKeys);

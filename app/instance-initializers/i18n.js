@@ -1,10 +1,10 @@
-function detectFirstLocale(headerValue) {
-  let locale = (headerValue !== null ? headerValue : 'en');
+function detectHeaderLocale(headerValue) {
+  let locale = (headerValue || 'en');
   locale = locale.split(',')[0];
   return locale;
 }
 
-function getLocale(navigator) {
+function getNavigatorLocale(navigator) {
   return (navigator.languages && navigator.languages[0]) ||
     navigator.language ||
     navigator.userLanguage ||
@@ -19,10 +19,10 @@ function detectLocale(appInstance) {
     // detect locale from an HTTP request
     const headers = fastBoot.get('request.headers');
     const acceptLanguageHeader = headers.get('Accept-Language');
-    locale = detectFirstLocale(acceptLanguageHeader);
+    locale = detectHeaderLocale(acceptLanguageHeader);
   } else if ('navigator' in window) {
     // detect locale on the frontend
-    return getLocale(window.navigator);
+    return getNavigatorLocale(window.navigator);
   }
   return locale;
 }

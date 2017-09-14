@@ -1,3 +1,5 @@
+import Response from 'ember-cli-mirage/response';
+
 export default function () {
   // required for `ember-cli-code-coverage` to write reports
   this.passthrough('/write-coverage');
@@ -10,7 +12,26 @@ export default function () {
   this.timing = '25';
 
   // define the API surface
-  this.post('/users');
+  this.post('/users', (schema, request) => {
+    const email = JSON.parse(request.requestBody).data.attributes.email;
+    const user = schema.users.first();
+    if (email === 'mike@example.com') {
+      const headers = { 'content-type': 'application/vnd.api+json; charset=utf-8' };
+      const data = {
+        jsonapi: {
+          version: '1.0',
+        },
+        errors: [
+          {
+            title: 'Internal Server Error',
+            code: 500,
+          },
+        ],
+      };
+      return new Response(500, headers, data);
+    }
+    return user;
+  });
   this.post('/users/token', (schema/* , request */) => {
     const token = schema.tokens.first();
     // return the data object, this is an odd endpoint not using JSON API, so only

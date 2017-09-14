@@ -72,7 +72,7 @@ moduleFor('service:auth', 'Unit | Service | auth', {
 });
 
 test('loginUserPassword authenticates the user with valid username / password', function(assert) {
-  let service = this.subject();
+  let service = this.subject({ isFastBoot: true });
   assert.ok(service, 'Service is ok');
 
   let done = assert.async();
