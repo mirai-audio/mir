@@ -5,8 +5,6 @@ import {
 } from 'mir/tests/helpers/ember-simple-auth';
 import moduleForAcceptance from 'mir/tests/helpers/module-for-acceptance';
 
-const { Object: EmberObject } = Ember;
-
 moduleForAcceptance('Acceptance | login');
 
 test('unauthenticated users can visit /login', function(assert) {
@@ -129,7 +127,7 @@ test(
   'unauthenticated user can login to an account with Twitter',
   function(assert) {
     // mock the Auth service
-    this.application.register('services:auth', EmberObject.extend({
+    this.application.register('services:auth', Ember.Object.extend({
       loginTwitter() {
         return new Ember.RSVP.Promise(function(resolve /* , reject */) {
           const result = ['other'];

@@ -36,8 +36,8 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
     const accessToken = this.get('session').get(sessionKey);
     const token = `Bearer ${accessToken}`;
 
-    // if we have a valid `access_token`, POST it to Ai and save user
-    // to the session
+    // if we have a valid `access_token`, POST it to Ai and stash user into
+    // the session
     if (authenticator === 'authenticator:ai' && accessToken !== undefined) {
       fetch(endpoint, {
         type: 'GET',
@@ -47,8 +47,9 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
       }).then(raw => raw.json().then((data) => {
         const user = this.store.push(data);
         this.set('session.user', user);
-      })).catch((error) => {
-        console.error(`User can not authenticate this way: ${error.message}`);
+      })).catch((/* error */) => {
+        const message = 'errors.login.other';
+        this.set('errorMessageKeys', [message]);
       });
     }
   },
