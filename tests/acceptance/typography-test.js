@@ -7,6 +7,7 @@ import moduleForAcceptance from 'mir/tests/helpers/module-for-acceptance';
 moduleForAcceptance('Acceptance | typography');
 
 test('unauthenticated users visit /typography land on /login', function(assert) {
+  assert.expect(1);
   visit('/typography');
 
   andThen(function() {
