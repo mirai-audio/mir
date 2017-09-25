@@ -24,7 +24,7 @@ test(
     triggerEvent('[name=password]', 'blur');
 
     andThen(function() {
-      let msg = find('.mir-FormLogin .is-danger').text();
+      let msg = find('.ma-Login .is-danger').text();
       assert.notEqual(msg.match(/too short/), null);
     });
   }
@@ -42,7 +42,7 @@ test(
     andThen(function() {
       let msg = find('.help.is-danger').text();
       assert.notEqual(msg.match(/password/), null);
-      assert.equal(find('.mir-FormSignup button[disabled]').length, 1);
+      assert.equal(find('.ma-Auth button[disabled]').length, 1);
     });
   }
 );
@@ -55,9 +55,9 @@ test(
     triggerEvent('[name=email]', 'blur');
 
     andThen(function() {
-      let msg = find('.mir-FormLogin .is-danger').text();
+      let msg = find('.ma-Login .is-danger').text();
       assert.notEqual(msg.match(/valid email/), null);
-      assert.equal(find('.mir-FormLogin button[disabled]').length, 1);
+      assert.equal(find('.ma-Login button[disabled]').length, 1);
     });
   }
 );
@@ -75,7 +75,7 @@ test(
     fillIn('[name=password]', 'Password1234');
     fillIn('[name=password_confirmation]', 'Password1234');
     // user clicks signup button
-    click('.mir-FormSignup [data-test=signup]');
+    click('.ma-Auth [data-test=signup]');
 
     andThen(function() {
       // user lands on index page
@@ -93,7 +93,7 @@ test(
     fillIn('[name=password]', 'Password1234');
     fillIn('[name=password_confirmation]', 'Password1234');
     // user clicks signup button
-    click('.mir-FormSignup [data-test=signup]');
+    click('.ma-Auth [data-test=signup]');
 
     andThen(function() {
       // user is still on Login page
@@ -114,7 +114,7 @@ test(
     fillIn('[name=password]', 'Password1234');
     fillIn('[name=password_confirmation]', 'Password1234');
     // user clicks login button
-    click('.mir-FormLogin [data-test=login]');
+    click('.ma-Login [data-test=login]');
 
     andThen(function() {
       // user lands on index page

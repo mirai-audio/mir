@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   /* Ember */
   attributeBindings: ['formName:name', 'formMethod:method'],
-  classNames: ['mir-FormLogin'],
+  classNames: ['ma-Login'],
   tagName: 'form',
   formName: 'users/token',
   formMethod: 'POST',

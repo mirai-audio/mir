@@ -6,12 +6,13 @@ export default {
   },
 
   'login': {
-    'title': 'Login / Sign up',
+    'title': 'Login',
     'email': 'Email',
     'email-placeholder': 'name@example.com',
     'password': 'Password',
     'password-confirm': 'Confirm password',
-    'cta-login': 'Login',
+    'cta-login': 'Sign in with email',
+    'cta-twitter': 'Twitter',
     'cta-signup': 'Sign up',
   },
 

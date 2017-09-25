@@ -5,24 +5,26 @@
   <a href="/signup" title="Sign Up">Sign Up</a>
 {{/ma-header}}
 
-<p>
-  <button onclick={{route-action "loginTwitter"}} data-test="twitter">
-    Login with Twitter 🐦<br>
-    <small>We won’t post without asking.</small>
-  </button>
-  {{#if errorMessageKeys}}
-    <span>{{t errorMessageKeys}}</span>
-  {{/if}}
-</p>
+{{#if errorMessageKeys}}
+  <span>{{t errorMessageKeys}}</span>
+{{/if}}
 
-{{ma-form-signup
-  title=(t "routes.login.cta-signup")
+{{#ma-auth
+  title=(t "components.ma-auth.title")
   components=(hash
-    login=(component "ma-form-login")
+    login=(component "ma-login")
     input=(component "ma-input"))
   errorMessageKeys=errorMessageKeys
   loginAction=(route-action "login" model)
   action=(route-action "signup")
   model=model}}
+  <fieldset>
+    <legend>{{t "components.ma-auth.socialTitle"}}</legend>
+    <button data-test="twitter" class="c-Social c-Social--twitter"
+      onclick={{route-action "loginTwitter"}}>
+      {{t "routes.login.cta-twitter"}}
+    </button>
+  </fieldset>
+{{/ma-auth}}
 
 {{outlet}}
