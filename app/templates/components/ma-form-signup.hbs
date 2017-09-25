@@ -6,7 +6,7 @@
   {{components.login
     title=(t "routes.login.cta-login")
     components=(hash
-      input=(component "mir-input"))
+      input=(component "ma-input"))
     errorMessageKeys=errorMessageKeys
     action=loginAction
     model=model}}
@@ -23,7 +23,7 @@
     value=model.passwordConfirmation}}
 
   <p>
-    {{mir-errors-handler errorMessageKeys=errorMessageKeys}}
+    {{ma-errors-handler errorMessageKeys=errorMessageKeys}}
 
     <button {{action action}}
       data-test="signup"

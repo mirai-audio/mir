@@ -5,9 +5,9 @@
   <a href="/signup" title="Sign Up">Sign Up</a>
 {{/ma-header}}
 
-{{#mir-user as |user|}}
+{{#ma-user as |user|}}
   Thanks for logging in <strong>{{user.email}}</strong>
-{{/mir-user}}
+{{/ma-user}}
 
 {{#if model.all.length}}
   <ul>
@@ -21,6 +21,6 @@
   </ul>
 {{/if}}
 
-{{mir-errors-handler errorMessageKeys=errorMessageKeys}}
+{{ma-errors-handler errorMessageKeys=errorMessageKeys}}
 
 {{outlet}}

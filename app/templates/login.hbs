@@ -15,11 +15,11 @@
   {{/if}}
 </p>
 
-{{mir-form-signup
+{{ma-form-signup
   title=(t "routes.login.cta-signup")
   components=(hash
-    login=(component "mir-form-login")
-    input=(component "mir-input"))
+    login=(component "ma-form-login")
+    input=(component "ma-input"))
   errorMessageKeys=errorMessageKeys
   loginAction=(route-action "login" model)
   action=(route-action "signup")

@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('mir-input', 'Integration | Component | mir input', {
+moduleForComponent('ma-input', 'Integration | Component | ma input', {
   integration: true
 });
 
@@ -10,6 +10,6 @@ test('it renders', function(assert) {
   // Handle any actions with this.on('myAction', function(val) { ... });
   this.set('label', 'Username');
 
-  this.render(hbs`{{mir-input label=label}}`);
+  this.render(hbs`{{ma-input label=label}}`);
   assert.equal(this.$().text().trim().replace(/[\s\n]+/g, ''), 'Username');
 });

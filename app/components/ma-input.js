@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   /* Ember */
-  classNames: ['mir-Input'],
+  classNames: ['ma-Input'],
   tagName: 'fieldset',
 
   /* API */

@@ -1,20 +1,20 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('mir-user', 'Integration | Component | mir user', {
+moduleForComponent('ma-user', 'Integration | Component | ma user', {
   integration: true,
 });
 
 test('it renders', function(assert) {
   // inline usage
-  this.render(hbs`{{mir-user}}`);
+  this.render(hbs`{{ma-user}}`);
   assert.equal(this.$().text().trim(), '');
 
   // template block usage
   this.render(hbs`
-    {{#mir-user}}
+    {{#ma-user}}
       template block text
-    {{/mir-user}}
+    {{/ma-user}}
   `);
   assert.equal(this.$().text().trim(), 'template block text');
 });

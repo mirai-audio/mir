@@ -3,7 +3,7 @@ import hbs from 'htmlbars-inline-precompile';
 import { registerTestComponent, unregisterTestComponent } from
   'mir/tests/ember-test-component';
 
-moduleForComponent('mir-form-login', 'Integration | Component | mir form login', {
+moduleForComponent('ma-form-login', 'Integration | Component | ma form login', {
   integration: true,
 
   beforeEach({ test: testCtx }) {
@@ -22,7 +22,7 @@ test('it renders the login form', function(assert) {
   this.on('login', function login() {});
 
   this.render(hbs`
-    {{mir-form-login title="ABC_"
+    {{ma-form-login title="ABC_"
       components=(hash
         input=(component "test-component"))
       action=action
