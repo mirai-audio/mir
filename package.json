@@ -11,9 +11,10 @@
   "repository": "https://github.com/mirai-audio/mir",
   "scripts": {
     "build": "ember build",
+    "coverage": "cat ./coverage/lcov.info | COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN ./node_modules/coveralls/bin/coveralls.js",
+    "eslint-fix": "./node_modules/eslint/bin/eslint.js -c .eslintrc.js --fix app/ && ./node_modules/eslint/bin/eslint.js -c tests/.eslintrc.js --fix tests/",
     "start": "ember server",
-    "test": "COVERAGE=true ember test",
-    "coverage": "cat ./coverage/lcov.info | COVERALLS_REPO_TOKEN=$COVERALLS_REPO_TOKEN ./node_modules/coveralls/bin/coveralls.js"
+    "test": "COVERAGE=true ember test"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",

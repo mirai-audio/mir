@@ -1,5 +1,4 @@
 import { test } from 'qunit';
-import Ember from 'ember';
 import {
   authenticateSession,
 } from 'mir/tests/helpers/ember-simple-auth';
@@ -123,32 +122,6 @@ test(
   }
 );
 
-test(
-  'unauthenticated user can login to an account with Twitter',
-  function(assert) {
-    // mock the Auth service
-    this.application.register('services:auth', Ember.Object.extend({
-      loginTwitter() {
-        return new Ember.RSVP.Promise(function(resolve /* , reject */) {
-          const result = ['other'];
-          resolve(result);
-        });
-      },
-    }));
-    this.application.inject('route', 'auth', 'services:auth');
-
-    // user visits login and fills in signup form
-    visit('/login');
-    // user clicks login button
-    click('[data-test=twitter]');
-
-    andThen(function() {
-      // user lands on index page
-      assert.equal(currentURL(), '/login');
-    });
-  }
-);
-
 test('authenticated users can visit /login and redirect to /', function(assert) {
   const app = this.application;
 
@@ -163,17 +136,14 @@ test('authenticated users can visit /login and redirect to /', function(assert) 
   });
 });
 
-test(
-  'unauthenticated user can click back link to Home',
-  function(assert) {
-    // user visits login and fills in signup form
-    visit('/login');
-    // user clicks signup button
-    click('.ma-Header .ma-Header-Link');
+test('unauthenticated user can click back link to Home', function(assert) {
+  // user visits login and fills in signup form
+  visit('/login');
+  // user clicks signup button
+  click('.ma-Header .ma-Header-Link');
 
-    andThen(function() {
-      // user lands on welcome page
-      assert.equal(currentURL(), '/welcome');
-    });
-  }
-);
+  andThen(function() {
+    // user lands on welcome page
+    assert.equal(currentURL(), '/welcome');
+  });
+});
