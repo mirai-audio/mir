@@ -1,5 +1,4 @@
 import { test } from 'qunit';
-import Ember from 'ember';
 import {
   authenticateSession,
 } from 'mir/tests/helpers/ember-simple-auth';
@@ -24,7 +23,7 @@ test(
     triggerEvent('[name=password]', 'blur');
 
     andThen(function() {
-      let msg = find('.mir-FormLogin .is-danger').text();
+      let msg = find('.ma-Login .is-danger').text();
       assert.notEqual(msg.match(/too short/), null);
     });
   }
@@ -42,7 +41,7 @@ test(
     andThen(function() {
       let msg = find('.help.is-danger').text();
       assert.notEqual(msg.match(/password/), null);
-      assert.equal(find('.mir-FormSignup button[disabled]').length, 1);
+      assert.equal(find('.ma-Auth button[disabled]').length, 1);
     });
   }
 );
@@ -55,9 +54,9 @@ test(
     triggerEvent('[name=email]', 'blur');
 
     andThen(function() {
-      let msg = find('.mir-FormLogin .is-danger').text();
+      let msg = find('.ma-Login .is-danger').text();
       assert.notEqual(msg.match(/valid email/), null);
-      assert.equal(find('.mir-FormLogin button[disabled]').length, 1);
+      assert.equal(find('.ma-Login button[disabled]').length, 1);
     });
   }
 );
@@ -75,7 +74,7 @@ test(
     fillIn('[name=password]', 'Password1234');
     fillIn('[name=password_confirmation]', 'Password1234');
     // user clicks signup button
-    click('.mir-FormSignup [data-test=signup]');
+    click('.ma-Auth [data-test=signup]');
 
     andThen(function() {
       // user lands on index page
@@ -93,7 +92,7 @@ test(
     fillIn('[name=password]', 'Password1234');
     fillIn('[name=password_confirmation]', 'Password1234');
     // user clicks signup button
-    click('.mir-FormSignup [data-test=signup]');
+    click('.ma-Auth [data-test=signup]');
 
     andThen(function() {
       // user is still on Login page
@@ -114,37 +113,11 @@ test(
     fillIn('[name=password]', 'Password1234');
     fillIn('[name=password_confirmation]', 'Password1234');
     // user clicks login button
-    click('.mir-FormLogin [data-test=login]');
+    click('.ma-Login [data-test=login]');
 
     andThen(function() {
       // user lands on index page
       assert.equal(currentURL(), '/');
-    });
-  }
-);
-
-test(
-  'unauthenticated user can login to an account with Twitter',
-  function(assert) {
-    // mock the Auth service
-    this.application.register('services:auth', Ember.Object.extend({
-      loginTwitter() {
-        return new Ember.RSVP.Promise(function(resolve /* , reject */) {
-          const result = ['other'];
-          resolve(result);
-        });
-      },
-    }));
-    this.application.inject('route', 'auth', 'services:auth');
-
-    // user visits login and fills in signup form
-    visit('/login');
-    // user clicks login button
-    click('[data-test=twitter]');
-
-    andThen(function() {
-      // user lands on index page
-      assert.equal(currentURL(), '/login');
     });
   }
 );
@@ -163,17 +136,14 @@ test('authenticated users can visit /login and redirect to /', function(assert) 
   });
 });
 
-test(
-  'unauthenticated user can click back link to Home',
-  function(assert) {
-    // user visits login and fills in signup form
-    visit('/login');
-    // user clicks signup button
-    click('.ma-Header .ma-Header-Link');
+test('unauthenticated user can click back link to Home', function(assert) {
+  // user visits login and fills in signup form
+  visit('/login');
+  // user clicks signup button
+  click('.ma-Header .ma-Header-Link');
 
-    andThen(function() {
-      // user lands on welcome page
-      assert.equal(currentURL(), '/welcome');
-    });
-  }
-);
+  andThen(function() {
+    // user lands on welcome page
+    assert.equal(currentURL(), '/welcome');
+  });
+});

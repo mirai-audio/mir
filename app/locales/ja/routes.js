@@ -11,7 +11,8 @@ export default {
     'email-placeholder': 'akira@gmail.co.jp',
     'password': 'パスワード',
     'password-confirm': 'パスワード再入力',
-    'cta-login': 'ログイン',
+    'cta-login': 'メールでサインインする',
+    'cta-twitter': 'Twitterでログイン',
     'cta-signup': '会員登録',
   },
 

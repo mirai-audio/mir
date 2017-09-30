@@ -3,7 +3,7 @@ import hbs from 'htmlbars-inline-precompile';
 import { registerTestComponent, unregisterTestComponent } from
   'mir/tests/ember-test-component';
 
-moduleForComponent('ma-form-signup', 'Integration | Component | ma form signup', {
+moduleForComponent('ma-auth', 'Integration | Component | ma auth', {
   integration: true,
 
   beforeEach({ test: testCtx }) {
@@ -18,7 +18,7 @@ test('it renders the signup form', function(assert) {
   this.set('signupAction', function signup() {});
 
   this.render(hbs`
-    {{ma-form-signup title="ABC_"
+    {{ma-auth title="ABC_"
       components=(hash
         login=(component "test-component")
         input=(component "test-component"))

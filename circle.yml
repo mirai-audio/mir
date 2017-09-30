@@ -11,7 +11,7 @@ checkout:
 
 dependencies:
   override:
-    - yarn global add ember-cli@2.12
+    - yarn global add ember-cli@2.14
     - yarn install
   post:
     - ember build
