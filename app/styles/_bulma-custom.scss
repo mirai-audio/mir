@@ -1,0 +1,7 @@
+@import "node_modules/bulma/sass/utilities/initial-variables.sass";
+$family-serif:
+  system-sans-serif,
+  system-gothic,
+  sans-serif,
+  "Twitter Color Emoji", "Apple Color Emoji", "Segoe UI Emoji";
+$family-primary: $family-serif;

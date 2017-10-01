@@ -1,4 +1,4 @@
-<fieldset>
+<fieldset class="field">
   {{#if title}}
     <legend>{{title}}</legend>
   {{/if}}
@@ -24,13 +24,14 @@
     label=(t "routes.login.password")
     value=model.password}}
 
-  <p>
+  <div>
     {{ma-errors-handler errorMessageKeys=errorMessageKeys}}
 
     <button onclick={{action action}}
+      class="button is-primary is-outlined"
       data-test="login"
       disabled={{isDisabled}}>
       {{t "components.ma-login.cta-login"}}
     </button>
-  </p>
+  </div>
 </fieldset>

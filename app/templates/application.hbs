@@ -1,15 +1,14 @@
 {{title (t "common.appname")}}
 
-<main lang={{locale}}>
-
-  <aside class="Offline Notification t-Center u-Z20">
+<main class="{{cssEnv}} {{cssRoute}}" lang={{locale}}>
+  <aside class="Offline Notification has-text-centered u-Z20">
     <h2>{{t "app.network.offline"}}</h2>
     <p>{{t "app.network.offline-detail"}}</p>
   </aside>
 
   {{outlet}}
 
-  <noscript class="NoScript Notification t-Center">
+  <noscript class="NoScript Notification has-text-centered">
     <h1>{{t "app.noscript.title"}}</h1>
     <p>{{t "app.noscript.copy"}}</p>
   </noscript>

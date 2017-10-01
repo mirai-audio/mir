@@ -18,9 +18,9 @@
   loginAction=(route-action "login" model)
   action=(route-action "signup")
   model=model}}
-  <fieldset>
+  <fieldset class="field">
     <legend>{{t "components.ma-auth.socialTitle"}}</legend>
-    <button data-test="twitter" class="c-Social c-Social--twitter"
+    <button data-test="twitter" class="button c-Social c-Social--twitter"
       onclick={{route-action "loginTwitter"}}>
       {{t "routes.login.cta-twitter"}}
     </button>

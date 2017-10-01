@@ -1,30 +1,6 @@
 /* typography basics
 ============================================================================= */
 
-html,
-button,
-input,
-select {
-  /* anti-aliasing
-   Frankly, i don't know why anti-aliasing isn't enabled by default.
-   It probably should be, but its nice that "good" developers
-   can make their sites look nicer by opting-into antialiased type.
-   */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  /* text size adjust
-   allows Web authors to control if and how
-   the text-inflating algorithm is applied to the textual content
-   of the element it is applied to.
-   */
-  text-size-adjust: none;
-
-  /* Normalize typography size */
-  font-size: 100%;
-  line-height: 1.5;
-}
-
 h1,
 h2,
 h3,
@@ -55,11 +31,6 @@ rt {
 /* typeface selection
 ============================================================================= */
 
-/* weights */
-.t-Light { font-weight: 300; }
-.t-Regular { font-weight: 400; }
-.t-Bold { font-weight: 700; }
-
 /* variants */
 .t-Italic { font-style: italic; }
 .t-Regular { font-style: normal; }
@@ -75,10 +46,6 @@ rt {
 .t-Hero { font-size: 6em; /* 96 */ }
 
 /* alignment */
-.t-Center { text-align: center; }
-.t-Justify { text-align: justify; }
-.t-Left { text-align: left; }
-.t-Right { text-align: right; }
 .t-Vertical { writing-mode: vertical-rl; }
 
 /* Special */

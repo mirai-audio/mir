@@ -27,6 +27,7 @@ module.exports = function(defaults) {
     sassOptions: {
       includePaths: [
         'node_modules/system-font-i18n-css',
+        'node_modules/bulma',
       ],
     }
   });

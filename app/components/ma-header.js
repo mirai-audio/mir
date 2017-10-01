@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   tagName: 'header',
-  classNames: ['t-Center', 'ma-Header'],
+  classNames: ['has-text-centered', 'ma-Header'],
 
   window: Ember.inject.service(),
 

@@ -8,7 +8,7 @@
   action=loginAction
   model=model}}
 
-<fieldset>
+<fieldset class="field">
   {{#if title}}
     <legend>{{title}}</legend>
   {{/if}}
@@ -27,6 +27,7 @@
   {{ma-errors-handler errorMessageKeys=errorMessageKeys}}
 
   <button {{action action}}
+    class="button is-primary"
     data-test="signup"
     disabled={{isDisabled}}>
     {{t "routes.login.cta-signup"}}
