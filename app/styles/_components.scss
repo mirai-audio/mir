@@ -2,3 +2,27 @@
 ============================================================================= */
 
 .Logo { width: 100vh; }
+
+.c-Social {
+  &--twitter {
+    background-color: #1da1f2;
+    color: $white;
+  }
+
+  &--twitter:active,
+  &--twitter:focus,
+  &--twitter:hover {
+    background-color: #0c84cf;
+    color: $white;
+  }
+
+  &--google[disabled] {
+    background-color: #4285f4;
+    color: $white;
+  }
+
+  &--facebook[disabled] {
+    background-color: #3767b2;
+    color: $white;
+  }
+}

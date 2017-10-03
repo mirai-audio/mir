@@ -13,23 +13,32 @@
     <legend>{{title}}</legend>
   {{/if}}
 
-  {{components.input
-    type="password"
-    name="password_confirmation"
-    autocorrect="off"
-    autocomplete="off"
-    errors=(v-get model "passwordConfirmation" "messages")
-    minlength="12"
-    required="required"
-    label=(t "routes.login.password-confirm")
-    value=model.passwordConfirmation}}
+  <label class="label" for="password_confirmation">
+    {{t "routes.login.password-confirm"}}
+  </label>
+  <div class="field has-addons">
+    <div class="control is-expanded">
+      {{components.input
+        type="password"
+        name="password_confirmation"
+        inputId="password_confirmation"
+        autocorrect="off"
+        autocomplete="off"
+        errors=(v-get model "passwordConfirmation" "messages")
+        minlength="12"
+        required="required"
+        value=model.passwordConfirmation}}
+    </div>
+    <div class="control">
+      <button {{action action}}
+        class="button is-primary"
+        data-test="signup"
+        disabled={{isDisabled}}>
+        {{t "routes.login.cta-signup"}}
+      </button>
+    </div>
+  </div>
 
   {{ma-errors-handler errorMessageKeys=errorMessageKeys}}
 
-  <button {{action action}}
-    class="button is-primary"
-    data-test="signup"
-    disabled={{isDisabled}}>
-    {{t "routes.login.cta-signup"}}
-  </button>
 </fieldset>

@@ -41,7 +41,7 @@ test(
     andThen(function() {
       let msg = find('.help.is-danger').text();
       assert.notEqual(msg.match(/password/), null);
-      assert.equal(find('.ma-Auth button[disabled]').length, 1);
+      assert.equal(find('[data-test=signup][disabled]').length, 1);
     });
   }
 );
@@ -111,7 +111,6 @@ test(
     visit('/login');
     fillIn('[name=email]', `mike+${new Date().getTime()}@example.com`);
     fillIn('[name=password]', 'Password1234');
-    fillIn('[name=password_confirmation]', 'Password1234');
     // user clicks login button
     click('.ma-Login [data-test=login]');
 
@@ -140,7 +139,7 @@ test('unauthenticated user can click back link to Home', function(assert) {
   // user visits login and fills in signup form
   visit('/login');
   // user clicks signup button
-  click('.ma-Header .ma-Header-Link');
+  click('.ma-Header .ma-Header-link--back');
 
   andThen(function() {
     // user lands on welcome page

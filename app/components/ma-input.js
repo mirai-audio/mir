@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   /* Ember */
-  classNames: ['ma-Input', 'field'],
+  classNames: ['ma-Input'],
   tagName: 'fieldset',
 
   /* API */
@@ -10,6 +10,7 @@ export default Ember.Component.extend({
   autocomplete: 'auto',
   autocorrect: 'auto',
   autofocus: null,
+  inputId: null,
   minlength: null,
   pattern: null,
   placeholder: '',

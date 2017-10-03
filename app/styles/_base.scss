@@ -36,7 +36,9 @@ input {
   cursor: pointer;
 }
 
-fieldset { border: none; }
+fieldset {
+  border: none;
+}
 
 /* fix flash of unstyled content. `<html>` set to `opacity: 0` until this
 stylesheet is loaded, this rule prevents a flash from being visible
@@ -59,5 +61,4 @@ select:focus:invalid {
   background-size: 1.25rem 0.35rem;
   background-position: bottom left;
   background-repeat: repeat-x;
-  box-shadow: none;
 }

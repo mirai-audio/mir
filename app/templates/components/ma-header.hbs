@@ -1,28 +1,21 @@
 {{! update the <head><title/><head> tag}}
 {{title (t title)}}
 
-<nav class="ma-Header-Nav">
-  <ul class="ma-Header-Items">
+<nav class="ma-Header-navbar navbar" role="navigation" aria-label="main navigation">
+  <div class="ma-Header-brand navbar-brand">
     {{#if backTo}}
-      <li class="ma-Header-Item">
-        {{link-to (t back) backTo class="ma-Header-Link"}}
-      </li>
+      {{link-to (t back) backTo class="navbar-item ma-Header-link ma-Header-link--back"}}
     {{else}}
-      <li class="ma-Header-Item">
-        <a href=#
-          {{action "back"}}
-          class="ma-Header-Link"
-          title={{t "components.ma-header.back"}}
-          >{{t "components.ma-header.back"}}
-        </a>
-      </li>
+      <a href=#
+        {{action "back"}}
+        class="navbar-item ma-Header-link ma-Header-link--back"
+        title={{t "components.ma-header.back"}}
+        >{{t "components.ma-header.back"}}
+      </a>
     {{/if}}
 
-    <li class="ma-Header-Item">
-      {{yield}}
-    </li>
-  </ul>
+    {{yield}}
+  </div>
 </nav>
 
-<h1 class="ma-Header-Title is-size-3">{{t title}}</h1>
-
+<h1 class="ma-Header-title has-text-centered title is-3">{{t title}}</h1>

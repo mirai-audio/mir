@@ -3,35 +3,54 @@
     <legend>{{title}}</legend>
   {{/if}}
 
-  {{components.input type="email" name="email"
-    autofocus="autofocus"
-    autocorrect="off"
-    autocomplete="email"
-    errors=(v-get model "email" "messages")
-    minlength="7"
-    pattern="\S{1,}@\S{2,}.\S{2,}"
-    required="required"
-    label=(t "routes.login.email")
-    placeholder=(t "routes.login.email-placeholder")
-    value=model.email}}
-
-  {{components.input type="password" name="password"
-    autocorrect="off"
-    autocomplete="off"
-    errors=(v-get model "password" "messages")
-    minlength="12"
-    required="required"
-    label=(t "routes.login.password")
-    value=model.password}}
-
-  <div>
-    {{ma-errors-handler errorMessageKeys=errorMessageKeys}}
-
-    <button onclick={{action action}}
-      class="button is-primary is-outlined"
-      data-test="login"
-      disabled={{isDisabled}}>
-      {{t "components.ma-login.cta-login"}}
-    </button>
+  <div class="field">
+    <label class="label" for="email">
+      {{t "routes.login.email"}}
+    </label>
+    <div class="control">
+      {{components.input type="email"
+        name="email"
+        inputId="email"
+        autofocus="autofocus"
+        autocorrect="off"
+        autocomplete="email"
+        class="field"
+        errors=(v-get model "email" "messages")
+        minlength="7"
+        pattern="\S{1,}@\S{2,}.\S{2,}"
+        required="required"
+        placeholder=(t "routes.login.email-placeholder")
+        value=model.email}}
+    </div>
   </div>
+
+  <div class="field">
+    <label class="label" for="password">
+      {{t "routes.login.password"}}
+    </label>
+    <div class="field has-addons">
+      <div class="control is-expanded">
+        {{components.input type="password"
+          name="password"
+          inputId="password"
+          autocorrect="off"
+          autocomplete="off"
+          errors=(v-get model "password" "messages")
+          minlength="12"
+          required="required"
+          value=model.password}}
+      </div>
+
+      <div class="control">
+        <button onclick={{action action}}
+          class="button is-primary"
+          data-test="login"
+          disabled={{isDisabled}}>
+          {{t "components.ma-login.cta-login"}}
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {{ma-errors-handler errorMessageKeys=errorMessageKeys}}
 </fieldset>

@@ -8,8 +8,8 @@ moduleForComponent('ma-input', 'Integration | Component | ma input', {
 test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
-  this.set('label', 'Username');
+  this.set('inputId', 'username');
 
-  this.render(hbs`{{ma-input label=label}}`);
-  assert.equal(this.$().text().trim().replace(/[\s\n]+/g, ''), 'Username');
+  this.render(hbs`{{ma-input inputId=inputId}}`);
+  assert.notEqual(this.$().html().trim().indexOf('username'), -1);
 });

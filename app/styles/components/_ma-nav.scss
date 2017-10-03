@@ -21,8 +21,8 @@
     will-change: opacity;
   }
 
-  &-hamburger:link,
-  &-hamburger:visited {
+  &-burger:link,
+  &-burger:visited {
     color: black;
     font-size: 1.5em;
     line-height: 1.5rem;
@@ -32,10 +32,11 @@
     top: 0;
     pointer-events: auto;
     text-decoration: none;
+    transition: left 500ms ease;
+  }
 
-    &:active {
-      text-shadow: 0.0625em 0.0625em 0.125em rgba(0, 0, 0, 0.8);
-    }
+  &-burger.is-active {
+    left: 8.75rem;
   }
 
   &-nav {
