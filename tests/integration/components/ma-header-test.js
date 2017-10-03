@@ -28,7 +28,7 @@ test('it renders with `back` and `backTo` links', function(assert) {
   this.set('title', 'routes.login.title');
   this.render(hbs`{{ma-header backTo=backTo back=back title=title}}`);
 
-  assert.notEqual(this.$().text().indexOf('Login'), -1);
+  assert.notEqual(this.$().text().indexOf('Sign in'), -1);
   assert.notEqual(this.$().text().indexOf('Home'), -1);
 });
 
@@ -36,7 +36,7 @@ test('it renders without `back` and `backTo` links', function(assert) {
   this.set('title', 'routes.login.title');
   this.render(hbs`{{ma-header title=title}}`);
 
-  assert.notEqual(this.$().text().indexOf('Login'), -1);
+  assert.notEqual(this.$().text().indexOf('Sign in'), -1);
   assert.notEqual(this.$().text().indexOf('Back'), -1);
 });
 
@@ -44,6 +44,6 @@ test('clicking `back` default link calls window.history.back', function(assert) 
   this.set('title', 'routes.login.title');
   this.render(hbs`{{ma-header title=title}}`);
 
-  this.$('.ma-Header .ma-Header-Link').click();
+  this.$('.ma-Header .ma-Header-link--back').click();
   assert.equal(window.location.hash, '#clicked');
 });

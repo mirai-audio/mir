@@ -1,9 +1,5 @@
 <a class="ma-Nav-overlay" href="#" {{action "toggle"}}></a>
 
-<a class="ma-Nav-hamburger" href="{{concat '#' elementId}}" {{action "toggle"}}>
-  ☰ {{! Unicode: Trigram for Heaven U+2630 }}
-</a>
-
 <nav class="ma-Nav-nav">
   <ul class="ma-Nav-items">
     <li>{{link-to (t "routes.application.title") "application"}}</li>
@@ -16,7 +12,7 @@
   {{#if isAuthenticated}}
     <li>{{link-to (t "routes.styleguide.title") "styleguide"}}</li>
     <li>{{link-to (t "routes.typography.title") "typography"}}</li>
-    <li>{{link-to "Logout" "logout"}}</li>
+    <li>{{link-to (t "common.logout") "logout"}}</li>
   {{/if}}
   </ul>
 
@@ -24,3 +20,10 @@
     <small>v{{version}}</small>
   </footer>
 </nav>
+
+<a href="{{concat '#' elementId}}" {{action "toggle"}}
+   class="navbar-burger burger ma-Nav-burger {{if isShown "is-active"}}">
+  <span></span>
+  <span></span>
+  <span></span>
+</a>

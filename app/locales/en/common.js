@@ -3,4 +3,5 @@
 export default {
   'appname': 'mirai.audio',
   'tagline': 'Play everything, play everywhere',
+  'logout': 'Logout',
 };

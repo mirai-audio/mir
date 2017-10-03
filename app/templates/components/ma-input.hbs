@@ -1,39 +1,33 @@
-<label class="label ma-Input-label">
-  {{label}}
+<input
+  class="input
+    ma-Input-input
+    {{if value (concat "is-validate "
+      (if errors.length "is-invalid is-danger" "is-valid"))
+    }}"
+  autofocus={{autofocus}}
+  autocorrect={{autocorrect}}
+  autocomplete={{autocomplete}}
+  id={{inputId}}
+  minlength={{minlength}}
+  name={{name}}
+  pattern={{pattern}}
+  placeholder={{placeholder}}
+  required={{required}}
+  type={{type}}
+  value={{value}}
+  onkeyup={{action (mut value) value="target.value"}}
+  onchange={{action (mut value) value="target.value"}}>
 
-  <div class="control has-icon has-icon-right">
-    <input
-      class="input
-        ma-Input-input
-        {{if value (concat "is-validate "
-          (if errors.length "is-invalid" "is-valid"))
-        }}"
-      autofocus={{autofocus}}
-      autocorrect={{autocorrect}}
-      autocomplete={{autocomplete}}
-      minlength={{minlength}}
-      name={{name}}
-      pattern={{pattern}}
-      placeholder={{placeholder}}
-      required={{required}}
-      type={{type}}
-      value={{value}}
-      onkeyup={{action (mut value) value="target.value"}}
-      onchange={{action (mut value) value="target.value"}}>
-
-    {{#if showValidations}}
-      {{#if errors.length}}
-      <ul>
-        {{#each errors as |error|}}
-          <li>
-            <span class="icon is-small">
-              <i class="fa fa-warning"></i>
-            </span>
-            <span class="help is-danger">{{error}}</span>
-          </li>
-        {{/each}}
-      </ul>
-      {{/if}}
-    {{/if}}
-  </div>
-</label>
+{{#if showValidations}}
+  {{#if errors.length}}
+  <ul>
+    {{#each errors as |error|}}
+      <li>
+        <span class="help is-danger">
+          {{error}}
+        </span>
+      </li>
+    {{/each}}
+  </ul>
+  {{/if}}
+{{/if}}

@@ -22,10 +22,10 @@ test('it animates in and out', function(assert) {
   this.render(hbs`{{ma-nav logout=logout isAuthenticated=isAuth}}`);
 
   // click hamburger and check that the 'is-shown' class is available
-  this.$('.ma-Nav-hamburger').click();
+  this.$('.ma-Nav-burger').click();
   assert.notEqual(this.$().html().indexOf('is-shown'), -1);
 
   // click hamburger and check that the 'is-shown' class is available
-  this.$('.ma-Nav-hamburger').click();
+  this.$('.ma-Nav-burger').click();
   assert.equal(this.$().html().indexOf('is-shown'), -1);
 });

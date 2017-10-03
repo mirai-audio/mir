@@ -8,11 +8,13 @@ export default {
   'login': {
     'title': 'ログイン / 会員登録',
     'email': 'メール',
-    'email-placeholder': 'akira@gmail.co.jp',
+    'email-placeholder': 'tanaka@softbank.ne.jp',
     'password': 'パスワード',
     'password-confirm': 'パスワード再入力',
-    'cta-login': 'メールでサインインする',
-    'cta-twitter': 'Twitterでログイン',
+    'cta-login': 'メールでサインイン',
+    'cta-twitter': 'Twitterでサインイン',
+    'cta-google': 'Googleでサインイン',
+    'cta-facebook': 'Facebook でサインイン',
     'cta-signup': '会員登録',
   },
 
