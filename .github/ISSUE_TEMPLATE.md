@@ -1,5 +1,3 @@
-# Goal / Issue
-
 _Describe the goal of this ticket._
 
 ### Expected Behavior

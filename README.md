@@ -22,7 +22,7 @@ You will need the following tools properly installed:
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/)
 * [Ember CLI](https://ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+* Google Chrome
 * [Watchman](https://facebook.github.io/watchman/)
 * [Yarn](https://yarnpkg.com/)
 
@@ -32,7 +32,6 @@ macOS / OS X Installation:
 brew install watchman
 brew install yarn
 yarn global add ember-cli
-yarn global add phantomjs-prebuilt
 ```
 
 Linux (Ubuntu)
