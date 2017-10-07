@@ -1,4 +1,4 @@
-<a class="ma-Nav-overlay" href="#" {{action "toggle"}}></a>
+<a class="ma-Nav-overlay" href="#" {{action "toggleOffCanvas"}}></a>
 
 <nav class="ma-Nav-nav">
   <ul class="ma-Nav-items">
@@ -20,10 +20,3 @@
     <small>v{{version}}</small>
   </footer>
 </nav>
-
-<a href="{{concat '#' elementId}}" {{action "toggle"}}
-   class="navbar-burger burger ma-Nav-burger {{if isShown "is-active"}}">
-  <span></span>
-  <span></span>
-  <span></span>
-</a>

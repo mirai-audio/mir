@@ -47,3 +47,16 @@ test('clicking `back` default link calls window.history.back', function(assert) 
   this.$('.ma-Header .ma-Header-link--back').click();
   assert.equal(window.location.hash, '#clicked');
 });
+
+test('the off-canvas menu button toggles its active state', function(assert) {
+  this.set('title', 'routes.login.title');
+  this.render(hbs`{{ma-header title=title}}`);
+
+  // click hamburger and check that the 'is-shown' class is available
+  this.$('.ma-Header-burger').click();
+  assert.notEqual(this.$().html().indexOf('is-active'), -1);
+
+  // click hamburger and check that the 'is-shown' class is available
+  this.$('.ma-Header-burger').click();
+  assert.equal(this.$().html().indexOf('is-active'), -1);
+});

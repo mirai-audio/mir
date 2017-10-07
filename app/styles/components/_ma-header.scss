@@ -12,6 +12,17 @@
     background-color: rgba(255, 255, 255, 0.8);
   }
 
+  &-burger:link,
+  &-burger:visited {
+    color: black;
+    padding: 1rem;
+    position: fixed;
+    left: 0;
+    top: 0;
+    pointer-events: auto;
+    transition: left 500ms ease;
+  }
+
   &-brand {
     margin-left: 3.25rem;
   }

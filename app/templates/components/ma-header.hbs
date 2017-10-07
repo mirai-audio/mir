@@ -2,6 +2,13 @@
 {{title (t title)}}
 
 <nav class="ma-Header-navbar navbar" role="navigation" aria-label="main navigation">
+  <a href="{{concat "#" elementId}}" {{action "toggleOffCanvas"}}
+     class="navbar-burger burger ma-Header-burger u-Z20 {{if offCanvasIsActive "is-active"}}">
+    <span></span>
+    <span></span>
+    <span></span>
+  </a>
+
   <div class="ma-Header-brand navbar-brand">
     {{#if backTo}}
       {{link-to (t back) backTo class="navbar-item ma-Header-link ma-Header-link--back"}}

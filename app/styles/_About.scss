@@ -26,17 +26,8 @@ A CSS-based lightbox for rendering the copy about the app
   }
 
   &-Close {
-    background: rgba(0, 0, 0, 0.25);
-    border-radius: 2em;
-    color: white;
-    right: 1em;
-    font-size: 2em;
-    height: 1em;
-    line-height: 0.9;
     position: absolute;
-    text-decoration: none;
-    text-align: center;
+    right: 1em;
     top: 1em;
-    width: 1em;
   }
 }
