@@ -30,7 +30,7 @@ macOS / OS X Installation:
 
 ```bash
 brew install watchman
-brew install yarn
+brew install yarn  # add --without-node flag if you use nvm
 yarn global add ember-cli
 ```
 
@@ -39,7 +39,6 @@ Linux (Ubuntu)
 ```bash
 npm install -g yarn
 yarn global add ember-cli  # Make sure $(yarn global bin) is in your $PATH
-apt-get install phantomjs
 ```
 
 ## Installation
