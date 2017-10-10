@@ -13,6 +13,7 @@ module.exports = function(defaults) {
     fingerprint: {
       extensions: ['css', 'gif', 'js', 'jpg', 'png', 'map', 'svg'],
     },
+
     inlineContent: {
       host: {
         content: host,
@@ -24,12 +25,17 @@ module.exports = function(defaults) {
         content: mirVersion,
       },
     },
+
     sassOptions: {
       includePaths: [
         'node_modules/system-font-i18n-css',
         'node_modules/bulma',
       ],
-    }
+    },
+
+    svgJar: {
+      sourceDirs: ['public/images'],
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated

@@ -57,6 +57,7 @@
     "ember-route-action-helper": "^2.0.5",
     "ember-simple-auth": "^1.4.0",
     "ember-source": "^2.14.1",
+    "ember-svg-jar": "^0.11.1",
     "ember-test-component": "^0.2.1",
     "eslint": "^3.19.0 || ^4.3.0",
     "eslint-config-airbnb": "^15.1.0",
