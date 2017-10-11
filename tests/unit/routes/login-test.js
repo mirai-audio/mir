@@ -1,5 +1,10 @@
-import Ember from 'ember';
+import { later } from '@ember/runloop';
+import EmberObject from '@ember/object';
+import { get, set } from '@ember/object';
+import { Promise as EmberPromise } from 'rsvp';
+import Service from '@ember/service';
 import { moduleFor, test } from 'ember-qunit';
+
 
 moduleFor('route:login', 'Unit | Route | login', {
   // Specify the other units that are required for this test.
@@ -18,9 +23,9 @@ test(
   'unauthenticated user can login to an account using Twitter',
   function(assert) {
     // mock the Auth service
-    this.register('service:auth', Ember.Service.extend({
+    this.register('service:auth', Service.extend({
       loginTwitter() {
-        return new Ember.RSVP.Promise(function(resolve) {
+        return new EmberPromise(function(resolve) {
           const result = ['errors.login.other'];
           resolve(result);
         });
@@ -34,11 +39,11 @@ test(
     assert.ok(route);
 
     // mock the controller on the route
-    route.set('controller', Ember.Object.create());
+    set(route, 'controller', EmberObject.create());
 
-    Ember.run.later(() => {
+    later(() => {
       const expected = ['errors.login.other'];
-      const result = route.get('controller.errorMessageKeys');
+      const result = get(route, 'controller.errorMessageKeys');
       assert.deepEqual(result, expected, 'login error was set');
       done();
     }, 50);

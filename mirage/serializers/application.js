@@ -1,10 +1,10 @@
 import { JSONAPISerializer } from 'ember-cli-mirage';
-import Ember from 'ember';
+import { dasherize } from '@ember/string';
 
 export default JSONAPISerializer.extend({
   keyForAttribute(attr) {
     return attr === 'access_token' ?
       attr :
-      Ember.String.dasherize(attr);
+      dasherize(attr);
   },
 });

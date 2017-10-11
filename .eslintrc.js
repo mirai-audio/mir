@@ -4,7 +4,10 @@ module.exports = {
     ecmaVersion: 2017,
     sourceType: 'module'
   },
-  extends: ['airbnb'],
+  extends: [
+    'eslint:recommended',
+    'plugin:ember/recommended'
+  ],
   env: {
     browser: true,
     node: true,
@@ -25,22 +28,20 @@ module.exports = {
     'window': true,
     'console': true,
     'document': true,
-    'clearTimeout': true,
-    'setInterval': true,
-    'clearInterval': true,
-
     'Symbol': true,
     'WeakMap': true,
   },
   rules: {
-    'no-console': ["error", { allow: ["warn", "error"] }],
+    // enforce
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    'ember/no-old-shims': 'error',
+    'ember/new-module-imports': 'error',
+    'ember/no-jquery': 'error',
+    'ember/local-modules': 'warn',
 
-    // override airbnb defaults
-    'prefer-const': 1,
+    // relax defaults
     'no-underscore-dangle': 0,
-    'import/no-extraneous-dependencies': 0,
-    'import/no-unresolved': 0,
-    'import/extensions': 0,
-    'import/extensions': 0,
+    'ember/alias-model-in-controller': 'warn',
+    'ember/named-functions-in-promises': 'warn',
   }
 };

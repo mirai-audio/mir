@@ -1,17 +1,18 @@
+import { Promise as EmberPromise } from 'rsvp';
+import Service from '@ember/service';
 import { moduleFor, test } from 'ember-qunit';
-import Ember from 'ember';
 
 moduleFor('service:auth', 'Unit | Service | auth');
 
 test('loginUserPassword authenticates the user with valid username / password', function(assert) {
-  this.register('service:session', Ember.Service.extend({
+  this.register('service:session', Service.extend({
     session: {
       authenticated: {
         code: 'abc123xyzDEF::000123',
       },
     },
     authenticate(/* authenticator, identity, password */) {
-      return new Ember.RSVP.Promise(function(resolve /* , reject */) {
+      return new EmberPromise(function(resolve /* , reject */) {
         const result = 'success';
         resolve(result);
       });
@@ -33,14 +34,14 @@ test('loginUserPassword authenticates the user with valid username / password', 
 });
 
 test('loginUserPassword does not authenticate user with invalid username / password', function(assert) {
-  this.register('service:session', Ember.Service.extend({
+  this.register('service:session', Service.extend({
     session: {
       authenticated: {
         code: 'abc123xyzDEF::000123',
       },
     },
     authenticate(/* authenticator, identity, password */) {
-      return new Ember.RSVP.Promise(function(resolve, reject) {
+      return new EmberPromise(function(resolve, reject) {
         const result = {
           errors: [
             { code: 401, },
@@ -66,14 +67,14 @@ test('loginUserPassword does not authenticate user with invalid username / passw
 });
 
 test('loginUserPassword does not authenticate user with invalid authenticator', function(assert) {
-  this.register('service:session', Ember.Service.extend({
+  this.register('service:session', Service.extend({
     session: {
       authenticated: {
         code: 'abc123xyzDEF::000123',
       },
     },
     authenticate(/* authenticator, identity, password */) {
-      return new Ember.RSVP.Promise(function(resolve, reject) {
+      return new EmberPromise(function(resolve, reject) {
         const result = {
           errors: [
             { code: 403, },
@@ -99,14 +100,14 @@ test('loginUserPassword does not authenticate user with invalid authenticator', 
 });
 
 test('loginTwitter authenticates the user with valid twitter account', function(assert) {
-  this.register('service:session', Ember.Service.extend({
+  this.register('service:session', Service.extend({
     session: {
       authenticated: {
         code: 'abc123xyzDEF::000123',
       },
     },
     authenticate(authenticator /* , identity, password */) {
-      return new Ember.RSVP.Promise(function(resolve /* , reject */) {
+      return new EmberPromise(function(resolve /* , reject */) {
         let result = '';
         if (authenticator === 'authenticator:torii') {
           result = [];
@@ -135,9 +136,9 @@ test('loginTwitter authenticates the user with valid twitter account', function(
 
 test('loginTwitter does not authenticate user with invalid (remote) twitter account', function(assert) {
   // mock a failing auth service
-  this.register('service:session', Ember.Service.extend({
+  this.register('service:session', Service.extend({
     authenticate(/* authenticator, identity, password */) {
-      return new Ember.RSVP.Promise(function(resolve /* , reject */) {
+      return new EmberPromise(function(resolve /* , reject */) {
         resolve(['errors.login.other']);
       });
     },
@@ -156,9 +157,9 @@ test('loginTwitter does not authenticate user with invalid (remote) twitter acco
 
 test('loginTwitter does not authenticate user with invalid (local) twitter account', function(assert) {
   // mock a failing auth service
-  this.register('service:session', Ember.Service.extend({
+  this.register('service:session', Service.extend({
     authenticate(/* authenticator, identity, password */) {
-      return new Ember.RSVP.Promise(function(resolve, reject) {
+      return new EmberPromise(function(resolve, reject) {
         reject(['errors.login.other']);
       });
     },
@@ -176,7 +177,7 @@ test('loginTwitter does not authenticate user with invalid (local) twitter accou
 });
 
 test('parseToken returns a split OAuth identity and token', function(assert) {
-  this.register('service:session', Ember.Service.extend({}));
+  this.register('service:session', Service.extend({}));
   let service = this.subject();
 
   assert.expect(5);

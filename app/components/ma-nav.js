@@ -1,8 +1,11 @@
-import Ember from 'ember';
+import { computed, get } from '@ember/object';
+import { alias } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import config from '../config/environment';
 
-export default Ember.Component.extend({
-  offCanvasMenu: Ember.inject.service(),
+export default Component.extend({
+  offCanvasMenu: service(),
 
   tagName: 'aside',
   classNames: ['ma-Nav', 'ma-Nav--animate', 'ma-Nav--animate-slide', 'u-Z10'],
@@ -10,14 +13,15 @@ export default Ember.Component.extend({
   elementId: 'ma-Nav',
 
   isAuthenticated: false,
-  version: config.version,
 
-  isShown: Ember.computed.alias('offCanvasMenu.isActive'),
-  isDevelopment: Ember.computed(() => (config.environment === 'development')),
+  isShown: alias('offCanvasMenu.isActive'),
+  isDevelopment: computed(() => (config.environment === 'development')),
 
   actions: {
     toggleOffCanvas() {
-      this.get('offCanvasMenu').toggle();
+      get(this, 'offCanvasMenu').toggle();
     },
   },
+
+  version: config.version,
 });

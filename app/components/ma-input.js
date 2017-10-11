@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { set } from '@ember/object';
 
-export default Ember.Component.extend({
+export default Component.extend({
   /* Ember */
   classNames: ['ma-Input'],
   tagName: 'fieldset',
@@ -30,6 +31,6 @@ export default Ember.Component.extend({
    */
   focusOut(...args) {
     this._super(args);
-    this.set('showValidations', true);
+    set(this, 'showValidations', true);
   },
 });

@@ -1,3 +1,6 @@
+/* eslint-env node */
+'use strict';
+
 var mirVersion = require('../package.json').version;
 
 module.exports = function(environment) {
@@ -138,11 +141,12 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
 
-    // API endpoint
-    ENV.DS.host = process.env.API_URL || 'http://localhost:4000';
+    // API endpoint, uses ember-cli-mirage during tests
+    ENV.DS.host = process.env.API_URL || 'http://localhost:4040';
   }
 
   if (environment === 'production') {
+
   }
 
   return ENV;

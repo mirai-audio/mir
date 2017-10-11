@@ -1,27 +1,29 @@
-import Ember from 'ember';
+import { dasherize } from '@ember/string';
+import { computed, get } from '@ember/object';
+import { inject as service } from '@ember/service';
+import Controller from '@ember/controller';
 import config from '../config/environment';
 
-export default Ember.Controller.extend({
-  i18n: Ember.inject.service(),
-  session: Ember.inject.service(),
+export default Controller.extend({
+  i18n: service(),
+  session: service(),
 
-  cssEnv: Ember.computed(() => {
-    const env = Ember.String
-      .dasherize(config.environment)
+  cssEnv: computed(() => {
+    const env = dasherize(config.environment)
       .replace(/\./g, '-');
     return `env-${env}`;
   }),
 
-  cssRoute: Ember.computed('currentRouteName', function compute() {
-    return Ember.String.dasherize(`${this.get('currentRouteName')}`)
+  cssRoute: computed('currentRouteName', function compute() {
+    return dasherize(`${get(this, 'currentRouteName')}`)
       .replace(/\./g, '-');
   }),
 
-  isAuthenticated: Ember.computed('session.isAuthenticated', function compute() {
-    return this.get('session').get('isAuthenticated');
+  isAuthenticated: computed('session.isAuthenticated', function compute() {
+    return get(this, 'session.isAuthenticated');
   }),
 
-  locale: Ember.computed(function compute() {
-    return this.get('i18n').locale;
+  locale: computed(function compute() {
+    return get(this, 'i18n').locale;
   }),
 });

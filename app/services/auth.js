@@ -1,11 +1,12 @@
-import Ember from 'ember';
+import { get } from '@ember/object';
+import Service, { inject as service } from '@ember/service';
 
-export default Ember.Service.extend({
-  session: Ember.inject.service(),
+export default Service.extend({
+  session: service(),
 
   loginUserPassword(authenticator, identity, password) {
     // authenticate the user model against the API
-    return this.get('session')
+    return get(this, 'session')
       .authenticate(authenticator, identity, password)
       .then(() => [/* success, empty error list */])
       .catch((response) => {
@@ -28,12 +29,12 @@ export default Ember.Service.extend({
     const provider = 'twitter';
     let authenticator = 'authenticator:torii';
 
-    return this.get('session')
+    return get(this, 'session')
       .authenticate(authenticator, provider)
       .then(() => {
         // log user in with Ai authenticator
         authenticator = 'authenticator:token';
-        const code = this.get('session.session.authenticated.code');
+        const code = get(this, 'session.session.authenticated.code');
         const { identity, token } = this.parseToken(code);
         return this.loginUserPassword(authenticator, identity, token);
       }, (/* error */) => ['errors.login.other'])

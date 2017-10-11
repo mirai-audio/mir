@@ -1,8 +1,6 @@
+import { Promise } from 'rsvp';
+import { run } from '@ember/runloop';
 import { moduleFor, test } from 'ember-qunit';
-import Ember from 'ember';
-
-const { run } = Ember;
-const { RSVP: { Promise } } = Ember;
 
 moduleFor('authenticator:token', 'Unit | Authenticator | token', {
   // Specify the other units that are required for this test.

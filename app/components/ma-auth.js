@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import { alias } from '@ember/object/computed';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   /* Ember */
   attributeBindings: ['formName:name', 'formMethod:method'],
   classNames: ['ma-Auth'],
@@ -15,5 +16,5 @@ export default Ember.Component.extend({
   model: null,
   user: null,
 
-  isDisabled: Ember.computed.alias('model.validations.isInvalid'),
+  isDisabled: alias('model.validations.isInvalid'),
 });

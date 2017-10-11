@@ -17,12 +17,12 @@
 
 ## Prerequisites
 
-You will need the following tools properly installed:
+You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/)
 * [Ember CLI](https://ember-cli.com/)
-* Google Chrome
+* [Google Chrome](https://google.com/chrome/)
 * [Watchman](https://facebook.github.io/watchman/)
 * [Yarn](https://yarnpkg.com/)
 
@@ -51,7 +51,8 @@ yarn
 
 ## Running / Development
 
-To run with server-side rendering:
+* `ember serve`
+* Visit your app at [http://localhost:4200](http://localhost:4200).
 
 `ember serve` then visit your app at 
 [http://localhost:4200](http://localhost:4200).
@@ -92,7 +93,6 @@ in the running application.
 ## LICENSE
 
 [MIT](LICENSE)
-
 
 A product of <ruby>
   <ruby>

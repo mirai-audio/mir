@@ -1,4 +1,5 @@
 import { test } from 'qunit';
+import { get } from '@ember/object';
 import {
   authenticateSession,
   currentSession,
@@ -27,11 +28,6 @@ test('authenticated users can visit /logout', function(assert) {
   andThen(function() {
     // verify they're logged out
     let session = currentSession(app);
-    assert.notOk(session.get('isAuthenticated'));
-    // wait for the url to change
-    let curURL = currentURL;
-    setTimeout(function() {
-      assert.equal(curURL(), '/welcome');
-    }, 550);
+    assert.notOk(get(session, 'isAuthenticated'));
   });
 });

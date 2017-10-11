@@ -1,6 +1,7 @@
-import Ember from 'ember';
+import { or } from '@ember/object/computed';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
   /* Ember */
   attributeBindings: ['formName:name', 'formMethod:method'],
   classNames: ['ma-Login'],
@@ -14,9 +15,9 @@ export default Ember.Component.extend({
   title: '',
 
   /* component helpers */
-  isDisabled: Ember.computed
-    .or('model.validations.attrs.email.isInvalid',
-      'model.validations.attrs.password.isInvalid',
-      'model.validations.attrs.passwordConfirmation.isValid')
+  isDisabled: or(
+    'model.validations.attrs.email.isInvalid',
+    'model.validations.attrs.password.isInvalid',
+    'model.validations.attrs.passwordConfirmation.isValid')
     .readOnly(),
 });

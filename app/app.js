@@ -1,11 +1,11 @@
 /* eslint-disable */
-import Ember from 'ember';
+import Application from '@ember/application';
 import Resolver from './resolver';
 import loadInitializers from 'ember-load-initializers';
 import './models/custom-inflector-rules';
 import config from './config/environment';
 
-const App = Ember.Application.extend({
+const App = Application.extend({
   modulePrefix: config.modulePrefix,
   podModulePrefix: config.podModulePrefix,
   Resolver,
