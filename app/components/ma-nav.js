@@ -13,6 +13,7 @@ export default Ember.Component.extend({
   version: config.version,
 
   isShown: Ember.computed.alias('offCanvasMenu.isActive'),
+  isDevelopment: Ember.computed(() => (config.environment === 'development')),
 
   actions: {
     toggleOffCanvas() {

@@ -6,14 +6,15 @@ moduleForComponent('ma-nav', 'Integration | Component | ma-nav', {
 });
 
 test('it renders', function(assert) {
+  assert.expect(3);
+
   this.set('isAuth', true);
   this.set('logout', function logout() {});
   this.render(hbs`{{ma-nav logout=logout isAuthenticated=isAuth}}`);
 
   assert.notEqual(this.$().text().trim(), '');
   assert.notEqual(this.$().text().indexOf('Home'), -1);
-  assert.notEqual(this.$().text().indexOf('Styleguide'), -1);
-  assert.notEqual(this.$().text().indexOf('Typography'), -1);
+  assert.notEqual(this.$().text().indexOf('Logout'), -1);
 });
 
 test('it animates in and out', function(assert) {
