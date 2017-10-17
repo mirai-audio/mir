@@ -1,5 +1,6 @@
+import { get } from '@ember/object';
+import { later } from '@ember/runloop';
 import { moduleFor, test } from 'ember-qunit';
-import Ember from 'ember';
 
 moduleFor('service:window', 'Unit | Service | window', {
   // Specify the other units that are required for this test.
@@ -18,8 +19,8 @@ test('it can call history.back and navigate back', function(assert) {
   let service = this.subject();
   assert.ok(service, 'service is ok');
   // navigate back
-  service.get('history.back')();
-  Ember.run.later(this, () => {
+  get(service, 'history.back')();
+  later(this, () => {
     assert.equal(window.location.hash, '#back', '`history.back` was called');
   }, 250);
 });
@@ -35,8 +36,8 @@ test('it can call history.back if `history` is not available (e.g. in FastBoot)'
   delete window.history;
 
   // navigate back
-  service.get('history.back')();
-  Ember.run.later(this, () => {
+  get(service, 'history.back')();
+  later(this, () => {
     assert.equal(window.location.hash, '#same', '`history.back` was not called');
   }, 250);
 

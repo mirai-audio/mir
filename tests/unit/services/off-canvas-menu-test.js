@@ -1,3 +1,4 @@
+import { get } from '@ember/object';
 import { moduleFor, test } from 'ember-qunit';
 
 moduleFor('service:off-canvas-menu', 'Unit | Service | off canvas menu', {
@@ -14,9 +15,9 @@ test('toggle inverts the value of `is-active`', function(assert) {
 
   // assert true
   service.toggle();
-  assert.equal(service.get('isActive'), true, 'it switches from false to true');
+  assert.equal(get(service, 'isActive'), true, 'it switches from false to true');
 
   // assert false
   service.toggle();
-  assert.equal(service.get('isActive'), false, 'it switches from true to false');
+  assert.equal(get(service, 'isActive'), false, 'it switches from true to false');
 });

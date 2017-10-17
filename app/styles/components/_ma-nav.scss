@@ -15,7 +15,7 @@
     right: 0;
     top: 0;
     pointer-events: none;
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;  /* transparent until :target is active */
     transition: opacity 250ms ease;
     will-change: opacity;

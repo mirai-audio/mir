@@ -1,10 +1,12 @@
 # Mir
 
-> Ember app powering mirai.audio
-
 [![CircleCI](https://img.shields.io/circleci/project/github/mirai-audio/mir.svg?style=flat-square)](https://circleci.com/gh/mirai-audio/mir)
 [![Coveralls branch](https://img.shields.io/coveralls/mirai-audio/mir/master.svg?style=flat-square)](https://coveralls.io/github/mirai-audio/mir?branch=master)
 [![David](https://img.shields.io/david/dev/mirai-audio/mir.svg?style=flat-square)](https://david-dm.org/mirai-audio/mir?type=dev)
+[![Ember](https://img.shields.io/badge/Ember-2.16-blue.svg?style=flat-square)](https://emberjs.com/)
+
+_Ember app powering the frontend of mirai.audio_
+
 
 ## [Docs](https://github.com/mirai-audio/mir/wiki)
 
@@ -17,12 +19,12 @@
 
 ## Prerequisites
 
-You will need the following tools properly installed:
+You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/)
 * [Ember CLI](https://ember-cli.com/)
-* Google Chrome
+* [Google Chrome](https://google.com/chrome/)
 * [Watchman](https://facebook.github.io/watchman/)
 * [Yarn](https://yarnpkg.com/)
 
@@ -51,7 +53,8 @@ yarn
 
 ## Running / Development
 
-To run with server-side rendering:
+* `ember serve`
+* Visit your app at [http://localhost:4200](http://localhost:4200).
 
 `ember serve` then visit your app at 
 [http://localhost:4200](http://localhost:4200).
@@ -92,7 +95,6 @@ in the running application.
 ## LICENSE
 
 [MIT](LICENSE)
-
 
 A product of <ruby>
   <ruby>

@@ -1,17 +1,29 @@
 import { moduleFor, test } from 'ember-qunit';
-import Ember from 'ember';
+import { get } from '@ember/object';
+import { later } from '@ember/runloop';
+import Service from '@ember/service';
+import { startMirage } from 'mir/initializers/ember-cli-mirage';
+
 
 moduleFor('route:index', 'Unit | Route | index', {
-  // Specify the other units that are required for this test.
   needs: [
-    'service:session',
     'service:fastboot',
   ],
+
+  beforeEach() {
+    // start mirage manually before a unit test
+    this.server = startMirage();
+  },
+
+  afterEach() {
+    // manually shut down mirage
+    this.server.shutdown();
+  },
 });
 
 test('it handles signup errors properly', function(assert) {
   // mock the `session` service
-  this.register('service:session', Ember.Service.extend({
+  this.register('service:session', Service.extend({
     session: {
       authenticated: {
         authenticator: 'authenticator:ai',
@@ -24,16 +36,22 @@ test('it handles signup errors properly', function(assert) {
     },
   }));
 
+  // mock a failed response
+  let mockResponse = {
+    errors: ['errors.login.other'],
+  };
+  server.get('/users/current', mockResponse, 500);
+
   let route = this.subject();
   assert.expect(2);
   const done = assert.async();
 
   assert.ok(route);
 
-  Ember.run.later(() => {
-    const expected = ['errors.login.other'];
-    const result = route.get('errorMessageKeys');
-    assert.deepEqual(result, expected, 'login error was set');
+  later(() => {
+    const expected = 'errors.login.other';
+    const result = get(route, 'errorMessageKeys').toString();
+    assert.equal(result, expected, 'login error was set');
     done();
   }, 250);
 

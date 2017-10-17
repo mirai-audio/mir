@@ -1,5 +1,6 @@
 import RSVP from 'rsvp';
 import { isEmpty } from '@ember/utils';
+import { get } from '@ember/object';
 import { run } from '@ember/runloop';
 import { makeArray } from '@ember/array';
 import {
@@ -73,8 +74,8 @@ export default OAuth2PasswordGrant.extend({
         username: identification,
         password,
       };
-      const serverTokenEndpoint = this.get('serverTokenEndpoint');
-      const useResponse = this.get('rejectWithResponse');
+      const serverTokenEndpoint = get(this, 'serverTokenEndpoint');
+      const useResponse = get(this, 'rejectWithResponse');
       const scopesString = makeArray(scope).join(' ');
       if (!isEmpty(scopesString)) {
         data.scope = scopesString;

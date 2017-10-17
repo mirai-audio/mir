@@ -1,9 +1,9 @@
+import Service from '@ember/service';
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
-import Ember from 'ember';
 
 // Stub location service
-const windowStub = Ember.Service.extend({
+const windowStub = Service.extend({
   history: {
     back() {
       window.location.hash = '#clicked';

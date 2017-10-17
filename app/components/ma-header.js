@@ -1,21 +1,24 @@
-import Ember from 'ember';
+import { get } from '@ember/object';
+import { alias } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
-  window: Ember.inject.service(),
-  offCanvasMenu: Ember.inject.service(),
+export default Component.extend({
+  window: service(),
+  offCanvasMenu: service(),
 
   tagName: 'header',
   classNames: ['ma-Header'],
 
-  offCanvasIsActive: Ember.computed.alias('offCanvasMenu.isActive'),
+  offCanvasIsActive: alias('offCanvasMenu.isActive'),
 
   actions: {
     toggleOffCanvas() {
-      this.get('offCanvasMenu').toggle();
+      get(this, 'offCanvasMenu').toggle();
     },
 
     back() {
-      this.get('window.history').back();
+      get(this, 'window.history').back();
     },
   },
 });

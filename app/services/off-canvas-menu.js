@@ -1,10 +1,11 @@
-import Ember from 'ember';
+import { get, set } from '@ember/object';
+import Service from '@ember/service';
 
-export default Ember.Service.extend({
+export default Service.extend({
   isActive: false,
 
   toggle() {
-    const isActive = this.get('isActive');
-    this.set('isActive', !isActive);
+    const isActive = get(this, 'isActive');
+    set(this, 'isActive', !isActive);
   },
 });

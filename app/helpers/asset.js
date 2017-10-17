@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { helper } from '@ember/component/helper';
 import config from '../config/environment';
 
 export function asset(param /* hash */) {
@@ -6,4 +6,4 @@ export function asset(param /* hash */) {
   return `${rootURL}${param}`;
 }
 
-export default Ember.Helper.helper(asset);
+export default helper(asset);

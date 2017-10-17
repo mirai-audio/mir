@@ -1,10 +1,12 @@
-import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import { get, set } from '@ember/object';
+import Route from '@ember/routing/route';
 import UnauthenticatedRouteMixin from
   'ember-simple-auth/mixins/unauthenticated-route-mixin';
 
-export default Ember.Route.extend(UnauthenticatedRouteMixin, {
-  auth: Ember.inject.service(),
-  session: Ember.inject.service(),
+export default Route.extend(UnauthenticatedRouteMixin, {
+  auth: service(),
+  session: service(),
 
   model(/* params */) {
     return this.store.createRecord('user');
@@ -12,12 +14,14 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
 
   actions: {
     login(user) {
+      let email = get(user, 'email');
+      let password = get(user, 'password');
       // get the user from routes model
-      this.get('auth')
-        .loginUserPassword('authenticator:ai', user.get('email'), user.get('password'))
+      get(this, 'auth')
+        .loginUserPassword('authenticator:ai', email, password)
         .then((result) => {
           // set errors to any that may have been returned
-          this.set('controller.errorMessageKeys', result);
+          set(this, 'controller.errorMessageKeys', result);
         });
       // 🤞
 
@@ -26,20 +30,20 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
     },
 
     loginTwitter() {
-      this.get('auth')
+      get(this, 'auth')
         .loginTwitter()
         .then((result) => {
           // set errors to any that may have been returned
-          this.set('controller.errorMessageKeys', result);
+          set(this, 'controller.errorMessageKeys', result);
         });
       // 🤞
     },
 
     signup() {
-      this.get('currentModel').save()
+      get(this, 'currentModel').save()
         .then(() => {
           // user saved, invoke the login method
-          const user = this.get('currentModel');
+          const user = get(this, 'currentModel');
           this.send('login', user);
         }).catch((response) => {
           // deal with errors
@@ -49,7 +53,7 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
             .map(errorMessage => `errors.login.${(errorMessage || 'other').dasherize()}`);
           // set error message list to the controller
           if (errorMessageKeys.length > 0) {
-            this.set('controller.errorMessageKeys', errorMessageKeys);
+            set(this, 'controller.errorMessageKeys', errorMessageKeys);
           }
         });
       // 🤞

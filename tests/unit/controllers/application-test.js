@@ -1,4 +1,5 @@
-import Ember from 'ember';
+import { getOwner } from '@ember/application';
+import { get, set } from '@ember/object';
 import { moduleFor, test } from 'ember-qunit';
 import localeConfig from 'ember-i18n/config/en';
 
@@ -12,13 +13,14 @@ moduleFor('controller:application', 'Unit | Controller | application', {
 
   beforeEach() {
     // set the locale and the config
-    this.container.lookup('service:i18n').set('locale', 'en');
+    let i18n = this.container.lookup('service:i18n');
+    set(i18n, 'locale', 'en');
     // set the locale and the config
     this.registry.register('locale:en/config', localeConfig);
 
     // manually inject the i18n service as initialzer does not run
     // in unit test
-    Ember.getOwner(this).inject('controller', 'i18n', 'service:i18n');
+    getOwner(this).inject('controller', 'i18n', 'service:i18n');
   },
 });
 
@@ -29,6 +31,6 @@ test('it exists', function(assert) {
 
 test('it has a locale set to "en"', function(assert) {
   let controller = this.subject();
-  let expected = controller.get('i18n').locale;
+  let expected = get(controller, 'i18n').locale;
   assert.equal(expected, 'en');
 });

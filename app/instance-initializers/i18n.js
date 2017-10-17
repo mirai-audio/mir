@@ -1,3 +1,5 @@
+import { get, set } from '@ember/object';
+
 function detectHeaderLocale(headerValue) {
   let locale = (headerValue || 'en');
   locale = locale.split(',')[0];
@@ -17,8 +19,8 @@ function detectLocale(appInstance) {
 
   if (fastBoot.isFastBoot) {
     // detect locale from an HTTP request
-    const headers = fastBoot.get('request.headers');
-    const acceptLanguageHeader = headers.get('Accept-Language');
+    const headers = get(fastBoot, 'request.headers');
+    const acceptLanguageHeader = get(headers, 'Accept-Language');
     locale = detectHeaderLocale(acceptLanguageHeader);
   } else if ('navigator' in window) {
     // detect locale on the frontend
@@ -31,6 +33,7 @@ export default {
   name: 'i18n',
   initialize(appInstance) {
     const locale = detectLocale(appInstance);
-    appInstance.lookup('service:i18n').set('locale', locale);
+    let service = appInstance.lookup('service:i18n');
+    set(service, 'locale', locale);
   },
 };

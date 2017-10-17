@@ -1,16 +1,18 @@
-import Ember from 'ember';
-import fetch from 'ember-network/fetch';
+import { inject as service } from '@ember/service';
+import { get, set } from '@ember/object';
+import Route from '@ember/routing/route';
+import fetch from 'fetch';
 import UnauthenticatedRouteMixin from
   'ember-simple-auth/mixins/unauthenticated-route-mixin';
 import config from '../config/environment';
 
-export default Ember.Route.extend(UnauthenticatedRouteMixin, {
-  session: Ember.inject.service(),
-  fastboot: Ember.inject.service(),
+export default Route.extend(UnauthenticatedRouteMixin, {
+  session: service(),
+  fastboot: service(),
 
   beforeModel() {
-    const isAuthenticated = this.get('session').get('isAuthenticated');
-    const isFastboot = this.get('fastboot').isFastBoot;
+    const isAuthenticated = get(this, 'session.isAuthenticated');
+    const isFastboot = get(this, 'fastboot').isFastBoot;
 
     // if user is not authenticated, and we're not on fastboot
     if (!isAuthenticated && !isFastboot) {
@@ -28,12 +30,12 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
 
   afterModel() {
     const endpoint = `${config.DS.host}/${config.DS.namespace}/users/current`;
-    const authenticator = this.get('session.session.authenticated.authenticator');
+    const authenticator = get(this, 'session.session.authenticated.authenticator');
     // Use OAuth `access_token` for authenticator:ai, just email email, really
     const sessionKey = authenticator === 'authenticator:ai' ?
-      'session.content.authenticated.access_token' :
-      'session.authenticated.code';
-    const accessToken = this.get('session').get(sessionKey);
+      'session.session.content.authenticated.access_token' :
+      'session.session.authenticated.code';
+    const accessToken = get(this, sessionKey);
     const token = `Bearer ${accessToken}`;
 
     // if we have a valid `access_token`, POST it to Ai and stash user into
@@ -46,10 +48,10 @@ export default Ember.Route.extend(UnauthenticatedRouteMixin, {
         },
       }).then(raw => raw.json().then((data) => {
         const user = this.store.push(data);
-        this.set('session.user', user);
+        set(this, 'session.user', user);
       })).catch((/* error */) => {
         const message = 'errors.login.other';
-        this.set('errorMessageKeys', [message]);
+        set(this, 'errorMessageKeys', [message]);
       });
     }
   },
