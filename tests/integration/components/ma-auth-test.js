@@ -1,35 +1,37 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { setOwner } from '@ember/application';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from 'ember-test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import {
   registerTestComponent,
   unregisterTestComponent
-} from
-  'mir/tests/ember-test-component';
+} from 'mir/tests/ember-test-component';
 
-moduleForComponent('ma-auth', 'Integration | Component | ma auth', {
-  integration: true,
+module('Integration | Component | ma auth', function(hooks) {
+  setupRenderingTest(hooks);
 
-  beforeEach({ test: testCtx }) {
+  hooks.beforeEach(function({ test: testCtx }) {
+    setOwner(this, this.owner);
     unregisterTestComponent(testCtx.testEnvironment);
-  },
-});
+  });
 
-test('it renders the signup form', function(assert) {
-  registerTestComponent(this);
+  test('it renders the signup form', async function(assert) {
+    registerTestComponent(this);
 
-  this.set('loginAction', function login() {});
-  this.set('signupAction', function signup() {});
+    this.set('loginAction', function login() {});
+    this.set('signupAction', function signup() {});
 
-  this.render(hbs`
-    {{ma-auth title="ABC_"
-      components=(hash
-        login=(component "test-component")
-        input=(component "test-component"))
-      loginAction=loginAction
-      action=signupAction}}
-  `);
+    await render(hbs`
+      {{ma-auth title="ABC_"
+        components=(hash
+          login=(component "test-component")
+          input=(component "test-component"))
+        loginAction=loginAction
+        action=signupAction}}
+    `);
 
-  let actual = this.$().text().trim().replace(/[\s\n]+/g, '');
-  assert.notEqual(actual.indexOf('ABC_'), -1);
-  assert.notEqual(actual.indexOf('Signup'), -1);
+    assert.notEqual(this.element.textContent.trim().indexOf('ABC_'), -1);
+    assert.notEqual(this.element.textContent.trim().indexOf('Sign up'), -1);
+  });
 });

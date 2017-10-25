@@ -20,14 +20,14 @@
 
 {{#if showValidations}}
   {{#if errors.length}}
-  <ul>
-    {{#each errors as |error|}}
-      <li>
-        <span class="help is-danger">
-          {{error}}
-        </span>
-      </li>
-    {{/each}}
-  </ul>
+    <ul>
+      {{#each errors as |error|}}
+        <li>
+          <span class="help is-danger">
+            {{error}}
+          </span>
+        </li>
+      {{/each}}
+    </ul>
   {{/if}}
 {{/if}}

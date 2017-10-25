@@ -18,7 +18,7 @@ export default Component.extend({
     },
 
     back() {
-      get(this, 'window.history').back();
+      get(this, 'window.history').back(window);
     },
   },
 });

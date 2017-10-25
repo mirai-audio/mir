@@ -4,20 +4,20 @@
   <ul class="ma-Nav-items">
     <li>{{link-to (t "routes.application.title") "application"}}</li>
 
-  {{#if isAuthenticated}}
-    {{#if isDevelopment}}
-      <li>{{link-to (t "routes.styleguide.title") "styleguide"}}</li>
-      <li>{{link-to (t "routes.typography.title") "typography"}}</li>
-      <li><a href="/ember-svg-jar/index.html">svg-jar</a></li>
+    {{#if isAuthenticated}}
+      {{#if isDevelopment}}
+        <li>{{link-to (t "routes.styleguide.title") "styleguide"}}</li>
+        <li>{{link-to (t "routes.typography.title") "typography"}}</li>
+        <li><a href="/ember-svg-jar/index.html">{{t "svg-jar"}}</a></li>
+      {{/if}}
+      <li>{{link-to (t "common.logout") "logout"}}</li>
+    {{else}}
+      <li>{{link-to (t "routes.welcome.title") "welcome"}}</li>
+      <li>{{link-to (t "routes.login.title") "login"}}</li>
     {{/if}}
-    <li>{{link-to (t "common.logout") "logout"}}</li>
-  {{else}}
-    <li>{{link-to (t "routes.welcome.title") "welcome"}}</li>
-    <li>{{link-to (t "routes.login.title") "login"}}</li>
-  {{/if}}
   </ul>
 
   <footer class="ma-Nav-footer has-text-centered">
-    <small>v{{version}}</small>
+    <small>{{concat "v" version}}</small>
   </footer>
 </nav>

@@ -1,11 +1,11 @@
-import { moduleFor, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupTest } from 'ember-qunit';
 
-moduleFor('adapter:application', 'Unit | Adapter | application', {
-  // Specify the other units that are required for this test.
-  needs: ['service:session']
-});
+module('Unit | Adapter | application', function(hooks) {
+  setupTest(hooks);
 
-test('API namespace is sandboxed under api/v1', function(assert) {
-  let adapter = this.subject();
-  assert.equal('api/v1', adapter.namespace);
+  test('API namespace is sandboxed under api/v1', function(assert) {
+    let adapter = this.owner.lookup('adapter:application');
+    assert.equal('api/v1', adapter.namespace);
+  });
 });

@@ -17,7 +17,7 @@ export default Route.extend(UnauthenticatedRouteMixin, {
     // if user is not authenticated, and we're not on fastboot
     if (!isAuthenticated && !isFastboot) {
       // send them to welcome
-      this.transitionTo('welcome');
+      this.replaceWith('welcome');
     }
   },
 
