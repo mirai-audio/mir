@@ -3,8 +3,7 @@ import hbs from 'htmlbars-inline-precompile';
 import {
   registerTestComponent,
   unregisterTestComponent
-} from
-  'mir/tests/ember-test-component';
+} from 'mir/tests/ember-test-component';
 
 moduleForComponent('ma-auth', 'Integration | Component | ma auth', {
   integration: true,

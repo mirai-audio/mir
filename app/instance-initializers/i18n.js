@@ -32,8 +32,13 @@ function detectLocale(appInstance) {
 export default {
   name: 'i18n',
   initialize(appInstance) {
-    const locale = detectLocale(appInstance);
     let service = appInstance.lookup('service:i18n');
-    set(service, 'locale', locale);
+    const agentLocale = detectLocale(appInstance);
+
+    // use the local, if we have a translation defined, otherwise fallback to en
+    let availableLocale = get(service, 'locales').includes(agentLocale.toLowerCase()) ?
+      agentLocale :
+      'en';
+    set(service, 'locale', availableLocale);
   },
 };

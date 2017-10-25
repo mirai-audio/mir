@@ -1,3 +1,5 @@
+{{! template-lint-disable bare-strings block-indentation }}
+
 {{#ma-header
   back="routes.application.title"
   backTo="application"
@@ -89,7 +91,8 @@
     <header><h1>Content Sectioning</h1></header>
     <article id="sectioning__semantics">
       <header><h1>Semantic</h1></header>
-      <address>1 Infinite Loop<br>
+      <address>
+        1 Infinite Loop<br>
         Cupertino, CA 95014<br>
         United States
       </address>
@@ -159,12 +162,16 @@
       </blockquote>
       <div>
         <blockquote>
-          <p>A block quotation (also known as a long quotation or extract)
-          is a quotation in a written document, that is set off from the
-          main text as a paragraph, or block of text.</p>
-          <p>It is typically distinguished visually using indentation and a
-          different typeface or smaller size quotation. It may or may not
-          include a citation, usually placed at the bottom.</p>
+          <p>
+            A block quotation (also known as a long quotation or extract)
+            is a quotation in a written document, that is set off from the
+            main text as a paragraph, or block of text.
+          </p>
+          <p>
+            It is typically distinguished visually using indentation and a
+            different typeface or smaller size quotation. It may or may not
+            include a citation, usually placed at the bottom.
+          </p>
           <cite><a href="#!">Said no one, ever.</a></cite>
         </blockquote>
       </div>
@@ -203,11 +210,15 @@
     <article id="text__figure">
       <header><h2>Figure / Figcaption</h2></header>
       <div>
-        <h3>Wrapped in a <code>&lt;figure&gt;</code> element, no
-          <code>&lt;figcaption&gt;</code></h3>
+        <h3>
+          Wrapped in a <code>&lt;figure&gt;</code> element, no
+          <code>&lt;figcaption&gt;</code>
+        </h3>
         <figure><img src={{asset "images/logo.svg"}} alt="Image alt text"></figure>
-        <h3>Wrapped in a <code>&lt;figure&gt;</code> element, with a
-          <code>&lt;figcaption&gt;</code></h3>
+        <h3>
+          Wrapped in a <code>&lt;figure&gt;</code> element, with a
+          <code>&lt;figcaption&gt;</code>
+        </h3>
         <figure>
           <img src="{{asset "images/logo.svg"}}" alt="Image alt text">
           <figcaption>Here is a caption for this image.</figcaption>
@@ -231,7 +242,8 @@
     </article>
     <article id="text__paragraphs">
       <header><h1>Paragraphs</h1></header>
-      <p>A paragraph (from the Greek paragraphos, “to write beside” or
+      <p>
+        A paragraph (from the Greek paragraphos, “to write beside” or
         “written beside”) is a self-contained unit of a discourse in writing
         dealing with a particular point or idea. A paragraph consists of
         one or more sentences. Though not required by the syntax of any
@@ -272,8 +284,10 @@ line-height: 160%;
       <div>
         <p><a href="#!">This is a text link</a>.</p>
         <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
-        <p>The <b>b element</b> is stylistically different text from
-          normal text, without any special importance.</p>
+        <p>
+          The <b>b element</b> is stylistically different text from
+          normal text, without any special importance.
+        </p>
         <p><bdi>&lt;bdi&gt; indicates </bdi> a different text-flow direction.</p>
         <p><bdo>&lt;bdo&gt; indicates </bdo>an override for text-flow direction.</p>
         <p>the<br>&lt;br&gt; tag is used to create a line break.</p>
@@ -286,9 +300,13 @@ line-height: 160%;
         <p><em>This text has added emphasis.</em></p>
         <p>use <kbd>keyboard text</kbd> to indecate keystrokes</p>
         <p>The <mark>mark element</mark> indicates a highlight.</p>
-        <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This
-          text is a short inline quotation.</q></p>
-        <p>This is example of Japanese text annotated with &lt;Ruby&gt; tags
+        <p>
+          <q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">
+            This text is a short inline quotation.
+          </q>
+        </p>
+        <p>
+          This is example of Japanese text annotated with &lt;Ruby&gt; tags
           <ruby>
             <ruby>
               未<rp>(</rp><rt>み</rt><rp>)</rp>
@@ -303,22 +321,28 @@ line-height: 160%;
         </p>
         <p><s>This text has a strikethrough</s>.</p>
         <p>
-          <strong>Sample &lt;samp&gt; output:</strong> <samp>This is sample
-          output from a computer program.</samp>
+          <strong>Sample &lt;samp&gt; output:</strong>
+          <samp>This is sample output from a computer program.</samp>
         </p>
         <p><small>This small text is small for for fine print, etc.</small></p>
-        <p>The HTML &lt;span&gt; element is a generic inline container for
+        <p>
+          The HTML &lt;span&gt; element is a generic inline container for
           phrasing content, which does not inherently represent anything.
         </p>
         <p><strong>Strong is used to indicate strong importance.</strong></p>
         <p>Lastly don't forget the sub (H<sub>2</sub>O)</p>
         <p>Superscript<sup>®</sup>.</p>
-        <p>The time element: <time datetime="2013-04-06T12:32+00:00">2 weeks
-          ago</time></p>
-        <p>The <u>u element</u> is text with an unarticulated, though explicitly
-          rendered, non-textual annotation.</p>
+        <p>
+          The time element:
+          <time datetime="2013-04-06T12:32+00:00">2 weeks ago</time>
+        </p>
+        <p>
+          The <u>u element</u> is text with an unarticulated, though explicitly
+          rendered, non-textual annotation.
+        </p>
         <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
-        <p>The HTML &lt;wbr&gt; element represents a word break opportunity—a
+        <p>
+          The HTML &lt;wbr&gt; element represents a word break opportunity—a
           position within text where the browser may optionally break a line,
           though its line-breaking rules would not otherwise create a break at
           that location.
@@ -332,8 +356,8 @@ line-height: 160%;
     <header><h1>Images and Media</h1></header>
     <article id="images__area">
       <header><h2>Area / Map</h2></header>
-      <p>A
-        &lt;map&gt; with &lt;area&gt; can be used to define clickable regions.
+      <p>
+        A &lt;map&gt; with &lt;area&gt; can be used to define clickable regions.
       </p>
       <footer><p>[<a href="#top">Top</a>]</p></footer>
     </article>
@@ -348,12 +372,16 @@ line-height: 160%;
         <h3>Image, no <code>&lt;figure&gt;</code> element</h3>
         <p><img src={{asset "images/logo.svg"}} alt="Image alt text"></p>
 
-        <h3>Wrapped in a <code>&lt;figure&gt;</code> element, no
-          <code>&lt;figcaption&gt;</code></h3>
+        <h3>
+          Wrapped in a <code>&lt;figure&gt;</code> element, no
+          <code>&lt;figcaption&gt;</code>
+        </h3>
         <figure><img src={{asset "images/logo.svg"}} alt="Image alt text"></figure>
 
-        <h3>Wrapped in a <code>&lt;figure&gt;</code> element, with a
-          <code>&lt;figcaption&gt;</code></h3>
+        <h3>
+          Wrapped in a <code>&lt;figure&gt;</code> element, with a
+          <code>&lt;figcaption&gt;</code>
+        </h3>
         <figure>
           <img src="{{asset "images/logo.svg"}}" alt="Image alt text">
           <figcaption>Here is a caption for this image.</figcaption>
@@ -368,7 +396,8 @@ line-height: 160%;
     </article>
     <article id="images__track">
       <header><h2>Track</h2></header>
-      <p>The HTML &lt;track&gt; element is used as a child of the media elements—
+      <p>
+        The HTML &lt;track&gt; element is used as a child of the media elements—
         &lt;audio&gt; and &lt;video&gt;. It lets you specify timed text tracks
         (or time-based data), for example to automatically handle subtitles.
       </p>
@@ -399,7 +428,8 @@ line-height: 160%;
     </article>
     <article id="scripting__noscript">
       <header><h2>Noscript</h2></header>
-      <div>Use &lt;noscript&gt; <noscript>no script</noscript> which defines a
+      <div>
+        Use &lt;noscript&gt; <noscript>no script</noscript> which defines a
         section of html to be inserted if a script type on the page is unsupported
         or if scripting is currently turned off in the browser.
       </div>
@@ -407,7 +437,8 @@ line-height: 160%;
     </article>
     <article id="scripting__script">
       <header><h2>Script</h2></header>
-      <p>The HTML &lt;script&gt; element is used to embed or reference an
+      <p>
+        The HTML &lt;script&gt; element is used to embed or reference an
         executable script.
       </p>
       <footer><p>[<a href="#top">Top</a>]</p></footer>
@@ -563,12 +594,18 @@ line-height: 160%;
       <fieldset id="forms__checkbox">
         <legend>Checkboxes</legend>
         <ul class="list list--bare">
-          <li><label for="checkbox1"><input id="checkbox1" name="checkbox"
-                type="checkbox" checked="checked"> Choice A</label></li>
-          <li><label for="checkbox2"><input id="checkbox2" name="checkbox"
-                type="checkbox"> Choice B</label></li>
-          <li><label for="checkbox3"><input id="checkbox3" name="checkbox"
-                type="checkbox"> Choice C</label></li>
+          <li>
+            <label for="checkbox1"><input id="checkbox1" name="checkbox"
+              type="checkbox" checked="checked"> Choice A</label>
+          </li>
+          <li>
+            <label for="checkbox2"><input id="checkbox2" name="checkbox"
+              type="checkbox"> Choice B</label>
+          </li>
+          <li>
+            <label for="checkbox3"><input id="checkbox3" name="checkbox"
+              type="checkbox"> Choice C</label>
+          </li>
         </ul>
       </fieldset>
       <p>[<a href="#top">Top</a>]</p>
@@ -576,12 +613,18 @@ line-height: 160%;
       <fieldset id="forms__radio">
         <legend>Radio buttons</legend>
         <ul class="list list--bare">
-          <li><label for="radio1"><input id="radio1" name="radio" type="radio"
-                class="radio" checked="checked"> Option 1</label></li>
-          <li><label for="radio2"><input id="radio2" name="radio" type="radio"
-                class="radio"> Option 2</label></li>
-          <li><label for="radio3"><input id="radio3" name="radio" type="radio"
-                class="radio"> Option 3</label></li>
+          <li>
+            <label for="radio1"><input id="radio1" name="radio" type="radio"
+              class="radio" checked="checked"> Option 1</label>
+          </li>
+          <li>
+            <label for="radio2"><input id="radio2" name="radio" type="radio"
+              class="radio"> Option 2</label>
+          </li>
+          <li>
+            <label for="radio3"><input id="radio3" name="radio" type="radio"
+              class="radio"> Option 3</label>
+          </li>
         </ul>
       </fieldset>
       <p>[<a href="#top">Top</a>]</p>
@@ -590,8 +633,7 @@ line-height: 160%;
         <legend>Textareas</legend>
         <p>
           <label for="textarea">Textarea</label>
-          <textarea id="textarea" rows="8" cols="48"
-            placeholder="Enter your message here"></textarea>
+          <textarea id="textarea" rows="8" cols="48" placeholder="Enter your message here"></textarea>
         </p>
       </fieldset>
       <p>[<a href="#top">Top</a>]</p>
@@ -730,7 +772,8 @@ line-height: 160%;
     </article>
     <article id="interactive__details">
       <h3>Summary / Details</h3>
-      <summary>You should read more below
+      <summary>
+        You should read more below
         <details>And this is the details.</details>
       </summary>
       <footer><p>[<a href="#top">Top</a>]</p></footer>

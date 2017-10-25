@@ -1,17 +1,21 @@
-import { moduleForModel, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupTest } from 'ember-qunit';
+import { later } from '@ember/runloop';
 
-moduleForModel('user', 'Unit | Model | user', {
-  // Specify the other units that are required for this test.
-  needs: [
-    'validator:confirmation',
-    'validator:format',
-    'validator:length',
-    'validator:presence',
-  ],
-});
+module('Unit | Model | user', function(hooks) {
+  setupTest(hooks);
 
-test('it exists', function(assert) {
-  let model = this.subject();
-  // let store = this.store();
-  assert.ok(!!model);
+  test('it exists', function(assert) {
+    let done = assert.async();
+
+    let store = this.owner.lookup('service:store');
+
+    // TODO: Hack, `createRecord` in a runloop
+    // see: https://github.com/mirai-audio/mir/issues/45
+    later(() => {
+      let model = store.createRecord('user');
+      assert.ok(!!model);
+      done();
+    });
+  });
 });

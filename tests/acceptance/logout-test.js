@@ -1,3 +1,4 @@
+import { currentURL, visit } from 'ember-native-dom-helpers';
 import { test } from 'qunit';
 import { get } from '@ember/object';
 import {
@@ -8,26 +9,22 @@ import moduleForAcceptance from 'mir/tests/helpers/module-for-acceptance';
 
 moduleForAcceptance('Acceptance | logout');
 
-test('unauthenticated users can visit /logout', function(assert) {
-  visit('/logout');
+test('unauthenticated users can visit /logout', async function(assert) {
+  await visit('/logout');
 
-  andThen(function() {
-    assert.equal(currentURL(), '/welcome');
-  });
+  assert.equal(currentURL(), '/welcome');
 });
 
-test('authenticated users can visit /logout', function(assert) {
+test('authenticated users can visit /logout', async function(assert) {
   const app = this.application;
 
   authenticateSession(app, {
     userId: 1,
     otherData: 'some-data',
   });
-  visit('/logout');
+  await visit('/logout');
 
-  andThen(function() {
-    // verify they're logged out
-    let session = currentSession(app);
-    assert.notOk(get(session, 'isAuthenticated'));
-  });
+  // verify they're logged out
+  let session = currentSession(app);
+  assert.notOk(get(session, 'isAuthenticated'));
 });

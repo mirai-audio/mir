@@ -1,15 +1,17 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from 'ember-test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('ma-input', 'Integration | Component | ma input', {
-  integration: true
-});
+module('Integration | Component | ma input', function(hooks) {
+  setupRenderingTest(hooks);
 
-test('it renders', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-  this.set('inputId', 'username');
+  test('it renders', async function(assert) {
+    // Set any properties with this.set('myProperty', 'value');
+    // Handle any actions with this.on('myAction', function(val) { ... });
+    this.set('inputId', 'username');
 
-  this.render(hbs`{{ma-input inputId=inputId}}`);
-  assert.notEqual(this.$().html().trim().indexOf('username'), -1);
+    await render(hbs`{{ma-input inputId=inputId}}`);
+    assert.notEqual(this.element.innerHTML.trim().indexOf('username'), -1);
+  });
 });
