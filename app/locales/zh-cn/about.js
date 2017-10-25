@@ -5,5 +5,5 @@ export default {
     'Spotify, Last.fm, Soundcloud, YouTube, 或者mp3中任意聆听.' +
     '跨越YouTube, Soundcloud, Spotify, Last.fm等服务直接创建和分享播放列表. ' +
     '关注歌手并分享喜爱的歌曲。',
-  'arriving': 'Arriving in 2017',
+  'arriving': '2017年 敬请期待',
 };
