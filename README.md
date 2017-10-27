@@ -4,6 +4,7 @@
 [![Coveralls branch](https://img.shields.io/coveralls/mirai-audio/mir/master.svg?style=flat-square)](https://coveralls.io/github/mirai-audio/mir?branch=master)
 [![David](https://img.shields.io/david/dev/mirai-audio/mir.svg?style=flat-square)](https://david-dm.org/mirai-audio/mir?type=dev)
 [![Ember](https://img.shields.io/badge/Ember-2.16-blue.svg?style=flat-square)](https://emberjs.com/)
+[![StackShare](https://img.shields.io/badge/stack-share-0690fa.svg?style=flat-square)](https://stackshare.io/mirai-audio/mirai-audio)
 
 _Ember app powering the frontend of mirai.audio_
 
@@ -22,7 +23,7 @@ _Ember app powering the frontend of mirai.audio_
 You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/)
+* [Node.js LTS/6.x](https://nodejs.org/)
 * [Ember CLI](https://ember-cli.com/)
 * [Google Chrome](https://google.com/chrome/)
 * [Watchman](https://facebook.github.io/watchman/)
@@ -53,11 +54,11 @@ yarn
 
 ## Running / Development
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+`yarn develop` visit app at [http://localhost:4200](http://localhost:4200), a
+mock (ember-cli-Mirage) server will be running.
 
-`ember serve` then visit your app at 
-[http://localhost:4200](http://localhost:4200).
+`yarn start` Visit app at [http://localhost:4200](http://localhost:4200),
+requires Ai backend API server to be running.
 
 To run with service workers, without live reload:
 `ember serve --live-reload=false` and add `?dev=true` to the URL.
@@ -71,6 +72,7 @@ configuration:
 # common
 API_URL=https://api.mirai.audio  # REST API address
 HOST=http://localhost:4200       # Default host
+MIRAGE=true                      # Enable Mirage mock server for development
 
 # social login providers
 TWITTER_REQUEST_TOKEN_URL=//localhost:4000/auth/twitter # ai kickstarts OAuth

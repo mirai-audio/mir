@@ -125,9 +125,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.DS.host = process.env.API_URL || 'http://localhost:4000';
 
-    // disable ember-cli-mirage in development
+    // disable ember-cli-mirage in development by default, unless set
     ENV['ember-cli-mirage'] = {
-      enabled: false
+      enabled: process.env.MIRAGE || false
     }
   }
 

@@ -16,6 +16,7 @@
     "eslint": "./node_modules/eslint/bin/eslint.js -c .eslintrc.js app/ && ./node_modules/eslint/bin/eslint.js -c tests/.eslintrc.js tests/",
     "eslint-fix": "./node_modules/eslint/bin/eslint.js -c .eslintrc.js --fix app/ && ./node_modules/eslint/bin/eslint.js -c tests/.eslintrc.js --fix tests/",
     "start": "ember server",
+    "develop": "MIRAGE=true ember server",
     "test": "COVERAGE=true ember test"
   },
   "devDependencies": {
