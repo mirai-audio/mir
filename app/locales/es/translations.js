@@ -1,6 +1,6 @@
 /* eslint-disable quotes, quote-props */
 
-/* locale: en-US - US English */
+/* locale: es-ES - Spain Spanish */
 import app from './app';
 import about from './about';
 import common from './common';
