@@ -1,4 +1,5 @@
 /* eslint-disable quotes, quote-props */
+/* es Spain*/
 import app from './app';
 import about from './about';
 import common from './common';
@@ -7,10 +8,10 @@ import errors from './errors';
 import routes from './routes';
 
 export default {
-    'app': app,
-    'about': about,
-    'common': common,
-    'components': components,
-    'errors': errors,
-    'routes': routes,
+  'app': app,
+  'about': about,
+  'common': common,
+  'components': components,
+  'errors': errors,
+  'routes': routes,
 };
