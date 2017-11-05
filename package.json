@@ -70,7 +70,7 @@
     "qunit-dom": "^0.3.3",
     "stylelint": "^8.2.0",
     "stylelint-config-standard": "^17.0.0",
-    "system-font-i18n-css": "^0.1.1",
+    "system-font-i18n-css": "^1.0.0",
     "torii": "^0.9.6"
   },
   "engines": {
