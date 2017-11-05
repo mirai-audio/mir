@@ -8875,9 +8875,9 @@ synesthesia@^1.0.1:
   dependencies:
     css-color-names "0.0.3"
 
-system-font-i18n-css@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/system-font-i18n-css/-/system-font-i18n-css-0.1.1.tgz#fd70d7f4b9b52a6359f76fb2bff17ffa107b6438"
+system-font-i18n-css@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/system-font-i18n-css/-/system-font-i18n-css-1.0.0.tgz#5f7c68b2c27dbc1ca2a662078ec8e6e47a759c2e"
 
 table@^4.0.1:
   version "4.0.1"

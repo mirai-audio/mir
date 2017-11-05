@@ -3,8 +3,10 @@
 export default {
   'appname': 'mirai.audio',
   'tagline': 'Play everything, play everywhere',
-  'logout': 'Logout',
-  'close': 'Close',
+
+  'close': 'Close', /* Close (a dialog, or window) */
+  'loading': 'loading…', /* please wait, loading… */
+  'logout': 'Logout', /* Logout (of the site) */
 
   'svgjar': 'svg-jar',
 };

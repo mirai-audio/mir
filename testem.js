@@ -1,4 +1,5 @@
 /* eslint-env node */
+
 module.exports = {
   test_page: 'tests/index.html?hidepassed',
   disable_watching: true,
@@ -6,7 +7,10 @@ module.exports = {
     'Chrome'
   ],
   launch_in_dev: [
-    'Chrome'
+    'Chrome',
+    'Chrome Canary',
+    'Firefox',
+    'Safari',
   ],
   browser_args: {
     Chrome: {
@@ -17,6 +21,6 @@ module.exports = {
         '--remote-debugging-port=9222',
         '--window-size=1440,900'
       ]
-    },
+    }
   }
 };

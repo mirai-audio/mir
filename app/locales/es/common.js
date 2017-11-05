@@ -3,8 +3,10 @@
 export default {
   'appname': 'mirai.audio',
   'tagline': 'Escucha todo, escucha en todos lados',
-  'logout': 'Sin registro.',
+
   'close': 'Cerrar',
+  'loading': 'cargando…',
+  'logout': 'Sin registro.',
 
   'svgjar': 'svg-jar',
 };
