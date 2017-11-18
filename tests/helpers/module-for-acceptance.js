@@ -17,7 +17,10 @@ export default function(name, options = {}) {
 
     afterEach() {
       let afterEach = options.afterEach && options.afterEach.apply(this, arguments);
-      return resolve(afterEach).then(() => destroyApp(this.application));
+      return resolve(afterEach).then(() => {
+        server.shutdown(); // shutdown Mirage
+        destroyApp(this.application);
+      });
     }
   });
 }
