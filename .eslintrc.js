@@ -42,6 +42,6 @@ module.exports = {
     // relax defaults
     'no-underscore-dangle': 0,
     'ember/alias-model-in-controller': 'warn',
-    'ember/named-functions-in-promises': 'warn',
+    'ember/named-functions-in-promises': 0,
   }
 };
