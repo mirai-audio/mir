@@ -29,13 +29,23 @@ module('Unit | Service | window', function(hooks) {
     assert.ok(service, 'service is ok');
     // navigate back
     get(service, 'history.back')(window);
-    later(this, () => {
-      assert.equal(window.location.hash, '#back', '`history.back` was called');
-      done();
-    }, 250);
+    later(
+      this,
+      () => {
+        assert.equal(
+          window.location.hash,
+          '#back',
+          '`history.back` was called',
+        );
+        done();
+      },
+      250,
+    );
   });
 
-  test('it can call history.back if `history` is not available (e.g. in FastBoot)', function(assert) {
+  test('it can call history.back if `history` is not available (e.g. in FastBoot)', function(
+    assert,
+  ) {
     let done = assert.async();
 
     // navigate forwards, manually
@@ -45,10 +55,18 @@ module('Unit | Service | window', function(hooks) {
 
     // navigate back
     get(service, 'history.back')({});
-    later(this, () => {
-      assert.equal(window.location.hash, hash, '`history.back` was not called');
-      // restore history
-      done();
-    }, 250);
+    later(
+      this,
+      () => {
+        assert.equal(
+          window.location.hash,
+          hash,
+          '`history.back` was not called',
+        );
+        // restore history
+        done();
+      },
+      250,
+    );
   });
 });

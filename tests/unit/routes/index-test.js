@@ -5,7 +5,6 @@ import { later } from '@ember/runloop';
 import Service from '@ember/service';
 import { startMirage } from 'mir/initializers/ember-cli-mirage';
 
-
 module('Unit | Route | index', function(hooks) {
   setupTest(hooks);
 
@@ -21,18 +20,21 @@ module('Unit | Route | index', function(hooks) {
 
   test('it handles signup errors properly', function(assert) {
     // mock the `session` service
-    this.owner.register('service:session', Service.extend({
-      session: {
-        authenticated: {
-          authenticator: 'authenticator:ai',
-        },
-        content: {
+    this.owner.register(
+      'service:session',
+      Service.extend({
+        session: {
           authenticated: {
-            access_token: 'abc::123',
+            authenticator: 'authenticator:ai',
+          },
+          content: {
+            authenticated: {
+              access_token: 'abc::123',
+            },
           },
         },
-      },
-    }));
+      }),
+    );
 
     // mock a failed response
     let mockResponse = {

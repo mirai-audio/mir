@@ -4,19 +4,25 @@ import moduleForAcceptance from 'mir/tests/helpers/module-for-acceptance';
 
 moduleForAcceptance('Acceptance | index');
 
-test('visiting / unauthenticated should redirect to /welcome', async function(assert) {
+test('visiting / unauthenticated should redirect to /welcome', async function(
+  assert,
+) {
   await visit('/');
 
   assert.equal(currentURL(), '/welcome');
 });
 
-test('visiting /styleguide unauthenticated should redirect to /login', async function(assert) {
+test('visiting /styleguide unauthenticated should redirect to /login', async function(
+  assert,
+) {
   await visit('/styleguide');
 
   assert.equal(currentURL(), '/login');
 });
 
-test('visiting /typography unauthenticated should redirect to /login', async function(assert) {
+test('visiting /typography unauthenticated should redirect to /login', async function(
+  assert,
+) {
   await visit('/typography');
 
   assert.equal(currentURL(), '/login');

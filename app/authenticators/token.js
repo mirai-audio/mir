@@ -3,12 +3,8 @@ import { isEmpty } from '@ember/utils';
 import { get } from '@ember/object';
 import { run } from '@ember/runloop';
 import { makeArray } from '@ember/array';
-import {
-  merge,
-  assign as emberAssign,
-} from '@ember/polyfills';
-import OAuth2PasswordGrant from
-  'ember-simple-auth/authenticators/oauth2-password-grant';
+import { merge, assign as emberAssign } from '@ember/polyfills';
+import OAuth2PasswordGrant from 'ember-simple-auth/authenticators/oauth2-password-grant';
 import config from '../config/environment';
 
 const assign = emberAssign || merge;
@@ -80,27 +76,33 @@ export default OAuth2PasswordGrant.extend({
       if (!isEmpty(scopesString)) {
         data.scope = scopesString;
       }
-      this.makeRequest(serverTokenEndpoint, data, headers).then((response) => {
-        run(() => {
-          let fResponse = response;
-          if (!this._validate(response)) {
-            reject('access_token is missing in server response');
-          }
+      this.makeRequest(serverTokenEndpoint, data, headers).then(
+        response => {
+          run(() => {
+            let fResponse = response;
+            if (!this._validate(response)) {
+              reject('access_token is missing in server response');
+            }
 
-          const expiresAt = this._absolutizeExpirationTime(response.expires_in);
-          this._scheduleAccessTokenRefresh(
-            response.expires_in,
-            expiresAt,
-            response.refresh_token);
-          if (!isEmpty(expiresAt)) {
-            fResponse = assign(response, { expires_at: expiresAt });
-          }
+            const expiresAt = this._absolutizeExpirationTime(
+              response.expires_in,
+            );
+            this._scheduleAccessTokenRefresh(
+              response.expires_in,
+              expiresAt,
+              response.refresh_token,
+            );
+            if (!isEmpty(expiresAt)) {
+              fResponse = assign(response, { expires_at: expiresAt });
+            }
 
-          resolve(fResponse);
-        });
-      }, (response) => {
-        run(null, reject, useResponse ? response : response.responseJSON);
-      });
+            resolve(fResponse);
+          });
+        },
+        response => {
+          run(null, reject, useResponse ? response : response.responseJSON);
+        },
+      );
     });
   },
 });

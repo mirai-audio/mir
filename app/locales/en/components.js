@@ -2,12 +2,12 @@
 
 export default {
   'ma-auth': {
-    'socialTitle': 'Sign in with',
-    'title': 'Or sign up',
+    socialTitle: 'Sign in with',
+    title: 'Or sign up',
   },
 
   'ma-header': {
-    'back': 'Back',
+    back: 'Back',
   },
 
   'ma-login': {

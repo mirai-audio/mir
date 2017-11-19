@@ -1,16 +1,18 @@
 import { get, set } from '@ember/object';
 
 function detectHeaderLocale(headerValue) {
-  let locale = (headerValue || 'en');
+  let locale = headerValue || 'en';
   locale = locale.split(',')[0];
   return locale;
 }
 
 function getNavigatorLocale(navigator) {
-  return (navigator.languages && navigator.languages[0]) ||
+  return (
+    (navigator.languages && navigator.languages[0]) ||
     navigator.language ||
     navigator.userLanguage ||
-    'en';
+    'en'
+  );
 }
 
 function detectLocale(appInstance) {
@@ -36,9 +38,11 @@ export default {
     const agentLocale = detectLocale(appInstance);
 
     // use the local, if we have a translation defined, otherwise fallback to en
-    let availableLocale = get(service, 'locales').includes(agentLocale.toLowerCase()) ?
-      agentLocale :
-      'en';
+    let availableLocale = get(service, 'locales').includes(
+      agentLocale.toLowerCase(),
+    )
+      ? agentLocale
+      : 'en';
     set(service, 'locale', availableLocale);
   },
 };

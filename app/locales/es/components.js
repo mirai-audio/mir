@@ -2,12 +2,12 @@
 
 export default {
   'ma-auth': {
-    'socialTitle': 'Registrarse con ',
-    'title': 'O regístrate',
+    socialTitle: 'Registrarse con ',
+    title: 'O regístrate',
   },
 
   'ma-header': {
-    'back': 'Atras',
+    back: 'Atras',
   },
 
   'ma-login': {

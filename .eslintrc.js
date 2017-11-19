@@ -6,7 +6,10 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:ember/recommended'
+    'plugin:ember/recommended',
+  ],
+  'plugins': [
+    'prettier',
   ],
   env: {
     browser: true,
@@ -34,13 +37,17 @@ module.exports = {
   rules: {
     // enforce
     'no-console': ['error', { allow: ['warn', 'error'] }],
+    // prettier
+    'prettier/prettier': 'error',
+    // eslint-plugin-ember
     'ember/no-old-shims': 'error',
     'ember/new-module-imports': 'error',
     'ember/no-jquery': 'error',
     'ember/local-modules': 'warn',
 
-    // relax defaults
+    // relax
     'no-underscore-dangle': 0,
+    // eslint-plugin-ember
     'ember/alias-model-in-controller': 'warn',
     'ember/named-functions-in-promises': 0,
   }

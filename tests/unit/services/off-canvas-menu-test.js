@@ -14,10 +14,18 @@ module('Unit | Service | off canvas menu', function(hooks) {
 
     // assert true
     service.toggle();
-    assert.equal(get(service, 'isActive'), true, 'it switches from false to true');
+    assert.equal(
+      get(service, 'isActive'),
+      true,
+      'it switches from false to true',
+    );
 
     // assert false
     service.toggle();
-    assert.equal(get(service, 'isActive'), false, 'it switches from true to false');
+    assert.equal(
+      get(service, 'isActive'),
+      false,
+      'it switches from true to false',
+    );
   });
 });

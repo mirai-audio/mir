@@ -8,13 +8,15 @@ export default Service.extend({
     // authenticate the user model against the API
     return get(this, 'session')
       .authenticate(authenticator, identity, password)
-      .then(() => [/* success, empty error list */])
-      .catch((response) => {
+      .then(() => [
+        /* success, empty error list */
+      ])
+      .catch(response => {
         // deal with errors
         const { errors } = response;
         let errorKeys;
         // if there is a 401 "Unauthorized" in the list of returned codes
-        const isUnauthorized = (errors.mapBy('code').indexOf(401) > -1);
+        const isUnauthorized = errors.mapBy('code').indexOf(401) > -1;
         if (isUnauthorized) {
           errorKeys = ['errors.login.unauthorized'];
         } else {
@@ -31,14 +33,17 @@ export default Service.extend({
 
     return get(this, 'session')
       .authenticate(authenticator, provider)
-      .then(() => {
-        // log user in with Ai authenticator
-        authenticator = 'authenticator:token';
-        const code = get(this, 'session.session.authenticated.code');
-        const { identity, token } = this.parseToken(code);
-        return this.loginUserPassword(authenticator, identity, token);
-      }, (/* error */) => ['errors.login.other'])
-      .catch((error) => {
+      .then(
+        () => {
+          // log user in with Ai authenticator
+          authenticator = 'authenticator:token';
+          const code = get(this, 'session.session.authenticated.code');
+          const { identity, token } = this.parseToken(code);
+          return this.loginUserPassword(authenticator, identity, token);
+        },
+        (/* error */) => ['errors.login.other'],
+      )
+      .catch(error => {
         console.warn(error.message);
         return ['errors.login.other'];
       });
@@ -56,11 +61,11 @@ export default Service.extend({
    */
   parseToken(code) {
     const [identity, token] = (code || '').split('::');
-    return (identity && token) ?
-      {
-        identity,
-        token,
-      } :
-      null;
+    return identity && token
+      ? {
+          identity,
+          token,
+        }
+      : null;
   },
 });

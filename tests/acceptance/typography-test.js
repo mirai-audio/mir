@@ -1,13 +1,13 @@
 import { currentURL, visit } from 'ember-native-dom-helpers';
 import { test } from 'qunit';
-import {
-  authenticateSession,
-} from 'mir/tests/helpers/ember-simple-auth';
+import { authenticateSession } from 'mir/tests/helpers/ember-simple-auth';
 import moduleForAcceptance from 'mir/tests/helpers/module-for-acceptance';
 
 moduleForAcceptance('Acceptance | typography');
 
-test('unauthenticated users visit /typography land on /login', async function(assert) {
+test('unauthenticated users visit /typography land on /login', async function(
+  assert,
+) {
   assert.expect(1);
   await visit('/typography');
 

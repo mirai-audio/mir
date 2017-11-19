@@ -24,8 +24,14 @@ module('Unit | Instance Initializer | load css', function(hooks) {
     let done = assert.async();
     later(this, () => {
       // you would normally confirm the results of the initializer here
-      assert.notEqual(window.document.head.innerHTML.indexOf('/assets/vendor.css'), -1);
-      assert.notEqual(window.document.head.innerHTML.indexOf('/assets/mir.css'), -1);
+      assert.notEqual(
+        window.document.head.innerHTML.indexOf('/assets/vendor.css'),
+        -1,
+      );
+      assert.notEqual(
+        window.document.head.innerHTML.indexOf('/assets/mir.css'),
+        -1,
+      );
       done();
     });
   });

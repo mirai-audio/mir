@@ -1,6 +1,6 @@
 import Response from 'ember-cli-mirage/response';
 
-export default function () {
+export default function() {
   // required for `ember-cli-code-coverage` to write reports
   this.passthrough('/write-coverage');
 
@@ -16,7 +16,9 @@ export default function () {
     const email = JSON.parse(request.requestBody).data.attributes.email;
     const user = schema.users.first();
     if (email === 'mike@example.com') {
-      const headers = { 'content-type': 'application/vnd.api+json; charset=utf-8' };
+      const headers = {
+        'content-type': 'application/vnd.api+json; charset=utf-8',
+      };
       const data = {
         jsonapi: {
           version: '1.0',
@@ -32,7 +34,7 @@ export default function () {
     }
     return user;
   });
-  this.post('/users/token', (schema/* , request */) => {
+  this.post('/users/token', (schema /* , request */) => {
     const token = schema.tokens.first();
     // return the data object, this is an odd endpoint not using JSON API, so only
     // return the `attrs` part of the token.

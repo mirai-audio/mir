@@ -15,7 +15,7 @@ export default Component.extend({
   isAuthenticated: false,
 
   isShown: alias('offCanvasMenu.isActive'),
-  isDevelopment: computed(() => (config.environment === 'development')),
+  isDevelopment: computed(() => config.environment === 'development'),
 
   actions: {
     toggleOffCanvas() {

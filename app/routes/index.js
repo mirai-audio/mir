@@ -2,8 +2,7 @@ import { inject as service } from '@ember/service';
 import { get, set } from '@ember/object';
 import Route from '@ember/routing/route';
 import fetch from 'fetch';
-import UnauthenticatedRouteMixin from
-  'ember-simple-auth/mixins/unauthenticated-route-mixin';
+import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin';
 import config from '../config/environment';
 
 export default Route.extend(UnauthenticatedRouteMixin, {
@@ -30,11 +29,15 @@ export default Route.extend(UnauthenticatedRouteMixin, {
 
   afterModel() {
     const endpoint = `${config.DS.host}/${config.DS.namespace}/users/current`;
-    const authenticator = get(this, 'session.session.authenticated.authenticator');
+    const authenticator = get(
+      this,
+      'session.session.authenticated.authenticator',
+    );
     // Use OAuth `access_token` for authenticator:ai, just email email, really
-    const sessionKey = authenticator === 'authenticator:ai' ?
-      'session.session.content.authenticated.access_token' :
-      'session.session.authenticated.code';
+    const sessionKey =
+      authenticator === 'authenticator:ai'
+        ? 'session.session.content.authenticated.access_token'
+        : 'session.session.authenticated.code';
     const accessToken = get(this, sessionKey);
     const token = `Bearer ${accessToken}`;
 
@@ -46,13 +49,17 @@ export default Route.extend(UnauthenticatedRouteMixin, {
         headers: {
           Authorization: token,
         },
-      }).then(raw => raw.json().then((data) => {
-        const user = this.store.push(data);
-        set(this, 'session.user', user);
-      })).catch((/* error */) => {
-        const message = 'errors.login.other';
-        set(this, 'errorMessageKeys', [message]);
-      });
+      })
+        .then(raw =>
+          raw.json().then(data => {
+            const user = this.store.push(data);
+            set(this, 'session.user', user);
+          }),
+        )
+        .catch((/* error */) => {
+          const message = 'errors.login.other';
+          set(this, 'errorMessageKeys', [message]);
+        });
     }
   },
 });

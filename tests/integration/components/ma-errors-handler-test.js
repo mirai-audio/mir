@@ -17,7 +17,13 @@ module('Integration | Component | ma errors handler', function(hooks) {
     this.set('errorMessageKeys', keys);
     // Handle any actions with this.on('myAction', function(val) { ... });
     await render(hbs`{{ma-errors-handler errorMessageKeys=errorMessageKeys}}`);
-    assert.notEqual(this.element.textContent.trim().indexOf('An error occurred'), -1);
-    assert.notEqual(this.element.textContent.trim().indexOf('Email or password is incorrect'), -1);
+    assert.notEqual(
+      this.element.textContent.trim().indexOf('An error occurred'),
+      -1,
+    );
+    assert.notEqual(
+      this.element.textContent.trim().indexOf('Email or password is incorrect'),
+      -1,
+    );
   });
 });

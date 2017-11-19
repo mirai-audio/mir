@@ -9,10 +9,10 @@ import errors from './errors';
 import routes from './routes';
 
 export default {
-  'app': app,
-  'about': about,
-  'common': common,
-  'components': components,
-  'errors': errors,
-  'routes': routes,
+  app: app,
+  about: about,
+  common: common,
+  components: components,
+  errors: errors,
+  routes: routes,
 };

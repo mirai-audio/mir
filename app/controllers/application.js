@@ -9,14 +9,12 @@ export default Controller.extend({
   session: service(),
 
   cssEnv: computed(() => {
-    const env = dasherize(config.environment)
-      .replace(/\./g, '-');
+    const env = dasherize(config.environment).replace(/\./g, '-');
     return `env-${env}`;
   }),
 
   cssRoute: computed('currentRouteName', function compute() {
-    return dasherize(`${get(this, 'currentRouteName')}`)
-      .replace(/\./g, '-');
+    return dasherize(`${get(this, 'currentRouteName')}`).replace(/\./g, '-');
   }),
 
   isAuthenticated: computed('session.isAuthenticated', function compute() {
