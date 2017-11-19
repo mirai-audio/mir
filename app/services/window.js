@@ -6,6 +6,6 @@ export default Service.extend({
       if ('history' in window) {
         window.history.back();
       }
-    },
-  },
+    }
+  }
 });

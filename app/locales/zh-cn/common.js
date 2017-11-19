@@ -8,5 +8,5 @@ export default {
   loading: '装载…',
   logout: '登出',
 
-  svgjar: 'svg-jar',
+  svgjar: 'svg-jar'
 };

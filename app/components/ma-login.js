@@ -18,6 +18,6 @@ export default Component.extend({
   isDisabled: or(
     'model.validations.attrs.email.isInvalid',
     'model.validations.attrs.password.isInvalid',
-    'model.validations.attrs.passwordConfirmation.isValid',
-  ).readOnly(),
+    'model.validations.attrs.passwordConfirmation.isValid'
+  ).readOnly()
 });

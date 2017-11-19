@@ -4,7 +4,7 @@ export default {
   network: {
     online: 'Con conexión',
     offline: 'Sin conexión',
-    'offline-detail': 'No conectado',
+    'offline-detail': 'No conectado'
   },
 
   noscript: {
@@ -14,6 +14,6 @@ export default {
       'La funcionalidad de Play/Pause y sin conexión necesitan Javascript. ' +
       'el euqipo de mirai.audio se esfuerza en' +
       '<a href="https://github.com/mirai-audio/mir/wiki/Browser-Support">support</a> ' +
-      'usuarios sin JavaScript habilitado.',
-  },
+      'usuarios sin JavaScript habilitado.'
+  }
 };

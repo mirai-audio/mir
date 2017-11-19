@@ -13,5 +13,5 @@ export default Route.extend(AuthenticatedRouteMixin, {
     } else {
       this.replaceWith('welcome');
     }
-  },
+  }
 });

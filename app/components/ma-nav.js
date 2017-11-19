@@ -20,8 +20,8 @@ export default Component.extend({
   actions: {
     toggleOffCanvas() {
       get(this, 'offCanvasMenu').toggle();
-    },
+    }
   },
 
-  version: config.version,
+  version: config.version
 });

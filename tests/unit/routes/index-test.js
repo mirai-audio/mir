@@ -25,20 +25,20 @@ module('Unit | Route | index', function(hooks) {
       Service.extend({
         session: {
           authenticated: {
-            authenticator: 'authenticator:ai',
+            authenticator: 'authenticator:ai'
           },
           content: {
             authenticated: {
-              access_token: 'abc::123',
-            },
-          },
-        },
-      }),
+              access_token: 'abc::123'
+            }
+          }
+        }
+      })
     );
 
     // mock a failed response
     let mockResponse = {
-      errors: ['errors.login.other'],
+      errors: ['errors.login.other']
     };
     server.get('/users/current', mockResponse, 500);
 

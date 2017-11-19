@@ -17,18 +17,18 @@ export default function() {
     const user = schema.users.first();
     if (email === 'mike@example.com') {
       const headers = {
-        'content-type': 'application/vnd.api+json; charset=utf-8',
+        'content-type': 'application/vnd.api+json; charset=utf-8'
       };
       const data = {
         jsonapi: {
-          version: '1.0',
+          version: '1.0'
         },
         errors: [
           {
             title: 'Internal Server Error',
-            code: 500,
-          },
-        ],
+            code: 500
+          }
+        ]
       };
       return new Response(500, headers, data);
     }

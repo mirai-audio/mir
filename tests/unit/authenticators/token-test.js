@@ -7,7 +7,7 @@ module('Unit | Authenticator | token', function(hooks) {
   setupTest(hooks);
 
   test('its `authenticate` method resolves call `makeRequest` with credentials from the user', function(
-    assert,
+    assert
   ) {
     const done = assert.async();
     const authenticator = this.owner.factoryFor('authenticator:token').create({
@@ -18,9 +18,9 @@ module('Unit | Authenticator | token', function(hooks) {
         done();
         return Promise.resolve({
           access_token: 'abc::123',
-          expires_in: 1000,
+          expires_in: 1000
         });
-      },
+      }
     });
     run(() => {
       authenticator.authenticate('test@foo.com', 'password1234', 'fun stuff');
@@ -28,7 +28,7 @@ module('Unit | Authenticator | token', function(hooks) {
   });
 
   test('its `authenticate` method rejects call `makeRequest` with credentials from the user', function(
-    assert,
+    assert
   ) {
     const done = assert.async();
     const authenticator = this.owner.factoryFor('authenticator:token').create({
@@ -38,7 +38,7 @@ module('Unit | Authenticator | token', function(hooks) {
         assert.equal(credentials.password, 'password1234');
         done();
         return Promise.reject({ access_token: 'abc::123' });
-      },
+      }
     });
     run(() => {
       authenticator.authenticate('test@foo.com', 'password1234', 'fun stuff');
@@ -46,7 +46,7 @@ module('Unit | Authenticator | token', function(hooks) {
   });
 
   test('its `authenticate` method resolves call `makeRequest` with invalid token', function(
-    assert,
+    assert
   ) {
     const done = assert.async();
     assert.expect(4);
@@ -59,7 +59,7 @@ module('Unit | Authenticator | token', function(hooks) {
         return Promise.resolve({
           /* explicitly empty object */
         });
-      },
+      }
     });
     run(() => {
       authenticator

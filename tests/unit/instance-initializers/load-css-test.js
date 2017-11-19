@@ -26,11 +26,11 @@ module('Unit | Instance Initializer | load css', function(hooks) {
       // you would normally confirm the results of the initializer here
       assert.notEqual(
         window.document.head.innerHTML.indexOf('/assets/vendor.css'),
-        -1,
+        -1
       );
       assert.notEqual(
         window.document.head.innerHTML.indexOf('/assets/mir.css'),
-        -1,
+        -1
       );
       done();
     });

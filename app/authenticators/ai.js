@@ -10,5 +10,5 @@ export default OAuth2PasswordGrant.extend({
     @default '/token'
     @public
    */
-  serverTokenEndpoint: `${config.DS.host}/${config.DS.namespace}/users/token`,
+  serverTokenEndpoint: `${config.DS.host}/${config.DS.namespace}/users/token`
 });

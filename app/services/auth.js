@@ -41,7 +41,7 @@ export default Service.extend({
           const { identity, token } = this.parseToken(code);
           return this.loginUserPassword(authenticator, identity, token);
         },
-        (/* error */) => ['errors.login.other'],
+        (/* error */) => ['errors.login.other']
       )
       .catch(error => {
         console.warn(error.message);
@@ -64,8 +64,8 @@ export default Service.extend({
     return identity && token
       ? {
           identity,
-          token,
+          token
         }
       : null;
-  },
+  }
 });

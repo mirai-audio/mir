@@ -11,5 +11,5 @@ export default Factory.extend({
       'cjoxMyIsInR5cCI6InRva2VuIn0.lZMJYz-GBAqtlhnx' +
       'AmwTbO2zM6Cg0fNXN24I42_Oy--PJuMncPwMgVwFrjcs514nXQZTyvRg7-Aoqenv0T3ciA'
     );
-  },
+  }
 });

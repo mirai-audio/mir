@@ -14,7 +14,7 @@ export default {
     'password-confirmation-does-not-match-confirmation':
       'パスワードの確認がパスワードと一致しません',
     'password-should-be-at-least-12-characters':
-      'パスワードは12文字以上にする必要があります',
+      'パスワードは12文字以上にする必要があります'
   },
 
   // ember-cp-validation messages
@@ -51,5 +51,5 @@ export default {
   date: '{{description}} must be a valid date',
   email: '{{description}} 有効な電子メールアドレスでなければなりません',
   phone: '{{description}} must be a valid phone number',
-  url: '{{description}} must be a valid url',
+  url: '{{description}} must be a valid url'
 };

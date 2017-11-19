@@ -8,5 +8,5 @@ export default {
     'Create and share playlists across services. Follow artists and promote ' +
     'songs.',
   arriving: 'Arriving in 2017',
-  title: 'About',
+  title: 'About'
 };

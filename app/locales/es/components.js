@@ -3,14 +3,14 @@
 export default {
   'ma-auth': {
     socialTitle: 'Registrarse con ',
-    title: 'O regístrate',
+    title: 'O regístrate'
   },
 
   'ma-header': {
-    back: 'Atras',
+    back: 'Atras'
   },
 
   'ma-login': {
-    'cta-login': 'Registrarse',
-  },
+    'cta-login': 'Registrarse'
+  }
 };

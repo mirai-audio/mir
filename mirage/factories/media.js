@@ -7,5 +7,5 @@ export default Factory.extend({
 
   url: 'https://www.youtube.com/watch?v=hpDvtIt6Lsc',
   'inserted-at': '2017-08-30T01:39:35.434496',
-  'updated-at': '2017-08-30T01:39:35.434516',
+  'updated-at': '2017-08-30T01:39:35.434516'
 });

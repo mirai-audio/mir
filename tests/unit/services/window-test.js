@@ -35,16 +35,16 @@ module('Unit | Service | window', function(hooks) {
         assert.equal(
           window.location.hash,
           '#back',
-          '`history.back` was called',
+          '`history.back` was called'
         );
         done();
       },
-      250,
+      250
     );
   });
 
   test('it can call history.back if `history` is not available (e.g. in FastBoot)', function(
-    assert,
+    assert
   ) {
     let done = assert.async();
 
@@ -61,12 +61,12 @@ module('Unit | Service | window', function(hooks) {
         assert.equal(
           window.location.hash,
           hash,
-          '`history.back` was not called',
+          '`history.back` was not called'
         );
         // restore history
         done();
       },
-      250,
+      250
     );
   });
 });

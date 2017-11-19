@@ -14,5 +14,5 @@ export default {
   common: common,
   components: components,
   errors: errors,
-  routes: routes,
+  routes: routes
 };

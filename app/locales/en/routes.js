@@ -2,7 +2,7 @@
 
 export default {
   application: {
-    title: 'Home',
+    title: 'Home'
   },
 
   login: {
@@ -15,7 +15,7 @@ export default {
     'cta-twitter': 'Twitter',
     'cta-google': 'Google',
     'cta-facebook': 'Facebook',
-    'cta-signup': 'Sign up',
+    'cta-signup': 'Sign up'
   },
 
   styleguide: {
@@ -65,14 +65,14 @@ export default {
       '間、サイボーグ、アンドロイド、バイオロイドが混在する社会の中で、テロや' +
       '暗殺、汚職などの犯罪を事前に察知してその被害を最小限に防ぐ内務省直属の' +
       '攻性公安警察組織「公安9課」（通称「攻殻機動隊」）の活動を描いた物語。' +
-      '作中の年表は別項、攻殻機動隊シリーズの年表を参照。',
+      '作中の年表は別項、攻殻機動隊シリーズの年表を参照。'
   },
 
   typography: {
-    title: 'Typography',
+    title: 'Typography'
   },
 
   welcome: {
-    title: 'Welcome',
-  },
+    title: 'Welcome'
+  }
 };

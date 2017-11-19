@@ -16,5 +16,5 @@ export default Component.extend({
   model: null,
   user: null,
 
-  isDisabled: alias('model.validations.isInvalid'),
+  isDisabled: alias('model.validations.isInvalid')
 });

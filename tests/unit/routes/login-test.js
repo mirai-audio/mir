@@ -15,7 +15,7 @@ module('Unit | Route | login', function(hooks) {
   });
 
   test('unauthenticated user can login to an account using Twitter', function(
-    assert,
+    assert
   ) {
     // mock the Auth service
     this.owner.register(
@@ -26,8 +26,8 @@ module('Unit | Route | login', function(hooks) {
             const result = ['errors.login.other'];
             resolve(result);
           });
-        },
-      }),
+        }
+      })
     );
 
     assert.expect(2);

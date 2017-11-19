@@ -10,7 +10,7 @@ export default {
     'email-should-be-at-least-7-character(s)': 'Email必须包含至少7个字符。',
     'email-has-already-been-taken': '该Email已被注册。',
     'password-confirmation-does-not-match-confirmation': '两次密码输入不一致。',
-    'password-should-be-at-least-12-character(s)': '密码必须包含至少12个字符。',
+    'password-should-be-at-least-12-character(s)': '密码必须包含至少12个字符。'
   },
 
   // ember-cp-validation messages
@@ -45,5 +45,5 @@ export default {
   date: '{{description}}必须是正确的日期格式',
   email: '{{description}}必须是有效的Email地址',
   phone: '{{description}}必须是有效的电话号码',
-  url: '{{description}}必须是有效的URL',
+  url: '{{description}}必须是有效的URL'
 };

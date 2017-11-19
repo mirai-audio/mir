@@ -5,7 +5,7 @@ import { render } from 'ember-test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import {
   registerTestComponent,
-  unregisterTestComponent,
+  unregisterTestComponent
 } from 'mir/tests/ember-test-component';
 
 module('Integration | Component | ma auth', function(hooks) {

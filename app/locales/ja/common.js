@@ -8,5 +8,5 @@ export default {
   loading: 'お待ちください…',
   logout: 'ログアウト',
 
-  svgjar: 'svg-jar',
+  svgjar: 'svg-jar'
 };

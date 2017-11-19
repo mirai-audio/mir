@@ -18,5 +18,5 @@ export function initialize(/* appInstance */) {
 
 export default {
   name: 'service-worker',
-  initialize,
+  initialize
 };

@@ -7,5 +7,5 @@ export default Service.extend({
   toggle() {
     const isActive = get(this, 'isActive');
     set(this, 'isActive', !isActive);
-  },
+  }
 });

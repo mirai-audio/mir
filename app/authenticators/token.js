@@ -68,7 +68,7 @@ export default OAuth2PasswordGrant.extend({
       const data = {
         grant_type: 'token',
         username: identification,
-        password,
+        password
       };
       const serverTokenEndpoint = get(this, 'serverTokenEndpoint');
       const useResponse = get(this, 'rejectWithResponse');
@@ -85,12 +85,12 @@ export default OAuth2PasswordGrant.extend({
             }
 
             const expiresAt = this._absolutizeExpirationTime(
-              response.expires_in,
+              response.expires_in
             );
             this._scheduleAccessTokenRefresh(
               response.expires_in,
               expiresAt,
-              response.refresh_token,
+              response.refresh_token
             );
             if (!isEmpty(expiresAt)) {
               fResponse = assign(response, { expires_at: expiresAt });
@@ -101,8 +101,8 @@ export default OAuth2PasswordGrant.extend({
         },
         response => {
           run(null, reject, useResponse ? response : response.responseJSON);
-        },
+        }
       );
     });
-  },
+  }
 });

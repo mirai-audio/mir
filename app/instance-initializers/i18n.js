@@ -39,10 +39,10 @@ export default {
 
     // use the local, if we have a translation defined, otherwise fallback to en
     let availableLocale = get(service, 'locales').includes(
-      agentLocale.toLowerCase(),
+      agentLocale.toLowerCase()
     )
       ? agentLocale
       : 'en';
     set(service, 'locale', availableLocale);
-  },
+  }
 };

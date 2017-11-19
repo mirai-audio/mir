@@ -54,7 +54,7 @@ export default Route.extend(UnauthenticatedRouteMixin, {
             .mapBy('detail')
             .map(
               errorMessage =>
-                `errors.login.${(errorMessage || 'other').dasherize()}`,
+                `errors.login.${(errorMessage || 'other').dasherize()}`
             );
           // set error message list to the controller
           if (errorMessageKeys.length > 0) {
@@ -63,6 +63,6 @@ export default Route.extend(UnauthenticatedRouteMixin, {
         });
       // 🤞
       return false; // prevent form POST
-    },
-  },
+    }
+  }
 });

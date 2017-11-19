@@ -8,5 +8,5 @@ export default {
   loading: 'cargando…',
   logout: 'Sin registro.',
 
-  svgjar: 'svg-jar',
+  svgjar: 'svg-jar'
 };

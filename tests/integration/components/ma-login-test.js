@@ -5,7 +5,7 @@ import { render } from 'ember-test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 import {
   registerTestComponent,
-  unregisterTestComponent,
+  unregisterTestComponent
 } from 'mir/tests/ember-test-component';
 
 module('Integration | Component | ma login', function(hooks) {
@@ -22,7 +22,7 @@ module('Integration | Component | ma login', function(hooks) {
     this.set('action', function login() {});
     this.set('model', {
       email: 'a@bb.cc',
-      password: 'aaabbbcccddd',
+      password: 'aaabbbcccddd'
     });
     // this.on('login', function login() {});
 

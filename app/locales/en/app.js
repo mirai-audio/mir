@@ -4,7 +4,7 @@ export default {
   network: {
     online: 'Online',
     offline: 'Offline',
-    'offline-detail': 'No connection',
+    'offline-detail': 'No connection'
   },
 
   noscript: {
@@ -14,6 +14,6 @@ export default {
       'Play/Pause and offline functionality require JavaScript to function. ' +
       'mirai.audio team strives to ' +
       '<a href="https://github.com/mirai-audio/mir/wiki/Browser-Support">support</a> ' +
-      'users without JavaScript enabled.',
-  },
+      'users without JavaScript enabled.'
+  }
 };

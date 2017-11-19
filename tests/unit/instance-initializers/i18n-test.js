@@ -10,12 +10,12 @@ import destroyApp from '../../helpers/destroy-app';
 
 // Stub fastboot service
 const fastbootServiceFactory = Service.extend({
-  isFastBoot: false,
+  isFastBoot: false
 });
 
 const i18nServiceFactory = Service.extend({
   locale: null,
-  locales: ['en', 'ja', 'zh-cn'],
+  locales: ['en', 'ja', 'zh-cn']
 });
 
 module('Unit | Instance Initializer | i18n', function(hooks) {
@@ -49,8 +49,8 @@ module('Unit | Instance Initializer | i18n', function(hooks) {
   test('detectLocale correctly returns `en-US` in FastBoot', function(assert) {
     const mockRequest = EmberObject.create({
       headers: EmberObject.create({
-        'Accept-Language': 'en-US',
-      }),
+        'Accept-Language': 'en-US'
+      })
     });
     let fastBoot = this.appInstance.lookup('service:fastboot');
     set(fastBoot, 'request', mockRequest);
@@ -63,12 +63,12 @@ module('Unit | Instance Initializer | i18n', function(hooks) {
   });
 
   test('detectLocale correctly returns `en` in FastBoot for unsupported language', function(
-    assert,
+    assert
   ) {
     const mockRequest = EmberObject.create({
       headers: EmberObject.create({
-        'Accept-Language': 'fo-BA',
-      }),
+        'Accept-Language': 'fo-BA'
+      })
     });
     let fastBoot = this.appInstance.lookup('service:fastboot');
     set(fastBoot, 'request', mockRequest);

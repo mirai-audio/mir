@@ -3,14 +3,14 @@
 export default {
   'ma-auth': {
     socialTitle: 'Sign in with',
-    title: 'Or sign up',
+    title: 'Or sign up'
   },
 
   'ma-header': {
-    back: 'Back',
+    back: 'Back'
   },
 
   'ma-login': {
-    'cta-login': 'Sign in',
-  },
+    'cta-login': 'Sign in'
+  }
 };

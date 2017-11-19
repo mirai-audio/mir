@@ -3,7 +3,7 @@ import { test } from 'qunit';
 import { get } from '@ember/object';
 import {
   authenticateSession,
-  currentSession,
+  currentSession
 } from 'mir/tests/helpers/ember-simple-auth';
 import moduleForAcceptance from 'mir/tests/helpers/module-for-acceptance';
 
@@ -20,7 +20,7 @@ test('authenticated users can visit /logout', async function(assert) {
 
   authenticateSession(app, {
     userId: 1,
-    otherData: 'some-data',
+    otherData: 'some-data'
   });
   await visit('/logout');
 

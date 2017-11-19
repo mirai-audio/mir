@@ -5,7 +5,7 @@ import moduleForAcceptance from 'mir/tests/helpers/module-for-acceptance';
 moduleForAcceptance('Acceptance | index');
 
 test('visiting / unauthenticated should redirect to /welcome', async function(
-  assert,
+  assert
 ) {
   await visit('/');
 
@@ -13,7 +13,7 @@ test('visiting / unauthenticated should redirect to /welcome', async function(
 });
 
 test('visiting /styleguide unauthenticated should redirect to /login', async function(
-  assert,
+  assert
 ) {
   await visit('/styleguide');
 
@@ -21,7 +21,7 @@ test('visiting /styleguide unauthenticated should redirect to /login', async fun
 });
 
 test('visiting /typography unauthenticated should redirect to /login', async function(
-  assert,
+  assert
 ) {
   await visit('/typography');
 

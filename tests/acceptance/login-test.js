@@ -4,7 +4,7 @@ import {
   currentURL,
   find,
   blur,
-  visit,
+  visit
 } from 'ember-native-dom-helpers';
 import { test } from 'qunit';
 import { authenticateSession } from 'mir/tests/helpers/ember-simple-auth';
@@ -19,7 +19,7 @@ test('unauthenticated users can visit /login', async function(assert) {
 });
 
 test('unauthenticated users must supply a strong password', async function(
-  assert,
+  assert
 ) {
   await visit('/login');
   await fillIn('[name=email]', `mike+${new Date().getTime()}@example.com`);
@@ -31,7 +31,7 @@ test('unauthenticated users must supply a strong password', async function(
 });
 
 test('unauthenticated users cannot create an account without confirming password', async function(
-  assert,
+  assert
 ) {
   await visit('/login');
   await fillIn('[name=email]', `mike+${new Date().getTime()}@example.com`);
@@ -45,7 +45,7 @@ test('unauthenticated users cannot create an account without confirming password
 });
 
 test('unauthenticated users must supply a valid email address', async function(
-  assert,
+  assert
 ) {
   await visit('/login');
   await fillIn('[name=email]', 'a@b.c');
@@ -57,7 +57,7 @@ test('unauthenticated users must supply a valid email address', async function(
 });
 
 test('unauthenticated users can create an account with email & password', async function(
-  assert,
+  assert
 ) {
   // create an OAuth token w/ ember-cli-mirage
   server.create('token');
@@ -76,7 +76,7 @@ test('unauthenticated users can create an account with email & password', async 
 });
 
 test('unauthenticated users cannot create an account with existing users email', async function(
-  assert,
+  assert
 ) {
   // user visits login and fills in signup form
   await visit('/login');
@@ -91,7 +91,7 @@ test('unauthenticated users cannot create an account with existing users email',
 });
 
 test('unauthenticated user can login to an account with email & password', async function(
-  assert,
+  assert
 ) {
   // create an OAuth token
   server.create('token');
@@ -108,13 +108,13 @@ test('unauthenticated user can login to an account with email & password', async
 });
 
 test('authenticated users can visit /login and redirect to /', async function(
-  assert,
+  assert
 ) {
   const app = this.application;
 
   authenticateSession(app, {
     userId: 1,
-    otherData: 'some-data',
+    otherData: 'some-data'
   });
   await visit('/login');
 
@@ -122,7 +122,7 @@ test('authenticated users can visit /login and redirect to /', async function(
 });
 
 test('unauthenticated user can click back link to Home', async function(
-  assert,
+  assert
 ) {
   // user visits login and fills in signup form
   await visit('/login');

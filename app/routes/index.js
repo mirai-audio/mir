@@ -23,7 +23,7 @@ export default Route.extend(UnauthenticatedRouteMixin, {
   model(params) {
     return this.store.findAll('media').then(medias => ({
       all: medias,
-      filter: params.state,
+      filter: params.state
     }));
   },
 
@@ -31,7 +31,7 @@ export default Route.extend(UnauthenticatedRouteMixin, {
     const endpoint = `${config.DS.host}/${config.DS.namespace}/users/current`;
     const authenticator = get(
       this,
-      'session.session.authenticated.authenticator',
+      'session.session.authenticated.authenticator'
     );
     // Use OAuth `access_token` for authenticator:ai, just email email, really
     const sessionKey =
@@ -47,19 +47,19 @@ export default Route.extend(UnauthenticatedRouteMixin, {
       fetch(endpoint, {
         type: 'GET',
         headers: {
-          Authorization: token,
-        },
+          Authorization: token
+        }
       })
         .then(raw =>
           raw.json().then(data => {
             const user = this.store.push(data);
             set(this, 'session.user', user);
-          }),
+          })
         )
         .catch((/* error */) => {
           const message = 'errors.login.other';
           set(this, 'errorMessageKeys', [message]);
         });
     }
-  },
+  }
 });

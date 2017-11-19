@@ -8,5 +8,5 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
   namespace: config.DS.namespace,
 
   /* ember-simple-auth */
-  authorizer: 'authorizer:oauth2',
+  authorizer: 'authorizer:oauth2'
 });

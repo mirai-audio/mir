@@ -13,7 +13,7 @@ export default {
     'password-confirmation-does-not-match-confirmation':
       'Password confirmation does not match the password.',
     'password-should-be-at-least-12-character(s)':
-      'Password should be at least 12 characters',
+      'Password should be at least 12 characters'
   },
 
   // ember-cp-validation messages
@@ -50,5 +50,5 @@ export default {
   date: '{{description}} must be a valid date',
   email: '{{description}} must be a valid email address',
   phone: '{{description}} must be a valid phone number',
-  url: '{{description}} must be a valid url',
+  url: '{{description}} must be a valid url'
 };

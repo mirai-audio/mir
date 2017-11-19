@@ -7,23 +7,23 @@ module('Unit | Service | auth', function(hooks) {
   setupTest(hooks);
 
   test('loginUserPassword authenticates the user with valid username / password', function(
-    assert,
+    assert
   ) {
     this.owner.register(
       'service:session',
       Service.extend({
         session: {
           authenticated: {
-            code: 'abc123xyzDEF::000123',
-          },
+            code: 'abc123xyzDEF::000123'
+          }
         },
         authenticate(/* authenticator, identity, password */) {
           return new EmberPromise(function(resolve /* , reject */) {
             const result = 'success';
             resolve(result);
           });
-        },
-      }),
+        }
+      })
     );
 
     let service = this.owner
@@ -40,32 +40,32 @@ module('Unit | Service | auth', function(hooks) {
         assert.deepEqual(
           result,
           expected,
-          'valid user/pass tuple returns no errors',
+          'valid user/pass tuple returns no errors'
         );
         done();
       });
   });
 
   test('loginUserPassword does not authenticate user with invalid username / password', function(
-    assert,
+    assert
   ) {
     this.owner.register(
       'service:session',
       Service.extend({
         session: {
           authenticated: {
-            code: 'abc123xyzDEF::000123',
-          },
+            code: 'abc123xyzDEF::000123'
+          }
         },
         authenticate(/* authenticator, identity, password */) {
           return new EmberPromise(function(resolve, reject) {
             const result = {
-              errors: [{ code: 401 }],
+              errors: [{ code: 401 }]
             };
             reject(result);
           });
-        },
-      }),
+        }
+      })
     );
 
     assert.expect(1);
@@ -80,32 +80,32 @@ module('Unit | Service | auth', function(hooks) {
         assert.deepEqual(
           result,
           expected,
-          'invalid user/pass returns unauthorized error',
+          'invalid user/pass returns unauthorized error'
         );
         done();
       });
   });
 
   test('loginUserPassword does not authenticate user with invalid authenticator', function(
-    assert,
+    assert
   ) {
     this.owner.register(
       'service:session',
       Service.extend({
         session: {
           authenticated: {
-            code: 'abc123xyzDEF::000123',
-          },
+            code: 'abc123xyzDEF::000123'
+          }
         },
         authenticate(/* authenticator, identity, password */) {
           return new EmberPromise(function(resolve, reject) {
             const result = {
-              errors: [{ code: 403 }],
+              errors: [{ code: 403 }]
             };
             reject(result);
           });
-        },
-      }),
+        }
+      })
     );
 
     assert.expect(1);
@@ -118,22 +118,22 @@ module('Unit | Service | auth', function(hooks) {
       assert.deepEqual(
         result,
         expected,
-        'invalid authenticator returns other error',
+        'invalid authenticator returns other error'
       );
       done();
     });
   });
 
   test('loginTwitter authenticates the user with valid twitter account', function(
-    assert,
+    assert
   ) {
     this.owner.register(
       'service:session',
       Service.extend({
         session: {
           authenticated: {
-            code: 'abc123xyzDEF::000123',
-          },
+            code: 'abc123xyzDEF::000123'
+          }
         },
         authenticate(authenticator /* , identity, password */) {
           return new EmberPromise(function(resolve /* , reject */) {
@@ -146,8 +146,8 @@ module('Unit | Service | auth', function(hooks) {
               resolve(result);
             }
           });
-        },
-      }),
+        }
+      })
     );
 
     assert.expect(1);
@@ -160,14 +160,14 @@ module('Unit | Service | auth', function(hooks) {
       assert.deepEqual(
         result,
         expected,
-        'valid user/pass tuple returns no errors',
+        'valid user/pass tuple returns no errors'
       );
       done();
     });
   });
 
   test('loginTwitter does not authenticate user with invalid (remote) twitter account', function(
-    assert,
+    assert
   ) {
     // mock a failing auth service
     this.owner.register(
@@ -177,8 +177,8 @@ module('Unit | Service | auth', function(hooks) {
           return new EmberPromise(function(resolve /* , reject */) {
             resolve(['errors.login.other']);
           });
-        },
-      }),
+        }
+      })
     );
     let service = this.owner.lookup('service:auth');
 
@@ -188,14 +188,14 @@ module('Unit | Service | auth', function(hooks) {
       assert.deepEqual(
         result,
         expected,
-        'valid user/pass tuple returns no errors',
+        'valid user/pass tuple returns no errors'
       );
       done();
     });
   });
 
   test('loginTwitter does not authenticate user with invalid (local) twitter account', function(
-    assert,
+    assert
   ) {
     // mock a failing auth service
     this.owner.register(
@@ -205,8 +205,8 @@ module('Unit | Service | auth', function(hooks) {
           return new EmberPromise(function(resolve, reject) {
             reject(['errors.login.other']);
           });
-        },
-      }),
+        }
+      })
     );
     let service = this.owner.lookup('service:auth');
 
@@ -216,7 +216,7 @@ module('Unit | Service | auth', function(hooks) {
       assert.deepEqual(
         result,
         expected,
-        'valid user/pass tuple returns no errors',
+        'valid user/pass tuple returns no errors'
       );
       done();
     });

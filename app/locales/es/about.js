@@ -8,5 +8,5 @@ export default {
     'Crea y comparte listas de reproducción en todos los servicios. Seguir a los artistas y promover ' +
     'canciones.',
   arriving: 'Llegando a 2017',
-  title: 'Sobre',
+  title: 'Sobre'
 };

@@ -6,7 +6,7 @@ import moduleForAcceptance from 'mir/tests/helpers/module-for-acceptance';
 moduleForAcceptance('Acceptance | typography');
 
 test('unauthenticated users visit /typography land on /login', async function(
-  assert,
+  assert
 ) {
   assert.expect(1);
   await visit('/typography');
@@ -17,7 +17,7 @@ test('unauthenticated users visit /typography land on /login', async function(
 test('authenticated users can visit /typography', async function(assert) {
   authenticateSession(this.application, {
     userId: 1,
-    otherData: 'some-data',
+    otherData: 'some-data'
   });
 
   await visit('/typography');

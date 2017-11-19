@@ -2,7 +2,7 @@
 
 export default {
   application: {
-    title: '主页',
+    title: '主页'
   },
 
   login: {
@@ -15,7 +15,7 @@ export default {
     'cta-twitter': 'Twitter',
     'cta-google': 'Google',
     'cta-facebook': 'Facebook',
-    'cta-signup': '注册',
+    'cta-signup': '注册'
   },
 
   styleguide: {
@@ -77,14 +77,14 @@ export default {
       '出了一种新的犯罪方式——电子犯罪。电子化并互联网化的人类开始受到黑客攻击' +
       '，暴露在大脑被入侵、记忆被篡改等危险之中。日本政府因此专门成立了首相直' +
       '属的特别情报机构“公安九课”（也就是所谓的“攻壳机动队”），来应对这种新兴' +
-      '的犯罪。',
+      '的犯罪。'
   },
 
   typography: {
-    title: '文版设计',
+    title: '文版设计'
   },
 
   welcome: {
-    title: '欢迎',
-  },
+    title: '欢迎'
+  }
 };

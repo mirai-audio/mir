@@ -10,8 +10,8 @@ const windowStub = Service.extend({
   history: {
     back() {
       window.location.hash = '#clicked';
-    },
-  },
+    }
+  }
 });
 
 module('Integration | Component | ma header', function(hooks) {
@@ -43,7 +43,7 @@ module('Integration | Component | ma header', function(hooks) {
   });
 
   test('clicking `back` default link calls window.history.back', async function(
-    assert,
+    assert
   ) {
     this.set('title', 'routes.login.title');
     await render(hbs`{{ma-header title=title}}`);
@@ -53,7 +53,7 @@ module('Integration | Component | ma header', function(hooks) {
   });
 
   test('the off-canvas menu button toggles its active state', async function(
-    assert,
+    assert
   ) {
     this.set('title', 'routes.login.title');
     await render(hbs`{{ma-header title=title}}`);

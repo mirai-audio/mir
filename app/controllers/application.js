@@ -23,5 +23,5 @@ export default Controller.extend({
 
   locale: computed(function compute() {
     return get(this, 'i18n').locale;
-  }),
+  })
 });

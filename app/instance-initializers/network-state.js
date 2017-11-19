@@ -9,7 +9,7 @@ export function initialize(/* appInstance */) {
         const htmlElement = window.document.querySelector('html');
         htmlElement.classList.remove('is-offline');
       },
-      false,
+      false
     );
 
     window.addEventListener(
@@ -20,7 +20,7 @@ export function initialize(/* appInstance */) {
         const htmlElement = window.document.querySelector('html');
         htmlElement.classList.add('is-offline');
       },
-      false,
+      false
     );
 
     // enable .Offline if the app loaded without net connection
@@ -33,5 +33,5 @@ export function initialize(/* appInstance */) {
 
 export default {
   name: 'network-state',
-  initialize,
+  initialize
 };

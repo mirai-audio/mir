@@ -17,7 +17,7 @@ module('Unit | Service | off canvas menu', function(hooks) {
     assert.equal(
       get(service, 'isActive'),
       true,
-      'it switches from false to true',
+      'it switches from false to true'
     );
 
     // assert false
@@ -25,7 +25,7 @@ module('Unit | Service | off canvas menu', function(hooks) {
     assert.equal(
       get(service, 'isActive'),
       false,
-      'it switches from true to false',
+      'it switches from true to false'
     );
   });
 });

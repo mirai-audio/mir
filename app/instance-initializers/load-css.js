@@ -15,5 +15,5 @@ export function initialize(/* appInstance */) {
 
 export default {
   name: 'load-css',
-  initialize,
+  initialize
 };
