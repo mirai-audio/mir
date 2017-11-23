@@ -1,6 +1,7 @@
 import Service from '@ember/service';
 
 export default Service.extend({
+  /* eslint-disable ember/avoid-leaking-state-in-ember-objects */
   history: {
     back(window) {
       if ('history' in window) {
@@ -8,4 +9,5 @@ export default Service.extend({
       }
     }
   }
+  /* eslint-enable ember/avoid-leaking-state-in-ember-objects */
 });
