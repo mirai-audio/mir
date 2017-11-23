@@ -1,9 +1,29 @@
-engines:
+version: 2
+
+checks:
+  file-lines:
+    config:
+      threshold: 750
+
+  method-lines:
+    config:
+      threshold: 50
+
+  return-statements:
+    config:
+      threshold: 3
+
+  similar-code:
+    config:
+      threshold: 100
+
+plugins:
   eslint:
     enabled: true
     channel: "eslint-4"
     config:
-      config: .eslintrc.js
+      config: "./.eslintrc.js"
+      ignore_warnings: true
 
   duplication:
     enabled: true
@@ -11,9 +31,6 @@ engines:
   structure:
     enabled: true
 
-  ratings:
-    paths:
-    - app/**/*
-    - config/**/*
-    - tests/**/*
-    - mirage/**/*
+exclude_patterns:
+  - "dist/"
+  - "tmp/"
