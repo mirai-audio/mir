@@ -97,7 +97,7 @@ in the running application.
 
 ## LICENSE
 
-[MIT](LICENSE)
+[GPL 3](LICENSE)
 
 A product of <ruby>
   <ruby>
