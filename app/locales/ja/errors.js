@@ -6,6 +6,7 @@ export default {
     unauthorized: "メールアドレスまたはパスワードが正しくない",
 
     // POST to /users
+    "server-internal-error": "エラーが発生しました後でやり直してください",
     "email-has-invalid-format": "有効な電子メールアドレスでなければなりません",
     "email-should-be-at-least-7-character(s)":
       "メールは7文字以上でなければなりません",

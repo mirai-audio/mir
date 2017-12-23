@@ -1,3 +1,4 @@
+/* eslint-disable ember/alias-model-in-controller */
 import { dasherize } from '@ember/string';
 import { computed, get } from '@ember/object';
 import { inject as service } from '@ember/service';

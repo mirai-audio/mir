@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 import { validator, buildValidations } from 'ember-cp-validations';
 
-const Validations = buildValidations({
+const VALIDATIONS = buildValidations({
   email: [
     validator('presence', true),
     validator('format', {
@@ -23,8 +23,11 @@ const Validations = buildValidations({
   ]
 });
 
-export default DS.Model.extend(Validations, {
+export default DS.Model.extend(VALIDATIONS, {
   email: DS.attr('string'),
   password: DS.attr('string'),
-  passwordConfirmation: DS.attr('string')
+  passwordConfirmation: DS.attr('string'),
+  username: DS.attr('string'),
+
+  medias: DS.hasMany('media', { inverse: 'user' })
 });

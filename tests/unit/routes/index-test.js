@@ -1,7 +1,6 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
-import { get } from '@ember/object';
-import { later } from '@ember/runloop';
+import { Promise } from 'rsvp';
 import Service from '@ember/service';
 import { startMirage } from 'mir/initializers/ember-cli-mirage';
 
@@ -18,29 +17,23 @@ module('Unit | Route | index', function(hooks) {
     this.server.shutdown();
   });
 
-  test('it handles signup errors properly', function(assert) {
-    // mock the `session` service
-    this.owner.register(
-      'service:session',
-      Service.extend({
-        session: {
-          authenticated: {
-            authenticator: 'authenticator:ai'
-          },
-          content: {
-            authenticated: {
-              access_token: 'abc::123'
-            }
-          }
-        }
-      })
-    );
+  test('it handles errors properly', function(assert) {
+    // mock the `store` service
+    let mockStore = Service.extend({
+      findAll() {
+        return new Promise(resolve => {
+          return resolve([]);
+        });
+      }
+    });
+    this.owner.register('service:store', mockStore);
 
     // mock a failed response
-    let mockResponse = {
-      errors: ['errors.login.other']
-    };
+    let mockResponse = { errors: ['errors.login.other'] };
+
+    /* eslint-disable ember/use-ember-get-and-set */
     server.get('/users/current', mockResponse, 500);
+    /* eslint-enable ember/use-ember-get-and-set */
 
     let route = this.owner.lookup('route:index');
     assert.expect(2);
@@ -48,13 +41,10 @@ module('Unit | Route | index', function(hooks) {
 
     assert.ok(route);
 
-    later(() => {
-      const expected = 'errors.login.other';
-      const result = get(route, 'errorMessageKeys').toString();
-      assert.equal(result, expected, 'login error was set');
+    route.model().then(result => {
+      let expected = 'errors.login.other';
+      assert.equal(result.errors[0], expected, 'login error was set');
       done();
-    }, 250);
-
-    route.afterModel();
+    });
   });
 });

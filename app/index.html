@@ -14,7 +14,11 @@
     <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
     <link rel="stylesheet" href="{{rootURL}}assets/mir.css">
   </noscript>
-  <style>html { opacity: 0 }</style>
+  <style>
+    html { opacity: 0 }
+    .Offline { transform: translate3d(0, -10em, 0); }
+    .ma-Nav-nav { transform: translate3d(-100%, 0, 0); }
+  </style>
   <meta name="author" content="{{rootURL}}humans.txt">
   <meta name="host" content={{content-for "host"}}>
   <meta name="environment" content={{content-for "environment"}}>
@@ -27,7 +31,6 @@
   {{content-for "head"}}
   {{content-for "head-footer"}}
 </head>
-
 <body>
   {{content-for "body"}}
 

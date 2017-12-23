@@ -18,9 +18,7 @@ test('unauthenticated users can visit /login', async function(assert) {
   assert.equal(currentURL(), '/login');
 });
 
-test('unauthenticated users must supply a strong password', async function(
-  assert
-) {
+test('unauthenticated users must supply a strong password', async function(assert) {
   await visit('/login');
   await fillIn('[name=email]', `mike+${new Date().getTime()}@example.com`);
   await fillIn('[name=password]', 'Password');
@@ -30,9 +28,7 @@ test('unauthenticated users must supply a strong password', async function(
   assert.notEqual(msg.match(/too short/), null);
 });
 
-test('unauthenticated users cannot create an account without confirming password', async function(
-  assert
-) {
+test('unauthenticated users cannot create an account without confirming password', async function(assert) {
   await visit('/login');
   await fillIn('[name=email]', `mike+${new Date().getTime()}@example.com`);
   await fillIn('[name=password]', 'Password1234');
@@ -44,9 +40,7 @@ test('unauthenticated users cannot create an account without confirming password
   assert.dom('[data-test=signup][disabled]').exists({ count: 1 });
 });
 
-test('unauthenticated users must supply a valid email address', async function(
-  assert
-) {
+test('unauthenticated users must supply a valid email address', async function(assert) {
   await visit('/login');
   await fillIn('[name=email]', 'a@b.c');
   await blur('[name=email]');
@@ -56,9 +50,7 @@ test('unauthenticated users must supply a valid email address', async function(
   assert.dom('.ma-Login button[disabled]').exists({ count: 1 });
 });
 
-test('unauthenticated users can create an account with email & password', async function(
-  assert
-) {
+test('unauthenticated users can create an account with email & password', async function(assert) {
   // create an OAuth token w/ ember-cli-mirage
   server.create('token');
   server.create('user');
@@ -75,9 +67,7 @@ test('unauthenticated users can create an account with email & password', async 
   assert.equal(currentURL(), '/');
 });
 
-test('unauthenticated users cannot create an account with existing users email', async function(
-  assert
-) {
+test('unauthenticated users cannot create an account with existing users email', async function(assert) {
   // user visits login and fills in signup form
   await visit('/login');
   await fillIn('[name=email]', 'mike@example.com');
@@ -90,9 +80,7 @@ test('unauthenticated users cannot create an account with existing users email',
   assert.equal(currentURL(), '/login');
 });
 
-test('unauthenticated user can login to an account with email & password', async function(
-  assert
-) {
+test('unauthenticated user can login to an account with email & password', async function(assert) {
   // create an OAuth token
   server.create('token');
 
@@ -107,9 +95,7 @@ test('unauthenticated user can login to an account with email & password', async
   assert.equal(currentURL(), '/');
 });
 
-test('authenticated users can visit /login and redirect to /', async function(
-  assert
-) {
+test('authenticated users can visit /login and redirect to /', async function(assert) {
   const app = this.application;
 
   authenticateSession(app, {
@@ -121,9 +107,7 @@ test('authenticated users can visit /login and redirect to /', async function(
   assert.equal(currentURL(), '/');
 });
 
-test('unauthenticated user can click back link to Home', async function(
-  assert
-) {
+test('unauthenticated user can click back link to Home', async function(assert) {
   // user visits login and fills in signup form
   await visit('/login');
   // user clicks signup button

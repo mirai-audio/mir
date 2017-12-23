@@ -43,9 +43,7 @@ module('Unit | Service | window', function(hooks) {
     );
   });
 
-  test('it can call history.back if `history` is not available (e.g. in FastBoot)', function(
-    assert
-  ) {
+  test('it can call history.back if `history` is not available (e.g. in FastBoot)', function(assert) {
     let done = assert.async();
 
     // navigate forwards, manually

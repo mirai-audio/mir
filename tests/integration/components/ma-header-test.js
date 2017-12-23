@@ -42,9 +42,7 @@ module('Integration | Component | ma header', function(hooks) {
     assert.notEqual(this.element.textContent.indexOf('Back'), -1);
   });
 
-  test('clicking `back` default link calls window.history.back', async function(
-    assert
-  ) {
+  test('clicking `back` default link calls window.history.back', async function(assert) {
     this.set('title', 'routes.login.title');
     await render(hbs`{{ma-header title=title}}`);
 
@@ -52,9 +50,7 @@ module('Integration | Component | ma header', function(hooks) {
     assert.equal(window.location.hash, '#clicked');
   });
 
-  test('the off-canvas menu button toggles its active state', async function(
-    assert
-  ) {
+  test('the off-canvas menu button toggles its active state', async function(assert) {
     this.set('title', 'routes.login.title');
     await render(hbs`{{ma-header title=title}}`);
 

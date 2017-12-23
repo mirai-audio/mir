@@ -6,9 +6,7 @@ import { setupTest } from 'ember-qunit';
 module('Unit | Authenticator | token', function(hooks) {
   setupTest(hooks);
 
-  test('its `authenticate` method resolves call `makeRequest` with credentials from the user', function(
-    assert
-  ) {
+  test('its `authenticate` method resolves call `makeRequest` with credentials from the user', function(assert) {
     const done = assert.async();
     const authenticator = this.owner.factoryFor('authenticator:token').create({
       makeRequest(url, credentials) {
@@ -27,9 +25,7 @@ module('Unit | Authenticator | token', function(hooks) {
     });
   });
 
-  test('its `authenticate` method rejects call `makeRequest` with credentials from the user', function(
-    assert
-  ) {
+  test('its `authenticate` method rejects call `makeRequest` with credentials from the user', function(assert) {
     const done = assert.async();
     const authenticator = this.owner.factoryFor('authenticator:token').create({
       makeRequest(url, credentials) {
@@ -45,9 +41,7 @@ module('Unit | Authenticator | token', function(hooks) {
     });
   });
 
-  test('its `authenticate` method resolves call `makeRequest` with invalid token', function(
-    assert
-  ) {
+  test('its `authenticate` method resolves call `makeRequest` with invalid token', function(assert) {
     const done = assert.async();
     assert.expect(4);
 

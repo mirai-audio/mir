@@ -1,14 +1,14 @@
 /* eslint-env node */
 'use strict';
 
-var mirVersion = require('../package.json').version;
+const VERSION = require('../package.json').version;
 
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'mir',
     environment,
     hostUrl: process.env.HOST || 'http://localhost:4200',
-    version: mirVersion,
+    version: VERSION,
     rootURL: '/',
     locationType: 'auto',
 
@@ -30,7 +30,7 @@ module.exports = function(environment) {
 
     DS: {
       host: process.env.API_URL || 'https://api.mirai.audio',
-      namespace: 'api/v1',
+      namespace: 'api/v1'
     },
 
     // FastBoot
@@ -50,53 +50,53 @@ module.exports = function(environment) {
     'ember-simple-auth': {
       authenticationRoute: 'login',
       routeIfAlreadyAuthenticated: 'index',
-      routeAfterAuthentication: 'index',
+      routeAfterAuthentication: 'index'
     },
 
     // Torii
     torii: {
       sessionServiceName: 'session',
       providers: {
-        'twitter': {
-          requestTokenUri: process.env.TWITTER_REQUEST_TOKEN_URL ||
-            '//localhost:4000/login/twitter',  // Ai handles twitter OAuth
-        },
-      },
-    },
+        twitter: {
+          requestTokenUri:
+            process.env.TWITTER_REQUEST_TOKEN_URL ||
+            '//localhost:4000/login/twitter' // Ai handles twitter OAuth
+        }
+      }
+    }
   };
 
   ENV.contentSecurityPolicy = {
     'default-src': [
-      "'self'", 'data:', 'gap:',
+      "'self'",
+      'data:',
+      'gap:',
       '127.0.0.1:*',
       'localhost:* ',
       'https://ssl.gstatic.com' /* Required by Android TalkBack */
     ],
     'script-src': [
-      "'self'", "'unsafe-inline'", "'unsafe-eval'",
+      "'self'",
+      "'unsafe-inline'",
+      "'unsafe-eval'",
       '127.0.0.1:*',
-      'localhost:*',
+      'localhost:*'
     ],
-    'style-src': [
-      "'self'", "'unsafe-inline'", 'data:',
-    ],
-    'img-src': [
-      "'self'", 'data:',
-    ],
-    'font-src': [
-      "'self'", 'data:',
-    ],
+    'style-src': ["'self'", "'unsafe-inline'", 'data:'],
+    'img-src': ["'self'", 'data:'],
+    'font-src': ["'self'", 'data:'],
     'connect-src': [
-      "'self'", "data:",
-      'http://localhost:*',  // development
-      'ws://localhost:*',     // Anyone
-      'https://api.mirai.audio:*',  // prod
-      'wss://api.mirai.audio:*',  // prod
+      "'self'",
+      'data:',
+      'http://localhost:*', // development
+      'ws://localhost:*', // Anyone
+      'https://api.mirai.audio:*', // prod
+      'wss://api.mirai.audio:*', // prod
       /* API https:// */
       ENV.DS.host,
       /* remote Chrome LiveReload websocket */
-      'ws://10.255.247.75:*',  // žižek
-    ],
+      'ws://10.255.247.75:*' // žižek
+    ]
   };
 
   // Internationalization
@@ -106,12 +106,14 @@ module.exports = function(environment) {
 
   // HTML <title>s
   ENV.pageTitle = {
-    prepend: true,
+    prepend: true
   };
 
   let runProcess = process.argv.join(' ');
-  if (runProcess.indexOf('ember cdv') >= 0 ||
-      runProcess.indexOf('ember cordova') >= 0) {
+  if (
+    runProcess.indexOf('ember cdv') >= 0 ||
+    runProcess.indexOf('ember cordova') >= 0
+  ) {
     // If the app is running as a Cordova app configure it to use hash location
     ENV.rootURL = false;
     ENV.locationType = 'hash';
@@ -128,7 +130,7 @@ module.exports = function(environment) {
     // disable ember-cli-mirage in development by default, unless set
     ENV['ember-cli-mirage'] = {
       enabled: process.env.MIRAGE || false
-    }
+    };
   }
 
   if (environment === 'test') {
@@ -145,9 +147,10 @@ module.exports = function(environment) {
     ENV.DS.host = process.env.API_URL || 'http://localhost:4040';
   }
 
+  /*
   if (environment === 'production') {
-
   }
+   */
 
   return ENV;
 };

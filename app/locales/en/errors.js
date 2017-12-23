@@ -6,6 +6,7 @@ export default {
     unauthorized: "Email or password is incorrect.",
 
     // POST to /users
+    "server-internal-error": "An error occurred, try again later.",
     "email-has-invalid-format": "Email format invalid.",
     "email-should-be-at-least-7-character(s)":
       "Email must be at least 7 characters",

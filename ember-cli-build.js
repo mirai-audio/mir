@@ -2,40 +2,37 @@
 /* eslint-env node */
 'use strict';
 
-const getEnvJSON = require('./config/environment');
-const host = getEnvJSON().DS.host;
-const mirVersion = getEnvJSON().version;
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const GETENVJSON = require('./config/environment');
+const HOST = GETENVJSON().DS.host;
+const VERSION = GETENVJSON().version;
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     // Add options here
     fingerprint: {
-      extensions: ['css', 'gif', 'js', 'jpg', 'png', 'map', 'svg'],
+      extensions: ['css', 'gif', 'js', 'jpg', 'png', 'map', 'svg']
     },
 
     inlineContent: {
       host: {
-        content: host,
+        content: HOST
       },
       environment: {
-        content: EmberApp.env(),
+        content: EmberApp.env()
       },
       version: {
-        content: mirVersion,
-      },
+        content: VERSION
+      }
     },
 
     sassOptions: {
-      includePaths: [
-        'node_modules/system-font-i18n-css',
-        'node_modules/bulma',
-      ],
+      includePaths: ['node_modules/system-font-i18n-css', 'node_modules/bulma']
     },
 
     svgJar: {
-      sourceDirs: ['public/images'],
-    },
+      sourceDirs: ['public/images']
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated

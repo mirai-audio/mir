@@ -20,7 +20,7 @@ export default Route.extend(UnauthenticatedRouteMixin, {
         .loginUserPassword('authenticator:ai', email, password)
         .then(result => {
           // set errors to any that may have been returned
-          set(this, 'controller.errorMessageKeys', result);
+          set(this, 'controller.errorMessageKeys', result.errors);
         });
       // 🤞
 
@@ -33,7 +33,7 @@ export default Route.extend(UnauthenticatedRouteMixin, {
         .loginTwitter()
         .then(result => {
           // set errors to any that may have been returned
-          set(this, 'controller.errorMessageKeys', result);
+          set(this, 'controller.errorMessageKeys', result.errors);
         });
       // 🤞
     },

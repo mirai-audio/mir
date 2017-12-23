@@ -62,9 +62,7 @@ module('Unit | Instance Initializer | i18n', function(hooks) {
     assert.equal(locale, 'en');
   });
 
-  test('detectLocale correctly returns `en` in FastBoot for unsupported language', function(
-    assert
-  ) {
+  test('detectLocale correctly returns `en` in FastBoot for unsupported language', function(assert) {
     const mockRequest = EmberObject.create({
       headers: EmberObject.create({
         'Accept-Language': 'fo-BA'

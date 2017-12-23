@@ -5,9 +5,7 @@ import moduleForAcceptance from 'mir/tests/helpers/module-for-acceptance';
 
 moduleForAcceptance('Acceptance | styleguide');
 
-test('unauthenticated users visit /styleguide land on /login', async function(
-  assert
-) {
+test('unauthenticated users visit /styleguide land on /login', async function(assert) {
   assert.expect(1);
   await visit('/styleguide');
 
