@@ -1,6 +1,6 @@
+import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import { get } from '@ember/object';
-import Route from '@ember/routing/route';
 import { hash } from 'rsvp';
 import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin';
 

@@ -18,6 +18,12 @@ export default {
     "cta-signup": "Sign up"
   },
 
+  new: {
+    media: {
+      title: "Add song"
+    }
+  },
+
   styleguide: {
     title: "Styleguide",
     "latin-1":

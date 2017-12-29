@@ -8,7 +8,8 @@ export default Route.extend(UnauthenticatedRouteMixin, {
   session: service(),
 
   model(/* params */) {
-    return this.store.createRecord('user');
+    let store = get(this, 'store');
+    return store.createRecord('user');
   },
 
   actions: {

@@ -1,0 +1,10 @@
+{{#ma-header
+  title="routes.new.media.title"}}
+{{/ma-header}}
+
+{{ma-create-media model=model
+  onSuccess=(route-action "onCreated")
+  onFailure=(route-action "onFailure")
+}}
+
+{{outlet}}

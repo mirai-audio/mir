@@ -1,0 +1,31 @@
+<div class="field">
+  <label class="label" for="title">
+    {{t "components.ma-create-media.media-title-label"}}
+  </label>
+  <div class="control">
+    {{ma-input name="title"
+      inputId="title"
+      placeholder=(t "components.ma-create-media.media-title-placeholder")
+      value=model.title}}
+  </div>
+</div>
+
+<div class="field">
+  <label class="label" for="url">
+    {{t "components.ma-create-media.media-url-label"}}
+  </label>
+  <div class="control">
+    {{ma-input name="url"
+      inputId="url"
+      placeholder=(t "components.ma-create-media.media-url-placeholder")
+      value=model.url}}
+  </div>
+</div>
+
+<div class="control">
+  <button class="button is-primary {{cssLoading}}" {{action "add"}} disabled={{isDisabled}}>
+    {{t "components.ma-create-media.add"}}
+  </button>
+</div>
+
+{{yield}}
