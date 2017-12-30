@@ -22,8 +22,12 @@
   </div>
 </div>
 
+{{ma-errors-handler errorMessageKeys=errors}}
+
 <div class="control">
-  <button class="button is-primary {{cssLoading}}" {{action "add"}} disabled={{isDisabled}}>
+  <button class="button is-primary {{cssLoading}}"
+    disabled={{isDisabled}}
+    {{action "add"}}>
     {{t "components.ma-create-media.add"}}
   </button>
 </div>

@@ -10,12 +10,18 @@ export default {
     email: "Email",
     "email-placeholder": "name@example.com",
     password: "Contraseña",
-    "password-confirm": "Confirma contraseña",
-    "cta-login": "Registrase con el email",
+    "password-confirm": "Confirmar contraseña",
+    "cta-login": "Registrarse con su email",
     "cta-twitter": "Twitter",
     "cta-google": "Google",
     "cta-facebook": "Facebook",
-    "cta-signup": "Regístrate"
+    "cta-signup": "Registrarse"
+  },
+
+  new: {
+    media: {
+      title: "Añadir canción"
+    }
   },
 
   styleguide: {

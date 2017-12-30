@@ -10,16 +10,15 @@ import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-
 // the `beforeModel` hook.
 export default Route.extend(UnauthenticatedRouteMixin, {
   session: service(),
-  fastboot: service(),
   auth: service(),
 
   beforeModel() {
     let isAuthenticated = get(this, 'session.isAuthenticated');
-    let isFastboot = get(this, 'fastboot').isFastBoot;
 
-    // the index route is reserved for non-Fastboot authenticated users as the
-    // "Dashboard" of the app.
-    if (!isAuthenticated && !isFastboot) {
+    // the index route is reserved for authenticated users as the "Dashboard"
+    // of the app. Rather than use AuthenticatedRouteMixin which redirects users
+    // to /login, we want to redirect to /welcome
+    if (!isAuthenticated) {
       // everyone else is sent to to `welcome` route
       this.replaceWith('welcome');
     }

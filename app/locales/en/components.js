@@ -7,11 +7,14 @@ export default {
   },
 
   "ma-create-media": {
+    add: "Add",
+    "error-assertion-failed": "An error occurred adding this song.",
+    "error-the-adapter-operation-was-aborted":
+      "An error occurred, try again later.",
     "media-title-label": "Title",
     "media-title-placeholder": "A Title",
     "media-url-label": "URL",
-    "media-url-placeholder": "https://www.youtube.com/watch?v=hpDvtIt6Lsc",
-    add: "Add"
+    "media-url-placeholder": "https://www.youtube.com/watch?v=hpDvtIt6Lsc"
   },
 
   "ma-header": {

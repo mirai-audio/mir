@@ -7,6 +7,6 @@ export default {
     "en servicios como YouTube, Soundcloud, Spotify, Last.fm y más. " +
     "Crea y comparte listas de reproducción en todos los servicios. Seguir a los artistas y promover " +
     "canciones.",
-  arriving: "Llegando a 2017",
+  arriving: "Llegando a 2018",
   title: "Sobre"
 };

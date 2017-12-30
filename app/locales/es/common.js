@@ -6,7 +6,7 @@ export default {
 
   close: "Cerrar",
   loading: "cargando…",
-  logout: "Sin registro.",
+  logout: "Salir",
 
   svgjar: "svg-jar"
 };
