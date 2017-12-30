@@ -5,52 +5,48 @@
   {{link-to (t "routes.welcome.title") "welcome" class="navbar-item"}}
 {{/ma-header}}
 
-<div class="columns is-mobile">
-  <div class="column is-half is-offset-one-quarter">
-    {{#ma-auth
-      title=(t "components.ma-auth.title")
-      components=(hash
-        login=(component "ma-login")
-        input=(component "ma-input"))
-      errorMessageKeys=errorMessageKeys
-      loginAction=(route-action "login" model)
-      action=(route-action "signup")
-      model=model}}
+{{#ma-auth
+  title=(t "components.ma-auth.title")
+  components=(hash
+    login=(component "ma-login")
+    input=(component "ma-input"))
+  errorMessageKeys=errorMessageKeys
+  loginAction=(route-action "login" model)
+  action=(route-action "signup")
+  model=model}}
 
-      <fieldset class="field">
-        <legend>{{t "components.ma-auth.socialTitle"}}</legend>
-        <div class="field has-addons">
-          <div class="control">
-            <button class="button c-Social c-Social--twitter"
-              data-test="twitter"
-              onclick={{route-action "loginTwitter"}}>
-              {{t "routes.login.cta-twitter"}}
-            </button>
-          </div>
-          <div hidden class="control">
-            <button class="button c-Social c-Social--google"
-              data-test="google"
-              disabled>
-              {{t "routes.login.cta-google"}}
-            </button>
-          </div>
-          <div hidden class="control">
-            <button class="button c-Social c-Social--facebook"
-              data-test="facebook"
-              disabled>
-              {{t "routes.login.cta-facebook"}}
-            </button>
-          </div>
-        </div>
-      </fieldset>
+  <fieldset class="field">
+    <legend>{{t "components.ma-auth.socialTitle"}}</legend>
+    <div class="field has-addons">
+      <div class="control">
+        <button class="button c-Social c-Social--twitter"
+          data-test="twitter"
+          onclick={{route-action "loginTwitter"}}>
+          {{t "routes.login.cta-twitter"}}
+        </button>
+      </div>
+      <div hidden class="control">
+        <button class="button c-Social c-Social--google"
+          data-test="google"
+          disabled>
+          {{t "routes.login.cta-google"}}
+        </button>
+      </div>
+      <div hidden class="control">
+        <button class="button c-Social c-Social--facebook"
+          data-test="facebook"
+          disabled>
+          {{t "routes.login.cta-facebook"}}
+        </button>
+      </div>
+    </div>
+  </fieldset>
 
-      {{#if errorMessageKeys}}
-        <p class="notification is-danger">
-          {{t errorMessageKeys}}
-        </p>
-      {{/if}}
-    {{/ma-auth}}
-  </div>
-</div>
+  {{#if errorMessageKeys}}
+    <p class="notification is-danger">
+      {{t errorMessageKeys}}
+    </p>
+  {{/if}}
+{{/ma-auth}}
 
 {{outlet}}

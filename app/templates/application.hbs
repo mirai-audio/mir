@@ -1,13 +1,15 @@
 {{head-layout}}
 {{title (t "common.appname")}}
 
-<main class="{{cssEnv}} {{cssRoute}}" lang={{locale}}>
+<main class="section {{cssEnv}} {{cssRoute}}" lang={{locale}}>
   <aside class="Offline Notification has-text-centered u-Z20">
     <h2>{{t "app.network.offline"}}</h2>
     <p>{{t "app.network.offline-detail"}}</p>
   </aside>
 
-  {{outlet}}
+  <div class="container">
+    {{outlet}}
+  </div>
 
   <noscript class="NoScript Notification has-text-centered">
     <h1>{{t "app.noscript.title"}}</h1>
