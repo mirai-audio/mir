@@ -1,4 +1,3 @@
-/* eslint-env node */
 'use strict';
 
 const VERSION = require('../package.json').version;

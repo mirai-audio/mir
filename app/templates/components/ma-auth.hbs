@@ -6,7 +6,7 @@
     input=(component "ma-input"))
   errorMessageKeys=errorMessageKeys
   action=loginAction
-  model=model}}
+  changeset=changeset}}
 
 <fieldset class="field">
   {{#if title}}
@@ -24,10 +24,10 @@
         inputId="password_confirmation"
         autocorrect="off"
         autocomplete="off"
-        errors=(v-get model "passwordConfirmation" "messages")
+        errors=(get changeset "error.passwordConfirmation.validation")
         minlength="12"
         required="required"
-        value=model.passwordConfirmation}}
+        value=changeset.passwordConfirmation}}
     </div>
     <div class="control">
       <button {{action action}}

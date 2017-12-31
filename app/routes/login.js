@@ -1,7 +1,10 @@
+import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import { get, set } from '@ember/object';
-import Route from '@ember/routing/route';
+import Changeset from 'ember-changeset';
+import lookupValidator from 'ember-changeset-validations';
 import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin';
+import UserValidations from '../validations/user';
 
 export default Route.extend(UnauthenticatedRouteMixin, {
   auth: service(),
@@ -9,7 +12,12 @@ export default Route.extend(UnauthenticatedRouteMixin, {
 
   model(/* params */) {
     let store = get(this, 'store');
-    return store.createRecord('user');
+    let user = store.createRecord('user');
+    let validatorFn = lookupValidator(UserValidations);
+    let changeset = new Changeset(user, validatorFn, UserValidations);
+    // invoke `validate()` to put the form into a disabled state to begin
+    changeset.validate();
+    return changeset;
   },
 
   actions: {

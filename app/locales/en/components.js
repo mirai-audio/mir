@@ -11,6 +11,7 @@ export default {
     "error-assertion-failed": "An error occurred adding this song.",
     "error-the-adapter-operation-was-aborted":
       "An error occurred, try again later.",
+    "error-ember-data-request-post-http": "An error occurred, try again later.",
     "media-title-label": "Title",
     "media-title-placeholder": "A Title",
     "media-url-label": "URL",

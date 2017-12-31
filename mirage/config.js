@@ -43,4 +43,27 @@ export default function() {
   this.get('/users/current');
 
   this.get('/medias', schema => schema.medias.all());
+  this.post('/medias', (schema, request) => {
+    const media = schema.medias.first();
+    const title = JSON.parse(request.requestBody).data.attributes.title;
+    // force a 500 error for our acceptance test coverage handling errors
+    if (title === 'test-force-500-error') {
+      const headers = {
+        'content-type': 'application/vnd.api+json; charset=utf-8'
+      };
+      const data = {
+        jsonapi: {
+          version: '1.0'
+        },
+        errors: [
+          {
+            title: 'the adapter-operation-was-aborted',
+            code: 500
+          }
+        ]
+      };
+      return new Response(500, headers, data);
+    }
+    return media;
+  });
 }

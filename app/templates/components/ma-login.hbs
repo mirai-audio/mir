@@ -15,12 +15,12 @@
         autocorrect="off"
         autocomplete="email"
         class="field"
-        errors=(v-get model "email" "messages")
+        errors=(get changeset "error.email.validation")
         minlength="7"
         pattern="\S{1,}@\S{2,}.\S{2,}"
         required="required"
         placeholder=(t "routes.login.email-placeholder")
-        value=model.email}}
+        value=changeset.email}}
     </div>
   </div>
 
@@ -35,10 +35,10 @@
           inputId="password"
           autocorrect="off"
           autocomplete="off"
-          errors=(v-get model "password" "messages")
+          errors=(get changeset "error.password.validation")
           minlength="12"
           required="required"
-          value=model.password}}
+          value=changeset.password}}
       </div>
 
       <div class="control">

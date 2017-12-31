@@ -3,6 +3,8 @@ import {
   fillIn,
   currentURL,
   find,
+  keyEvent,
+  focus,
   blur,
   visit
 } from 'ember-native-dom-helpers';
@@ -25,7 +27,7 @@ test('unauthenticated users must supply a strong password', async function(asser
   await blur('[name=password]');
 
   let msg = find('.ma-Login .help.is-danger').textContent;
-  assert.notEqual(msg.match(/too short/), null);
+  assert.notEqual(msg.match(/Password must be between/), null);
 });
 
 test('unauthenticated users cannot create an account without confirming password', async function(assert) {
@@ -40,13 +42,15 @@ test('unauthenticated users cannot create an account without confirming password
   assert.dom('[data-test=signup][disabled]').exists({ count: 1 });
 });
 
-test('unauthenticated users must supply a valid email address', async function(assert) {
+test('unauthenticated users must supply a valid password', async function(assert) {
   await visit('/login');
-  await fillIn('[name=email]', 'a@b.c');
-  await blur('[name=email]');
+  let maLogin = await find('.ma-Login');
+  await fillIn('[name=email]', 'aa@bb.cc');
+  await fillIn('[name=password]', 'a');
+  await keyEvent(maLogin, 'keyup', 13);
+  await focus('.ma-Login [data-test=login]');
+  await keyEvent(maLogin, 'keyup', 13);
 
-  let msg = find('.ma-Login .help.is-danger').textContent;
-  assert.notEqual(msg.match(/valid email/), null);
   assert.dom('.ma-Login button[disabled]').exists({ count: 1 });
 });
 
@@ -61,6 +65,7 @@ test('unauthenticated users can create an account with email & password', async 
   await fillIn('[name=password]', 'Password1234');
   await fillIn('[name=password_confirmation]', 'Password1234');
   // user clicks signup button
+  await focus('.ma-Auth [data-test=signup]');
   await click('.ma-Auth [data-test=signup]');
 
   // user lands on index page
@@ -88,7 +93,10 @@ test('unauthenticated user can login to an account with email & password', async
   await visit('/login');
   await fillIn('[name=email]', `mike+${new Date().getTime()}@example.com`);
   await fillIn('[name=password]', 'Password1234');
+  let maLogin = await find('.ma-Login');
+  await keyEvent(maLogin, 'keyup', 13);
   // user clicks login button
+  await focus('[name=email]');
   await click('.ma-Login [data-test=login]');
 
   // user lands on index page

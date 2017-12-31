@@ -4,9 +4,10 @@
   </label>
   <div class="control">
     {{ma-input name="title"
+      autofocus=true
       inputId="title"
       placeholder=(t "components.ma-create-media.media-title-placeholder")
-      value=model.title}}
+      value=changeset.title}}
   </div>
 </div>
 
@@ -18,7 +19,7 @@
     {{ma-input name="url"
       inputId="url"
       placeholder=(t "components.ma-create-media.media-url-placeholder")
-      value=model.url}}
+      value=changeset.url}}
   </div>
 </div>
 
@@ -27,7 +28,7 @@
 <div class="control">
   <button class="button is-primary {{cssLoading}}"
     disabled={{isDisabled}}
-    {{action "add"}}>
+    {{action "add" changeset}}>
     {{t "components.ma-create-media.add"}}
   </button>
 </div>

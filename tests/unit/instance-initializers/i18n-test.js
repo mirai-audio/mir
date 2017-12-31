@@ -6,7 +6,7 @@ import Service from '@ember/service';
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import i18n from 'mir/instance-initializers/i18n';
-import destroyApp from '../../helpers/destroy-app';
+import destroyApp from 'mir/tests/helpers/destroy-app';
 
 // Stub fastboot service
 const fastbootServiceFactory = Service.extend({
@@ -20,9 +20,6 @@ const i18nServiceFactory = Service.extend({
 
 module('Unit | Instance Initializer | i18n', function(hooks) {
   setupTest(hooks);
-
-  // Specify the other units that are required for this test.
-  // needs: ['service:session'],
 
   hooks.beforeEach(function() {
     run(() => {

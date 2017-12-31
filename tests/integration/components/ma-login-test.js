@@ -20,7 +20,7 @@ module('Integration | Component | ma login', function(hooks) {
     registerTestComponent(this);
 
     this.set('action', function login() {});
-    this.set('model', {
+    this.set('changeset', {
       email: 'a@bb.cc',
       password: 'aaabbbcccddd'
     });
@@ -31,7 +31,7 @@ module('Integration | Component | ma login', function(hooks) {
         components=(hash
           input=(component "test-component"))
         action=action
-        model=model}}
+        changeset=changeset}}
     `);
     assert.notEqual(this.element.textContent.trim().indexOf('ABC_'), -1);
     assert.notEqual(this.element.textContent.trim().indexOf('Sign in'), -1);

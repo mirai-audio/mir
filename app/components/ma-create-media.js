@@ -2,45 +2,56 @@ import Component from '@ember/component';
 import { computed, get, set } from '@ember/object';
 import { alias, or } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
+import Changeset from 'ember-changeset';
+import lookupValidator from 'ember-changeset-validations';
+import MediaValidations from '../validations/media';
 
 export default Component.extend({
   store: service(),
 
-  /* Ember */
   attributeBindings: ['formName:name', 'formMethod:method'],
   classNames: ['ma-CreateMedia'],
-  tagName: 'form',
-
   formName: 'medias',
   formMethod: 'POST',
-
-  isDisabled: or('model.validations.isInvalid', 'isLoading').readOnly(),
   isLoading: false,
+  tagName: 'form',
 
-  /* API */
-  errorMessageKeys: null,
-  model: null,
-  onFailure: () => {}, // noOp callback if caller doesn't pass onFailure in.
-  onSuccess: () => {}, // noOp callback if caller doesn't pass onSuccess in.
-
-  init() {
-    this._super(...arguments);
-    set(this, 'errorMessageKeys', []);
-    let media = get(this, 'model');
-    if (media === null) {
-      // caller invoking component didn't pass in `model`, create one.
-      let store = get(this, 'store');
-      media = store.createRecord('media');
-      set(this, 'model', media);
-    }
-  },
+  errors: alias('errorMessageKeys'),
+  isDisabled: or(
+    'changeset.isInvalid',
+    'changeset.isPristine',
+    'isLoading'
+  ).readOnly(),
 
   cssLoading: computed('isLoading', function computed() {
     let isLoading = get(this, 'isLoading');
     return isLoading ? 'is-loading' : '';
   }),
 
-  errors: alias('errorMessageKeys'),
+  /* API */
+  changeset: null,
+  errorMessageKeys: null,
+  onFailure: () => {}, // noOp callback if caller doesn't pass onFailure in.
+  onSuccess: () => {}, // noOp callback if caller doesn't pass onSuccess in.
+
+  init() {
+    this._super(...arguments);
+    set(this, 'errorMessageKeys', []);
+    let changeset = get(this, 'changeset');
+    if (changeset === null) {
+      // caller invoking this component didn't pass in `model`, create one.
+      let store = get(this, 'store');
+      let media = store.createRecord('media');
+      changeset = new Changeset(
+        media,
+        lookupValidator(MediaValidations),
+        MediaValidations
+      );
+      set(this, 'changeset', changeset);
+    }
+    // invoke `validate()` to put the form into a disabled state to begin
+    changeset.validate();
+  },
 
   _handleError(error) {
     let errors = get(this, 'errorMessageKeys');
@@ -50,22 +61,21 @@ export default Component.extend({
   },
 
   actions: {
-    add() {
+    add(changeset) {
       set(this, 'isLoading', true);
-      let model = get(this, 'model');
-      return model
+      return changeset
         .save()
         .then((/* data */) => {
           set(this, 'isLoading', false);
           let onSuccess = get(this, 'onSuccess');
-          if (onSuccess) onSuccess();
+          if (typeof onSuccess === 'function') onSuccess();
           return;
         })
         .catch(error => {
           set(this, 'isLoading', false);
           this._handleError(error);
           let onFailure = get(this, 'onFailure');
-          if (onFailure) onFailure();
+          if (typeof onFailure === 'function') onFailure();
           return;
         });
       // 🤞

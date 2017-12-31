@@ -1,11 +1,8 @@
-{{#ma-header
-  back="routes.application.title"
-  backTo="application"
-  title="routes.application.title"}}
-
-  {{link-to (t "routes.new.media.title") "new.media" class="navbar-item"}}
-
-{{/ma-header}}
+{{ma-header
+  back="routes.new.media.title"
+  backTo="new.media"
+  title="routes.application.title"
+}}
 
 {{#ma-user as |user|}}
   <strong>{{user.id}}/{{user.username}}</strong>

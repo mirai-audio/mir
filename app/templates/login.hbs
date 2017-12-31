@@ -1,9 +1,7 @@
-{{#ma-header
-  back="routes.application.title"
-  backTo="application"
+{{ma-header
+  back="routes.welcome.title"
+  backTo="welcome"
   title="routes.login.title"}}
-  {{link-to (t "routes.welcome.title") "welcome" class="navbar-item"}}
-{{/ma-header}}
 
 {{#ma-auth
   title=(t "components.ma-auth.title")
@@ -13,7 +11,7 @@
   errorMessageKeys=errorMessageKeys
   loginAction=(route-action "login" model)
   action=(route-action "signup")
-  model=model}}
+  changeset=model}}
 
   <fieldset class="field">
     <legend>{{t "components.ma-auth.socialTitle"}}</legend>

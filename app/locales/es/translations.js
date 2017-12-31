@@ -1,18 +1,18 @@
 /* eslint-disable quotes, quote-props */
-
-/* locale: es-ES - Spain Spanish */
 import app from "./app";
 import about from "./about";
 import common from "./common";
 import components from "./components";
 import errors from "./errors";
 import routes from "./routes";
+import validations from "./validations";
 
 export default {
-  app: app,
-  about: about,
-  common: common,
-  components: components,
-  errors: errors,
-  routes: routes
+  app,
+  about,
+  common,
+  components,
+  errors,
+  routes,
+  validations
 };
