@@ -1,13 +1,13 @@
-import Application from '@ember/application';
 import { run, later } from '@ember/runloop';
 import { initialize } from 'mir/instance-initializers/load-css';
 import { module, test } from 'qunit';
+import startApp from '../../helpers/start-app';
 import destroyApp from '../../helpers/destroy-app';
 
 module('Unit | Instance Initializer | load css', function(hooks) {
   hooks.beforeEach(function() {
     run(() => {
-      this.application = Application.create();
+      this.application = startApp();
       this.appInstance = this.application.buildInstance();
     });
   });

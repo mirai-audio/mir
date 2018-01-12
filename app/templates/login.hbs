@@ -1,13 +1,12 @@
 {{ma-header
   back="routes.welcome.title"
   backTo="welcome"
-  title="routes.login.title"}}
+  title="routes.login.title"
+}}
 
 {{#ma-auth
   title=(t "components.ma-auth.title")
-  components=(hash
-    login=(component "ma-login")
-    input=(component "ma-input"))
+  components=(hash login=(component "ma-login") input=(component "ma-input"))
   errorMessageKeys=errorMessageKeys
   loginAction=(route-action "login" model)
   action=(route-action "signup")

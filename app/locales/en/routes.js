@@ -18,8 +18,8 @@ export default {
     "cta-signup": "Sign up"
   },
 
-  new: {
-    media: {
+  media: {
+    new: {
       title: "Add song"
     }
   },

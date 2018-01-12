@@ -1,38 +1,39 @@
 import EmberObject from '@ember/object';
 import { get, set } from '@ember/object';
-import Application from '@ember/application';
 import { run } from '@ember/runloop';
 import Service from '@ember/service';
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import i18n from 'mir/instance-initializers/i18n';
 import destroyApp from 'mir/tests/helpers/destroy-app';
-
-// Stub fastboot service
-const fastbootServiceFactory = Service.extend({
-  isFastBoot: false
-});
-
-const i18nServiceFactory = Service.extend({
-  locale: null,
-  locales: ['en', 'ja', 'zh-cn']
-});
+import startApp from 'mir/tests/helpers/start-app';
 
 module('Unit | Instance Initializer | i18n', function(hooks) {
   setupTest(hooks);
 
   hooks.beforeEach(function() {
     run(() => {
-      this.application = Application.create();
+      this.application = startApp();
       this.appInstance = this.application.buildInstance();
       // Register your mock service (do not  create instance, use factory)
-      this.appInstance.register('service:fastboot', fastbootServiceFactory);
-      this.appInstance.register('service:i18n', i18nServiceFactory);
+      this.appInstance.register(
+        'service:fastboot',
+        Service.extend({
+          isFastBoot: false
+        })
+      );
+      this.appInstance.register(
+        'service:i18n',
+        Service.extend({
+          locale: null,
+          locales: ['en', 'ja', 'zh-cn']
+        })
+      );
     });
   });
 
   hooks.afterEach(function() {
-    run(this.appInstance, 'destroy');
+    destroyApp(this.appInstance);
     destroyApp(this.application);
   });
 

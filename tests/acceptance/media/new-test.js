@@ -1,24 +1,31 @@
-import { click, currentURL, find, visit } from 'ember-native-dom-helpers';
+import {
+  click,
+  currentURL,
+  find,
+  fillIn,
+  visit
+} from 'ember-native-dom-helpers';
 import { test } from 'qunit';
 import { authenticateSession } from 'mir/tests/helpers/ember-simple-auth';
+// import { authenticateSession } from 'ember-simple-auth/test-support'; // TODO use new style helper
 import moduleForAcceptance from 'mir/tests/helpers/module-for-acceptance';
 
-moduleForAcceptance('Acceptance | new/media');
+moduleForAcceptance('Acceptance | media/new');
 
-test('unauthenticated user cannot visit /new/media', async function(assert) {
-  await visit('/new/media');
+test('unauthenticated user cannot visit /media/new', async function(assert) {
+  await visit('/media/new');
 
   assert.equal(currentURL(), '/login');
 });
 
-test('authenticated user can visit /new/media', async function(assert) {
+test('authenticated user can visit /media/new', async function(assert) {
   authenticateSession(this.application, {
     userId: 1,
     otherData: 'some-data'
   });
-  await visit('/new/media');
+  await visit('/media/new');
 
-  assert.equal(currentURL(), '/new/media');
+  assert.equal(currentURL(), '/media/new');
 });
 
 test('authenticated user cant add invalid media', async function(assert) {
@@ -26,10 +33,10 @@ test('authenticated user cant add invalid media', async function(assert) {
     userId: 1,
     otherData: 'some-data'
   });
-  await visit('/new/media');
+  await visit('/media/new');
 
   await click('button');
-  assert.equal(currentURL(), '/new/media');
+  assert.equal(currentURL(), '/media/new');
 });
 
 test('authenticated user can add valid media', async function(assert) {
@@ -43,7 +50,7 @@ test('authenticated user can add valid media', async function(assert) {
     userId: 1,
     otherData: 'some-data'
   });
-  await visit('/new/media');
+  await visit('/media/new');
 
   await fillIn('[name=title]', 'asdf title');
   await fillIn('[name=url]', 'http://t.co');
@@ -65,7 +72,7 @@ test('ma-create-media can gracefully handle errors', async function(assert) {
     userId: 1,
     otherData: 'some-data'
   });
-  await visit('/new/media');
+  await visit('/media/new');
 
   await fillIn('[name=title]', 'test-force-500-error');
   await fillIn('[name=url]', 'http://t.co');

@@ -1,7 +1,7 @@
 import { get, getWithDefault, set } from '@ember/object';
 import Service, { inject as service } from '@ember/service';
 import fetch from 'fetch';
-import config from '../config/environment';
+import config from 'mir/config/environment';
 
 const ENDPOINT = `${config.DS.host}/${config.DS.namespace}/users/current`;
 const ERROR_OTHER = 'errors.login.other';

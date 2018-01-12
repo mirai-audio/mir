@@ -1,9 +1,9 @@
 import Route from '@ember/routing/route';
-import { get } from '@ember/object';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { get } from '@ember/object';
 import Changeset from 'ember-changeset';
 import lookupValidator from 'ember-changeset-validations';
-import MediaValidations from '../../validations/media';
+import MediaValidations from 'mir/validations/media';
 
 export default Route.extend(AuthenticatedRouteMixin, {
   model() {

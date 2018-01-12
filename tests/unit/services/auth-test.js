@@ -22,12 +22,12 @@ module('Unit | Service | auth', function(hooks) {
           resolve(result);
         });
       }
-    });
-    this.owner.register('service:session', mockSession);
+    }).create();
 
-    let service = this.owner
-      .factoryFor('service:auth')
-      .create({ isFastBoot: true });
+    let service = this.owner.factoryFor('service:auth').create({
+      isFastBoot: true,
+      session: mockSession
+    });
 
     // stub _fetchUser to isolate tests from external API
     let mockUser = {
@@ -39,7 +39,6 @@ module('Unit | Service | auth', function(hooks) {
     };
 
     let expected = mockUser;
-
     service
       .loginUserPassword('authenticator:ai', 'mike@example.com', 'Password1234')
       .then(result => {
@@ -72,12 +71,13 @@ module('Unit | Service | auth', function(hooks) {
           reject(result);
         });
       }
-    });
-    this.owner.register('service:session', mockSession);
+    }).create();
 
-    let service = this.owner
-      .factoryFor('service:auth')
-      .create({ isFastBoot: true });
+    let service = this.owner.factoryFor('service:auth').create({
+      isFastBoot: true,
+      session: mockSession
+    });
+
     // stub _fetchUser to isolate tests
     let mockUser = {
       user: null,
@@ -120,12 +120,12 @@ module('Unit | Service | auth', function(hooks) {
           reject(result);
         });
       }
-    });
-    this.owner.register('service:session', mockSession);
+    }).create();
 
-    let service = this.owner
-      .factoryFor('service:auth')
-      .create({ isFastBoot: true });
+    let service = this.owner.factoryFor('service:auth').create({
+      isFastBoot: true,
+      session: mockSession
+    });
 
     let expected = {
       user: null,
@@ -168,12 +168,12 @@ module('Unit | Service | auth', function(hooks) {
           }
         });
       }
-    });
-    this.owner.register('service:session', mockSession);
+    }).create();
 
-    let service = this.owner
-      .factoryFor('service:auth')
-      .create({ isFastBoot: true });
+    let service = this.owner.factoryFor('service:auth').create({
+      isFastBoot: true,
+      session: mockSession
+    });
 
     // stub _fetchUser to isolate tests from external API
     let expected = {
@@ -203,19 +203,17 @@ module('Unit | Service | auth', function(hooks) {
     assert.expect(2);
 
     // mock a failing auth service
-    this.owner.register(
-      'service:session',
-      Service.extend({
-        authenticate(/* authenticator, identity, password */) {
-          return new EmberPromise(function(resolve /* , reject */) {
-            resolve(['errors.login.other']);
-          });
-        }
-      })
-    );
-    let service = this.owner
-      .factoryFor('service:auth')
-      .create({ isFastBoot: true });
+    let mockSession = Service.extend({
+      authenticate(/* authenticator, identity, password */) {
+        return new EmberPromise(function(resolve /* , reject */) {
+          resolve(['errors.login.other']);
+        });
+      }
+    }).create();
+    let service = this.owner.factoryFor('service:auth').create({
+      isFastBoot: true,
+      session: mockSession
+    });
 
     let expected = {
       user: null,
@@ -246,11 +244,11 @@ module('Unit | Service | auth', function(hooks) {
           reject(['errors.login.other']);
         });
       }
+    }).create();
+    let service = this.owner.factoryFor('service:auth').create({
+      isFastBoot: true,
+      session: mockSession
     });
-    this.owner.register('service:session', mockSession);
-    let service = this.owner
-      .factoryFor('service:auth')
-      .create({ isFastBoot: true });
 
     let expected = {
       errors: ['errors.login.other'],
@@ -279,10 +277,11 @@ module('Unit | Service | auth', function(hooks) {
     };
     let mockSession = Service.extend({
       user: mockFetched.user
-    });
-    this.owner.register('service:session', mockSession);
+    }).create();
 
-    let service = this.owner.lookup('service:auth');
+    let service = this.owner.factoryFor('service:auth').create({
+      session: mockSession
+    });
     let user = service._fetchUser();
     assert.deepEqual(user, mockFetched, 'mocked user was returned');
     assert.ok(service, 'Service is ok');

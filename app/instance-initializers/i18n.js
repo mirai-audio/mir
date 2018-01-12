@@ -22,7 +22,12 @@ function detectLocale(appInstance) {
   if (fastBoot.isFastBoot) {
     // detect locale from an HTTP request
     const headers = get(fastBoot, 'request.headers');
-    const acceptLanguageHeader = get(headers, 'Accept-Language');
+
+    /* eslint-disable ember/use-ember-get-and-set */
+    // headers implements the Fetch API, not Ember
+    const acceptLanguageHeader = headers.get('Accept-Language');
+    /* eslint-enable ember/use-ember-get-and-set */
+
     locale = detectHeaderLocale(acceptLanguageHeader);
   } else if ('navigator' in window) {
     // detect locale on the frontend

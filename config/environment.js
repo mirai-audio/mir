@@ -141,6 +141,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.autoboot = false;
 
     // API endpoint, uses ember-cli-mirage during tests
     ENV.DS.host = process.env.API_URL || 'http://localhost:4040';
@@ -149,7 +150,7 @@ module.exports = function(environment) {
   /*
   if (environment === 'production') {
   }
-   */
+  */
 
   return ENV;
 };

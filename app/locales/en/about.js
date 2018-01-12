@@ -7,6 +7,6 @@ export default {
     "across services like YouTube, Soundcloud, Spotify, Last.fm, and more. " +
     "Create and share playlists across services. Follow artists and promote " +
     "songs.",
-  arriving: "Arriving in 2017",
+  arriving: "Arriving in 2018",
   title: "About"
 };

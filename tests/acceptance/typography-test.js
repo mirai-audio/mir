@@ -1,24 +1,13 @@
-import { currentURL, visit } from 'ember-native-dom-helpers';
-import { test } from 'qunit';
-import { authenticateSession } from 'mir/tests/helpers/ember-simple-auth';
-import moduleForAcceptance from 'mir/tests/helpers/module-for-acceptance';
+import { module, test } from 'qunit';
+import { setupApplicationTest } from 'ember-qunit';
+import { currentURL, visit } from '@ember/test-helpers';
 
-moduleForAcceptance('Acceptance | typography');
+module('Application | typography', function(hooks) {
+  setupApplicationTest(hooks);
 
-test('unauthenticated users visit /typography land on /login', async function(assert) {
-  assert.expect(1);
-  await visit('/typography');
+  test('users can visit /typography', async function(assert) {
+    await visit('/typography');
 
-  assert.equal(currentURL(), '/login');
-});
-
-test('authenticated users can visit /typography', async function(assert) {
-  authenticateSession(this.application, {
-    userId: 1,
-    otherData: 'some-data'
+    assert.equal(currentURL(), '/typography');
   });
-
-  await visit('/typography');
-
-  assert.equal(currentURL(), '/typography');
 });

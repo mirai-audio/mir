@@ -18,6 +18,12 @@ export default {
     "cta-signup": "会員登録"
   },
 
+  media: {
+    new: {
+      title: "歌を追加する"
+    }
+  },
+
   styleguide: {
     title: "スタイルガイド",
     "latin-1":

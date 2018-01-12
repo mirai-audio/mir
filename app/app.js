@@ -1,14 +1,14 @@
 /* eslint-disable */
 import Application from '@ember/application';
-import Resolver from './resolver';
 import loadInitializers from 'ember-load-initializers';
-import './models/custom-inflector-rules';
-import config from './config/environment';
+import Resolver from 'mir/resolver';
+import 'mir/models/custom-inflector-rules';
+import config from 'mir/config/environment';
 
 const App = Application.extend({
   modulePrefix: config.modulePrefix,
   podModulePrefix: config.podModulePrefix,
-  Resolver,
+  Resolver
 });
 
 loadInitializers(App, config.modulePrefix);

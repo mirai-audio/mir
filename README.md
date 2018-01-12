@@ -55,12 +55,11 @@ yarn
 
 ## Running / Development
 
-* `yarn develop` visit app at [http://localhost:4200](http://localhost:4200), a
-mock (ember-cli-Mirage) server will be running.
-
 * `yarn start` Visit app at [http://localhost:4200](http://localhost:4200),
 requires Ai backend API server to be running.
-
+* `yarn start:mirage` visit app at [http://localhost:4200](http://localhost:4200), a
+mock (ember-cli-Mirage) server will be running.
+* `yarn start:debug` run node in debug mode for debugging fastboot.
 * To run with service workers, without live reload:
 `ember serve --live-reload=false` and add `?dev=true` to the URL.
 
@@ -71,8 +70,11 @@ requires Ai backend API server to be running.
 
 ### Linting
 
-* `yarn lint:js`
-* `yarn lint:js:fix`
+* `yarn lint`: show all linting warnings & errors.
+* `yarn lint:js`: show Javascript linting warnings & errors.
+* `yarn lint:js:fix`: autofix Javascript linting errors (where possible).
+* `yarn lint:scss`: show SCSS linting warnings & errors.
+* `yarn lint:templates`: show template (`.hbs`) linting warnings & errors.
 
 ### Building
 

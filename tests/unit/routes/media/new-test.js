@@ -3,11 +3,11 @@ import { run } from '@ember/runloop';
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
-module('Unit | Route | new/media', function(hooks) {
+module('Unit | Route | media/new', function(hooks) {
   setupTest(hooks);
 
   test('it exists', function(assert) {
-    let route = this.owner.lookup('route:new/media');
+    let route = this.owner.lookup('route:media/new');
     assert.ok(route);
   });
 
@@ -15,7 +15,7 @@ module('Unit | Route | new/media', function(hooks) {
     const done = assert.async();
     assert.expect(1);
 
-    let route = this.owner.lookup('route:new/media');
+    let route = this.owner.lookup('route:media/new');
     let modelFn = get(route, 'model');
 
     run(() => {
@@ -30,7 +30,7 @@ module('Unit | Route | new/media', function(hooks) {
     const done = assert.async();
     assert.expect(1);
 
-    let route = this.owner.lookup('route:new/media');
+    let route = this.owner.lookup('route:media/new');
     // stub the `transitionTo` method.
     route.transitionTo = () => {
       assert.ok(true, 'route transitions to the next page');

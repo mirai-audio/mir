@@ -18,6 +18,12 @@ export default {
     "cta-signup": "注册"
   },
 
+  media: {
+    new: {
+      title: "添加歌曲"
+    }
+  },
+
   styleguide: {
     title: "风格指南",
     "latin-1":

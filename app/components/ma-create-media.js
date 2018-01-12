@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed, get, set } from '@ember/object';
+import { computed, get, getProperties, set } from '@ember/object';
 import { alias, or } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import Changeset from 'ember-changeset';
@@ -15,6 +15,9 @@ export default Component.extend({
   formMethod: 'POST',
   isLoading: false,
   tagName: 'form',
+
+  hasCompleted: false,
+  media: null,
 
   errors: alias('errorMessageKeys'),
   isDisabled: or(
@@ -34,12 +37,22 @@ export default Component.extend({
   onFailure: () => {}, // noOp callback if caller doesn't pass onFailure in.
   onSuccess: () => {}, // noOp callback if caller doesn't pass onSuccess in.
 
+  didDestroyElement() {
+    let { hasCompleted, media } = getProperties(this, 'hasCompleted', 'media');
+    if (!hasCompleted) {
+      // `media` creation was not completed, so cleanup the bare `media` model.
+      if (media !== null) media.destroyRecord();
+    }
+  },
+
   init() {
     this._super(...arguments);
     set(this, 'errorMessageKeys', []);
     let changeset = get(this, 'changeset');
     if (changeset === null) {
-      // caller invoking this component didn't pass in `model`, create one.
+      // caller invoking this component didn't pass in a changeset, so create
+      // a bare media model and changeset. The bare model must be cleaned up if
+      // the user abandons creation, otherwise it'll remain in DS.
       let store = get(this, 'store');
       let media = store.createRecord('media');
       changeset = new Changeset(
@@ -48,9 +61,34 @@ export default Component.extend({
         MediaValidations
       );
       set(this, 'changeset', changeset);
+      set(this, 'media', media);
     }
     // invoke `validate()` to put the form into a disabled state to begin
     changeset.validate();
+  },
+
+  _createMedia(changeset) {
+    set(this, 'isLoading', true);
+    return changeset
+      .save()
+      .then((/* data */) => {
+        set(this, 'isLoading', false);
+        // set hasCompleted to prevent `didDestroyElement` from deleting model
+        set(this, 'hasCompleted', true);
+        let onSuccess = get(this, 'onSuccess');
+        if (typeof onSuccess === 'function') onSuccess();
+        return;
+      })
+      .catch(error => {
+        set(this, 'isLoading', false);
+        // set hasCompleted to prevent `didDestroyElement` from deleting model
+        set(this, 'hasCompleted', false);
+        this._handleError(error);
+        let onFailure = get(this, 'onFailure');
+        if (typeof onFailure === 'function') onFailure();
+        return;
+      });
+    // 🤞
   },
 
   _handleError(error) {
@@ -62,23 +100,7 @@ export default Component.extend({
 
   actions: {
     add(changeset) {
-      set(this, 'isLoading', true);
-      return changeset
-        .save()
-        .then((/* data */) => {
-          set(this, 'isLoading', false);
-          let onSuccess = get(this, 'onSuccess');
-          if (typeof onSuccess === 'function') onSuccess();
-          return;
-        })
-        .catch(error => {
-          set(this, 'isLoading', false);
-          this._handleError(error);
-          let onFailure = get(this, 'onFailure');
-          if (typeof onFailure === 'function') onFailure();
-          return;
-        });
-      // 🤞
+      this._createMedia(changeset);
     }
   }
 });

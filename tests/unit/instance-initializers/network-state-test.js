@@ -1,13 +1,13 @@
-import Application from '@ember/application';
 import { run } from '@ember/runloop';
 import { initialize } from 'mir/instance-initializers/network-state';
 import { module, test } from 'qunit';
 import destroyApp from '../../helpers/destroy-app';
+import startApp from '../../helpers/start-app';
 
 module('Unit | Instance Initializer | network state', function(hooks) {
   hooks.beforeEach(function() {
     run(() => {
-      this.application = Application.create();
+      this.application = startApp();
       this.appInstance = this.application.buildInstance();
     });
   });

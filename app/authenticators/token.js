@@ -5,7 +5,7 @@ import { run } from '@ember/runloop';
 import { makeArray } from '@ember/array';
 import { merge, assign as emberAssign } from '@ember/polyfills';
 import OAuth2PasswordGrant from 'ember-simple-auth/authenticators/oauth2-password-grant';
-import config from '../config/environment';
+import config from 'mir/config/environment';
 
 const assign = emberAssign || merge;
 

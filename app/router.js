@@ -1,6 +1,6 @@
 /* eslint-disable */
 import EmberRouter from '@ember/routing/router';
-import config from './config/environment';
+import config from 'mir/config/environment';
 
 const Router = EmberRouter.extend({
   location: config.locationType,
@@ -11,8 +11,8 @@ Router.map(function() {
   this.route('login');
   this.route('logout');
 
-  this.route('new', function() {
-    this.route('media');
+  this.route('media', function() {
+    this.route('new');
   });
 
   this.route('styleguide');
