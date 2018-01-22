@@ -4,7 +4,7 @@ import { get, set } from '@ember/object';
 import Changeset from 'ember-changeset';
 import lookupValidator from 'ember-changeset-validations';
 import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin';
-import UserValidations from '../validations/user';
+import UserValidations from 'mir/validations/user';
 
 export default Route.extend(UnauthenticatedRouteMixin, {
   auth: service(),

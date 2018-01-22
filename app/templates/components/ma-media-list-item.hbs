@@ -1,0 +1,9 @@
+<a class="ma-MediaListItem-title" href={{model.url}} title={{model.title}} rel=external>
+  {{model.title}}
+</a>
+
+<button class="button ma-MediaListItem-delete" {{action "delete" model}}>
+  {{t "components.ma-media-list-item.delete-button"}}
+</button>
+
+{{yield}}

@@ -167,7 +167,7 @@ export default Service.extend({
    * string where both are concatenated together.
    *
    * @param {String} code The OAuth code returned from authentication.
-   * @return {Object} An object with an `identity` and `token` keys.
+   * @returns {Object} An object with an `identity` and `token` keys.
    * @private
    */
   _parseToken(code) {

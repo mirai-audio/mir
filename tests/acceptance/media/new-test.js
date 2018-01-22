@@ -81,3 +81,32 @@ test('ma-create-media can gracefully handle errors', async function(assert) {
   let msg = find('.ma-ErrorsHandler-errors').textContent.trim();
   assert.notEqual(msg.match(/An error occurred/), null);
 });
+
+test('authenticated user abort can abort creating media', async function(assert) {
+  assert.expect(3);
+
+  // create an OAuth token w/ ember-cli-mirage
+  server.create('media');
+
+  // authenticate user
+  authenticateSession(this.application, {
+    userId: 1,
+    otherData: 'some-data'
+  });
+
+  // count how many media currently exist
+  await visit('/');
+  let numMedia = find('.ma-MediaListItem').length;
+
+  // visit create media page
+  await visit('/media/new');
+  assert.equal(currentURL(), '/media/new', 'user lands on new route');
+  await fillIn('[name=title]', 'asdf title');
+  await fillIn('[name=url]', 'http://t.co');
+  // abort creation
+  await visit('/'); // dont click back because it'll break test runner
+  assert.equal(currentURL(), '/', 'user lands on home route');
+
+  let resultNumMedia = find('.ma-MediaListItem').length;
+  assert.equal(numMedia, resultNumMedia, 'a new media was not created');
+});

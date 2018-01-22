@@ -4,7 +4,7 @@ import { alias, or } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import Changeset from 'ember-changeset';
 import lookupValidator from 'ember-changeset-validations';
-import MediaValidations from '../validations/media';
+import MediaValidations from 'mir/validations/media';
 
 export default Component.extend({
   store: service(),

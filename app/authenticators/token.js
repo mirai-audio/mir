@@ -59,7 +59,7 @@ export default OAuth2PasswordGrant.extend({
       (see [RFC 6749, section 3.3](http://tools.ietf.org/html/rfc6749#section-3.3))
     @param {Object} headers Optional headers that particular backends may
       require (for example sending 2FA challenge responses)
-    @return {Ember.RSVP.Promise} A promise that when it resolves results in the
+    @returns {Ember.RSVP.Promise} A promise that when it resolves results in the
       session becoming authenticated
     @public
   */

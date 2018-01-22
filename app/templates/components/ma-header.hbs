@@ -11,13 +11,16 @@
 
   <div class="ma-Header-brand navbar-brand">
     {{#if backTo}}
-      {{link-to (t back) backTo class="navbar-item ma-Header-link ma-Header-link--back"}}
+      {{#link-to backTo
+        class="navbar-item ma-Header-link ma-Header-link--back"}}
+        {{t back}}
+      {{/link-to}}
     {{else}}
       <a href=#
         {{action "back"}}
         class="navbar-item ma-Header-link ma-Header-link--back"
-        title={{t "components.ma-header.back"}}
-       >{{t "components.ma-header.back"}}
+        title={{t "components.ma-header.back"}}>
+        {{t "components.ma-header.back"}}
       </a>
     {{/if}}
 

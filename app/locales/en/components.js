@@ -24,5 +24,9 @@ export default {
 
   "ma-login": {
     "cta-login": "Sign in"
+  },
+
+  "ma-media-list-item": {
+    "delete-button": "Delete"
   }
 };

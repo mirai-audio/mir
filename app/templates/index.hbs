@@ -12,9 +12,7 @@
   <ul>
     {{#each model.all as |media|}}
       <li>
-        <a href={{media.url}} title={{media.title}} rel=external>
-          {{media.title}}
-        </a>
+        {{ma-media-list-item model=media}}
       </li>
     {{/each}}
   </ul>
