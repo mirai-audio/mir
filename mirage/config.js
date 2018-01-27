@@ -66,4 +66,8 @@ export default function() {
     }
     return media;
   });
+  this.del('/medias/:id', (schema, request) => {
+    let media = schema.medias.find(request.params.id);
+    media.destroy();
+  });
 }

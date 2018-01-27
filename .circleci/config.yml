@@ -4,8 +4,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:boron-browsers
-
+      - image: circleci/node:carbon-browsers
     steps:
       - checkout
       - run:
@@ -18,7 +17,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            yarn global add ember-cli@2.16
+            yarn global add ember-cli@3.0.0-beta.2
             yarn
       - save_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
@@ -27,7 +26,7 @@ jobs:
       - run:
           name: Run tests
           command: |
-            npm rebuild node-sass
+            npm rebuild node-sass 2>&1 > /dev/null
             ./node_modules/ember-cli/bin/ember --version --verbose
             yarn test
             yarn coverage

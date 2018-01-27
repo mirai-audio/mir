@@ -1,30 +1,32 @@
-import { currentURL, visit } from 'ember-native-dom-helpers';
-import { test } from 'qunit';
+import { module, test } from 'qunit';
+import { setupApplicationTest } from 'ember-qunit';
+import { currentURL, visit } from '@ember/test-helpers';
 import { get } from '@ember/object';
 import {
   authenticateSession,
   currentSession
-} from 'mir/tests/helpers/ember-simple-auth';
-import moduleForAcceptance from 'mir/tests/helpers/module-for-acceptance';
+} from 'ember-simple-auth/test-support';
 
-moduleForAcceptance('Acceptance | logout');
+module('Application | logout', function(hooks) {
+  setupApplicationTest(hooks);
 
-test('unauthenticated users can visit /logout', async function(assert) {
-  await visit('/logout');
-
-  assert.equal(currentURL(), '/welcome');
-});
-
-test('authenticated users can visit /logout', async function(assert) {
-  const app = this.application;
-
-  authenticateSession(app, {
-    userId: 1,
-    otherData: 'some-data'
+  module('unauthenticated user', function(/* hooks */) {
+    test('can visit /logout', async function(assert) {
+      await visit('/logout');
+      assert.equal(currentURL(), '/welcome');
+    });
   });
-  await visit('/logout');
 
-  // verify they're logged out
-  let session = currentSession(app);
-  assert.notOk(get(session, 'isAuthenticated'));
+  module('authenticated user', function(/* hooks */) {
+    test('can visit /logout', async function(assert) {
+      authenticateSession({
+        userId: 1,
+        otherData: 'some-data'
+      });
+      await visit('/logout');
+      // verify they're logged out
+      let session = currentSession();
+      assert.notOk(get(session, 'isAuthenticated'));
+    });
+  });
 });
