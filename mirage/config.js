@@ -44,7 +44,9 @@ export default function() {
 
   this.get('/medias', schema => schema.medias.all());
   this.post('/medias', (schema, request) => {
-    const media = schema.medias.first();
+    const media = schema.medias.create(
+      JSON.parse(request.requestBody).data.attributes
+    );
     const title = JSON.parse(request.requestBody).data.attributes.title;
     // force a 500 error for our acceptance test coverage handling errors
     if (title === 'test-force-500-error') {

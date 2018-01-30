@@ -1,11 +1,10 @@
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { click, fillIn, render } from '@ember/test-helpers';
 import { setOwner } from '@ember/application';
 import EmberObject from '@ember/object';
 import { resolve, reject } from 'rsvp';
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { render } from 'ember-test-helpers';
 import hbs from 'htmlbars-inline-precompile';
-import { click, fillIn } from 'ember-native-dom-helpers';
 import {
   registerTestComponent,
   unregisterTestComponent

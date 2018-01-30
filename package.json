@@ -60,7 +60,6 @@
     "ember-i18n": "^5.1.0",
     "ember-i18n-changeset-validations": "^1.0.0",
     "ember-load-initializers": "^1.0.0",
-    "ember-native-dom-helpers": "^0.5.10",
     "ember-page-title": "^4.0.3",
     "ember-resolver": "^4.5.0",
     "ember-route-action-helper": "^2.0.6",

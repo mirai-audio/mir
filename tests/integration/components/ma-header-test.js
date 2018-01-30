@@ -1,8 +1,7 @@
-import { click } from 'ember-native-dom-helpers';
-import Service from '@ember/service';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from 'ember-test-helpers';
+import { click, render } from '@ember/test-helpers';
+import Service from '@ember/service';
 import hbs from 'htmlbars-inline-precompile';
 
 // Stub location service

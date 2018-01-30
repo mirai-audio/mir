@@ -3577,13 +3577,6 @@ ember-modules-codemod@^0.2.11:
     glob "^7.1.1"
     jscodeshift "^0.3.29"
 
-ember-native-dom-helpers@^0.5.10:
-  version "0.5.10"
-  resolved "https://registry.yarnpkg.com/ember-native-dom-helpers/-/ember-native-dom-helpers-0.5.10.tgz#9c7172e4ddfa5dd86830c46a936e2f8eca3e5896"
-  dependencies:
-    broccoli-funnel "^1.1.0"
-    ember-cli-babel "^6.6.0"
-
 ember-page-title@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/ember-page-title/-/ember-page-title-4.0.3.tgz#0bb83c4519a5c79ed04a167bba3160884c198f86"

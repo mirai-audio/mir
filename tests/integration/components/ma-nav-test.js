@@ -1,7 +1,6 @@
-import { click } from 'ember-native-dom-helpers';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from 'ember-test-helpers';
+import { click, render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
 module('Integration | Component | ma nav', function(hooks) {

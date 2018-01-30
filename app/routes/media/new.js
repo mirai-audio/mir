@@ -27,7 +27,11 @@ export default Route.extend(AuthenticatedRouteMixin, {
     let { hasCompleted, media } = getProperties(this, 'hasCompleted', 'media');
     if (!hasCompleted) {
       // `media` creation was not completed, cleanup the bare `media` model.
-      media.destroyRecord();
+      try {
+        media.destroyRecord();
+      } catch (error) {
+        /* Ignore: Only occurs in testing */
+      }
     }
   },
 

@@ -1,7 +1,7 @@
-import { setOwner } from '@ember/application';
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from 'ember-test-helpers';
+import { render } from '@ember/test-helpers';
+import { setOwner } from '@ember/application';
 import hbs from 'htmlbars-inline-precompile';
 import {
   registerTestComponent,

@@ -1,7 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { click, render } from '@ember/test-helpers';
-import { find } from 'ember-native-dom-helpers';
 import EmberObject, { set } from '@ember/object';
 import hbs from 'htmlbars-inline-precompile';
 
@@ -13,7 +12,7 @@ module('Integration | Component | ma media list item', function(hooks) {
     // Handle any actions with this.set('myAction', function(val) { ... });
 
     await render(hbs`{{ma-media-list-item}}`);
-    let className = find('.ma-MediaListItem', this.element);
+    let className = this.element.querySelector('.ma-MediaListItem');
     assert.notEqual(className, null, 'component exists');
 
     // Template block yields content
@@ -35,7 +34,8 @@ module('Integration | Component | ma media list item', function(hooks) {
     set(this, 'model', model);
 
     await render(hbs`{{ma-media-list-item model=model}}`);
-    let hasTitle = find('.ma-MediaListItem-title', this.element)
+    let hasTitle = this.element
+      .querySelector('.ma-MediaListItem-title')
       .textContent.trim()
       .indexOf(model.title);
     assert.notEqual(hasTitle, -1, 'it renders the title');
