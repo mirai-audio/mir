@@ -1,6 +1,14 @@
 # circleci/config.yml
 version: 2
 
+# Reusable definitions shared between jobs
+defs:
+  steps:
+    step-update-path: &step-update-path
+      name: Update $PATH
+      command: |
+        echo "export PATH=$PATH:$(yarn global bin)" >> $BASH_ENV
+
 jobs:
   build:
     docker:
@@ -24,9 +32,11 @@ jobs:
           paths:
             - ./node_modules
       - run:
+          <<: *step-update-path
+      - run:
           name: Run tests
           command: |
             npm rebuild node-sass 2>&1 > /dev/null
-            ./node_modules/ember-cli/bin/ember --version --verbose
+            ember --version --verbose
             yarn test
             yarn coverage

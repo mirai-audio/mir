@@ -3643,9 +3643,9 @@ ember-runtime-enumerable-includes-polyfill@^2.0.0:
     ember-cli-babel "^6.9.0"
     ember-cli-version-checker "^2.1.0"
 
-ember-simple-auth@0xadada/ember-simple-auth#b520d6bbd17ec2b99d792a75ae8a8b119af4d08a, ember-simple-auth@^1.4.2:
+ember-simple-auth@0xadada/ember-simple-auth#13a8a1d461fdac769f566b41beda61972118c2b4, ember-simple-auth@^1.4.2:
   version "1.4.2"
-  resolved "https://codeload.github.com/0xadada/ember-simple-auth/tar.gz/b520d6bbd17ec2b99d792a75ae8a8b119af4d08a"
+  resolved "https://codeload.github.com/0xadada/ember-simple-auth/tar.gz/13a8a1d461fdac769f566b41beda61972118c2b4"
   dependencies:
     base-64 "^0.1.0"
     broccoli-file-creator "^1.1.1"

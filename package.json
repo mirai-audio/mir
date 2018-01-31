@@ -90,6 +90,6 @@
     "node-fetch"
   ],
   "resolutions": {
-    "ember-simple-auth": "0xadada/ember-simple-auth#b520d6bbd17ec2b99d792a75ae8a8b119af4d08a"
+    "ember-simple-auth": "0xadada/ember-simple-auth#13a8a1d461fdac769f566b41beda61972118c2b4"
   }
 }
