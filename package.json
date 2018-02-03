@@ -90,6 +90,7 @@
     "node-fetch"
   ],
   "resolutions": {
-    "ember-simple-auth": "0xadada/ember-simple-auth#13a8a1d461fdac769f566b41beda61972118c2b4"
+    "ember-simple-auth": "0xadada/ember-simple-auth#13a8a1d461fdac769f566b41beda61972118c2b4",
+    "broccoli-uglify-sourcemap": "0xadada/broccoli-uglify-sourcemap#update-deps"
   }
 }

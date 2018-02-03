@@ -51,6 +51,7 @@ module('Application | media/new', function(hooks) {
     });
 
     test('can add and delete valid media', async function(assert) {
+      server.logging = true;
       assert.expect(3);
       // create an OAuth token w/ ember-cli-mirage
       await visit('/media/new');
@@ -58,13 +59,15 @@ module('Application | media/new', function(hooks) {
       await fillIn('[name=url]', 'http://t.co');
       await click('button');
       assert.equal(currentURL(), '/', 'user lands on home route');
-      let expected = this.element.querySelector('.ma-MediaListItem').length;
+      let expected = this.element.querySelectorAll('.ma-MediaListItem').length;
       let msg = this.element.querySelector('.container').textContent;
       assert.notEqual(msg.match(/asdf title/), null);
       // delete new media
       await click('.ma-MediaListItem .ma-MediaListItem-delete');
-      let result = this.element.querySelector('.ma-MediaListItem').length;
-      assert.equal(result, expected, 'media was deleted');
+      let result = this.element.querySelectorAll('.ma-MediaListItem')
+        ? this.element.querySelectorAll('.ma-MediaListItem').length
+        : 0;
+      assert.equal(result, expected - 1, 'media was deleted');
     });
 
     test('ma-create-media can gracefully handle errors', async function(assert) {
