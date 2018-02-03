@@ -12,6 +12,12 @@ module.exports = function(defaults) {
       extensions: ['css', 'gif', 'js', 'jpg', 'png', 'map', 'svg']
     },
 
+    'ember-cli-uglify': {
+      uglify: {
+        compress: false /* TODO: workaround for https://github.com/ember-cli/ember-cli-uglify/issues/35 */
+      }
+    },
+
     inlineContent: {
       host: {
         content: HOST

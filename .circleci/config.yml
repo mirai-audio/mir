@@ -78,6 +78,19 @@ jobs:
             ember --version --verbose
             BROCCOLI_PERSISTENT_FILTER_CACHE_ROOT=cache; yarn test --path=dist
             yarn coverage
+  build:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          <<: *step-update-env
+      - run:
+          name: Ember build
+          command: |
+            ember --version --verbose
+            # see: https://github.com/stefanpenner/broccoli-persistent-filter#warning
+            BROCCOLI_PERSISTENT_FILTER_CACHE_ROOT=cache; ember build -e production
 
 workflows:
   version: 2
@@ -91,5 +104,8 @@ workflows:
           requires:
             - install_dependencies
       - test:
+          requires:
+            - install_dependencies
+      - build:
           requires:
             - install_dependencies
