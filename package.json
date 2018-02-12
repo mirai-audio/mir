@@ -89,6 +89,7 @@
     "node-fetch"
   ],
   "resolutions": {
-    "ember-simple-auth": "0xadada/ember-simple-auth#new-ember-qunit-release"
+    "ember-simple-auth": "0xadada/ember-simple-auth#new-ember-qunit-release",
+    "uglify-es": "3.3.9"
   }
 }

@@ -1,9 +1,10 @@
 # Mir
 
+
 [![CircleCI](https://img.shields.io/circleci/project/github/mirai-audio/mir/master.svg?style=flat-square)](https://circleci.com/gh/mirai-audio/mir)
 [![Coveralls branch](https://img.shields.io/coveralls/mirai-audio/mir/master.svg?style=flat-square)](https://coveralls.io/github/mirai-audio/mir?branch=master)
 [![Code Climate](https://img.shields.io/codeclimate/maintainability/mirai-audio/mir.svg?style=flat-square)](https://codeclimate.com/github/mirai-audio/mir)
-[![David](https://img.shields.io/david/dev/mirai-audio/mir.svg?style=flat-square)](https://david-dm.org/mirai-audio/mir?type=dev)
+[![Greenkeeper badge](https://badges.greenkeeper.io/mirai-audio/mir.svg)](https://greenkeeper.io/)
 [![Ember](https://img.shields.io/badge/Ember-3.x-blue.svg?style=flat-square)](https://emberjs.com/)
 [![StackShare](https://img.shields.io/badge/stack-share-0690fa.svg?style=flat-square)](https://stackshare.io/mirai-audio/mirai-audio)
 
