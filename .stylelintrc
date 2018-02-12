@@ -1,5 +1,8 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": [
+    "stylelint-config-standard",
+    "./node_modules/prettier-stylelint/config.js"
+  ],
   "rules": {
     "max-empty-lines": 2,
     "value-list-comma-newline-after": null,

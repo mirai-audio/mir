@@ -16,7 +16,7 @@
     "lint": "yarn lint:js && yarn lint:scss && yarn lint:templates",
     "lint:js": "yarn eslint ./*.js app config lib mirage server tests",
     "lint:js:fix": "yarn eslint --fix ./*.js app config lib mirage server tests",
-    "lint:scss": "yarn stylelint app/**/*.scss",
+    "lint:scss": "yarn prettier-stylelint app/**/*.scss --quiet",
     "lint:templates": "yarn ember-template-lint app/templates",
     "start": "ember serve",
     "start:mirage": "MIRAGE=true ember serve",
@@ -44,12 +44,11 @@
     "ember-cli-inline-content": "^0.4.1",
     "ember-cli-mirage": "^0.4.1",
     "ember-cli-one-script": "^0.0.1",
-    "ember-cli-qunit": "4.3.0",
+    "ember-cli-qunit": "4.3.1",
     "ember-cli-release": "^1.0.0-beta.2",
     "ember-cli-sass": "^7.1.4",
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.1",
-    "ember-cli-stylelint": "^1.1.0",
     "ember-cli-template-lint": "^0.7.5",
     "ember-cli-test-loader": "^2.2.0",
     "ember-cli-uglify": "^2.0.0",
@@ -73,11 +72,11 @@
     "eslint-plugin-prettier": "^2.6.0",
     "loader.js": "^4.6.0",
     "prettier": "1.10.2",
-    "qunit-dom": "^0.4.0",
-    "stylelint": "~8.4.0",
-    "stylelint-config-standard": "~17.0.0",
+    "prettier-stylelint": "^0.4.2",
+    "qunit-dom": "^0.5.0",
+    "stylelint-config-standard": "~18.0.0",
     "system-font-i18n-css": "^1.0.0",
-    "torii": "^0.9.6"
+    "torii": "^0.10.1"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
@@ -90,7 +89,6 @@
     "node-fetch"
   ],
   "resolutions": {
-    "ember-simple-auth": "0xadada/ember-simple-auth#13a8a1d461fdac769f566b41beda61972118c2b4",
-    "broccoli-uglify-sourcemap": "0xadada/broccoli-uglify-sourcemap#update-deps"
+    "ember-simple-auth": "0xadada/ember-simple-auth#new-ember-qunit-release"
   }
 }
