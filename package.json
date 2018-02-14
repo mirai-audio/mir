@@ -28,7 +28,7 @@
     "bulma": "^0.6.2",
     "coveralls": "^3.0.0",
     "ember-changeset-validations": "^1.2.10",
-    "ember-cli": "~3.0.0-beta.1",
+    "ember-cli": "~3.0.0",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-autoprefixer": "^0.8.1",
     "ember-cli-babel": "^6.10.0",
@@ -53,7 +53,7 @@
     "ember-cli-test-loader": "^2.2.0",
     "ember-cli-uglify": "^2.0.0",
     "ember-cli-update": "^0.14.0",
-    "ember-data": "~3.0.0-beta.1",
+    "ember-data": "~3.0.1",
     "ember-export-application-global": "^2.0.0",
     "ember-fetch": "^3.4.4",
     "ember-i18n": "^5.1.0",
@@ -63,7 +63,7 @@
     "ember-resolver": "^4.5.0",
     "ember-route-action-helper": "^2.0.6",
     "ember-simple-auth": "^1.4.2",
-    "ember-source": "~3.0.0-beta.3",
+    "ember-source": "~3.0.0",
     "ember-svg-jar": "^0.12.0",
     "ember-test-component": "^0.2.1",
     "eslint": "^4.17.0",
@@ -89,7 +89,6 @@
     "node-fetch"
   ],
   "resolutions": {
-    "ember-simple-auth": "0xadada/ember-simple-auth#new-ember-qunit-release",
-    "uglify-es": "3.3.9"
+    "ember-simple-auth": "0xadada/ember-simple-auth#new-ember-qunit-release"
   }
 }
