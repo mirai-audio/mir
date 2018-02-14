@@ -7,7 +7,6 @@ const VERSION = GETENVJSON().version;
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    // Add options here
     fingerprint: {
       extensions: ['css', 'gif', 'js', 'jpg', 'png', 'map', 'svg']
     },
@@ -30,6 +29,10 @@ module.exports = function(defaults) {
 
     svgJar: {
       sourceDirs: ['public/images']
+    },
+
+    vendorFiles: {
+      'jquery.js': null // removes jQuery from build
     }
   });
 

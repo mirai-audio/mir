@@ -117,5 +117,7 @@ export default function() {
   this.del('/medias/:id', (schema, request) => {
     let media = schema.medias.find(request.params.id);
     media.destroy();
+    // TODO: Hacks
+    return { data: null }; // i shouldn't have to return anything here
   });
 }
