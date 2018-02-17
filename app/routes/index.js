@@ -24,17 +24,13 @@ export default Route.extend(UnauthenticatedRouteMixin, {
     }
   },
 
-  model() {
-    return get(this, 'auth')
-      .getUser()
-      .then(result => {
-        let { user, errors } = result;
-        let medias = get(this, 'store').findAll('media');
-        return hash({
-          all: medias,
-          errors: errors,
-          user: user
-        });
-      });
+  async model() {
+    let { user, errors } = await get(this, 'auth').getUser();
+    let medias = await get(this, 'store').findAll('media');
+    return hash({
+      all: medias,
+      errors: errors,
+      user: user
+    });
   }
 });

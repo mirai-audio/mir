@@ -87,8 +87,5 @@
   ],
   "fastbootDependencies": [
     "node-fetch"
-  ],
-  "resolutions": {
-    "ember-simple-auth": "0xadada/ember-simple-auth#new-ember-qunit-release"
-  }
+  ]
 }
