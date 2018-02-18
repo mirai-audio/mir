@@ -74,7 +74,7 @@
     "prettier": "1.10.2",
     "prettier-stylelint": "^0.4.2",
     "qunit-dom": "^0.5.0",
-    "stylelint-config-standard": "~18.0.0",
+    "stylelint-config-standard": "~18.1.0",
     "system-font-i18n-css": "^1.0.0",
     "torii": "^0.10.1"
   },
