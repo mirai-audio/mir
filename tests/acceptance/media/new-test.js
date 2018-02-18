@@ -51,7 +51,6 @@ module('Application | media/new', function(hooks) {
     });
 
     test('can add and delete valid media', async function(assert) {
-      server.logging = true;
       assert.expect(3);
       // create an OAuth token w/ ember-cli-mirage
       await visit('/media/new');

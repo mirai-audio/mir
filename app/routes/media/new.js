@@ -1,12 +1,11 @@
 import Route from '@ember/routing/route';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import { get, getProperties, set } from '@ember/object';
+import { get, set } from '@ember/object';
 import Changeset from 'ember-changeset';
 import lookupValidator from 'ember-changeset-validations';
 import MediaValidations from 'mir/validations/media';
 
 export default Route.extend(AuthenticatedRouteMixin, {
-  hasCompleted: false,
   media: null,
 
   model() {
@@ -20,25 +19,18 @@ export default Route.extend(AuthenticatedRouteMixin, {
   },
 
   deactivate() {
-    // `model()` creates a stub media model and sets it to the changeset, this
+    let media = get(this, 'media');
+    // `model()` creates an empty media model and sets it to the changeset, this
     // creates an Ember Data model that'll be listed on the index route if the
-    // user aborts adding a new one, so we use hasCompleted to determine if it
-    // was created, and clean it up if not created.
-    let { hasCompleted, media } = getProperties(this, 'hasCompleted', 'media');
-    if (!hasCompleted) {
-      // `media` creation was not completed, cleanup the bare `media` model.
-      try {
-        media.destroyRecord();
-      } catch (error) {
-        /* Ignore: Only occurs in testing */
-      }
-    }
+    // user aborts adding a new one, so we call rollbackAttributes to cleanup
+    // any unsaved models.
+    // `media` was never saved, cleanup empty `media` model.
+    media.rollbackAttributes();
   },
 
   actions: {
     onCreated() {
       // set hasCompleted to prevent `deactivate` from deleting new model
-      set(this, 'hasCompleted', true);
       return this.transitionTo('index');
     }
   }

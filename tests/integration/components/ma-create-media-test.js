@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { click, fillIn, render } from '@ember/test-helpers';
 import { setOwner } from '@ember/application';
 import EmberObject from '@ember/object';
-import { resolve, reject } from 'rsvp';
+import { resolve } from 'rsvp';
 import hbs from 'htmlbars-inline-precompile';
 import {
   registerTestComponent,
@@ -110,7 +110,7 @@ module('Integration | Component | ma create media', function(hooks) {
     let changeset = EmberObject.create({
       validate() {},
       save() {
-        return reject({ message: 'the adapter operation was aborted' });
+        throw { message: 'this is a test error promise rejection' };
       }
     });
     this.set('changeset', changeset);

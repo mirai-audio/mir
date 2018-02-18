@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed, get, getProperties, set } from '@ember/object';
+import { computed, get, set } from '@ember/object';
 import { alias, or } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import Changeset from 'ember-changeset';
@@ -16,7 +16,6 @@ export default Component.extend({
   isLoading: false,
   tagName: 'form',
 
-  hasCompleted: false,
   media: null,
 
   errors: alias('errorMessageKeys'),
@@ -36,14 +35,6 @@ export default Component.extend({
   errorMessageKeys: null,
   onFailure: () => {}, // noOp callback if caller doesn't pass onFailure in.
   onSuccess: () => {}, // noOp callback if caller doesn't pass onSuccess in.
-
-  didDestroyElement() {
-    let { hasCompleted, media } = getProperties(this, 'hasCompleted', 'media');
-    if (!hasCompleted) {
-      // `media` creation was not completed, so cleanup the bare `media` model.
-      if (media !== null) media.destroyRecord();
-    }
-  },
 
   init() {
     this._super(...arguments);
@@ -67,28 +58,19 @@ export default Component.extend({
     changeset.validate();
   },
 
-  _createMedia(changeset) {
+  async _createMedia(changeset) {
     set(this, 'isLoading', true);
-    return changeset
-      .save()
-      .then((/* data */) => {
-        set(this, 'isLoading', false);
-        // set hasCompleted to prevent `didDestroyElement` from deleting model
-        set(this, 'hasCompleted', true);
-        let onSuccess = get(this, 'onSuccess');
-        if (typeof onSuccess === 'function') onSuccess();
-        return;
-      })
-      .catch(error => {
-        set(this, 'isLoading', false);
-        // set hasCompleted to prevent `didDestroyElement` from deleting model
-        set(this, 'hasCompleted', false);
-        this._handleError(error);
-        let onFailure = get(this, 'onFailure');
-        if (typeof onFailure === 'function') onFailure();
-        return;
-      });
-    // 🤞
+    try {
+      await changeset.save();
+      set(this, 'isLoading', false);
+      let onSuccess = get(this, 'onSuccess');
+      if (typeof onSuccess === 'function') onSuccess();
+    } catch (error) {
+      this._handleError(error);
+      set(this, 'isLoading', false);
+      let onFailure = get(this, 'onFailure');
+      if (typeof onFailure === 'function') onFailure();
+    }
   },
 
   _handleError(error) {
@@ -99,8 +81,9 @@ export default Component.extend({
   },
 
   actions: {
-    add(changeset) {
-      this._createMedia(changeset);
+    async add(changeset) {
+      let isDisabled = get(this, 'isDisabled');
+      if (!isDisabled) await this._createMedia(changeset);
     }
   }
 });
