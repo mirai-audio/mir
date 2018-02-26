@@ -1,7 +1,6 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import { get } from '@ember/object';
-import { hash } from 'rsvp';
+import EmberObject, { get } from '@ember/object';
 import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin';
 
 // the domain root `/`, which acts as authenticated "Home" of the app. Use the
@@ -27,7 +26,7 @@ export default Route.extend(UnauthenticatedRouteMixin, {
   async model() {
     let { user, errors } = await get(this, 'auth').getUser();
     let medias = await get(this, 'store').findAll('media');
-    return hash({
+    return EmberObject.create({
       all: medias,
       errors: errors,
       user: user
