@@ -16,7 +16,7 @@
     "lint": "yarn lint:js && yarn lint:scss && yarn lint:templates",
     "lint:js": "yarn eslint ./*.js app config lib mirage server tests",
     "lint:js:fix": "yarn eslint --fix ./*.js app config lib mirage server tests",
-    "lint:scss": "yarn prettier-stylelint app/**/*.scss --quiet",
+    "lint:scss": "yarn prettier --loglevel warn app/**/*.scss 2>&1 >/dev/null",
     "lint:templates": "yarn ember-template-lint app/templates",
     "start": "ember serve",
     "start:mirage": "MIRAGE=true ember serve",
@@ -72,9 +72,7 @@
     "eslint-plugin-prettier": "^2.6.0",
     "loader.js": "^4.6.0",
     "prettier": "1.11.0",
-    "prettier-stylelint": "^0.4.2",
     "qunit-dom": "^0.5.0",
-    "stylelint-config-standard": "~18.1.0",
     "system-font-i18n-css": "^1.0.0",
     "torii": "^0.10.1"
   },
