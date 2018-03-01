@@ -26,6 +26,12 @@ export default {
     "cta-login": "Sign in"
   },
 
+  "ma-media-detail": {
+    "label-title": "Title",
+    "label-url": "URL",
+    "label-date": "Date added"
+  },
+
   "ma-media-list-item": {
     "delete-button": "Delete"
   }

@@ -19,6 +19,9 @@ export default {
   },
 
   media: {
+    index: {
+      title: "Detail"
+    },
     new: {
       title: "Add song"
     }

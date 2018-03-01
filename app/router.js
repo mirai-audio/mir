@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('logout');
 
   this.route('media', function() {
+    this.route('index', { path: '/:media_id' });
     this.route('new');
   });
 

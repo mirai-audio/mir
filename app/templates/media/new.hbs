@@ -1,4 +1,7 @@
-{{ma-header title="routes.media.new.title"}}
+{{ma-header
+  back="routes.application.title"
+  backTo="index"
+  title="routes.media.new.title"}}
 
 {{ma-create-media changeset=model onSuccess=(route-action "onCreated")}}
 

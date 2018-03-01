@@ -105,7 +105,8 @@ module.exports = function(environment) {
 
   // HTML <title>s
   ENV.pageTitle = {
-    prepend: true
+    prepend: true,
+    separator: ' – '
   };
 
   let runProcess = process.argv.join(' ');

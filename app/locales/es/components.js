@@ -23,5 +23,15 @@ export default {
 
   "ma-login": {
     "cta-login": "Iniciar"
+  },
+
+  "ma-media-detail": {
+    "label-title": "Título",
+    "label-url": "URL",
+    "label-date": "Fecha agregada"
+  },
+
+  "ma-media-list-item": {
+    "delete-button": "Borrar"
   }
 };

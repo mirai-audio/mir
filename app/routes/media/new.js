@@ -30,8 +30,9 @@ export default Route.extend(AuthenticatedRouteMixin, {
 
   actions: {
     onCreated() {
-      // set hasCompleted to prevent `deactivate` from deleting new model
-      return this.transitionTo('index');
+      let media = get(this, 'media');
+      // redirect user to new media detail route upon success, pass model
+      return this.replaceWith('media.index', media);
     }
   }
 });

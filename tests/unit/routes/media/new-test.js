@@ -32,7 +32,7 @@ module('Unit | Route | media/new', function(hooks) {
 
     let route = this.owner.lookup('route:media/new');
     // stub the `transitionTo` method.
-    route.transitionTo = () => {
+    route.replaceWith = () => {
       assert.ok(true, 'route transitions to the next page');
       done();
     };

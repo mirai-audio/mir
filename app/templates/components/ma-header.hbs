@@ -13,7 +13,7 @@
     {{#if backTo}}
       {{#link-to backTo
         class="navbar-item ma-Header-link ma-Header-link--back"}}
-        {{t back}}
+        {{t (if back back "components.ma-header.back")}}
       {{/link-to}}
     {{else}}
       <a href=#

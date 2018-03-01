@@ -57,13 +57,16 @@ module('Application | media/new', function(hooks) {
       await fillIn('[name=title]', 'asdf title');
       await fillIn('[name=url]', 'http://t.co');
       await click('button');
-      assert.equal(currentURL(), '/', 'user lands on home route');
+      let result = currentURL().startsWith('/media/');
+      assert.ok(result, 'user lands on detail route');
+      // navigate home
+      await visit('/');
       let expected = this.element.querySelectorAll('.ma-MediaListItem').length;
       let msg = this.element.querySelector('.container').textContent;
       assert.notEqual(msg.match(/asdf title/), null);
       // delete new media
       await click('.ma-MediaListItem .ma-MediaListItem-delete');
-      let result = this.element.querySelectorAll('.ma-MediaListItem')
+      result = this.element.querySelectorAll('.ma-MediaListItem')
         ? this.element.querySelectorAll('.ma-MediaListItem').length
         : 0;
       assert.equal(result, expected - 1, 'media was deleted');

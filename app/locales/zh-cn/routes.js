@@ -19,6 +19,9 @@ export default {
   },
 
   media: {
+    index: {
+      title: "详细"
+    },
     new: {
       title: "添加歌曲"
     }

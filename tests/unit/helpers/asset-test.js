@@ -1,8 +1,6 @@
-/* eslint-disable */
-
-import config from '../../../config/environment';
-import { asset } from 'mir/helpers/asset';
 import { module, test } from 'qunit';
+import config from 'mir/config/environment';
+import { asset } from 'mir/helpers/asset';
 
 module('Unit | Helper | asset', function() {
   test('it resolves absolute asset paths', function(assert) {

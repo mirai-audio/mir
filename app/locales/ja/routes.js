@@ -19,6 +19,9 @@ export default {
   },
 
   media: {
+    index: {
+      title: "詳細"
+    },
     new: {
       title: "歌を追加する"
     }
