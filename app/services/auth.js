@@ -10,12 +10,22 @@ const AI_AUTHENTICATOR = 'authenticator:ai';
 const TOKEN_AUTHENTICATOR = 'authenticator:token';
 const TORII_AUTHENTICATOR = 'authenticator:torii';
 const USER_PATH = 'session.user';
+const AUTH_PATH = 'session.isAuthenticated';
 
 export default Service.extend({
   session: service(),
   store: service(),
 
   currentUserPromise: null,
+
+  /**
+   * Determine if the user is authenticated.
+   *
+   * @returns Boolean `true` if session is authenticated, `false` otherwise.
+   */
+  isAuthenticated() {
+    return get(this, AUTH_PATH) === true;
+  },
 
   /**
    * Authenticate the user against the Ai API.

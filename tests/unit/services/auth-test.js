@@ -6,6 +6,19 @@ import { setupTest } from 'ember-qunit';
 module('Unit | Service | auth', function(hooks) {
   setupTest(hooks);
 
+  test('isAuthenticated returns boolean', function(assert) {
+    let service = this.owner.factoryFor('service:auth').create({
+      session: Service.extend({ isAuthenticated: true }).create()
+    });
+    let result = service.isAuthenticated();
+    assert.equal(result, true, 'is true if session is authenticated');
+    service = this.owner.factoryFor('service:auth').create({
+      session: Service.extend({ isAuthenticated: 'xyz' }).create()
+    });
+    result = service.isAuthenticated();
+    assert.equal(result, false, 'is false if session isnt set correctly');
+  });
+
   test('loginUserPassword authenticates valid user with username/password', function(assert) {
     let done = assert.async();
     assert.expect(2);

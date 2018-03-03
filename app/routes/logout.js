@@ -4,12 +4,15 @@ import Route from '@ember/routing/route';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
 export default Route.extend(AuthenticatedRouteMixin, {
+  auth: service(),
   session: service(),
 
   beforeModel() {
     // logout user
-    if (get(this, 'session.isAuthenticated')) {
-      get(this, 'session').invalidate();
+    const auth = get(this, 'auth');
+    const session = get(this, 'session');
+    if (auth.isAuthenticated()) {
+      session.invalidate();
     } else {
       this.replaceWith('welcome');
     }
