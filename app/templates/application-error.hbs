@@ -1,10 +1,24 @@
-{{#ma-header
-  back="routes.application.title"
-  backTo="application"
-  title="routes.application.title"}}
-  {{link-to (t "routes.typography.title") "typography" class="navbar-item"}}
-{{/ma-header}}
+{{head-layout}}
+{{title (t "common.appname")}}
 
-<p class="notification is-danger">
-  {{t "errors.login.other"}}
-</p>
+<main class="section {{cssEnv}} {{cssRoute}}" lang={{locale}}>
+  <aside class="Offline Notification has-text-centered u-Z20">
+    <h2>{{t "app.network.offline"}}</h2>
+    <p>{{t "app.network.offline-detail"}}</p>
+  </aside>
+
+  <div class="container">
+    {{ma-header title="errors.login.other"}}
+
+    <p class="notification is-danger">
+      {{t "errors.login.other"}}
+    </p>
+  </div>
+
+  <noscript class="NoScript Notification has-text-centered">
+    <h1>{{t "app.noscript.title"}}</h1>
+    <p>{{t "app.noscript.copy"}}</p>
+  </noscript>
+
+  {{ma-nav isAuthenticated=isAuthenticated}}
+</main>
