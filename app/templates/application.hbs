@@ -2,6 +2,7 @@
 {{title (t "common.appname")}}
 
 <main class="section {{cssEnv}} {{cssRoute}}" lang={{locale}}>
+  {{ma-progress isLoading=isLoading}}
   <aside class="Offline Notification has-text-centered u-Z20">
     <h2>{{t "app.network.offline"}}</h2>
     <p>{{t "app.network.offline-detail"}}</p>

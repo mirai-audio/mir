@@ -9,6 +9,8 @@ export default Controller.extend({
   i18n: service(),
   session: service(),
 
+  isLoading: false,
+
   cssEnv: computed(() => {
     const env = dasherize(config.environment).replace(/\./g, '-');
     return `env-${env}`;

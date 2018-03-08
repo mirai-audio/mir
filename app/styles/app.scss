@@ -5,22 +5,23 @@
 */
 
 /* vendors */
-@import "system-font-i18n";
-@import "bulma-custom";
-@import "bulma";
+@import 'system-font-i18n';
+@import 'bulma-custom';
+@import 'bulma';
 
 /* base */
-@import "base";
-@import "typography";
-@import "utilities";
-@import "components";
+@import 'base';
+@import 'typography';
+@import 'utilities';
+@import 'components';
 
 /* css components */
-@import "About";
-@import "Notification";
-@import "Offline";
+@import 'About';
+@import 'Notification';
+@import 'Offline';
 
 /* Ember components */
-@import "components/ma-auth";
-@import "components/ma-header";
-@import "components/ma-nav";
+@import 'components/ma-auth';
+@import 'components/ma-header';
+@import 'components/ma-nav';
+@import 'components/ma-progress';
