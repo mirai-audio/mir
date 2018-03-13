@@ -44,7 +44,7 @@ export default Service.extend({
       })
       .catch(response => {
         // deal with errors
-        const { errors } = response;
+        const { errors } = response || { errors: [{ code: 'other' }] };
         let errorKeys = [];
         let user = null;
         // check for a 401 "Unauthorized" in the list of returned codes
