@@ -7,15 +7,9 @@ export default {
 
   login: {
     title: "Sign in",
-    email: "Email",
-    "email-placeholder": "name@example.com",
-    password: "Password",
-    "password-confirm": "Confirm password",
-    "cta-login": "Sign in with email",
     "cta-twitter": "Twitter",
     "cta-google": "Google",
-    "cta-facebook": "Facebook",
-    "cta-signup": "Sign up"
+    "cta-facebook": "Facebook"
   },
 
   media: {

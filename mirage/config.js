@@ -31,14 +31,59 @@ export default function() {
         ]
       };
       return new Response(500, headers, data);
+    } else if (email === 'already-exists@example.com') {
+      const headers = {
+        'content-type': 'application/vnd.api+json; charset=utf-8'
+      };
+      const data = {
+        jsonapi: {
+          version: '1.0'
+        },
+        errors: [
+          {
+            detail: 'unauthorized yo',
+            code: 401
+          }
+        ]
+      };
+      return new Response(401, headers, data);
     }
     return user;
   });
-  this.post('/users/token', (schema /* , request */) => {
-    const token = schema.tokens.first();
-    // return the data object, this is an odd endpoint not using JSON API, so only
-    // return the `attrs` part of the token.
-    return token.attrs;
+  this.post('/users/token', (schema, request) => {
+    let x = {};
+    window
+      .decodeURIComponent(request.requestBody)
+      .split('&')
+      .forEach(keyValue => {
+        let kv = keyValue.split('=');
+        let k = kv[0];
+        let v = kv[1];
+        x[k] = v;
+      });
+    const email = x.username;
+    if (email === 'already-exists@example.com') {
+      const headers = {
+        'content-type': 'application/vnd.api+json; charset=utf-8'
+      };
+      const data = {
+        jsonapi: {
+          version: '1.0'
+        },
+        errors: [
+          {
+            detail: 'unauthorized, fuck u',
+            code: 401
+          }
+        ]
+      };
+      return new Response(401, headers, data);
+    } else {
+      const token = schema.tokens.first();
+      // return the data object, this is an odd endpoint not using JSON API, so only
+      // return the `attrs` part of the token.
+      return token.attrs;
+    }
   });
   this.get('/users/current');
 

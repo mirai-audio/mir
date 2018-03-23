@@ -1,27 +1,14 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
 import EmberObject, { get } from '@ember/object';
-import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-// the domain root `/`, which acts as authenticated "Home" of the app. Use the
-// `beforeModel` hook to send unauthenticated users to the `welcome` route. This
-// is why it needs the `UnauthenticatedRouteMixin`, to allow pre-processing in
-// the `beforeModel` hook.
-export default Route.extend(UnauthenticatedRouteMixin, {
-  session: service(),
+// the domain root `/`, which acts as authenticated "Home" of the app.
+// AuthenticatedRouteMixin sends unauthenticated users to the `welcome` route.
+export default Route.extend(AuthenticatedRouteMixin, {
   auth: service(),
 
-  beforeModel() {
-    let isAuthenticated = get(this, 'session.isAuthenticated');
-
-    // the index route is reserved for authenticated users as the "Dashboard"
-    // of the app. Rather than use AuthenticatedRouteMixin which redirects users
-    // to /login, we want to redirect to /welcome
-    if (!isAuthenticated) {
-      // everyone else is sent to to `welcome` route
-      this.replaceWith('welcome');
-    }
-  },
+  authenticationRoute: 'welcome',
 
   async model() {
     let { user, errors } = await get(this, 'auth').getUser();

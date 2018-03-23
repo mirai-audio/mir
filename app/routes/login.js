@@ -6,6 +6,8 @@ import lookupValidator from 'ember-changeset-validations';
 import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-route-mixin';
 import UserValidations from 'mir/validations/user';
 
+const AUTHENTICATOR = 'authenticator:ai';
+
 export default Route.extend(UnauthenticatedRouteMixin, {
   auth: service(),
   session: service(),
@@ -21,57 +23,42 @@ export default Route.extend(UnauthenticatedRouteMixin, {
   },
 
   actions: {
-    login(user) {
+    async login(user) {
       let email = get(user, 'email');
       let password = get(user, 'password');
       // get the user from routes model
-      get(this, 'auth')
-        .loginUserPassword('authenticator:ai', email, password)
-        .then(result => {
-          // set errors to any that may have been returned
-          set(this, 'controller.errorMessageKeys', result.errors);
-        });
-      // 🤞
-
-      // prevent form POST
-      return false;
+      let auth = get(this, 'auth');
+      let errors = await auth.loginUserPassword(AUTHENTICATOR, email, password);
+      // set errors to any that may have been returned
+      set(this, 'controller.errorMessageKeys', errors);
     },
 
-    loginTwitter() {
-      get(this, 'auth')
-        .loginTwitter()
-        .then(result => {
-          // set errors to any that may have been returned
-          set(this, 'controller.errorMessageKeys', result.errors);
-        });
-      // 🤞
+    async loginTwitter() {
+      let auth = get(this, 'auth');
+      let errors = await auth.loginTwitter();
+      // set errors to any that may have been returned
+      set(this, 'controller.errorMessageKeys', errors);
     },
 
-    signup() {
-      get(this, 'currentModel')
-        .save()
-        .then(() => {
-          // user saved, invoke the login method
-          const user = get(this, 'currentModel');
-          this.send('login', user);
-        })
-        .catch(response => {
-          // deal with errors
-          const { errors } = response;
-          // map list of potential errors to error keys
-          const errorMessageKeys = errors
-            .mapBy('detail')
-            .map(
-              errorMessage =>
-                `errors.login.${(errorMessage || 'other').dasherize()}`
-            );
-          // set error message list to the controller
-          if (errorMessageKeys.length > 0) {
-            set(this, 'controller.errorMessageKeys', errorMessageKeys);
-          }
-        });
-      // 🤞
-      return false; // prevent form POST
+    async signup(model) {
+      try {
+        await model.save();
+      } catch (response) {
+        // deal with errors
+        const { errors } = response;
+        // map list of potential errors to error keys
+        const errorMessageKeys = errors
+          .mapBy('detail')
+          .map(
+            errorMessage =>
+              `errors.login.${(errorMessage || 'other').dasherize()}`
+          );
+        // set error message list to the controller
+        if (errorMessageKeys.length > 0) {
+          set(this, 'controller.errorMessageKeys', errorMessageKeys);
+        }
+      }
+      this.send('login', model);
     }
   }
 });

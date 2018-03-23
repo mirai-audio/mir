@@ -3,7 +3,10 @@
 export default {
   "ma-auth": {
     socialTitle: "サインインで",
-    title: "または新規登録"
+    title: "または新規登録",
+    "cta-login": "メールでサインイン",
+    "cta-signup": "会員登録",
+    "password-confirm": "パスワード再入力"
   },
 
   "ma-create-media": {
@@ -23,7 +26,10 @@ export default {
   },
 
   "ma-login": {
-    "cta-login": "サインイン"
+    "cta-login": "サインイン",
+    email: "メール",
+    "email-placeholder": "tanaka@softbank.ne.jp",
+    password: "パスワード"
   },
 
   "ma-media-detail": {

@@ -27,5 +27,12 @@ export default Component.extend({
      * disabled state to depend upon multiple field states.
      */
     changeset.validate();
+  },
+
+  submit() {
+    let action = get(this, 'action');
+    if (typeof action === 'function') action();
+    // prevent `form` POST event
+    return false;
   }
 });

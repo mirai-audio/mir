@@ -1,11 +1,10 @@
-{{yield}}
-
 {{components.login
-  title=(t "routes.login.cta-login")
+  title=(t "components.ma-auth.cta-login")
   components=(hash
     input=(component "ma-input"))
   errorMessageKeys=errorMessageKeys
   action=loginAction
+  onSubmit="return false"
   changeset=changeset}}
 
 <fieldset class="field">
@@ -14,7 +13,7 @@
   {{/if}}
 
   <label class="label" for="password_confirmation">
-    {{t "routes.login.password-confirm"}}
+    {{t "components.ma-auth.password-confirm"}}
   </label>
   <div class="field has-addons">
     <div class="control is-expanded">
@@ -30,15 +29,15 @@
         value=changeset.passwordConfirmation}}
     </div>
     <div class="control">
-      <button {{action action}}
+      <input type=submit
         class="button is-primary"
         data-test="signup"
-        disabled={{isDisabled}}>
-        {{t "routes.login.cta-signup"}}
-      </button>
+        disabled={{isDisabled}}
+        value="{{t "components.ma-auth.cta-signup"}}">
     </div>
   </div>
 
   {{ma-errors-handler errorMessageKeys=errorMessageKeys}}
-
 </fieldset>
+
+{{yield}}

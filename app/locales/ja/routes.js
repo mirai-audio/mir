@@ -7,15 +7,9 @@ export default {
 
   login: {
     title: "ログイン / 会員登録",
-    email: "メール",
-    "email-placeholder": "tanaka@softbank.ne.jp",
-    password: "パスワード",
-    "password-confirm": "パスワード再入力",
-    "cta-login": "メールでサインイン",
     "cta-twitter": "Twitterでサインイン",
     "cta-google": "Googleでサインイン",
-    "cta-facebook": "Facebook でサインイン",
-    "cta-signup": "会員登録"
+    "cta-facebook": "Facebook でサインイン"
   },
 
   media: {

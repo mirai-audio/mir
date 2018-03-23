@@ -3,7 +3,10 @@
 export default {
   "ma-auth": {
     socialTitle: "Registrarse con ",
-    title: "O registrarse"
+    title: "O registrarse",
+    "cta-login": "Registrarse con su email",
+    "cta-signup": "Registrarse",
+    "password-confirm": "Confirmar contraseña"
   },
 
   "ma-create-media": {
@@ -22,7 +25,10 @@ export default {
   },
 
   "ma-login": {
-    "cta-login": "Iniciar"
+    "cta-login": "Iniciar",
+    email: "Email",
+    "email-placeholder": "name@example.com",
+    password: "Contraseña"
   },
 
   "ma-media-detail": {

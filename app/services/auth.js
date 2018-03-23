@@ -1,5 +1,7 @@
-import { get, getWithDefault, set } from '@ember/object';
+import EmberObject, { get, getWithDefault, set } from '@ember/object';
 import Service, { inject as service } from '@ember/service';
+import { A } from '@ember/array';
+import { Promise as EmberPromise } from 'rsvp';
 import fetch from 'fetch';
 import config from 'mir/config/environment';
 
@@ -30,35 +32,27 @@ export default Service.extend({
   /**
    * Authenticate the user against the Ai API.
    *
-   * @returns {Object} Object with keys `user` and `errors`.
-   * On success, `user` is a User model with empty `errors` Array. On failure,
-   * `user` is `null` and `errors` contains at least one error code.
+   * @returns {Array} of errors (empty upon success). Has a
+   * side-effect of transitioning to the authenticated route upon success.
    */
-  loginUserPassword(authenticator, identity, password) {
-    let currentUserPromise = get(this, 'session')
-      .authenticate(authenticator, identity, password)
-      .then(() => {
-        // user successfully authenticated, fetch user data from API and load
-        // into Ember Data. Returns { user, errors }.
-        return this._fetchUser();
-      })
-      .catch(response => {
-        // deal with errors
-        const { errors } = response || { errors: [{ code: 'other' }] };
-        let errorKeys = [];
-        let user = null;
-        // check for a 401 "Unauthorized" in the list of returned codes
-        let isUnauthorized = errors.mapBy('code').indexOf(401) > -1;
-        if (isUnauthorized) {
-          errorKeys.push(ERROR_UNAUTHORIZED);
-        } else {
-          errorKeys.push(ERROR_OTHER);
-        }
-        return { errors: errorKeys, user };
-      });
-    // 🤞
-    set(this, 'currentUserPromise', currentUserPromise);
-    return currentUserPromise;
+  async loginUserPassword(authenticator, identity, password) {
+    let session = get(this, 'session');
+    let errorKeys = A();
+    try {
+      // user successfully authenticated, transition to authenticated route.
+      await session.authenticate(authenticator, identity, password);
+      return errorKeys;
+    } catch (response) {
+      // check for a 401 "Unauthorized" in the list of returned codes
+      const { errors } = response || { errors: [{ code: 'other' }] };
+      let isUnauthorized = errors.mapBy('code').indexOf(401) > -1;
+      if (isUnauthorized) {
+        errorKeys.push(ERROR_UNAUTHORIZED);
+      } else {
+        errorKeys.push(ERROR_OTHER);
+      }
+      return errorKeys;
+    }
   },
 
   /**
@@ -67,27 +61,31 @@ export default Service.extend({
    * is recieved, it invokes `loginUserPassword` to exchange the OAuth token
    * for an Ai token.
    *
-   * @returns {Object} Object with keys `user` and `errors`.
-   * On success, `user` is a User model with empty `errors` Array. On failure,
-   * `user` is `null` and `errors` contains at least one error code.
+   * @returns {Array} of errors (empty upon success). Has a
+   * side-effect of transitioning to the authenticated route upon success.
    */
-  loginTwitter() {
-    let currentUserPromise = get(this, 'session')
-      .authenticate(TORII_AUTHENTICATOR, 'twitter')
-      .then(
-        () => {
-          // log user in with Token authenticator
-          let code = get(this, 'session.session.authenticated.code');
-          let { identity, token } = this._parseToken(code);
-          return this.loginUserPassword(TOKEN_AUTHENTICATOR, identity, token);
-        },
-        (/* error */) => ({ errors: [ERROR_OTHER], user: null })
-      )
-      .catch(error => {
+  async loginTwitter() {
+    const session = get(this, 'session');
+    const self = this;
+    let errorKeys = A();
+    let currentUserPromise = new EmberPromise(async function(resolve) {
+      try {
+        await session.authenticate(TORII_AUTHENTICATOR, 'twitter');
+        // log user in with Token authenticator
+        let code = get(session, 'session.authenticated.code');
+        let { identity, token } = self._parseToken(code);
+        errorKeys = await self.loginUserPassword(
+          TOKEN_AUTHENTICATOR,
+          identity,
+          token
+        );
+        resolve(errorKeys);
+      } catch (error) {
         console.warn(error.message);
-        return { errors: [ERROR_OTHER], user: null };
-      });
-    // 🤞
+        errorKeys.push(ERROR_OTHER);
+        resolve(errorKeys);
+      }
+    });
     set(this, 'currentUserPromise', currentUserPromise);
     return currentUserPromise;
   },
@@ -101,12 +99,14 @@ export default Service.extend({
    * `user` is a User model with empty `errors` Array. On failure, `user` is
    * `null` and `errors` contains at least one error code.
    */
-  getUser() {
+  async getUser() {
     let currentUserPromise = getWithDefault(this, 'currentUserPromise', null);
     if (currentUserPromise !== null) {
-      // currentUserPromise is not null when authentication on the `login`
-      // route has requested the current user
-      return currentUserPromise;
+      // currentUserPromise is not null when twitter authentication is in flight
+      // but the social token has not yet been exchanged for the Ai auth token,
+      // wait until thats complete before fetching the user from the Ai API.
+      await currentUserPromise;
+      return this._fetchUser();
     } else {
       // currentUserPromise is null when the `index` route is visited via a
       // direct navigation or a browser refresh, in that case fetch the user.
@@ -122,7 +122,7 @@ export default Service.extend({
    * `errors` contains at least one error code.
    * @private
    */
-  _fetchUser() {
+  async _fetchUser() {
     let authenticator = get(
       this,
       'session.session.authenticated.authenticator'
@@ -140,35 +140,32 @@ export default Service.extend({
         Accept: 'application/vnd.api+json'
       }
     };
-    let errors = [];
+    let errors = A();
     let user = getWithDefault(this, USER_PATH, null);
 
     if (user !== null) {
       // valid user in the session, return it
-      return { user, errors };
+      return EmberObject.create({ user, errors });
     } else {
-      // no user in session, request from Ai API
-      let currentUserPromise = fetch(ENDPOINT, options)
-        .then(raw =>
-          raw.json().then(data => {
-            // store user in Ember Data
-            let store = get(this, 'store');
-            user = store.push(data);
-            // store user in session and a local cache
-            set(this, USER_PATH, user);
-            // return success, the user, empty errors list
-            return { user, errors };
-          })
-        )
-        .catch((/* error */) => {
-          // general API error: network connection, 500, etc.
-          // return null user and errors.
-          errors.push(ERROR_OTHER);
-          return { user, errors };
-        });
-      // 🤞
-      set(this, 'currentUserPromise', currentUserPromise);
-      return currentUserPromise;
+      try {
+        // no user in session, request from Ai API
+        let currentUserPromise = fetch(ENDPOINT, options);
+        set(this, 'currentUserPromise', currentUserPromise);
+        let raw = await currentUserPromise;
+        let data = await raw.json();
+        let store = get(this, 'store');
+        // store user in Ember Data
+        user = store.push(data);
+        // store user in session and a local cache
+        set(this, USER_PATH, user);
+        // return success, the user, empty errors list
+        return EmberObject.create({ user, errors });
+      } catch (error) {
+        // general API error: network connection, 500, etc.
+        // return null user and errors.
+        errors.push(ERROR_OTHER);
+        return EmberObject.create({ user, errors });
+      }
     }
   },
 

@@ -10,6 +10,7 @@ import {
   visit
 } from '@ember/test-helpers';
 import { authenticateSession } from 'ember-simple-auth/test-support';
+import Service from '@ember/service';
 
 module('Application | login', function(hooks) {
   setupApplicationTest(hooks);
@@ -49,7 +50,7 @@ module('Application | login', function(hooks) {
       await triggerKeyEvent(maLogin, 'keyup', 13);
       await focus('.ma-Login [data-test=login]');
       await triggerKeyEvent(maLogin, 'keyup', 13);
-      assert.dom('.ma-Login button[disabled]').exists({ count: 1 });
+      assert.dom('.ma-Login [data-test=login][disabled]').exists({ count: 1 });
     });
 
     test('can create an account with email & password', async function(assert) {
@@ -70,9 +71,10 @@ module('Application | login', function(hooks) {
     });
 
     test('cannot create an account with existing users email', async function(assert) {
+      // server.logging = true;
       // user visits login and fills in signup form
       await visit('/login');
-      await fillIn('[name=email]', 'mike@example.com');
+      await fillIn('[name=email]', 'already-exists@example.com');
       await fillIn('[name=password]', 'Password1234');
       await fillIn('[name=password_confirmation]', 'Password1234');
       // user clicks signup button
@@ -82,6 +84,18 @@ module('Application | login', function(hooks) {
     });
 
     test('can login to an account with email & password', async function(assert) {
+      // mock the Auth service so we don't actually hit Ember-Simple-Auth
+      const mockAuthService = Service.extend({
+        async loginUserPassword() {
+          assert.ok(true);
+          await authenticateSession({ userId: 1, otherData: 'some-data' });
+          return { errors: [] };
+        },
+        async getUser() {
+          return {};
+        }
+      });
+      this.owner.register('service:auth', mockAuthService);
       // create an OAuth token
       server.create('token');
       // user visits login and fills in signup form

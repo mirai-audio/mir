@@ -1,7 +1,9 @@
 import { Promise as EmberPromise } from 'rsvp';
 import Service from '@ember/service';
+import { A } from '@ember/array';
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
+import EmberObject from '@ember/object';
 
 module('Unit | Service | auth', function(hooks) {
   setupTest(hooks);
@@ -42,23 +44,14 @@ module('Unit | Service | auth', function(hooks) {
       session: mockSession
     });
 
-    // stub _fetchUser to isolate tests from external API
-    let mockUser = {
-      user: { id: 1 },
-      errors: []
-    };
-    service._fetchUser = function() {
-      return mockUser;
-    };
-
-    let expected = mockUser;
+    let expected = A(); // empty array
     service
       .loginUserPassword('authenticator:ai', 'mike@example.com', 'Password1234')
       .then(result => {
         assert.deepEqual(
           result,
           expected,
-          'valid user/pass tuple returns no errors'
+          'valid user/pass tuple returns empty error array'
         );
         done();
       })
@@ -78,9 +71,7 @@ module('Unit | Service | auth', function(hooks) {
       },
       authenticate(/* authenticator, identity, password */) {
         return new EmberPromise(function(resolve, reject) {
-          const result = {
-            errors: [{ code: 401 }]
-          };
+          const result = { errors: A([{ code: 401 }]) }; // 401 error
           reject(result);
         });
       }
@@ -91,23 +82,52 @@ module('Unit | Service | auth', function(hooks) {
       session: mockSession
     });
 
-    // stub _fetchUser to isolate tests
-    let mockUser = {
-      user: null,
-      errors: ['errors.login.unauthorized']
-    };
-    service._fetchUser = function() {
-      return mockUser;
-    };
-
-    let expected = mockUser;
+    let expected = A(['errors.login.unauthorized']); // 401 error;
     service
       .loginUserPassword('authenticator:ai', 'mike@example.com', 'password')
       .then(result => {
         assert.deepEqual(
           result,
           expected,
-          'invalid user/pass returns unauthorized error'
+          'invalid user/pass returns unauthorized error in errors array'
+        );
+        done();
+      })
+      .catch(() => assert.ok(true, 'this assertion is not expected'));
+    assert.ok(service, 'Service is ok');
+  });
+
+  test('loginUserPassword handles server error', function(assert) {
+    let done = assert.async();
+    assert.expect(2);
+
+    let mockSession = Service.extend({
+      session: {
+        authenticated: {
+          code: 'abc123xyzDEF::000123'
+        }
+      },
+      authenticate(/* authenticator, identity, password */) {
+        return new EmberPromise(function(resolve, reject) {
+          const result = { errors: A([{ code: 503 }]) }; // 503 service down
+          reject(result);
+        });
+      }
+    }).create();
+
+    let service = this.owner.factoryFor('service:auth').create({
+      isFastBoot: true,
+      session: mockSession
+    });
+
+    let expected = A(['errors.login.other']);
+    service
+      .loginUserPassword('authenticator:ai', 'mike@example.com', 'password')
+      .then(result => {
+        assert.deepEqual(
+          result,
+          expected,
+          'invalid user/pass returns other error in errors array'
         );
         done();
       })
@@ -127,9 +147,7 @@ module('Unit | Service | auth', function(hooks) {
       },
       authenticate(/* authenticator, identity, password */) {
         return new EmberPromise(function(resolve, reject) {
-          const result = {
-            errors: [{ code: 403 }]
-          };
+          const result = { errors: A([{ code: 403 }]) }; // 403 error
           reject(result);
         });
       }
@@ -140,18 +158,14 @@ module('Unit | Service | auth', function(hooks) {
       session: mockSession
     });
 
-    let expected = {
-      user: null,
-      errors: ['errors.login.other']
-    };
-
+    let expected = A(['errors.login.other']);
     service
       .loginUserPassword('authenticator:x', '', '')
       .then(result => {
         assert.deepEqual(
           result,
           expected,
-          'invalid authenticator returns other error'
+          'invalid authenticator returns other error in errors array'
         );
         done();
       })
@@ -173,10 +187,10 @@ module('Unit | Service | auth', function(hooks) {
         return new EmberPromise(function(resolve /* , reject */) {
           let result = '';
           if (authenticator === 'authenticator:torii') {
-            result = [];
+            result = A();
             resolve(result);
           } else if (authenticator === 'authenticator:token') {
-            result = [];
+            result = A();
             resolve(result);
           }
         });
@@ -188,22 +202,14 @@ module('Unit | Service | auth', function(hooks) {
       session: mockSession
     });
 
-    // stub _fetchUser to isolate tests from external API
-    let expected = {
-      user: { id: 1 },
-      errors: []
-    };
-    service._fetchUser = function() {
-      return expected;
-    };
-
+    let expected = A();
     service
       .loginTwitter()
       .then(result => {
         assert.deepEqual(
           result,
           expected,
-          'valid user/pass tuple returns no errors'
+          'valid user/pass tuple returns no errors in error array'
         );
         done();
       })
@@ -219,7 +225,7 @@ module('Unit | Service | auth', function(hooks) {
     let mockSession = Service.extend({
       authenticate(/* authenticator, identity, password */) {
         return new EmberPromise(function(resolve /* , reject */) {
-          resolve(['errors.login.other']);
+          resolve(A(['errors.login.other']));
         });
       }
     }).create();
@@ -228,17 +234,14 @@ module('Unit | Service | auth', function(hooks) {
       session: mockSession
     });
 
-    let expected = {
-      user: null,
-      errors: ['errors.login.other']
-    };
+    let expected = A(['errors.login.other']);
     service
       .loginTwitter()
       .then(result => {
         assert.deepEqual(
           result,
           expected,
-          'valid user/pass tuple returns no errors'
+          'valid user/pass tuple returns no errors in errors array'
         );
         done();
       })
@@ -253,27 +256,27 @@ module('Unit | Service | auth', function(hooks) {
     // mock a failing auth service
     let mockSession = Service.extend({
       authenticate(/* authenticator, identity, password */) {
-        return new EmberPromise(function(resolve, reject) {
-          reject(['errors.login.other']);
+        return new EmberPromise(function(resolve) {
+          resolve(true);
         });
       }
     }).create();
     let service = this.owner.factoryFor('service:auth').create({
       isFastBoot: true,
-      session: mockSession
+      session: mockSession,
+      loginUserPassword() {
+        throw { message: 'A fake error in auth.loginUserPassword' };
+      }
     });
 
-    let expected = {
-      errors: ['errors.login.other'],
-      user: null
-    };
+    let expected = A(['errors.login.other']);
     service
       .loginTwitter()
       .then(result => {
         assert.deepEqual(
           result,
           expected,
-          'valid user/pass tuple returns no errors'
+          'a local user error in the errors array'
         );
         done();
       })
@@ -281,13 +284,13 @@ module('Unit | Service | auth', function(hooks) {
     assert.ok(service, 'Service is ok');
   });
 
-  test('_fetchUser returns a cached user if it exists', function(assert) {
+  test('_fetchUser returns a cached user if it exists', async function(assert) {
     assert.expect(2);
 
-    let mockFetched = {
+    let mockFetched = EmberObject.create({
       user: { id: '1' },
-      errors: []
-    };
+      errors: A()
+    });
     let mockSession = Service.extend({
       user: mockFetched.user
     }).create();
@@ -295,7 +298,7 @@ module('Unit | Service | auth', function(hooks) {
     let service = this.owner.factoryFor('service:auth').create({
       session: mockSession
     });
-    let user = service._fetchUser();
+    let user = await service._fetchUser();
     assert.deepEqual(user, mockFetched, 'mocked user was returned');
     assert.ok(service, 'Service is ok');
   });

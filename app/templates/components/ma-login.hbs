@@ -5,7 +5,7 @@
 
   <div class="field">
     <label class="label" for="email">
-      {{t "routes.login.email"}}
+      {{t "components.ma-login.email"}}
     </label>
     <div class="control">
       {{components.input type="email"
@@ -19,14 +19,14 @@
         minlength="7"
         pattern="\S{1,}@\S{2,}.\S{2,}"
         required="required"
-        placeholder=(t "routes.login.email-placeholder")
+        placeholder=(t "components.ma-login.email-placeholder")
         value=changeset.email}}
     </div>
   </div>
 
   <div class="field">
     <label class="label" for="password">
-      {{t "routes.login.password"}}
+      {{t "components.ma-login.password"}}
     </label>
     <div class="field has-addons">
       <div class="control is-expanded">
@@ -42,12 +42,12 @@
       </div>
 
       <div class="control">
-        <button onclick={{action action}}
+        <input type=submit
+          {{action action}}
           class="button is-primary"
           data-test="login"
-          disabled={{isDisabled}}>
-          {{t "components.ma-login.cta-login"}}
-        </button>
+          disabled={{isDisabled}}
+          value="{{t "components.ma-login.cta-login"}}">
       </div>
     </div>
   </div>

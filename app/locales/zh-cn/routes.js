@@ -7,15 +7,9 @@ export default {
 
   login: {
     title: "登录",
-    email: "Email",
-    "email-placeholder": "name@example.com",
-    password: "密码",
-    "password-confirm": "确认密码",
-    "cta-login": "使用Email登录",
     "cta-twitter": "Twitter",
     "cta-google": "Google",
-    "cta-facebook": "Facebook",
-    "cta-signup": "注册"
+    "cta-facebook": "Facebook"
   },
 
   media: {

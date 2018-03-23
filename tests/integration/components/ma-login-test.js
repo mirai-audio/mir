@@ -34,6 +34,6 @@ module('Integration | Component | ma login', function(hooks) {
         changeset=changeset}}
     `);
     assert.notEqual(this.element.textContent.trim().indexOf('ABC_'), -1);
-    assert.notEqual(this.element.textContent.trim().indexOf('Sign in'), -1);
+    assert.notEqual(this.element.innerHTML.trim().indexOf('Sign in'), -1);
   });
 });

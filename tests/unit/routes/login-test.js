@@ -1,6 +1,7 @@
 import { later } from '@ember/runloop';
 import EmberObject from '@ember/object';
 import { get, set } from '@ember/object';
+import { A } from '@ember/array';
 import { Promise as EmberPromise } from 'rsvp';
 import Service from '@ember/service';
 import { module, test } from 'qunit';
@@ -22,7 +23,7 @@ module('Unit | Route | login', function(hooks) {
     let mockAuth = Service.extend({
       loginTwitter() {
         return new EmberPromise(function(resolve) {
-          const result = { errors: ['errors.login.other'] };
+          const result = A(['errors.login.other']);
           resolve(result);
         });
       }
@@ -35,7 +36,7 @@ module('Unit | Route | login', function(hooks) {
     set(route, 'controller', EmberObject.create());
 
     later(() => {
-      const expected = ['errors.login.other'];
+      const expected = A(['errors.login.other']);
       const result = get(route, 'controller.errorMessageKeys');
       assert.deepEqual(result, expected, 'login error was set');
       done();

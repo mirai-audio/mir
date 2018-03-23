@@ -3,7 +3,10 @@
 export default {
   "ma-auth": {
     socialTitle: "登录",
-    title: "或注册"
+    title: "或注册",
+    "cta-login": "使用Email登录",
+    "cta-signup": "注册",
+    "password-confirm": "确认密码"
   },
 
   "ma-create-media": {
@@ -23,7 +26,10 @@ export default {
   },
 
   "ma-login": {
-    "cta-login": "登录"
+    "cta-login": "登录",
+    email: "Email",
+    "email-placeholder": "name@example.com",
+    password: "密码"
   },
 
   "ma-media-detail": {
