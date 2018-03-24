@@ -29,10 +29,10 @@ export default Component.extend({
     changeset.validate();
   },
 
-  submit() {
+  submit(event) {
     let action = get(this, 'action');
     if (typeof action === 'function') action();
     // prevent `form` POST event
-    return false;
+    event.preventDefault();
   }
 });

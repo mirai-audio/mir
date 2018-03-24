@@ -1,11 +1,4 @@
-{{components.login
-  title=(t "components.ma-auth.cta-login")
-  components=(hash
-    input=(component "ma-input"))
-  errorMessageKeys=errorMessageKeys
-  action=loginAction
-  onSubmit="return false"
-  changeset=changeset}}
+{{yield }}
 
 <fieldset class="field">
   {{#if title}}
@@ -36,8 +29,4 @@
         value="{{t "components.ma-auth.cta-signup"}}">
     </div>
   </div>
-
-  {{ma-errors-handler errorMessageKeys=errorMessageKeys}}
 </fieldset>
-
-{{yield}}

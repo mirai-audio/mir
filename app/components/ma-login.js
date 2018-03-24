@@ -4,11 +4,8 @@ import { none, or } from '@ember/object/computed';
 
 export default Component.extend({
   /* Ember */
-  attributeBindings: ['formName:name', 'formMethod:method'],
-  classNames: ['ma-Login'],
-  tagName: 'form',
-  formName: 'users/token',
-  formMethod: 'POST',
+  classNames: ['ma-Login', 'field'],
+  tagName: 'fieldset',
 
   /* API */
   action: null,

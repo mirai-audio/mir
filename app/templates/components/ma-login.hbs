@@ -1,56 +1,52 @@
-<fieldset class="field">
-  {{#if title}}
-    <legend>{{title}}</legend>
-  {{/if}}
+{{#if title}}
+  <legend>{{title}}</legend>
+{{/if}}
 
-  <div class="field">
-    <label class="label" for="email">
-      {{t "components.ma-login.email"}}
-    </label>
-    <div class="control">
-      {{components.input type="email"
-        name="email"
-        inputId="email"
-        autofocus="autofocus"
+<div class="field">
+  <label class="label" for="email">
+    {{t "components.ma-login.email"}}
+  </label>
+  <div class="control">
+    {{components.input type="email"
+      name="email"
+      inputId="email"
+      autofocus="autofocus"
+      autocorrect="off"
+      autocomplete="email"
+      class="field"
+      errors=(get changeset "error.email.validation")
+      minlength="7"
+      pattern="\S{1,}@\S{2,}.\S{2,}"
+      required="required"
+      placeholder=(t "components.ma-login.email-placeholder")
+      value=changeset.email}}
+  </div>
+</div>
+
+<div class="field">
+  <label class="label" for="password">
+    {{t "components.ma-login.password"}}
+  </label>
+  <div class="field has-addons">
+    <div class="control is-expanded">
+      {{components.input type="password"
+        name="password"
+        inputId="password"
         autocorrect="off"
-        autocomplete="email"
-        class="field"
-        errors=(get changeset "error.email.validation")
-        minlength="7"
-        pattern="\S{1,}@\S{2,}.\S{2,}"
+        autocomplete="off"
+        errors=(get changeset "error.password.validation")
+        minlength="12"
         required="required"
-        placeholder=(t "components.ma-login.email-placeholder")
-        value=changeset.email}}
+        value=changeset.password}}
+    </div>
+
+    <div class="control">
+      <input type=submit
+        {{action action}}
+        class="button is-primary"
+        data-test="login"
+        disabled={{isDisabled}}
+        value="{{t "components.ma-login.cta-login"}}">
     </div>
   </div>
-
-  <div class="field">
-    <label class="label" for="password">
-      {{t "components.ma-login.password"}}
-    </label>
-    <div class="field has-addons">
-      <div class="control is-expanded">
-        {{components.input type="password"
-          name="password"
-          inputId="password"
-          autocorrect="off"
-          autocomplete="off"
-          errors=(get changeset "error.password.validation")
-          minlength="12"
-          required="required"
-          value=changeset.password}}
-      </div>
-
-      <div class="control">
-        <input type=submit
-          {{action action}}
-          class="button is-primary"
-          data-test="login"
-          disabled={{isDisabled}}
-          value="{{t "components.ma-login.cta-login"}}">
-      </div>
-    </div>
-  </div>
-
-  {{ma-errors-handler errorMessageKeys=errorMessageKeys}}
-</fieldset>
+</div>
