@@ -1,6 +1,7 @@
 'use strict';
 
 const VERSION = require('../package.json').version;
+const CSPYoutube = require('./csp-youtube');
 
 module.exports = function(environment) {
   let ENV = {
@@ -74,16 +75,6 @@ module.exports = function(environment) {
       'localhost:* ',
       'https://ssl.gstatic.com' /* Required by Android TalkBack */
     ],
-    'script-src': [
-      "'self'",
-      "'unsafe-inline'",
-      "'unsafe-eval'",
-      '127.0.0.1:*',
-      'localhost:*'
-    ],
-    'style-src': ["'self'", "'unsafe-inline'", 'data:'],
-    'img-src': ["'self'", 'data:'],
-    'font-src': ["'self'", 'data:'],
     'connect-src': [
       "'self'",
       'data:',
@@ -95,8 +86,28 @@ module.exports = function(environment) {
       ENV.DS.host,
       /* remote Chrome LiveReload websocket */
       'ws://10.255.247.75:*' // žižek
-    ]
+    ],
+    'font-src': ["'self'", 'data:'],
+    'frame-src': [],
+    'img-src': ["'self'", 'data:'],
+    'script-src': [
+      "'self'",
+      "'unsafe-inline'",
+      "'unsafe-eval'",
+      '127.0.0.1:*',
+      'localhost:*'
+    ],
+    'style-src': ["'self'", "'unsafe-inline'", 'data:']
   };
+  // append all providers content security policy rules to the defaults above.
+  const CSPProviders = [CSPYoutube];
+  for (let provider in CSPProviders) {
+    for (let rule in CSPProviders[provider]) {
+      ENV.contentSecurityPolicy[rule] = ENV.contentSecurityPolicy[rule].concat(
+        CSPProviders[provider][rule]
+      );
+    }
+  }
 
   // Internationalization
   ENV.i18n = {

@@ -1,0 +1,4 @@
+{
+  "frame-src": ["https://www.youtube.com"],
+  "script-src": ["https://www.youtube.com", "https://s.ytimg.com"]
+}

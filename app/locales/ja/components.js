@@ -35,7 +35,9 @@ export default {
   "ma-media-detail": {
     "label-title": "タイトル",
     "label-url": "URL",
-    "label-date": "追加された日付"
+    "label-date": "追加された日付",
+    "label-provider": "サービス名",
+    "label-provider-uid": "固有ID"
   },
 
   "ma-media-list-item": {

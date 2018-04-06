@@ -35,7 +35,9 @@ export default {
   "ma-media-detail": {
     "label-title": "标题",
     "label-url": "URL",
-    "label-date": "添加日期"
+    "label-date": "添加日期",
+    "label-provider": "服务名称",
+    "label-provider-uid": "唯一ID"
   },
 
   "ma-media-list-item": {

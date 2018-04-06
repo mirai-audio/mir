@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import { equal } from '@ember/object/computed';
 import EmberObject, { get, set } from '@ember/object';
 
 export default Component.extend({
@@ -11,5 +12,7 @@ export default Component.extend({
     if (model === null) {
       set(this, 'model', EmberObject.create({}));
     }
-  }
+  },
+
+  isProviderYoutube: equal('model.provider', 'youtube')
 });

@@ -22,7 +22,7 @@ module('Unit | Model | media', function(hooks) {
 
   test('it has sane properties when set', function(assert) {
     let done = assert.async();
-    assert.expect(2);
+    assert.expect(4);
 
     let store = this.owner.lookup('service:store');
 
@@ -30,10 +30,14 @@ module('Unit | Model | media', function(hooks) {
     // see: https://github.com/mirai-audio/mir/issues/45
     later(() => {
       let values = {
+        provider: 'youtube',
+        providerUid: 'a1b2c3',
         title: 'test media',
         url: 'https://example.com?query=value&token=abc123#hash'
       };
       let model = store.createRecord('media', values);
+      assert.equal(get(model, 'provider'), values.provider);
+      assert.equal(get(model, 'providerUid'), values.providerUid);
       assert.equal(get(model, 'title'), values.title);
       assert.equal(get(model, 'url'), values.url);
       done();

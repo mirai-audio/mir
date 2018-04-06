@@ -34,7 +34,9 @@ export default {
   "ma-media-detail": {
     "label-title": "Título",
     "label-url": "URL",
-    "label-date": "Fecha agregada"
+    "label-date": "Fecha agregada",
+    "label-provider": "Proveedor",
+    "label-provider-uid": "ID"
   },
 
   "ma-media-list-item": {

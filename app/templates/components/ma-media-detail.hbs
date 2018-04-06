@@ -1,8 +1,18 @@
+{{#if isProviderYoutube}}
+  {{ember-youtube ytid=model.providerUid}}
+{{/if}}
+
 <dl>
   <dt>{{t "components.ma-media-detail.label-title"}}</dt>
   <dd>{{model.title}}</dd>
   <dt>{{t "components.ma-media-detail.label-url"}}</dt>
   <dd>{{model.url}}</dd>
+  <dt>{{t "components.ma-media-detail.label-provider"}}</dt>
+  <dd>{{model.provider}}</dd>
+  <dt>{{t "components.ma-media-detail.label-provider-uid"}}</dt>
+  <dd>
+    <code>{{model.providerUid}}</code>
+  </dd>
   <dt>{{t "components.ma-media-detail.label-date"}}</dt>
   <dd>{{model.insertedAt}}</dd>
 </dl>
