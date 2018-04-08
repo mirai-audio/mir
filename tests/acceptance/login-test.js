@@ -1,5 +1,6 @@
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
+import setupMirageTest from 'ember-cli-mirage/test-support/setup-mirage';
 import {
   click,
   fillIn,
@@ -12,10 +13,12 @@ import {
 import { authenticateSession } from 'ember-simple-auth/test-support';
 import Service from '@ember/service';
 
-module('Application | login', function(hooks) {
+module('Acceptance | login', function(hooks) {
   setupApplicationTest(hooks);
 
-  module('unauthenticated user', function(/* hooks */) {
+  module('unauthenticated user', function(hooks) {
+    setupMirageTest(hooks);
+
     test('can visit /login', async function(assert) {
       await visit('/login');
       assert.equal(currentURL(), '/login');
@@ -122,6 +125,8 @@ module('Application | login', function(hooks) {
   });
 
   module('authenticated user', function(hooks) {
+    setupMirageTest(hooks);
+
     hooks.beforeEach(function() {
       authenticateSession({
         userId: 1,

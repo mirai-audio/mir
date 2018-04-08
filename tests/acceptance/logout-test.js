@@ -7,7 +7,7 @@ import {
   currentSession
 } from 'ember-simple-auth/test-support';
 
-module('Application | logout', function(hooks) {
+module('Acceptance | logout', function(hooks) {
   setupApplicationTest(hooks);
 
   module('unauthenticated user', function(/* hooks */) {
