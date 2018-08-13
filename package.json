@@ -24,7 +24,7 @@
     "test": "COVERAGE=true ember test"
   },
   "devDependencies": {
-    "broccoli-asset-rev": "^2.7.0",
+    "broccoli-asset-rev": "^3.0.0",
     "bulma": "^0.6.2",
     "coveralls": "^3.0.0",
     "ember-changeset-validations": "^1.2.11",
