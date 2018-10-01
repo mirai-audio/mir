@@ -2,7 +2,6 @@
 
 module.exports = {
   extends: 'recommended',
-
   rules: {
     // style
     quotes: 'double',
