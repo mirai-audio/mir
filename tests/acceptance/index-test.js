@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import setupMirageTest from 'ember-cli-mirage/test-support/setup-mirage';
 import { click, fillIn, currentURL, visit } from '@ember/test-helpers';
+import { later } from '@ember/runloop';
 
 module('Acceptance | index', function(hooks) {
   setupApplicationTest(hooks);
@@ -26,7 +27,8 @@ module('Acceptance | index', function(hooks) {
   module('authenticated user', function(hooks) {
     setupMirageTest(hooks);
 
-    test('can visiting / for new users', async function(assert) {
+    test('can visit / for new users', async function(assert) {
+      let done = assert.async();
       // create an OAuth token w/ ember-cli-mirage
       server.create('token');
       server.create('user');
@@ -36,7 +38,11 @@ module('Acceptance | index', function(hooks) {
       await fillIn('[name=password]', 'Password1234');
       await fillIn('[name=password_confirmation]', 'Password1234');
       await click('[data-test=signup]');
-      assert.equal(currentURL(), '/');
+      later(() => {
+        // wait some time for response
+        assert.equal(currentURL(), '/');
+        done();
+      }, 500);
     });
   });
 });

@@ -7,7 +7,8 @@
     {{t "components.ma-login.email"}}
   </label>
   <div class="control">
-    {{components.input type="email"
+    {{components.input
+      type="email"
       name="email"
       inputId="email"
       autofocus="autofocus"
@@ -29,7 +30,8 @@
   </label>
   <div class="field has-addons">
     <div class="control is-expanded">
-      {{components.input type="password"
+      {{components.input
+        type="password"
         name="password"
         inputId="password"
         autocorrect="off"
@@ -41,12 +43,13 @@
     </div>
 
     <div class="control">
-      <input type=submit
+      <input
+        type="submit"
         {{action action}}
         class="button is-primary"
         data-test="login"
         disabled={{isDisabled}}
-        value="{{t "components.ma-login.cta-login"}}">
+        value={{t "components.ma-login.cta-login"}}>
     </div>
   </div>
 </div>

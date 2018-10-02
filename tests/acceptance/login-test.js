@@ -11,6 +11,7 @@ import {
   visit
 } from '@ember/test-helpers';
 import { authenticateSession } from 'ember-simple-auth/test-support';
+import { later } from '@ember/runloop';
 import Service from '@ember/service';
 
 module('Acceptance | login', function(hooks) {
@@ -57,6 +58,7 @@ module('Acceptance | login', function(hooks) {
     });
 
     test('can create an account with email & password', async function(assert) {
+      let done = assert.async();
       // create an OAuth token w/ ember-cli-mirage
       server.create('token');
       server.create('user');
@@ -68,9 +70,11 @@ module('Acceptance | login', function(hooks) {
       // user clicks signup button
       await focus('.ma-Auth [data-test=signup]');
       await click('.ma-Auth [data-test=signup]');
-
-      // user lands on index page
-      assert.equal(currentURL(), '/');
+      later(() => {
+        // user lands on index page, after server responds
+        assert.equal(currentURL(), '/');
+        done();
+      }, 550);
     });
 
     test('cannot create an account with existing users email', async function(assert) {

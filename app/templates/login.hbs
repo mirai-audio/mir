@@ -1,8 +1,7 @@
 {{ma-header
   back="routes.welcome.title"
   backTo="welcome"
-  title="routes.login.title"
-}}
+  title="routes.login.title"}}
 
 {{#ma-auth
   action=(route-action "signup" model)
@@ -29,21 +28,24 @@
   <legend>{{t "components.ma-auth.socialTitle"}}</legend>
   <div class="field has-addons">
     <div class="control">
-      <button class="button c-Social c-Social--twitter"
+      <button
+        class="button c-Social c-Social--twitter"
         data-test="twitter"
         onclick={{route-action "loginTwitter"}}>
         {{t "routes.login.cta-twitter"}}
       </button>
     </div>
     <div hidden class="control">
-      <button class="button c-Social c-Social--google"
+      <button
+        class="button c-Social c-Social--google"
         data-test="google"
         disabled>
         {{t "routes.login.cta-google"}}
       </button>
     </div>
     <div hidden class="control">
-      <button class="button c-Social c-Social--facebook"
+      <button
+        class="button c-Social c-Social--facebook"
         data-test="facebook"
         disabled>
         {{t "routes.login.cta-facebook"}}

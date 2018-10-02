@@ -10,7 +10,7 @@ var VERSION = '0.2.2',
     './images/android-chrome-192x192.png',
     './images/android-chrome-192x192.png',
     './images/favicon-16x16.png',
-    './images/logo.svg',
+    './images/logo.svg'
   ];
 
 // During the installation phase, add static assets to the cache
@@ -20,9 +20,10 @@ self.addEventListener('install', function(event) {
     // fetch the cache for the application
     self.caches.open(CACHENAME).then(function(cache) {
       // fetch app assets from network, add them to cache
-      return cache.addAll(ASSETS)
-      .then(function() {
+      return cache.addAll(ASSETS).then(function() {
+        /* eslint-disable no-console */
         console.log('Successfully registered service worker');
+        /* eslint-enable no-console */
         // all assets have been fetched, stop waiting to allow the service
         // worker to become active
         self.skipWaiting();
@@ -34,7 +35,7 @@ self.addEventListener('install', function(event) {
 // the latest service worker is installed and the old has been killed, time to
 // remove the inactive cache
 self.addEventListener('activate', function(event) {
-  var appCacheNames = [ CACHENAME ];
+  var appCacheNames = [CACHENAME];
 
   event.waitUntil(
     // get all cache key names

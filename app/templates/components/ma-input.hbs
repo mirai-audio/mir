@@ -1,7 +1,11 @@
+{{! template-lint-disable attribute-indentation }}
+
 <input
   class="input
     ma-Input-input
-    {{if value (concat "is-validate "
+    {{if
+      value
+      (concat "is-validate "
       (if errors.length "is-invalid is-danger" "is-valid"))
     }}"
   autofocus={{autofocus}}

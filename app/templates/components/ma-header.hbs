@@ -1,9 +1,14 @@
 {{! update the <head><title/><head> tag}}
 {{title (t title)}}
 
-<nav class="ma-Header-navbar navbar" role="navigation" aria-label="main navigation">
-  <a href="{{concat "#" elementId}}" {{action "toggleOffCanvas"}}
-     class="navbar-burger burger ma-Header-burger u-Z20 {{if offCanvasIsActive "is-active"}}">
+<nav
+  class="ma-Header-navbar navbar"
+  role="navigation"
+  aria-label={{concat "main navigation" " "}}>
+  <a
+    href={{concat "#" elementId}}
+    onclick={{action "toggleOffCanvas"}}
+    class="navbar-burger burger ma-Header-burger u-Z20 {{if offCanvasIsActive "is-active"}}">
     <span></span>
     <span></span>
     <span></span>
@@ -11,12 +16,14 @@
 
   <div class="ma-Header-brand navbar-brand">
     {{#if backTo}}
-      {{#link-to backTo
+      {{#link-to
+        backTo
         class="navbar-item ma-Header-link ma-Header-link--back"}}
         {{t (if back back "components.ma-header.back")}}
       {{/link-to}}
     {{else}}
-      <a href=#
+      <a
+        href="#"
         {{action "back"}}
         class="navbar-item ma-Header-link ma-Header-link--back"
         title={{t "components.ma-header.back"}}>
