@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.7.0",
-    "bulma": "^0.6.2",
+    "bulma": "^0.7.0",
     "coveralls": "^3.0.0",
     "ember-changeset-validations": "^1.2.11",
     "ember-cli": "~3.0.2",
