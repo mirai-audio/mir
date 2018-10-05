@@ -24,11 +24,13 @@
     "test": "COVERAGE=true ember test"
   },
   "devDependencies": {
+    "@ember/jquery": "^0.5.2",
+    "@ember/optional-features": "^0.6.3",
     "broccoli-asset-rev": "^2.7.0",
     "bulma": "^0.6.2",
     "coveralls": "^3.0.0",
     "ember-changeset-validations": "^1.2.11",
-    "ember-cli": "~3.3.0",
+    "ember-cli": "~3.4.3",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-autoprefixer": "^0.8.1",
     "ember-cli-babel": "^6.12.0",
@@ -63,7 +65,7 @@
     "ember-resolver": "^4.5.5",
     "ember-route-action-helper": "^2.0.6",
     "ember-simple-auth": "^1.6.0",
-    "ember-source": "~3.3.0",
+    "ember-source": "~3.4.4",
     "ember-svg-jar": "^1.2.2",
     "ember-test-component": "^0.2.1",
     "ember-youtube": "^0.9.3",
