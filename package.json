@@ -27,7 +27,7 @@
     "@ember/jquery": "^0.5.2",
     "@ember/optional-features": "^0.7.0",
     "broccoli-asset-rev": "^3.0.0",
-    "bulma": "^0.6.2",
+    "bulma": "^0.7.1",
     "coveralls": "^3.0.0",
     "ember-changeset-validations": "^1.2.11",
     "ember-cli": "~3.4.3",
