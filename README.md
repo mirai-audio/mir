@@ -75,7 +75,7 @@ mock (ember-cli-Mirage) server will be running.
 * `yarn lint:js`: show Javascript linting warnings & errors.
 * `yarn lint:js:fix`: autofix Javascript linting errors (where possible).
 * `yarn lint:scss`: show SCSS linting warnings & errors.
-* `yarn lint:templates`: show template (`.hbs`) linting warnings & errors.
+* `yarn lint:hbs`: show template (`.hbs`) linting warnings & errors.
 
 ### Building
 
