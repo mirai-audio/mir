@@ -27,7 +27,7 @@
     "@ember/jquery": "^0.5.2",
     "@ember/optional-features": "^0.7.0",
     "broccoli-asset-rev": "^3.0.0",
-    "bulma": "^0.7.1",
+    "bulma": "^0.7.2",
     "coveralls": "^3.0.0",
     "ember-changeset-validations": "^1.2.11",
     "ember-cli": "~3.4.3",
@@ -41,12 +41,12 @@
     "ember-cli-eslint": "^4.2.3",
     "ember-cli-fastboot": "^2.0.0",
     "ember-cli-htmlbars": "^3.0.1",
-    "ember-cli-htmlbars-inline-precompile": "^1.0.2",
+    "ember-cli-htmlbars-inline-precompile": "^1.0.5",
     "ember-cli-inject-live-reload": "^1.7.0",
     "ember-cli-inline-content": "^0.4.1",
     "ember-cli-mirage": "^0.4.9",
     "ember-cli-one-script": "^0.0.1",
-    "ember-cli-qunit": "4.4.0",
+    "ember-cli-qunit": "^4.4.0",
     "ember-cli-release": "^1.0.0-beta.2",
     "ember-cli-sass": "^7.1.7",
     "ember-cli-shims": "^1.2.0",
@@ -69,7 +69,7 @@
     "ember-svg-jar": "^1.2.2",
     "ember-test-component": "^0.2.1",
     "ember-youtube": "^0.9.3",
-    "eslint": "^5.6.1",
+    "eslint": "^5.7.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-ember": "^5.1.0",
     "eslint-plugin-prettier": "^3.0.0",
@@ -78,6 +78,9 @@
     "qunit-dom": "^0.8.0",
     "system-font-i18n-css": "^1.0.0",
     "torii": "^0.10.1"
+  },
+  "resolutions": {
+    "ember-deep-set": "^0.2.0"
   },
   "engines": {
     "node": "6.* || 8.* || >= 10.*"
