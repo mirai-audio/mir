@@ -30,7 +30,7 @@
     "bulma": "^0.7.2",
     "coveralls": "^3.0.0",
     "ember-changeset-validations": "^1.2.11",
-    "ember-cli": "~3.4.3",
+    "ember-cli": "~3.5.0",
     "ember-cli-app-version": "^3.0.0",
     "ember-cli-autoprefixer": "^0.8.1",
     "ember-cli-babel": "^7.1.2",
