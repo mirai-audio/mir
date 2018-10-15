@@ -54,7 +54,7 @@
     "ember-cli-template-lint": "^0.7.6",
     "ember-cli-test-loader": "^2.2.0",
     "ember-cli-uglify": "^2.1.0",
-    "ember-cli-update": "^0.27.0",
+    "ember-cli-update": "^0.27.1",
     "ember-concurrency": "^0.8.21",
     "ember-data": "~3.5.0",
     "ember-export-application-global": "^2.0.0",
@@ -78,7 +78,7 @@
     "prettier": "1.14.3",
     "qunit-dom": "^0.8.0",
     "sass": "^1.14.2",
-    "system-font-i18n-css": "^1.0.0",
+    "system-font-i18n-css": "^1.1.0",
     "torii": "^0.10.1"
   },
   "resolutions": {
