@@ -3637,7 +3637,7 @@ debug@^3.0.0, debug@^3.1.0:
   dependencies:
     ms "^2.1.1"
 
-debug@^4.0.1:
+debug@^4.0.0, debug@^4.0.1:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.0.tgz#373687bffa678b38b1cd91f861b63850035ddc87"
   integrity sha512-heNPJUJIqC+xB6ayLAMHaIrmN9HKa7aQO8MGqKpvCA+uJYVcvR6l5kgdrhRuwPFHU7P5/A1w0BjByPHwpfTDKg==
@@ -4377,13 +4377,13 @@ ember-cli-uglify@^2.1.0:
     broccoli-uglify-sourcemap "^2.1.1"
     lodash.defaultsdeep "^4.6.0"
 
-ember-cli-update@^0.27.0:
-  version "0.27.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-update/-/ember-cli-update-0.27.0.tgz#b159bf7d3a05e4e23bf08079dfba36688d30cd49"
-  integrity sha512-EdPOpl5M3cm+8loKjUrDZRLewGmOuPMw0z8XdO7LeDICkrzG0ELBoJA80d5Vp0XNRnXNc0wXfIjnl7tm2rXqeQ==
+ember-cli-update@^0.27.1:
+  version "0.27.1"
+  resolved "https://registry.yarnpkg.com/ember-cli-update/-/ember-cli-update-0.27.1.tgz#90e8d4c53278f4c27cdf8170b80d38d891d1b5b5"
+  integrity sha512-qybwksef4IO+hDeKmTYzA+9ogMd/EA1v261wU9yuIS2yCVm8ySq7XVZQ4/0KLs0LlgicRrHL+0ONxHGHvqMdTA==
   dependencies:
     cpr "^3.0.1"
-    debug "^3.0.0"
+    debug "^4.0.0"
     denodeify "^1.2.1"
     execa "^1.0.0"
     git-diff-apply "^0.10.0"
@@ -11569,10 +11569,10 @@ symlink-or-copy@^1.0.0, symlink-or-copy@^1.0.1, symlink-or-copy@^1.1.8, symlink-
   resolved "https://registry.yarnpkg.com/symlink-or-copy/-/symlink-or-copy-1.2.0.tgz#5d49108e2ab824a34069b68974486c290020b393"
   integrity sha512-W31+GLiBmU/ZR02Ii0mVZICuNEN9daZ63xZMPDsYgPgNjMtg+atqLEGI7PPI936jYSQZxoLb/63xos8Adrx4Eg==
 
-system-font-i18n-css@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/system-font-i18n-css/-/system-font-i18n-css-1.0.0.tgz#5f7c68b2c27dbc1ca2a662078ec8e6e47a759c2e"
-  integrity sha512-I9zvIvHB4jM8B4dPxqAIPIK8IMyWGx3IePBbzCpSMmwQKiT682prNo4wdY4K3sVXeDm2Sns+6GHVBMKzqX3PDA==
+system-font-i18n-css@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/system-font-i18n-css/-/system-font-i18n-css-1.1.1.tgz#0e701c5c73ea03099d388bb929a122788f04dbf8"
+  integrity sha512-RGjbEa4g+JXTjec87Z+GfvtbVdH53QoFpWqwICVFK3166cf2wRIttN2tmla3eP/5RmeUDOkElh/stbAjnDSXBg==
 
 table@4.0.2:
   version "4.0.2"
