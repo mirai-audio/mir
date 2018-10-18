@@ -5,7 +5,7 @@ module.exports = {
 
   rules: {
     // style
-    'attribute-indentation': false,/* {
+    'attribute-indentation': false /* {
       'element-open-end': 'last-attribute',
       'mustache-open-end': 'last-attribute'
     } */,

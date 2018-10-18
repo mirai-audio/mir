@@ -4377,7 +4377,7 @@ ember-cli-uglify@^2.1.0:
     broccoli-uglify-sourcemap "^2.1.1"
     lodash.defaultsdeep "^4.6.0"
 
-ember-cli-update@^0.27.1:
+ember-cli-update@^0.27.0:
   version "0.27.1"
   resolved "https://registry.yarnpkg.com/ember-cli-update/-/ember-cli-update-0.27.1.tgz#90e8d4c53278f4c27cdf8170b80d38d891d1b5b5"
   integrity sha512-qybwksef4IO+hDeKmTYzA+9ogMd/EA1v261wU9yuIS2yCVm8ySq7XVZQ4/0KLs0LlgicRrHL+0ONxHGHvqMdTA==
@@ -11569,7 +11569,7 @@ symlink-or-copy@^1.0.0, symlink-or-copy@^1.0.1, symlink-or-copy@^1.1.8, symlink-
   resolved "https://registry.yarnpkg.com/symlink-or-copy/-/symlink-or-copy-1.2.0.tgz#5d49108e2ab824a34069b68974486c290020b393"
   integrity sha512-W31+GLiBmU/ZR02Ii0mVZICuNEN9daZ63xZMPDsYgPgNjMtg+atqLEGI7PPI936jYSQZxoLb/63xos8Adrx4Eg==
 
-system-font-i18n-css@^1.1.1:
+system-font-i18n-css@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/system-font-i18n-css/-/system-font-i18n-css-1.1.1.tgz#0e701c5c73ea03099d388bb929a122788f04dbf8"
   integrity sha512-RGjbEa4g+JXTjec87Z+GfvtbVdH53QoFpWqwICVFK3166cf2wRIttN2tmla3eP/5RmeUDOkElh/stbAjnDSXBg==
