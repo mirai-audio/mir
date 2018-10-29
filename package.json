@@ -66,7 +66,7 @@
     "ember-resolver": "^5.0.1",
     "ember-route-action-helper": "^2.0.6",
     "ember-simple-auth": "^1.6.0",
-    "ember-source": "~3.4.4",
+    "ember-source": "~3.5.1",
     "ember-svg-jar": "^1.2.2",
     "ember-test-component": "^0.2.1",
     "ember-youtube": "^0.9.3",
