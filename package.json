@@ -58,7 +58,7 @@
     "ember-concurrency": "^0.8.21",
     "ember-data": "~3.5.0",
     "ember-export-application-global": "^2.0.0",
-    "ember-fetch": "^5.1.3",
+    "ember-fetch": "^6.5.0",
     "ember-i18n": "^5.2.1",
     "ember-i18n-changeset-validations": "^1.2.0",
     "ember-load-initializers": "^1.1.0",
