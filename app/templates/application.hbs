@@ -1,8 +1,8 @@
 {{head-layout}}
 {{title (t "common.appname")}}
 
-<main class="section {{cssEnv}} {{cssRoute}}" lang={{locale}}>
-  {{ma-progress isLoading=isLoading}}
+<main class="section {{this.cssEnv}} {{this.cssRoute}}" lang={{this.locale}}>
+  {{ma-progress isLoading=this.isLoading}}
   <aside class="Offline Notification has-text-centered u-Z20">
     <h2>{{t "app.network.offline"}}</h2>
     <p>{{t "app.network.offline-detail"}}</p>
@@ -17,5 +17,5 @@
     <p>{{t "app.noscript.copy"}}</p>
   </noscript>
 
-  {{ma-nav isAuthenticated=isAuthenticated}}
+  {{ma-nav isAuthenticated=this.isAuthenticated}}
 </main>

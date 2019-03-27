@@ -4,8 +4,8 @@
   <ul class="ma-Nav-items">
     <li>{{link-to (t "routes.application.title") "application"}}</li>
 
-    {{#if isAuthenticated}}
-      {{#if isDevelopment}}
+    {{#if this.isAuthenticated}}
+      {{#if this.isDevelopment}}
         <li>{{link-to (t "routes.styleguide.title") "styleguide"}}</li>
         <li>{{link-to (t "routes.typography.title") "typography"}}</li>
         <li><a href="/ember-svg-jar/index.html">{{t "common.svgjar"}}</a></li>
@@ -18,6 +18,6 @@
   </ul>
 
   <footer class="ma-Nav-footer has-text-centered">
-    <small>{{concat "v" version}}</small>
+    <small>{{concat "v" this.version}}</small>
   </footer>
 </nav>

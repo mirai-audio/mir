@@ -1,8 +1,8 @@
 {{yield }}
 
 <fieldset class="field">
-  {{#if title}}
-    <legend>{{title}}</legend>
+  {{#if @title}}
+    <legend>{{@title}}</legend>
   {{/if}}
 
   <label class="label" for="password_confirmation">
@@ -10,23 +10,23 @@
   </label>
   <div class="field has-addons">
     <div class="control is-expanded">
-      {{components.input
+      {{@components.input
         type="password"
         name="password_confirmation"
         inputId="password_confirmation"
         autocorrect="off"
         autocomplete="off"
-        errors=(get changeset "error.passwordConfirmation.validation")
+        errors=(get @changeset "error.passwordConfirmation.validation")
         minlength="12"
         required="required"
-        value=changeset.passwordConfirmation}}
+        value=@changeset.passwordConfirmation}}
     </div>
     <div class="control">
       <input
         type="submit"
         class="button is-primary"
         data-test="signup"
-        disabled={{isDisabled}}
+        disabled={{this.isDisabled}}
         value={{t "components.ma-auth.cta-signup"}}>
     </div>
   </div>

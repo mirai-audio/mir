@@ -1,31 +1,32 @@
 {{! template-lint-disable attribute-indentation }}
+{{! template-lint-disable no-implicit-this }}
 
 <input
   class="input
     ma-Input-input
     {{if
-      value
+      @value
       (concat "is-validate "
-      (if errors.length "is-invalid is-danger" "is-valid"))
+      (if @errors.length "is-invalid is-danger" "is-valid"))
     }}"
-  autofocus={{autofocus}}
-  autocorrect={{autocorrect}}
-  autocomplete={{autocomplete}}
-  id={{inputId}}
-  minlength={{minlength}}
-  name={{name}}
-  pattern={{pattern}}
-  placeholder={{placeholder}}
-  required={{required}}
-  type={{type}}
-  value={{value}}
+  autofocus={{@autofocus}}
+  autocorrect={{@autocorrect}}
+  autocomplete={{@autocomplete}}
+  id={{@inputId}}
+  minlength={{@minlength}}
+  name={{@name}}
+  pattern={{@pattern}}
+  placeholder={{@placeholder}}
+  required={{@required}}
+  type={{@type}}
+  value={{@value}}
   onkeyup={{action (mut value) value="target.value"}}
   onchange={{action (mut value) value="target.value"}}>
 
-{{#if showValidations}}
-  {{#if errors.length}}
+{{#if this.showValidations}}
+  {{#if @errors.length}}
     <ul>
-      {{#each errors as |error|}}
+      {{#each @errors as |error|}}
         <li>
           <span class="help is-danger">
             {{error}}

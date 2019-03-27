@@ -1,6 +1,6 @@
-{{#if errorMessageKeys.length}}
+{{#if @errorMessageKeys.length}}
   <ul class="ma-ErrorsHandler-errors">
-    {{#each errorMessageKeys as |errorKey|}}
+    {{#each @errorMessageKeys as |errorKey|}}
       <li class="help is-danger ma-ErrorsHandler-error">
         {{t errorKey}}
       </li>

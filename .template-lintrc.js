@@ -11,6 +11,10 @@ module.exports = {
     } */,
 
     // enabled rules (in addition to 'recommended')
-    'no-bare-strings': true
+    'no-bare-strings': true, // encourage translated strings
+    'no-implicit-this': {
+      // encourage use of angle bracket syntax
+      allow: ['head-layout']
+    }
   }
 };

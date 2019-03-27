@@ -7,16 +7,16 @@
   <strong>{{user.id}}/{{user.username}}</strong>
 {{/ma-user}}
 
-{{#if model.all.length}}
+{{#if this.model.all.length}}
   <ul>
-    {{#each model.all as |media|}}
+    {{#each this.model.all as |media|}}
       <li>
-        {{ma-media-list-item model=media}}
+        <MaMediaListItem @model={{media}} />
       </li>
     {{/each}}
   </ul>
 {{/if}}
 
-{{ma-errors-handler errorMessageKeys=model.errors}}
+{{ma-errors-handler errorMessageKeys=this.model.errors}}
 
 {{outlet}}

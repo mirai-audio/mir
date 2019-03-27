@@ -1,5 +1,5 @@
-{{#if title}}
-  <legend>{{title}}</legend>
+{{#if this.title}}
+  <legend>{{this.title}}</legend>
 {{/if}}
 
 <div class="field">
@@ -7,7 +7,7 @@
     {{t "components.ma-login.email"}}
   </label>
   <div class="control">
-    {{components.input
+    {{@components.input
       type="email"
       name="email"
       inputId="email"
@@ -15,12 +15,12 @@
       autocorrect="off"
       autocomplete="email"
       class="field"
-      errors=(get changeset "error.email.validation")
+      errors=(get @changeset "error.email.validation")
       minlength="7"
       pattern="\S{1,}@\S{2,}.\S{2,}"
       required="required"
       placeholder=(t "components.ma-login.email-placeholder")
-      value=changeset.email}}
+      value=@changeset.email}}
   </div>
 </div>
 
@@ -30,25 +30,25 @@
   </label>
   <div class="field has-addons">
     <div class="control is-expanded">
-      {{components.input
+      {{@components.input
         type="password"
         name="password"
         inputId="password"
         autocorrect="off"
         autocomplete="off"
-        errors=(get changeset "error.password.validation")
+        errors=(get @changeset "error.password.validation")
         minlength="12"
         required="required"
-        value=changeset.password}}
+        value=@changeset.password}}
     </div>
 
     <div class="control">
       <input
         type="submit"
-        {{action action}}
+        {{action @action}}
         class="button is-primary"
         data-test="login"
-        disabled={{isDisabled}}
+        disabled={{this.isDisabled}}
         value={{t "components.ma-login.cta-login"}}>
     </div>
   </div>

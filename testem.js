@@ -5,17 +5,19 @@ module.exports = {
   launch_in_dev: ['Chrome', 'Chrome Canary', 'Firefox', 'Safari'],
   browser_args: {
     Chrome: {
-      mode: 'ci',
-      args: [
-        '--disable-gpu',
+      ci: [
+        // --no-sandbox is needed when running Chrome inside a container
+        process.env.CI ? '--no-sandbox' : null,
         '--headless',
+        '--disable-gpu',
+        '--disable-software-rasterizer',
+        '--mute-audio',
         '--remote-debugging-port=0',
         '--window-size=1440,900'
-      ]
+      ].filter(Boolean)
     },
     Firefox: {
-      mode: 'all',
-      args: [
+      all: [
         '--disable-gpu',
         '--headless',
         '--remote-debugging-port=0',

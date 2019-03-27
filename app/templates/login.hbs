@@ -4,22 +4,22 @@
   title="routes.login.title"}}
 
 {{#ma-auth
-  action=(route-action "signup" model)
-  changeset=model
+  action=(route-action "signup" this.model)
+  changeset=this.model
   components=(hash input=(component "ma-input"))
-  errorMessageKeys=errorMessageKeys
+  errorMessageKeys=this.errorMessageKeys
   title=(t "components.ma-auth.title")}}
 
   {{ma-login
-    action=(route-action "login" model)
-    changeset=model
+    action=(route-action "login" this.model)
+    changeset=this.model
     components=(hash input=(component "ma-input"))
-    errorMessageKeys=errorMessageKeys
+    errorMessageKeys=this.errorMessageKeys
     title=(t "components.ma-auth.cta-login")}}
 
-  {{#if errorMessageKeys}}
+  {{#if this.errorMessageKeys}}
     <p class="notification is-danger">
-      {{t errorMessageKeys}}
+      {{t this.errorMessageKeys}}
     </p>
   {{/if}}
 {{/ma-auth}}

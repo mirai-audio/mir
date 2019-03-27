@@ -1,25 +1,25 @@
 {{! update the <head><title/><head> tag}}
-{{title (t title)}}
+{{title (t @title)}}
 
 <nav
   class="ma-Header-navbar navbar"
   role="navigation"
   aria-label={{concat "main navigation" " "}}>
   <a
-    href={{concat "#" elementId}}
+    href={{concat "#" @elementId}}
     onclick={{action "toggleOffCanvas"}}
-    class="navbar-burger burger ma-Header-burger u-Z20 {{if offCanvasIsActive "is-active"}}">
+    class="navbar-burger burger ma-Header-burger u-Z20 {{if this.offCanvasIsActive "is-active"}}">
     <span></span>
     <span></span>
     <span></span>
   </a>
 
   <div class="ma-Header-brand navbar-brand">
-    {{#if backTo}}
+    {{#if @backTo}}
       {{#link-to
-        backTo
+        @backTo
         class="navbar-item ma-Header-link ma-Header-link--back"}}
-        {{t (if back back "components.ma-header.back")}}
+        {{t (if @back @back "components.ma-header.back")}}
       {{/link-to}}
     {{else}}
       <a
@@ -35,4 +35,4 @@
   </div>
 </nav>
 
-<h1 class="ma-Header-title has-text-centered title is-3">{{t title}}</h1>
+<h1 class="ma-Header-title has-text-centered title is-3">{{t @title}}</h1>

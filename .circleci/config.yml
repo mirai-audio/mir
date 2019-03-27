@@ -5,7 +5,8 @@ version: 2
 defs:
   defaults: &defaults
     docker:
-      - image: circleci/node:carbon-browsers
+      - image: circleci/node:dubnium-browsers # Node tags: https://nodejs.org/en/download/releases/
+                                              # CircleCI tags: https://circleci.com/docs/2.0/docker-image-tags.json
     working_directory: ~/app
   steps:
     step-update-env: &step-update-env

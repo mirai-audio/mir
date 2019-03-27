@@ -1,12 +1,12 @@
 {{#link-to
   "media.index"
-  model.id
+  @model.id
   class="ma-MediaListItem-title"
-  title=model.title}}
-  {{model.title}}
+  title=@model.title}}
+  {{@model.title}}
 {{/link-to}}
 
-<button class="button ma-MediaListItem-delete" {{action "delete" model}}>
+<button class="button ma-MediaListItem-delete" {{action "delete" @model}}>
   {{t "components.ma-media-list-item.delete-button"}}
 </button>
 
