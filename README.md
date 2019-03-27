@@ -14,7 +14,7 @@ _Ember app powering the frontend of mirai.audio_
 ## [Docs](https://github.com/mirai-audio/mir/wiki)
 
 * [CODE_OF_CONDUCT](https://github.com/mirai-audio/mir/wiki/CODE_OF_CONDUCT)
-* [CONTRIBUTING](.github/CONTRIBUTING.md)
+* [CONTRIBUTING](CONTRIBUTING.md)
 * [CSS Naming Conventions](https://github.com/mirai-audio/mir/wiki/CSS-Naming-Conventions)
 * [humans.txt](https://github.com/mirai-audio/mir/wiki/humans.txt)
 * [STYLEGUIDE](https://github.com/mirai-audio/mir/wiki/STYLEGUIDE)
@@ -25,7 +25,7 @@ _Ember app powering the frontend of mirai.audio_
 You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
-* [Node.js LTS/8.x](https://nodejs.org/)
+* [Node.js LTS/10.x](https://nodejs.org/)
 * [Ember CLI](https://ember-cli.com/)
 * [Google Chrome](https://google.com/chrome/)
 * [Watchman](https://facebook.github.io/watchman/)
@@ -35,7 +35,7 @@ macOS / OS X Installation:
 
 ```bash
 brew install watchman
-brew install yarn  # add --without-node flag if you use nvm
+brew install yarn          # add --without-node flag if you use nvm
 yarn global add ember-cli
 ```
 

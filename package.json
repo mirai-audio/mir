@@ -24,11 +24,11 @@
     "test": "COVERAGE=true ember test"
   },
   "devDependencies": {
-    "@ember/jquery": "^0.5.2",
+    "@ember/jquery": "^0.6.0",
     "@ember/optional-features": "^0.7.0",
     "broccoli-asset-rev": "^3.0.0",
     "bulma": "^0.7.2",
-    "coveralls": "^3.0.0",
+    "coveralls": "^3.0.3",
     "ember-changeset-validations": "^1.2.11",
     "ember-cli": "~3.4.3",
     "ember-cli-app-version": "^3.0.0",
@@ -37,7 +37,7 @@
     "ember-cli-code-coverage": "^0.4.2",
     "ember-cli-content-security-policy": "^1.0.0",
     "ember-cli-dependency-checker": "^3.0.0",
-    "ember-cli-deprecation-workflow": "^1.0.0",
+    "ember-cli-deprecation-workflow": "^1.0.1",
     "ember-cli-eslint": "^4.2.3",
     "ember-cli-fastboot": "^2.0.0",
     "ember-cli-htmlbars": "^3.0.1",
@@ -51,10 +51,10 @@
     "ember-cli-sass": "^8.0.1",
     "ember-cli-shims": "^1.2.0",
     "ember-cli-sri": "^2.1.1",
-    "ember-cli-template-lint": "^0.7.6",
+    "ember-cli-template-lint": "^1.0.0-beta.1",
     "ember-cli-test-loader": "^2.2.0",
     "ember-cli-uglify": "^2.1.0",
-    "ember-cli-update": "^0.27.1",
+    "ember-cli-update": "^0.32.2",
     "ember-concurrency": "^0.8.21",
     "ember-data": "~3.5.0",
     "ember-export-application-global": "^2.0.0",
@@ -85,7 +85,7 @@
     "ember-deep-set": "^0.2.0"
   },
   "engines": {
-    "node": "6.* || 8.* || >= 10.*"
+    "node": ">= 10.*"
   },
   "browserslist": [
     "> 1%",
