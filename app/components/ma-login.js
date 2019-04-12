@@ -15,11 +15,12 @@ export default Component.extend({
   isDisabled: or(
     'changeset.error.email',
     'changeset.error.password',
-    'noConfirmation' /* Login form is only valid when user hasn't supplied a
-                      * password confirmation. In that case they've expressed
-                      * intent to sign up, so disable Login button to prevent
-                      * confusion.
-                      */
+    'noConfirmation'
+    /* Login form is only valid when user hasn't supplied a
+     * password confirmation. In that case they've expressed
+     * intent to sign up, so disable Login button to prevent
+     * confusion.
+     */
   ).readOnly(),
   noConfirmation: none('changeset.error.passwordConfirmation'),
 
