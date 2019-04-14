@@ -5,7 +5,7 @@ version: 2
 defs:
   defaults: &defaults
     docker:
-      - image: circleci/node:dubnium-browsers # Node tags: https://nodejs.org/en/download/releases/
+      - image: circleci/node:10-browsers # Node tags: https://nodejs.org/en/download/releases/
                                               # CircleCI tags: https://circleci.com/docs/2.0/docker-image-tags.json
     working_directory: ~/app
   steps:
@@ -13,8 +13,6 @@ defs:
       name: Update environment
       command: |
         echo "export PATH=$PATH:$(yarn global bin):~/app/node_modules/.bin" >> $BASH_ENV
-        git config --global user.email "$CIRCLECI_EMAIL"
-        git config --global user.name "Circle CI Build Bot"
 
 jobs:
   checkout_code:
@@ -38,7 +36,7 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            yarn global add ember-cli@3.4.3
+            yarn global add ember-cli@3.9.0
             yarn
       - save_cache:
           key: dependency-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
@@ -67,17 +65,10 @@ jobs:
       - run:
           <<: *step-update-env
       - run:
-          name: Ember build
-          command: |
-            npm rebuild node-sass 2>&1 > /dev/null
-            ember --version --verbose
-            # see: https://github.com/stefanpenner/broccoli-persistent-filter#warning
-            BROCCOLI_PERSISTENT_FILTER_CACHE_ROOT=cache; COVERAGE=true ember build -e test --output-path=dist
-      - run:
           name: Ember test
           command: |
             ember --version --verbose
-            BROCCOLI_PERSISTENT_FILTER_CACHE_ROOT=cache; yarn test --path=dist
+            yarn test
             yarn coverage
   build:
     <<: *defaults
