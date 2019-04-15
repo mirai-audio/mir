@@ -1,7 +1,6 @@
 import { module, test } from 'qunit';
 import { setupApplicationTest } from 'ember-qunit';
 import { currentURL, visit } from '@ember/test-helpers';
-import { get } from '@ember/object';
 import {
   authenticateSession,
   currentSession
@@ -18,15 +17,18 @@ module('Acceptance | logout', function(hooks) {
   });
 
   module('authenticated user', function(/* hooks */) {
-    test('can visit /logout', async function(assert) {
+    hooks.beforeEach(function() {
       authenticateSession({
         userId: 1,
         otherData: 'some-data'
       });
+    });
+
+    test('can visit /logout', async function(assert) {
       await visit('/logout');
       // verify they're logged out
       let session = currentSession();
-      assert.notOk(get(session, 'isAuthenticated'));
+      assert.notOk(session.isAuthenticated);
     });
   });
 });

@@ -13,6 +13,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
     const session = get(this, 'session');
     if (auth.isAuthenticated()) {
       session.invalidate();
+      this.replaceWith('welcome'); // TODO: may not be needed
     } else {
       this.replaceWith('welcome');
     }
