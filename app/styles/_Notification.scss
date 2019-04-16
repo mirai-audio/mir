@@ -4,7 +4,7 @@ Show a message at the top of the viewport
  */
 .Notification {
   background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
   left: 0;
   right: 0;
   position: fixed;

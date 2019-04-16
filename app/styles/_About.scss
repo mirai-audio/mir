@@ -9,8 +9,12 @@ A CSS-based lightbox for rendering the copy about the app
   overflow: hidden;
   padding: 2em;
 
+  @media (min-width: 45rem) {
+    margin: 5rem;
+  }
+
   &:target {
-    clip: auto;      /* disable clipping */
+    clip: auto; /* disable clipping */
     clip-path: none; /* disable clipping */
     height: auto;
     width: auto;
