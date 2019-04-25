@@ -71,7 +71,7 @@
     "ember-test-component": "^0.2.1",
     "ember-youtube": "^0.9.3",
     "eslint": "^5.16.0",
-    "eslint-config-prettier": "^3.1.0",
+    "eslint-config-prettier": "^4.2.0",
     "eslint-plugin-ember": "^5.4.0",
     "eslint-plugin-prettier": "^3.0.0",
     "loader.js": "^4.6.0",
