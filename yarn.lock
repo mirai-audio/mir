@@ -5027,10 +5027,10 @@ ember-cli-eslint@^4.2.3:
     rsvp "^4.6.1"
     walk-sync "^0.3.0"
 
-ember-cli-fastboot-testing@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/ember-cli-fastboot-testing/-/ember-cli-fastboot-testing-0.0.9.tgz#929749beabdc50c37b301facd0e0873e59e2cc58"
-  integrity sha512-Tgo1LheAk5qVFs4HW26jnIJ1t7jG+OG4EHqzZnQ/PrhkrzLr2gYNZ1VAaluDSo8vr7uC5Z7mZoJe9DO/xSXtBA==
+ember-cli-fastboot-testing@^0.0.10:
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/ember-cli-fastboot-testing/-/ember-cli-fastboot-testing-0.0.10.tgz#9b228aa1fc765e3034a155a9049961fa2e0a6e03"
+  integrity sha512-wvJ+u8DPvhJAvfJiBI2/rIT8ThQvThffFmZTdqXhv8U068xYxaFekZkDCTBahk+R3nz0eGnQPNOPkKk/MYj7Cg==
   dependencies:
     ember-auto-import "^1.2.15"
     ember-cli-babel "^6.6.0"
@@ -5990,10 +5990,10 @@ escodegen@^1.8.0:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-prettier@^3.1.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-3.6.0.tgz#8ca3ffac4bd6eeef623a0651f9d754900e3ec217"
-  integrity sha512-ixJ4U3uTLXwJts4rmSVW/lMXjlGwCijhBJHk8iVqKKSifeI0qgFEfWl8L63isfc8Od7EiBALF6BX3jKLluf/jQ==
+eslint-config-prettier@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-4.2.0.tgz#70b946b629cd0e3e98233fd9ecde4cb9778de96c"
+  integrity sha512-y0uWc/FRfrHhpPZCYflWC8aE0KRJRY04rdZVfl8cL3sEZmOYyaBdhdlQPjKZBnuRMyLVK+JUZr7HaZFClQiH4w==
   dependencies:
     get-stdin "^6.0.0"
 
