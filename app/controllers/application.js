@@ -6,7 +6,7 @@ import Controller from '@ember/controller';
 import config from 'mir/config/environment';
 
 export default Controller.extend({
-  i18n: service(),
+  intl: service(),
   session: service(),
 
   isLoading: false,
@@ -25,6 +25,6 @@ export default Controller.extend({
   }),
 
   locale: computed(function compute() {
-    return get(this, 'i18n').locale;
+    return get(this, 'intl').locale;
   })
 });
