@@ -9,6 +9,10 @@
 /bower_components
 
 # misc
+/.ember-cli
+/.env
+/.python-version
+/.tool-versions
 /.sass-cache
 /connect.lock
 /coverage/*
@@ -16,10 +20,6 @@
 npm-debug.log*
 testem.log
 yarn-error.log
-.ember-cli
-.tern-port
-.env
-.python-version
 
 # ember-try
 .node_modules.ember-try/
