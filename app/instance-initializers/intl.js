@@ -1,4 +1,4 @@
-import { get, set } from '@ember/object';
+import { get } from '@ember/object';
 
 function detectHeaderLocale(headerValue) {
   let locale = headerValue || 'en';
@@ -37,17 +37,24 @@ function detectLocale(appInstance) {
 }
 
 export default {
-  name: 'i18n',
+  name: 'intl',
   initialize(appInstance) {
-    let service = appInstance.lookup('service:i18n');
-    const agentLocale = detectLocale(appInstance);
+    const service = appInstance.lookup('service:intl');
+    const agentLocale = detectLocale(appInstance).toLowerCase();
+    const genericAgentLocale = agentLocale.split('-')[0]; // RFC 3066 Language Tag
 
-    // use the local, if we have a translation defined, otherwise fallback to en
-    let availableLocale = get(service, 'locales').includes(
-      agentLocale.toLowerCase()
-    )
-      ? agentLocale
-      : 'en';
-    set(service, 'locale', availableLocale);
+    let availableLocale = 'en'; // default language to english
+    // check for matching RFC 3066 language tag and region
+    if (service.locales.includes(agentLocale)) {
+      // app provides both matching language tag, and region
+      availableLocale = agentLocale;
+    }
+    // check for matching RFC 3066 language tag
+    if (service.locales.includes(genericAgentLocale)) {
+      // app provides just a matching language tag
+      availableLocale = genericAgentLocale;
+    }
+
+    service.setLocale(availableLocale);
   }
 };

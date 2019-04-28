@@ -1,14 +1,14 @@
 import EmberObject from '@ember/object';
-import { get, set } from '@ember/object';
+import { set } from '@ember/object';
 import { run } from '@ember/runloop';
 import Service from '@ember/service';
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
-import i18n from 'mir/instance-initializers/i18n';
+import intl from 'mir/instance-initializers/intl';
 import destroyApp from 'mir/tests/helpers/destroy-app';
 import startApp from 'mir/tests/helpers/start-app';
 
-module('Unit | Instance Initializer | i18n', function(hooks) {
+module('Unit | Instance Initializer | intl', function(hooks) {
   setupTest(hooks);
 
   hooks.beforeEach(function() {
@@ -23,10 +23,13 @@ module('Unit | Instance Initializer | i18n', function(hooks) {
         })
       );
       this.appInstance.register(
-        'service:i18n',
+        'service:intl',
         Service.extend({
           locale: null,
-          locales: ['en', 'ja', 'zh-cn']
+          locales: ['en', 'ja', 'zh-cn'],
+          setLocale(locale) {
+            set(this, 'locale', locale);
+          }
         })
       );
     });
@@ -37,14 +40,14 @@ module('Unit | Instance Initializer | i18n', function(hooks) {
     destroyApp(this.application);
   });
 
-  test('detectLocale correctly returns `en-US`', function(assert) {
-    i18n.initialize(this.appInstance);
-    let service = this.appInstance.lookup('service:i18n');
-    let locale = get(service, 'locale');
+  test('detectLocale correctly returns `en`', function(assert) {
+    intl.initialize(this.appInstance);
+    let service = this.appInstance.lookup('service:intl');
+    let locale = service.locale;
     assert.equal(locale, 'en', 'expected en');
   });
 
-  test('detectLocale correctly returns `en-US` in FastBoot', function(assert) {
+  test('detectLocale correctly returns `en` in FastBoot', function(assert) {
     const mockRequest = EmberObject.create({
       headers: EmberObject.create({
         'Accept-Language': 'en-US'
@@ -53,10 +56,10 @@ module('Unit | Instance Initializer | i18n', function(hooks) {
     let fastBoot = this.appInstance.lookup('service:fastboot');
     set(fastBoot, 'request', mockRequest);
     set(fastBoot, 'isFastBoot', 'true');
-    i18n.initialize(this.appInstance);
+    intl.initialize(this.appInstance);
 
-    let i18nService = this.appInstance.lookup('service:i18n');
-    let locale = get(i18nService, 'locale');
+    let intlService = this.appInstance.lookup('service:intl');
+    let locale = intlService.locale;
     assert.equal(locale, 'en');
   });
 
@@ -69,10 +72,26 @@ module('Unit | Instance Initializer | i18n', function(hooks) {
     let fastBoot = this.appInstance.lookup('service:fastboot');
     set(fastBoot, 'request', mockRequest);
     set(fastBoot, 'isFastBoot', 'true');
-    i18n.initialize(this.appInstance);
+    intl.initialize(this.appInstance);
 
-    let i18nService = this.appInstance.lookup('service:i18n');
-    let locale = get(i18nService, 'locale');
+    let intlService = this.appInstance.lookup('service:intl');
+    let locale = intlService.locale;
     assert.equal(locale, 'en');
+  });
+
+  test('detectLocale correctly returns `zh-cn` in FastBoot for Traditional Chinese', function(assert) {
+    const mockRequest = EmberObject.create({
+      headers: EmberObject.create({
+        'Accept-Language': 'zh-CN'
+      })
+    });
+    let fastBoot = this.appInstance.lookup('service:fastboot');
+    set(fastBoot, 'request', mockRequest);
+    set(fastBoot, 'isFastBoot', 'true');
+    intl.initialize(this.appInstance);
+
+    let intlService = this.appInstance.lookup('service:intl');
+    let locale = intlService.locale;
+    assert.equal(locale, 'zh-cn', 'locale is set to Tradiional Chinese');
   });
 });

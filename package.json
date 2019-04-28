@@ -20,6 +20,7 @@
     "lint:scss": "yarn prettier --loglevel warn app/**/*.scss 2>&1 >/dev/null",
     "start": "ember serve",
     "start:mirage": "MIRAGE=true ember serve",
+    "start:nofastboot": "FASTBOOT_DISABLED=true ember serve",
     "start:debug": "DEBUG=ember-cli-fastboot:* node --inspect-brk ./node_modules/.bin/ember serve",
     "test": "COVERAGE=true ember test"
   },
@@ -58,8 +59,8 @@
     "ember-data": "~3.5.0",
     "ember-export-application-global": "^2.0.0",
     "ember-fetch": "^5.1.3",
-    "ember-i18n": "^5.3.1",
-    "ember-i18n-changeset-validations": "^1.2.0",
+    "ember-intl": "^3.5.2",
+    "ember-intl-changeset-validations": "^0.1.4",
     "ember-load-initializers": "^1.1.0",
     "ember-page-title": "^4.0.3",
     "ember-qunit": "^4.4.1",
