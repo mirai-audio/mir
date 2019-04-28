@@ -5105,10 +5105,10 @@ ember-cli-eslint@^4.2.3:
     rsvp "^4.6.1"
     walk-sync "^0.3.0"
 
-ember-cli-fastboot-testing@^0.0.10:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/ember-cli-fastboot-testing/-/ember-cli-fastboot-testing-0.0.10.tgz#9b228aa1fc765e3034a155a9049961fa2e0a6e03"
-  integrity sha512-wvJ+u8DPvhJAvfJiBI2/rIT8ThQvThffFmZTdqXhv8U068xYxaFekZkDCTBahk+R3nz0eGnQPNOPkKk/MYj7Cg==
+ember-cli-fastboot-testing@^0.0.9:
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/ember-cli-fastboot-testing/-/ember-cli-fastboot-testing-0.0.9.tgz#929749beabdc50c37b301facd0e0873e59e2cc58"
+  integrity sha512-Tgo1LheAk5qVFs4HW26jnIJ1t7jG+OG4EHqzZnQ/PrhkrzLr2gYNZ1VAaluDSo8vr7uC5Z7mZoJe9DO/xSXtBA==
   dependencies:
     ember-auto-import "^1.2.15"
     ember-cli-babel "^6.6.0"
