@@ -5105,15 +5105,16 @@ ember-cli-eslint@^4.2.3:
     rsvp "^4.6.1"
     walk-sync "^0.3.0"
 
-ember-cli-fastboot-testing@^0.0.10:
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/ember-cli-fastboot-testing/-/ember-cli-fastboot-testing-0.0.10.tgz#9b228aa1fc765e3034a155a9049961fa2e0a6e03"
-  integrity sha512-wvJ+u8DPvhJAvfJiBI2/rIT8ThQvThffFmZTdqXhv8U068xYxaFekZkDCTBahk+R3nz0eGnQPNOPkKk/MYj7Cg==
+ember-cli-fastboot-testing@^0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/ember-cli-fastboot-testing/-/ember-cli-fastboot-testing-0.0.11.tgz#691507dad0bf70213f4b384657ddebf7e2c771b8"
+  integrity sha512-jBJo1g/G/KgnemmHCE7Z2JvnLNhDD9cIdffO/DpwPlpNpd/e2uipw56dSdahiSvyytH/mK5L2LzfJ67X10Yi7Q==
   dependencies:
     ember-auto-import "^1.2.15"
     ember-cli-babel "^6.6.0"
-    fastboot "^1.2.0"
+    fastboot "1.2.* || 2.*"
     jquery-param "^1.0.1"
+    resolve "^1.10.0"
     whatwg-fetch "^3.0.0"
 
 ember-cli-fastboot@^2.0.0:
@@ -6610,7 +6611,7 @@ fastboot-transform@^0.1.3:
     broccoli-stew "^1.5.0"
     convert-source-map "^1.5.1"
 
-fastboot@^1.2.0:
+"fastboot@1.2.* || 2.*", fastboot@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/fastboot/-/fastboot-1.2.1.tgz#71e91151293be814b2f9c41fe7513bf4e9b6ef91"
   integrity sha512-WK5Jy71Q6FPoGkooEnWt7Yc2vb23f6C2RtBUutO459TskFnUhzOF8ZJASNNjURQYq8U/pTha2LI4Ix7UInffgg==
