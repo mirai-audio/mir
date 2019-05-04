@@ -1,8 +1,8 @@
-import { get } from '@ember/object';
-import { inject as service } from '@ember/service';
 import JSONAPIAdapter from 'ember-data/adapters/json-api';
 import AdapterFetchMixin from 'ember-fetch/mixins/adapter-fetch';
 import config from 'mir/config/environment';
+import { get } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default JSONAPIAdapter.extend(AdapterFetchMixin, {
   session: service(),
