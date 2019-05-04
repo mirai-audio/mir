@@ -25,7 +25,6 @@
     "test": "COVERAGE=true ember test"
   },
   "devDependencies": {
-    "@ember/jquery": "^0.6.0",
     "@ember/optional-features": "^0.7.0",
     "broccoli-asset-rev": "^3.0.0",
     "bulma": "^0.7.4",
@@ -81,6 +80,9 @@
     "sass": "^1.18.0",
     "system-font-i18n-css": "^1.1.0",
     "torii": "^0.10.1"
+  },
+  "resolutions": {
+    "ember-youtube": "github:mirai-audio/ember-youtube#remove-jquery"
   },
   "engines": {
     "node": ">= 10.*"

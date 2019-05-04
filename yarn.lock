@@ -719,18 +719,6 @@
   dependencies:
     "@ember-intl/intl-messageformat" "^2.0.0"
 
-"@ember/jquery@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@ember/jquery/-/jquery-0.6.0.tgz#5fe9d39b15c9d47fe495302b2a6176059a6267cd"
-  integrity sha512-O81+JslKE7bsV+5wrhXEmBU1Bpte2u9bm6MLIoRYePvWDo50l7llDW1RM38l1KkeSj/s7iXTsviZ4uunhIcKow==
-  dependencies:
-    broccoli-funnel "^2.0.1"
-    broccoli-merge-trees "^3.0.2"
-    ember-cli-babel "^7.4.0"
-    ember-cli-version-checker "^3.0.0"
-    jquery "^3.3.1"
-    resolve "^1.10.0"
-
 "@ember/optional-features@^0.7.0":
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/@ember/optional-features/-/optional-features-0.7.0.tgz#f65a858007020ddfb8342f586112750c32abd2d9"
@@ -5066,30 +5054,6 @@ ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.2, ember-cli-babel@^7.4.3, ember-cl
     ensure-posix-path "^1.0.2"
     semver "^5.5.0"
 
-ember-cli-babel@^7.4.0:
-  version "7.6.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.6.0.tgz#2e7f1df888fb62eb54d170defce4b6c536e8dfd3"
-  integrity sha512-2m400ZW9c4EE343g/j1U7beJgjJezTdDCgXM2koHdhpLlZB1Kz7iQw8S+t8gzXGwSGXlf7C7v0RHxP1/bo8frA==
-  dependencies:
-    "@babel/core" "^7.0.0"
-    "@babel/plugin-transform-modules-amd" "^7.0.0"
-    "@babel/plugin-transform-runtime" "^7.2.0"
-    "@babel/polyfill" "^7.0.0"
-    "@babel/preset-env" "^7.0.0"
-    "@babel/runtime" "^7.2.0"
-    amd-name-resolver "^1.2.1"
-    babel-plugin-debug-macros "^0.3.0"
-    babel-plugin-ember-modules-api-polyfill "^2.8.0"
-    babel-plugin-module-resolver "^3.1.1"
-    broccoli-babel-transpiler "^7.1.2"
-    broccoli-debug "^0.6.4"
-    broccoli-funnel "^2.0.1"
-    broccoli-source "^1.1.0"
-    clone "^2.1.2"
-    ember-cli-version-checker "^2.1.2"
-    ensure-posix-path "^1.0.2"
-    semver "^5.5.0"
-
 ember-cli-broccoli-sane-watcher@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/ember-cli-broccoli-sane-watcher/-/ember-cli-broccoli-sane-watcher-3.0.0.tgz#dc1812c047e1ceec4413d3c41b51a9ffc61b4cfe"
@@ -5954,10 +5918,9 @@ ember-validators@^2.0.0:
     ember-cli-babel "^6.9.2"
     ember-require-module "^0.3.0"
 
-ember-youtube@^0.9.4:
+ember-youtube@^0.9.4, "ember-youtube@github:mirai-audio/ember-youtube#remove-jquery":
   version "0.9.4"
-  resolved "https://registry.yarnpkg.com/ember-youtube/-/ember-youtube-0.9.4.tgz#7a5421b35bdbd19b2c3f4f1279531fd669720078"
-  integrity sha512-Jvf99uM/N3wGGGgHO7f4Aptn6hLGlehbbXoIw+1MNfLGK+SxyxRwuQPwceOG/LNW1Lo2h4imdViImoRLDRy4zw==
+  resolved "https://codeload.github.com/mirai-audio/ember-youtube/tar.gz/083a355ccce8d410b657c60ae71b3f8326a52629"
   dependencies:
     ember-cli-babel "^6.6.0"
     ember-cli-htmlbars "^2.0.1"
