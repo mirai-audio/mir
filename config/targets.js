@@ -1,20 +1,19 @@
+'use strict';
 /*
  * compilation via Browserlist
  * https://github.com/ai/browserslist
  * tooling: http://browserl.ist/
  */
 
-let browsers;
-if (process.env.EMBER_ENV === 'development') {
-  // development performance optimization: transpile for developers browsers
-  browsers = ['last 1 Chrome versions', 'last 1 Firefox versions'];
-} else {
-  browsers = [
-    // '> 0.5%' /* http://browserl.ist/?q=%3E+0.5%25 */
-    'last 1 Chrome versions',
-    'last 1 Firefox versions',
-    'last 1 Safari versions'
-  ];
+const browsers = ['last 1 Chrome versions', 'last 1 Firefox versions'];
+
+const isCI = !!process.env.CI;
+const isProduction = process.env.EMBER_ENV === 'production';
+
+if (isCI || isProduction) {
+  // '> 0.5%' /* http://browserl.ist/?q=%3E+0.5%25 */
+  browsers.push('last 1 Safari versions');
+  browsers.push('ie 11');
 }
 
 module.exports = {

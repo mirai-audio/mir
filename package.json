@@ -85,10 +85,6 @@
   "engines": {
     "node": ">= 10.*"
   },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ],
   "fastbootDependencies": [
     "node-fetch"
   ]
