@@ -21,7 +21,7 @@
     "start": "ember serve",
     "start:mirage": "MIRAGE=true ember serve",
     "start:nofastboot": "FASTBOOT_DISABLED=true ember serve",
-    "start:debug": "DEBUG=ember-cli-fastboot:* node --inspect-brk ./node_modules/.bin/ember serve",
+    "start:debug": "ember build && DEBUG=ember-cli-fastboot:* node --debug-brk ./node_modules/.bin/ember serve",
     "test": "COVERAGE=true ember test"
   },
   "devDependencies": {
