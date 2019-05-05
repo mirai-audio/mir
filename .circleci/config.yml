@@ -4,10 +4,11 @@ version: 2
 # Reusable definitions shared between jobs
 defs:
   defaults: &defaults
-    docker:
-      - image: circleci/node:10-browsers # Node tags: https://nodejs.org/en/download/releases/
-                                              # CircleCI tags: https://circleci.com/docs/2.0/docker-image-tags.json
     working_directory: ~/app
+    docker:                              # CircleCI tags: https://circleci.com/docs/2.0/docker-image-tags.json
+      - image: circleci/node:10-browsers # Node tags: https://nodejs.org/en/download/releases/
+        environment:
+          JOBS: 1 # https://github.com/emberjs/ember.js/issues/15641
   steps:
     step-update-env: &step-update-env
       name: Update environment
