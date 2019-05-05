@@ -1,7 +1,7 @@
 import JSONAPIAdapter from 'ember-data/adapters/json-api';
 import AdapterFetchMixin from 'ember-fetch/mixins/adapter-fetch';
 import config from 'mir/config/environment';
-import { get } from '@ember/object';
+import { computed, get } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default JSONAPIAdapter.extend(AdapterFetchMixin, {
@@ -11,10 +11,12 @@ export default JSONAPIAdapter.extend(AdapterFetchMixin, {
   host: config.DS.host,
   namespace: config.DS.namespace,
 
-  authorizer: 'authorizer:oauth2',
+  /*
+  authorizer: 'authorizer:oauth2-bearer',
+  */
 
   /* mir */
-  ajaxOptions() {
+  zzajaxOptions() {
     const authorizer = get(this, 'authorizer');
     const options = this._super(...arguments) || {};
     options.headers = options.headers || {};
@@ -23,5 +25,16 @@ export default JSONAPIAdapter.extend(AdapterFetchMixin, {
       options.headers[headerName] = headerValue;
     });
     return options;
-  }
+  },
+
+  headers: computed('session.data.authenticated.token', function() {
+    const headers = {};
+    headers['Content-Type'] = 'application/vnd.api+json';
+    if (this.session.isAuthenticated) {
+      const token = this.session.data.authenticated['access_token'];
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+
+    return headers;
+  })
 });
