@@ -37,9 +37,12 @@ module.exports = function(environment) {
     fastboot: {
       hostWhitelist: [
         'mirai.audio',
-        'api.mirai.audio',
         'app.mirai.audio',
-        /^localhost:\d+$/
+        'prd.mirai.audio',
+        'stg.mirai.audio',
+        /mirai.audio:\d+$/,
+        /^localhost:\d+$/,
+        /^127.0.0.1:\d+$/
       ]
     },
 

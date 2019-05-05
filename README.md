@@ -96,7 +96,7 @@ HOST=http://localhost:4200       # Default host
 MIRAGE=true                      # Enable Mirage mock server for development
 
 # social login providers
-TWITTER_REQUEST_TOKEN_URL=//localhost:4000/auth/twitter # ai kickstarts OAuth
+TWITTER_REQUEST_TOKEN_URL=//localhost:4000/login/twitter # ai kickstarts OAuth
 
 # Coveralls API token (how test coverage is reported)
 COVERALLS_REPO_TOKEN=  # needs to be set in Circle CI / Travis
