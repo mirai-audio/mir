@@ -42,6 +42,6 @@ module('Integration | Component | ma-media-detail', function(hooks) {
       assert.dom('iframe').exists();
       assert.dom('iframe').hasAttribute('src');
       done();
-    }, 500);
+    }, 1000);
   });
 });
