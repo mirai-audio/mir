@@ -74,13 +74,15 @@ module.exports = function(environment) {
       "'self'",
       'data:',
       'gap:',
-      '127.0.0.1:*',
-      'localhost:* ',
+      'http://dev.mirai.audio:*',
+      'http://127.0.0.1:*',
+      'http://localhost:* ',
       'https://ssl.gstatic.com' /* Required by Android TalkBack */
     ],
     'connect-src': [
       "'self'",
       'data:',
+      'http://dev.mirai.audio:*', // development
       'http://127.0.0.1:*', // development
       'http://localhost:*', // development
       'ws://localhost:*', // Anyone
@@ -98,8 +100,9 @@ module.exports = function(environment) {
       "'self'",
       "'unsafe-inline'",
       "'unsafe-eval'",
-      '127.0.0.1:*',
-      'localhost:*'
+      'http://dev.mirai.audio:*',
+      'http://127.0.0.1:*',
+      'http://localhost:*'
     ],
     'style-src': ["'self'", "'unsafe-inline'", 'data:']
   };

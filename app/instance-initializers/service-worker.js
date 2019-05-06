@@ -1,9 +1,10 @@
 export function initialize(/* appInstance */) {
   // feature test to prevent running in FastBoot
   if ('navigator' in window && 'serviceWorker' in window.navigator) {
-    // if host is not localhost, run the service worker
+    // if host is not production, run the service worker
     if (
-      window.document.location.hostname.match(/localhost/) === null ||
+      window.document.location.hostname.match(/^mirai.audio/) ||
+      window.document.location.hostname.match(/^app.mirai.audio/) ||
       window.document.location.search.match(/dev=true/) !== null
     ) {
       window.navigator.serviceWorker

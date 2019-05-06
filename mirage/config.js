@@ -1,11 +1,12 @@
 import Response from 'ember-cli-mirage/response';
+import config from 'mir/config/environment';
 
 export default function() {
   // required for `ember-cli-code-coverage` to write reports
   this.passthrough('/write-coverage');
 
   // make this `http://localhost:8080` if your API is on a different server
-  this.urlPrefix = 'http://localhost:4040';
+  this.urlPrefix = config.DS.host;
   // make this `/api`, if your API is namespaced/
   this.namespace = '/api/v1';
   // delay for each request, automatically set to 0 during testing/
