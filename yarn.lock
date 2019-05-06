@@ -5918,9 +5918,10 @@ ember-validators@^2.0.0:
     ember-cli-babel "^6.9.2"
     ember-require-module "^0.3.0"
 
-ember-youtube@^0.9.4, "ember-youtube@github:mirai-audio/ember-youtube#remove-jquery":
-  version "0.9.4"
-  resolved "https://codeload.github.com/mirai-audio/ember-youtube/tar.gz/083a355ccce8d410b657c60ae71b3f8326a52629"
+ember-youtube@^0.9.5:
+  version "0.9.5"
+  resolved "https://registry.yarnpkg.com/ember-youtube/-/ember-youtube-0.9.5.tgz#bb9b77a988672ad47d48f612e27e372fe3a223cb"
+  integrity sha512-4tCGe2Jk2MAgCVKrkplfe58G/PziwaY+NbGJsYFQVIWb36Uj+SRbfnzmVsapAXLX2sq+3jfFWC3RDcXP9WMuTQ==
   dependencies:
     ember-cli-babel "^6.6.0"
     ember-cli-htmlbars "^2.0.1"
