@@ -81,6 +81,7 @@ module.exports = function(environment) {
     'connect-src': [
       "'self'",
       'data:',
+      'http://127.0.0.1:*', // development
       'http://localhost:*', // development
       'ws://localhost:*', // Anyone
       'https://api.mirai.audio:*', // prod
