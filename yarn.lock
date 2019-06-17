@@ -5724,14 +5724,14 @@ ember-maybe-import-regenerator@^0.1.5:
     ember-cli-babel "^6.0.0-beta.4"
     regenerator-runtime "^0.9.5"
 
-ember-page-title@^4.0.3:
-  version "4.0.5"
-  resolved "https://registry.yarnpkg.com/ember-page-title/-/ember-page-title-4.0.5.tgz#94ad42c9d83c1938a1c94272672f24f2527716db"
-  integrity sha512-coBzaaIs/WKhjosUjegyiiS7s4/mXGonTaG1hUFG2oOJfcVrPWjCml6NutkC9Gb2b3xsaUfbJv5IMNaynVzNSA==
+ember-page-title@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/ember-page-title/-/ember-page-title-5.0.2.tgz#ab5a60c16318ba7f5e66cd41f580c9831ce3b612"
+  integrity sha512-v5K8tfPxdLmZRRdUP0L9ed+ufC1tw+tAhlHslt5MchDwHh192OH1JhDROp6Wci8/Np9kaSCICxS27nXEgXxxsg==
   dependencies:
-    ember-cli-babel "^6.6.0"
+    ember-cli-babel "^7.7.3"
     ember-cli-head "^0.4.0"
-    ember-cli-htmlbars "^2.0.1"
+    ember-cli-htmlbars "^3.0.1"
     ember-copy "^1.0.0"
 
 ember-qunit@^4.4.1:
