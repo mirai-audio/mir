@@ -25,7 +25,7 @@
     "test": "COVERAGE=true ember test"
   },
   "devDependencies": {
-    "@ember/optional-features": "^0.7.0",
+    "@ember/optional-features": "^1.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "bulma": "^0.7.4",
     "coveralls": "^3.0.3",
