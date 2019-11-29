@@ -13291,10 +13291,10 @@ symlink-or-copy@^1.0.0, symlink-or-copy@^1.0.1, symlink-or-copy@^1.1.8, symlink-
   resolved "https://registry.yarnpkg.com/symlink-or-copy/-/symlink-or-copy-1.2.0.tgz#5d49108e2ab824a34069b68974486c290020b393"
   integrity sha512-W31+GLiBmU/ZR02Ii0mVZICuNEN9daZ63xZMPDsYgPgNjMtg+atqLEGI7PPI936jYSQZxoLb/63xos8Adrx4Eg==
 
-system-font-i18n-css@^1.1.0:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/system-font-i18n-css/-/system-font-i18n-css-1.1.1.tgz#0e701c5c73ea03099d388bb929a122788f04dbf8"
-  integrity sha512-RGjbEa4g+JXTjec87Z+GfvtbVdH53QoFpWqwICVFK3166cf2wRIttN2tmla3eP/5RmeUDOkElh/stbAjnDSXBg==
+system-font-i18n-css@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/system-font-i18n-css/-/system-font-i18n-css-2.0.1.tgz#ad88b424fefdd6519eeb5bb1c3cabe489a5300e8"
+  integrity sha512-oICrmTqjTTjZIk++h4PXbHo07rs3mFuY/X/1IyQ+2bWxdaW3g+TMFvjmFRvIRZLO4Ywz9/uwGEjr9lM5FgyuHg==
 
 table@4.0.2:
   version "4.0.2"
