@@ -78,7 +78,7 @@
     "prettier": "1.18.0",
     "qunit-dom": "^0.9.0",
     "sass": "^1.18.0",
-    "system-font-i18n-css": "^1.1.0",
+    "system-font-i18n-css": "^4.0.1",
     "torii": "^0.10.1"
   },
   "engines": {
