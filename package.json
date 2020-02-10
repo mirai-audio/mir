@@ -65,7 +65,7 @@
     "ember-qunit": "^4.4.1",
     "ember-resolver": "^5.0.1",
     "ember-route-action-helper": "^2.0.7",
-    "ember-simple-auth": "^1.6.0",
+    "ember-simple-auth": "^3.0.0",
     "ember-source": "~3.4.4",
     "ember-svg-jar": "^1.2.2",
     "ember-test-component": "^0.2.1",
