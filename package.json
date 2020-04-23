@@ -28,7 +28,7 @@
     "@ember/optional-features": "^0.7.0",
     "broccoli-asset-rev": "^3.0.0",
     "bulma": "^0.7.4",
-    "coveralls": "^3.0.3",
+    "coveralls": "^3.0.14",
     "ember-changeset-validations": "^2.1.0",
     "ember-cli": "~3.9.0",
     "ember-cli-app-version": "^3.0.0",
