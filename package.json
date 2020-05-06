@@ -72,7 +72,7 @@
     "ember-youtube": "^0.9.5",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.2.0",
-    "eslint-plugin-ember": "^5.4.0",
+    "eslint-plugin-ember": "^8.5.0",
     "eslint-plugin-prettier": "^3.0.0",
     "loader.js": "^4.6.0",
     "prettier": "1.18.0",
